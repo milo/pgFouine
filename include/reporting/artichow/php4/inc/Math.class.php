@@ -14,21 +14,21 @@
 	 *
 	 * @var bool
 	 */
-	var $hide = FALSE;
+	public $hide = FALSE;
 	
 	/**
 	 * Shape style
 	 *
 	 * @var int
 	 */
-	var $style;
+	public $style;
 	
 	/**
 	 * Shape thickness
 	 *
 	 * @var int
 	 */
-	var $thickness;
+	public $thickness;
 	
 	/**
 	 * Solid shape
@@ -130,14 +130,14 @@ class awPoint extends awShape {
 	 *
 	 * @var float
 	 */
-	var $x;
+	public $x;
 
 	/**
 	 * Y coord
 	 *
 	 * @var float
 	 */
-	var $y;
+	public $y;
 	
 	/**
 	 * Build a new awpoint
@@ -239,14 +239,14 @@ class awLine extends awShape {
 	 *
 	 * @param Point
 	 */
-	var $p1;
+	public $p1;
 
 	/**
 	 * Line second point
 	 *
 	 * @param Point
 	 */
-	var $p2;
+	public $p2;
 	
 	/**
 	 * Build a new awline
@@ -433,7 +433,7 @@ class awPolygon extends awShape {
 	 *
 	 * @var array
 	 */
-	var $points = array();
+	public $points = array();
 
 	/**
 	 * Set a point in the polygon

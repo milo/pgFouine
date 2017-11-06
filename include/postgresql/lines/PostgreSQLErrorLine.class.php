@@ -22,7 +22,7 @@
  */
 
 class PostgreSQLErrorLine extends PostgreSQLLogLine {
-	var $ignore = false;
+	public $ignore = false;
 
 	function & getLogObject(& $logStream) {
 		$database = $this->database ? $this->database : $logStream->getDatabase();

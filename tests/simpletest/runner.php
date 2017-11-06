@@ -28,7 +28,7 @@
 	 *	  @subpackage UnitTester
      */
     class SimpleInvoker {
-        var $_test_case;
+        public $_test_case;
         
         /**
          *    Stashes the test case for later.
@@ -67,7 +67,7 @@
 	 *	  @subpackage UnitTester
      */
     class SimpleInvokerDecorator {
-        var $_invoker;
+        public $_invoker;
         
         /**
          *    Stores the invoker to wrap.
@@ -140,8 +140,8 @@
 	 *	  @subpackage UnitTester
      */
     class SimpleRunner {
-        var $_test_case;
-        var $_scorer;
+        public $_test_case;
+        public $_scorer;
         
         /**
          *    Takes in the test case and reporter to mediate between.

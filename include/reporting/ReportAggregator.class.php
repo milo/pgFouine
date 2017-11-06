@@ -22,9 +22,9 @@
  */
 
 class ReportAggregator {
-	var $reportBlocks = array();
-	var $logReader;
-	var $outputFilePath;
+	public $reportBlocks = array();
+	public $logReader;
+	public $outputFilePath;
 	
 	function ReportAggregator(& $logReader, $outputFilePath = false) {
 		$this->logReader =& $logReader;

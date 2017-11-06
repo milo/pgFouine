@@ -21,8 +21,8 @@
      *    @abstract
      */
     class SimpleExpectation {
-        var $_dumper;
-        var $_message;
+        public $_dumper;
+        public $_message;
         
         /**
          *    Creates a dumper for displaying values and sets
@@ -83,7 +83,7 @@
 	 *	  @subpackage UnitTester
      */
     class EqualExpectation extends SimpleExpectation {
-        var $_value;
+        public $_value;
         
         /**
          *    Sets the value to compare against.
@@ -281,7 +281,7 @@
 	 *	  @subpackage UnitTester
      */
     class WantedPatternExpectation extends SimpleExpectation {
-        var $_pattern;
+        public $_pattern;
         
         /**
          *    Sets the value to compare against.
@@ -404,7 +404,7 @@
 	 *	  @subpackage UnitTester
      */
     class IsAExpectation extends SimpleExpectation {
-        var $_type;
+        public $_type;
         
         /**
          *    Sets the type to compare with.
@@ -481,7 +481,7 @@
 	 *	  @subpackage UnitTester
      */
     class NotAExpectation extends IsAExpectation {
-        var $_type;
+        public $_type;
         
         /**
          *    Sets the type to compare with.
@@ -524,7 +524,7 @@
 	 *	  @subpackage UnitTester
      */
     class MethodExistsExpectation extends SimpleExpectation {
-        var $_method;
+        public $_method;
         
         /**
          *    Sets the value to compare against.

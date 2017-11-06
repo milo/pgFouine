@@ -430,7 +430,7 @@
     }
     
     class TestOfMockExpectations extends UnitTestCase {
-        var $_test;
+        public $_test;
         
         function TestOfMockExpectations() {
             $this->UnitTestCase();

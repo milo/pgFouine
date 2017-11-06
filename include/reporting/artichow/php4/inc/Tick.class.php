@@ -27,63 +27,63 @@ class awTick {
 	 *
 	 * @var int
 	 */
-	var $style = TICK_IN;
+	public $style = TICK_IN;
 
 	/**
 	 * Ticks size
 	 *
 	 * @var int
 	 */
-	var $size;
+	public $size;
 
 	/**
 	 * Ticks color
 	 *
 	 * @var Color
 	 */
-	var $color;
+	public $color;
 
 	/**
 	 * Ticks number
 	 *
 	 * @var int
 	 */
-	var $number;
+	public $number;
 
 	/**
 	 * Ticks number by other tick
 	 *
 	 * @var array
 	 */
-	var $numberByTick;
+	public $numberByTick;
 
 	/**
 	 * Ticks interval
 	 *
 	 * @var int
 	 */
-	var $interval = 1;
+	public $interval = 1;
 
 	/**
 	 * Hide ticks
 	 *
 	 * @var bool
 	 */
-	var $hide = FALSE;
+	public $hide = FALSE;
 
 	/**
 	 * Hide first tick
 	 *
 	 * @var bool
 	 */
-	var $hideFirst = FALSE;
+	public $hideFirst = FALSE;
 
 	/**
 	 * Hide last tick
 	 *
 	 * @var bool
 	 */
-	var $hideLast = FALSE;
+	public $hideLast = FALSE;
 	
 	/**
 	 * In mode

@@ -22,11 +22,11 @@
  */
 
 class GlobalCountersListener extends QueryListener {
-	var $counter;
-	var $firstQueryTimestamp = MAX_TIMESTAMP;
-	var $lastQueryTimestamp = MIN_TIMESTAMP;
+	public $counter;
+	public $firstQueryTimestamp = MAX_TIMESTAMP;
+	public $lastQueryTimestamp = MIN_TIMESTAMP;
 	
-	var $queryPeakByTimestamp = array();
+	public $queryPeakByTimestamp = array();
 	
 	function GlobalCountersListener() {
 		$this->counter = new QueryCounter();

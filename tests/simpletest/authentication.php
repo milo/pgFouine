@@ -16,10 +16,10 @@
 	 *    @subpackage WebTester
      */
     class SimpleRealm {
-        var $_type;
-        var $_root;
-        var $_username;
-        var $_password;
+        public $_type;
+        public $_root;
+        public $_username;
+        public $_password;
         
         /**
          *    Starts with the initial entry directory.
@@ -110,7 +110,7 @@
 	 *    @subpackage WebTester
      */
     class SimpleAuthenticator {
-        var $_realms;
+        public $_realms;
         
         /**
          *    Clears the realms.

@@ -19,7 +19,7 @@
 	 *    @subpackage WebTester
      */
     class SimpleStickyError {
-        var $_error = 'Constructor not chained';
+        public $_error = 'Constructor not chained';
 
         /**
          *    Sets the error to empty.
@@ -72,9 +72,9 @@
      *    @subpackage WebTester
      */
     class SimpleSocket extends SimpleStickyError {
-        var $_handle;
-        var $_is_open;
-        var $_sent;
+        public $_handle;
+        public $_is_open;
+        public $_sent;
 
         /**
          *    Opens a socket for reading and writing.

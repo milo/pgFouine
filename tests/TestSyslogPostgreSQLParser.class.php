@@ -21,7 +21,7 @@ define('DETECTION_DETAIL_LINE', 'Mar 29 10:08:30 hostname postgres[18070]: [50-2
 
 
 class TestSyslogPostgreSQLParser extends UnitTestCase {
-	var $parser;
+	public $parser;
 	
 	function setup() {
 		$this->parser = new SyslogPostgreSQLParser();

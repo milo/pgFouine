@@ -22,15 +22,15 @@
 	 *    @subpackage WebTester
      */
     class SimpleUrl {
-        var $_scheme;
-        var $_username;
-        var $_password;
-        var $_host;
-        var $_port;
-        var $_path;
-        var $_request;
-        var $_fragment;
-        var $_target;
+        public $_scheme;
+        public $_username;
+        public $_password;
+        public $_host;
+        public $_port;
+        public $_path;
+        public $_request;
+        public $_fragment;
+        public $_target;
         
         /**
          *    Constructor. Parses URL into sections.

@@ -18,9 +18,9 @@
 	 *    @subpackage WebTester
      */
     class SimpleTag {
-        var $_name;
-        var $_attributes;
-        var $_content;
+        public $_name;
+        public $_attributes;
+        public $_content;
         
         /**
          *    Starts with a named tag with attributes only.
@@ -192,8 +192,8 @@
 	 *    @subpackage WebTester
      */
     class SimpleWidget extends SimpleTag {
-        var $_value;
-        var $_is_set;
+        public $_value;
+        public $_is_set;
         
         /**
          *    Starts with a named tag with attributes only.
@@ -623,8 +623,8 @@
 	 *    @subpackage WebTester
      */
     class SimpleSelectionTag extends SimpleWidget {
-        var $_options;
-        var $_choice;
+        public $_options;
+        public $_choice;
         
         /**
          *    Starts with attributes only.
@@ -710,8 +710,8 @@
 	 *    @subpackage WebTester
      */
     class MultipleSelectionTag extends SimpleWidget {
-        var $_options;
-        var $_values;
+        public $_options;
+        public $_values;
         
         /**
          *    Starts with attributes only.
@@ -896,7 +896,7 @@
 	 *    @subpackage WebTester
      */
     class SimpleCheckboxGroup {
-        var $_widgets;
+        public $_widgets;
         
         /**
          *    Starts empty.
@@ -1071,7 +1071,7 @@
 	 *    @subpackage WebTester
      */
     class SimpleRadioGroup {
-        var $_widgets;
+        public $_widgets;
         
         /**
          *    Starts empty.

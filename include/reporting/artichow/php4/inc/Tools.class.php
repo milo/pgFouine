@@ -28,28 +28,28 @@ class awSide {
 	 *
 	 * @var int
 	 */
-	var $left = 0;
+	public $left = 0;
 
 	/**
 	 * Right side
 	 *
 	 * @var int
 	 */
-	var $right = 0;
+	public $right = 0;
 
 	/**
 	 * Top side
 	 *
 	 * @var int
 	 */
-	var $top = 0;
+	public $top = 0;
 
 	/**
 	 * Bottom side
 	 *
 	 * @var int
 	 */
-	var $bottom = 0;
+	public $bottom = 0;
 	
 	/**
 	 * Build the side

@@ -22,13 +22,13 @@
  */
 
 class StderrPostgreSQLParser extends PostgreSQLParser {
-	var $regexpStderrContext;
+	public $regexpStderrContext;
 	
-	var $timestamp = false;
-	var $connectionId = false;
-	var $commandNumber = false;
-	var $lineNumber = false;
-	var $tainted = false;
+	public $timestamp = false;
+	public $connectionId = false;
+	public $commandNumber = false;
+	public $lineNumber = false;
+	public $tainted = false;
 	
 	function StderrPostgreSQLParser() {
 		$this->regexpStderrContext = new RegExp('/^([0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2})(?: [A-Z]{2,4})? .*?\[(\d{1,7})\]: \[(\d{1,10})(?:\-(\d{1,5}))?\] /');

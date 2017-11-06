@@ -22,7 +22,7 @@
  */
 
 class SlowestQueriesListener extends QueryListener {
-	var $queryList;
+	public $queryList;
 	
 	function SlowestQueriesListener() {
 		$this->queryList = new SlowestQueryList(CONFIG_TOP_QUERIES_NUMBER);

@@ -21,70 +21,70 @@ class awBarPlot extends awPlot {
 	 *
 	 * @var Label
 	 */
-	var $label;
+	public $label;
 	
 	/**
 	 * Bar plot identifier
 	 *
 	 * @var int
 	 */
-	var $identifier;
+	public $identifier;
 	
 	/**
 	 * Bar plot number
 	 *
 	 * @var int
 	 */
-	var $number;
+	public $number;
 	
 	/**
 	 * Bar plot depth
 	 *
 	 * @var int
 	 */
-	var $depth;
+	public $depth;
 	
 	/**
 	 * For moving bars
 	 *
 	 * @var int
 	 */
-	var $move;
+	public $move;
 	
 	/**
 	 * Bars shadow
 	 *
 	 * @var Shadow
 	 */
-	var $barShadow;
+	public $barShadow;
 	
 	/**
 	 * Bars border
 	 *
 	 * @var Border
 	 */
-	var $barBorder;
+	public $barBorder;
 	
 	/**
 	 * Bars padding
 	 *
 	 * @var Side
 	 */
-	var $barPadding;
+	public $barPadding;
 	
 	/**
 	 * Bars space
 	 *
 	 * @var int
 	 */
-	var $barSpace = 0;
+	public $barSpace = 0;
 	
 	/**
 	 * Bars background
 	 *
 	 * @var Color, Gradient
 	 */
-	var $barBackground;
+	public $barBackground;
 	 	
 	/**
 	 * Construct a new awBarPlot

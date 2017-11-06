@@ -72,56 +72,56 @@ class awMark {
 	 *
 	 * @var bool
 	 */
-	var $hide;
+	public $hide;
 
 	/**
 	 * Mark type
 	 *
 	 * @var int
 	 */
-	var $type;
+	public $type;
 
 	/**
 	 * Mark size
 	 *
 	 * @var int
 	 */
-	var $size = 8;
+	public $size = 8;
 
 	/**
 	 * Fill mark
 	 *
 	 * @var Color, Gradient
 	 */
-	var $fill;
+	public $fill;
 
 	/**
 	 * Mark image
 	 *
 	 * @var Image
 	 */
-	var $image;
+	public $image;
 
 	/**
 	 * To draw marks
 	 *
 	 * @var Drawer
 	 */
-	var $drawer;
+	public $drawer;
 
 	/**
 	 * Move position from this vector
 	 *
 	 * @var Point
 	 */
-	var $move;
+	public $move;
 	
 	/**
 	 * Marks border
 	 *
 	 * @var Border
 	 */
-	var $border;
+	public $border;
 
 	/**
 	 * Build the mark

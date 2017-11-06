@@ -19,38 +19,38 @@ class awDrawer {
 	 *
 	 * @var $resource
 	 */
-	var $resource;
+	public $resource;
 	
 	/**
 	 * Image width
 	 *
 	 * @var int
 	 */
-	var $width;
+	public $width;
 	
 	/**
 	 * Image height
 	 *
 	 * @var int
 	 */
-	var $height;
+	public $height;
 	
 	/**
 	 * Drawer X position
 	 *
 	 * @var int
 	 */
-	var $x;
+	public $x;
 	
 	/**
 	 * Drawer Y position
 	 *
 	 * @var int
 	 */
-	var $y;
+	public $y;
 	
-	var $w;
-	var $h;
+	public $w;
+	public $h;
 
 	/**
 	 * Build your drawer
@@ -648,7 +648,7 @@ class awGradientDrawer {
 	 *
 	 * @var Drawer
 	 */
-	var $drawer;
+	public $drawer;
 
 	/**
 	 * Build your GradientDrawer

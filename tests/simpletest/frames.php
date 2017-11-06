@@ -22,10 +22,10 @@
 	 *    @subpackage WebTester
      */
     class SimpleFrameset {
-        var $_frameset;
-        var $_frames;
-        var $_focus;
-        var $_names;
+        public $_frameset;
+        public $_frames;
+        public $_focus;
+        public $_names;
         
         /**
          *    Stashes the frameset page. Will make use of the

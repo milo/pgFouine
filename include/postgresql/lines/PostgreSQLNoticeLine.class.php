@@ -22,7 +22,7 @@
  */
 
 class PostgreSQLNoticeLine extends PostgreSQLLogLine {
-	var $ignore = false;
+	public $ignore = false;
 
 	function appendTo(& $logObject) {
 		if($this->commandNumber == $logObject->getCommandNumber()) {

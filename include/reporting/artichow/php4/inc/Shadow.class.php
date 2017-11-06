@@ -73,35 +73,35 @@ class awShadow {
 	 *
 	 * @var int
 	 */
-	var $size = 0;
+	public $size = 0;
 	
 	/**
 	 * Hide shadow ?
 	 *
 	 * @var bool
 	 */
-	var $hide = FALSE;
+	public $hide = FALSE;
 
 	/**
 	 * Shadow color
 	 *
 	 * @var Color
 	 */
-	var $color;
+	public $color;
 
 	/**
 	 * Shadow position
 	 *
 	 * @var int
 	 */
-	var $position;
+	public $position;
 
 	/**
 	 * Smooth shadow ?
 	 *
 	 * @var bool
 	 */
-	var $smooth = FALSE;
+	public $smooth = FALSE;
 	
 	/**
 	 * Shadow constructor

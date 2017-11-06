@@ -23,8 +23,8 @@
  */
 
 class VacuumOverallListener {
-	var $statistics = array();
-	var $statisticsPerDatabase = array();
+	public $statistics = array();
+	public $statisticsPerDatabase = array();
 
 	function VacuumOverallListener() {
 		$this->statistics['numberOfTables'] = 0;

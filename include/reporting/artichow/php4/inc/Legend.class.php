@@ -39,112 +39,112 @@ class awLegend {
 	 *
 	 * @var array
 	 */
-	var $legends = array();
+	public $legends = array();
 
 	/**
 	 * The current component
 	 *
 	 * @var Component
 	 */
-	var $component;
+	public $component;
 	
 	/**
 	 * Background color or gradient
 	 *
 	 * @var Color, Gradient
 	 */
-	var $background;
+	public $background;
 	
 	/**
 	 * Text color
 	 *
 	 * @var Color
 	 */
-	var $textColor;
+	public $textColor;
 	
 	/**
 	 * Text font
 	 *
 	 * @var Font
 	 */
-	var $textFont;
+	public $textFont;
 	
 	/**
 	 * Text margin
 	 *
 	 * @var Side
 	 */
-	var $textMargin;
+	public $textMargin;
 	
 	/**
 	 * Number of columns
 	 *
 	 * @var int
 	 */
-	var $columns = NULL;
+	public $columns = NULL;
 	
 	/**
 	 * Number of rows
 	 *
 	 * @var int
 	 */
-	var $rows = NULL;
+	public $rows = NULL;
 	
 	/**
 	 * Legend position
 	 *
 	 * @var Point
 	 */
-	var $position;
+	public $position;
 	
 	/**
 	 * Hide legend ?
 	 *
 	 * @var bool
 	 */
-	var $hide = FALSE;
+	public $hide = FALSE;
 	
 	/**
 	 * Space between each legend
 	 *
 	 * @var int
 	 */
-	var $space = 4;
+	public $space = 4;
 	
 	/**
 	 * Horizontal alignment
 	 *
 	 * @var int
 	 */
-	var $hAlign;
+	public $hAlign;
 	
 	/**
 	 * Vertical alignment
 	 *
 	 * @var int
 	 */
-	var $vAlign;
+	public $vAlign;
 
 	/**
 	 * Margin
 	 *
 	 * @var array Array for left, right, top and bottom margins
 	 */
-	var $margin;
+	public $margin;
 	
 	/**
 	 * Legend shadow
 	 *
 	 * @var Shadow
 	 */
-	var $shadow;
+	public $shadow;
 	
 	/**
 	 * Legend border
 	 *
 	 * @var Border
 	 */
-	var $border;
+	public $border;
 	
 	/**
 	 * Line legend

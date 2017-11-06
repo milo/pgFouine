@@ -22,17 +22,17 @@
  */
 
 class LogObject {
-	var $text;
-	var $connectionId;
-	var $database;
-	var $user;
-	var $timestamp;
-	var $commandNumber = 0;
-	var $ignored;
-	var $context;
-	var $notices = array();
-	var $number = 0;
-	var $location;
+	public $text;
+	public $connectionId;
+	public $database;
+	public $user;
+	public $timestamp;
+	public $commandNumber = 0;
+	public $ignored;
+	public $context;
+	public $notices = array();
+	public $number = 0;
+	public $location;
 
 	function LogObject($connectionId, $user, $database, $text = '', $ignored = false) {
 		$this->connectionId = $connectionId;

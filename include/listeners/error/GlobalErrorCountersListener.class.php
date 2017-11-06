@@ -22,7 +22,7 @@
  */
 
 class GlobalErrorCountersListener extends ErrorListener {
-	var $errorCount = 0;
+	public $errorCount = 0;
 	
 	function fireEvent(& $error) {
 		$this->errorCount++;

@@ -15,10 +15,10 @@
      *    @abstract
      */
     class SimpleScorer {
-        var $_passes;
-        var $_fails;
-        var $_exceptions;
-        var $_is_dry_run;
+        public $_passes;
+        public $_fails;
+        public $_exceptions;
+        public $_is_dry_run;
         
         /**
          *    Starts the test run with no results.
@@ -215,9 +215,9 @@
 	 *	  @subpackage UnitTester
      */
     class SimpleReporter extends SimpleScorer {
-        var $_test_stack;
-        var $_size;
-        var $_progress;
+        public $_test_stack;
+        public $_size;
+        public $_progress;
         
         /**
          *    Starts the display with no results in.

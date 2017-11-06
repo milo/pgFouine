@@ -42,7 +42,7 @@
     }
     
     class TestOfErrorTrap extends UnitTestCase {
-        var $_old;
+        public $_old;
         
         function setUp() {
             $this->_old = error_reporting(E_ALL);
@@ -66,7 +66,7 @@
     }
     
     class TestOfErrors extends UnitTestCase {
-        var $_old;
+        public $_old;
         
         function setUp() {
             $this->_old = error_reporting(E_ALL);

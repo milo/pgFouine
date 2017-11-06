@@ -23,31 +23,31 @@
  */
 
 class VacuumTableLogObject extends VacuumLogObject {
-	var $numberOfRemovableRows = 0;
-	var $numberOfNonRemovableRows = 0;
-	var $numberOfPages = 0;
+	public $numberOfRemovableRows = 0;
+	public $numberOfNonRemovableRows = 0;
+	public $numberOfPages = 0;
 	
-	var $numberOfNonRemovableDeadRows = 0;
-	var $nonRemovableRowMinSize = 0;
-	var $nonRemovableRowMaxSize = 0;
-	var $numberOfUnusedItemPointers = 0;
-	var $totalFreeSpace = 0;
-	var $numberOfPagesToEmpty = 0;
-	var $numberOfPagesToEmptyAtTheEndOfTheTable = 0;
-	var $numberOfPagesWithFreeSpace = 0;
-	var $freeSpace = 0;
+	public $numberOfNonRemovableDeadRows = 0;
+	public $nonRemovableRowMinSize = 0;
+	public $nonRemovableRowMaxSize = 0;
+	public $numberOfUnusedItemPointers = 0;
+	public $totalFreeSpace = 0;
+	public $numberOfPagesToEmpty = 0;
+	public $numberOfPagesToEmptyAtTheEndOfTheTable = 0;
+	public $numberOfPagesWithFreeSpace = 0;
+	public $freeSpace = 0;
 	
-	var $numberOfRowVersionsMoved = 0;
-	var $numberOfPagesRemoved = 0;
+	public $numberOfRowVersionsMoved = 0;
+	public $numberOfPagesRemoved = 0;
 	
-	var $hasDuration = false;
-	var $systemCpuUsage = 0;
-	var $userCpuUsage = 0;
-	var $duration = 0;
+	public $hasDuration = false;
+	public $systemCpuUsage = 0;
+	public $userCpuUsage = 0;
+	public $duration = 0;
 	
-	var $indexesInformation = array();
+	public $indexesInformation = array();
 	
-	var $number;
+	public $number;
 	
 	function VacuumTableLogObject($database, $schema, $table, $ignored = false) {
 		$this->VacuumLogObject($database, $schema, $table, $ignored);

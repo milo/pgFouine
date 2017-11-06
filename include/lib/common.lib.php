@@ -139,7 +139,7 @@ function str_putcsv($input, $delimiter = ',', $enclosure = '"') {
 }
 
 class RegExp {
-	var $pattern;
+	public $pattern;
 	
 	function RegExp($pattern) {
 		$this->pattern = $pattern;
@@ -171,8 +171,8 @@ class RegExp {
 }
 
 class RegExpMatch {
-	var $text;
-	var $matches = array();
+	public $text;
+	public $matches = array();
 	
 	function RegExpMatch($text, & $matches) {
 		$this->text = $text;
@@ -202,18 +202,18 @@ class RegExpMatch {
 }
 
 class QueryCounter {
-	var $queryCount = 0;
-	var $queryDuration = 0;
-	var $identifiedQueryCount = 0;
-	var $identifiedQueryDuration = 0;
-	var $selectCount = 0;
-	var $selectDuration = 0;
-	var $updateCount = 0;
-	var $updateDuration = 0;
-	var $insertCount = 0;
-	var $insertDuration = 0;
-	var $deleteCount = 0;
-	var $deleteDuration = 0;
+	public $queryCount = 0;
+	public $queryDuration = 0;
+	public $identifiedQueryCount = 0;
+	public $identifiedQueryDuration = 0;
+	public $selectCount = 0;
+	public $selectDuration = 0;
+	public $updateCount = 0;
+	public $updateDuration = 0;
+	public $insertCount = 0;
+	public $insertDuration = 0;
+	public $deleteCount = 0;
+	public $deleteDuration = 0;
 	
 	function incrementQuery($duration) {
 		$this->queryCount ++;

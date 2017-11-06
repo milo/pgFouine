@@ -22,7 +22,7 @@
  */
 
 class PostgreSQLLocationLine extends PostgreSQLLogLine {
-	var $ignore = false;
+	public $ignore = false;
 
 	function appendTo(& $logObject) {
 		$logObject->setLocation($this->text);

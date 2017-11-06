@@ -13,9 +13,9 @@
 	 *    @subpackage WebTester
      */
     class SimpleFormEncoding {
-        var $_request;
-        var $_x;
-        var $_y;
+        public $_request;
+        public $_x;
+        public $_y;
         
         /**
          *    Starts empty.

@@ -28,8 +28,8 @@
  * a log stream is associated to one and only one PID
  */
 class VacuumLogStream {
-	var $currentBlock = false;
-	var $database = UNKNOWN_DATABASE;
+	public $currentBlock = false;
+	public $database = UNKNOWN_DATABASE;
 
 	/**
 	 * append a log line to the log stream

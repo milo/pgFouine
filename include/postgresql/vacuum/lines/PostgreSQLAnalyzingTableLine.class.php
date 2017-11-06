@@ -23,8 +23,8 @@
  */
 
 class PostgreSQLAnalyzingTableLine extends PostgreSQLVacuumLogLine {
-	var $schema;
-	var $table;
+	public $schema;
+	public $table;
 	
 	function PostgreSQLAnalyzingTableLine($schema, $table) {
 		$this->schema = $schema;

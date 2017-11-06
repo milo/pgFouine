@@ -31,126 +31,126 @@ class awLabel {
 	 *
 	 * @var int
 	 */
-	var $border;
+	public $border;
 
 	/**
 	 * Label texts
 	 *
 	 * @var array
 	 */
-	var $texts;
+	public $texts;
 
 	/**
 	 * Text font
 	 *
 	 * @var int
 	 */
-	var $font;
+	public $font;
 
 	/**
 	 * Text angle
 	 *
 	 * @var int
 	 */
-	var $angle = 0;
+	public $angle = 0;
 
 	/**
 	 * Text color
 	 *
 	 * @var Color
 	 */
-	var $color;
+	public $color;
 
 	/**
 	 * Text background
 	 *
 	 * @var Color, Gradient
 	 */
-	var $background;
+	public $background;
 
 	/**
 	 * Callback function
 	 *
 	 * @var string
 	 */
-	var $function;
+	public $function;
 	
 	/**
 	 * Callback function to format output
 	 *
 	 * @var string
 	 */
-	var $formatFunction;
+	public $formatFunction;
 
 	/**
 	 * Padding
 	 *
 	 * @var int
 	 */
-	var $padding;
+	public $padding;
 
 	/**
 	 * Move position from this vector
 	 *
 	 * @var Point
 	 */
-	var $move;
+	public $move;
 
 	/**
 	 * Label interval
 	 *
 	 * @var int
 	 */
-	var $interval = 1;
+	public $interval = 1;
 
 	/**
 	 * Horizontal align
 	 *
 	 * @var int
 	 */
-	var $hAlign = LABEL_CENTER;
+	public $hAlign = LABEL_CENTER;
 
 	/**
 	 * Vertical align
 	 *
 	 * @var int
 	 */
-	var $vAlign = LABEL_MIDDLE;
+	public $vAlign = LABEL_MIDDLE;
 	
 	/**
 	 * Hide all labels ?
 	 *
 	 * @var bool
 	 */
-	var $hide = FALSE;
+	public $hide = FALSE;
 	
 	/**
 	 * Keys to hide
 	 *
 	 * @var array
 	 */
-	var $hideKey = array();
+	public $hideKey = array();
 	
 	/**
 	 * Values to hide
 	 *
 	 * @var array
 	 */
-	var $hideValue = array();
+	public $hideValue = array();
 	
 	/**
 	 * Hide first label
 	 *
 	 * @var bool
 	 */
-	var $hideFirst = FALSE;
+	public $hideFirst = FALSE;
 	
 	/**
 	 * Hide last label
 	 *
 	 * @var bool
 	 */
-	var $hideLast = FALSE;
+	public $hideLast = FALSE;
 	
 	/**
 	 * Build the label

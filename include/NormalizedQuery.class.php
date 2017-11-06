@@ -22,11 +22,11 @@
  */
 
 class NormalizedQuery {
-	var $normalizedText;
-	var $duration = 0;
-	var $count = 0;
-	var $examples = false;
-	var $hourlyStatistics = array();
+	public $normalizedText;
+	public $duration = 0;
+	public $count = 0;
+	public $examples = false;
+	public $hourlyStatistics = array();
 	
 	function NormalizedQuery(& $query) {
 		$this->normalizedText = $query->getNormalizedText();

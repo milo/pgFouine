@@ -22,9 +22,9 @@
  */
 
 class HtmlReportAggregator extends ReportAggregator {
-	var $geshi;
-	var $stylesheets = array('common.css');
-	var $scripts = array();
+	public $geshi;
+	public $stylesheets = array('common.css');
+	public $scripts = array();
 	
 	function HtmlReportAggregator(& $logReader, $outputFilePath = false) {
 		$this->ReportAggregator($logReader, $outputFilePath);

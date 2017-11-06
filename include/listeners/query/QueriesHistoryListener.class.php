@@ -22,8 +22,8 @@
  */
 
 class QueriesHistoryListener extends QueryListener {
-	var $queries = array();
-	var $counter = 0;
+	public $queries = array();
+	public $counter = 0;
 	
 	function fireEvent(& $logObject) {
 		$this->counter ++;

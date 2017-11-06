@@ -22,7 +22,7 @@
  */
 
 class PostgreSQLHintLine extends PostgreSQLLogLine {
-	var $ignore = false;
+	public $ignore = false;
 
 	function appendTo(& $logObject) {
 		$logObject->appendHint($this->text);

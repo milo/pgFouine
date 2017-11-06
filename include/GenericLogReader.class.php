@@ -25,20 +25,20 @@ require_once('lib/common.lib.php');
 require_once('base.lib.php');
 
 class GenericLogReader {
-	var $displayHelp = true;
+	public $displayHelp = true;
 	
-	var $fileName;
-	var $lineParserName;
-	var $accumulatorName;
+	public $fileName;
+	public $lineParserName;
+	public $accumulatorName;
 	
-	var $lineParsedCounter = 0;
-	var $timeToParse;
+	public $lineParsedCounter = 0;
+	public $timeToParse;
 	
-	var $firstLineTimestamp;
-	var $lastLineTimestamp;
+	public $firstLineTimestamp;
+	public $lastLineTimestamp;
 	
-	var $reportAggregators = array();
-	var $listeners = array();
+	public $reportAggregators = array();
+	public $listeners = array();
 	
 	function GenericLogReader($fileName, $lineParserName, $accumulatorName, $displayHelp = true) {
 		$this->fileName = $fileName;

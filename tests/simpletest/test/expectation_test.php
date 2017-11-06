@@ -139,7 +139,7 @@
     }
     
     class RecursiveNasty {
-        var $_me;
+        public $_me;
         
         function RecursiveNasty() {
             $this->_me = $this;

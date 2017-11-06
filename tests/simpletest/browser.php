@@ -25,8 +25,8 @@
 	 *    @subpackage WebTester
      */
     class SimpleBrowserHistory {
-        var $_sequence;
-        var $_position;
+        public $_sequence;
+        public $_position;
         
         /**
          *    Starts empty.
@@ -170,11 +170,11 @@
 	 *    @subpackage WebTester
      */
     class SimpleBrowser {
-        var $_user_agent;
-        var $_page;
-        var $_history;
-        var $_ignore_frames;
-        var $_maximum_nested_frames;
+        public $_user_agent;
+        public $_page;
+        public $_history;
+        public $_ignore_frames;
+        public $_maximum_nested_frames;
         
         /**
          *    Starts with a fresh browser with no

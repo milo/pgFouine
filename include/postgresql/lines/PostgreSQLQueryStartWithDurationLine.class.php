@@ -22,7 +22,7 @@
  */
 
 class PostgreSQLQueryStartWithDurationLine extends PostgreSQLQueryStartLine {
-	var $ignore = false;
+	public $ignore = false;
 	
 	function PostgreSQLQueryStartWithDurationLine($text, $timeString, $unit) {
 		global $postgreSQLRegexps;

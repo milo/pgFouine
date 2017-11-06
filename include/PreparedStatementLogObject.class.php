@@ -22,9 +22,9 @@
  */
 
 class PreparedStatementLogObject extends QueryLogObject {
-	var $name;
-	var $portalName;
-	var $parameters = array();
+	public $name;
+	public $portalName;
+	public $parameters = array();
 	
 	function PreparedStatementLogObject($connectionId, $user, $db, $name, $portalName, $text = '', $ignored = false) {
 		$this->QueryLogObject($connectionId, $user, $db, $text, $ignored);

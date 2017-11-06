@@ -102,7 +102,7 @@
     }
     
     class AnyOldSignal {
-        var $stuff = true;
+        public $stuff = true;
     }
     
     class TestOfXmlResultsParsing extends UnitTestCase {

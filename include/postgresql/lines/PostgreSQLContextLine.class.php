@@ -22,8 +22,8 @@
  */
 
 class PostgreSQLContextLine extends PostgreSQLLogLine {
-	var $ignore = false;
-	var $recognized = true;
+	public $ignore = false;
+	public $recognized = true;
 
 	function PostgreSQLContextLine($text) {
 		global $postgreSQLRegexps;

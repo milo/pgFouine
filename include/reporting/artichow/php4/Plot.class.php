@@ -31,91 +31,91 @@ define("PLOT_BOTH", 'both');
 	 *
 	 * @var array
 	 */
-	var $datay;
+	public $datay;
 
 	/**
 	 * Values for X axis
 	 *
 	 * @var array
 	 */
-	var $datax;
+	public $datax;
 	
 	/**
 	 * Grid properties
 	 *
 	 * @var Grid
 	 */
-	var $grid;
+	public $grid;
 	
 	/**
 	 * X axis
 	 *
 	 * @var Axis
 	 */
-	var $xAxis;
+	public $xAxis;
 	
 	/**
 	 * Y axis
 	 *
 	 * @var Axis
 	 */
-	var $yAxis;
+	public $yAxis;
 	
 	/**
 	 * Position of X axis
 	 *
 	 * @var int
 	 */
-	var $xAxisPosition = PLOT_BOTTOM;
+	public $xAxisPosition = PLOT_BOTTOM;
 	
 	/**
 	 * Set X axis on zero ?
 	 *
 	 * @var bool
 	 */
-	var $xAxisZero = TRUE;
+	public $xAxisZero = TRUE;
 	
 	/**
 	 * Set Y axis on zero ?
 	 *
 	 * @var bool
 	 */
-	var $yAxisZero = FALSE;
+	public $yAxisZero = FALSE;
 	
 	/**
 	 * Position of Y axis
 	 *
 	 * @var int
 	 */
-	var $yAxisPosition = PLOT_LEFT;
+	public $yAxisPosition = PLOT_LEFT;
 	
 	/**
 	 * Change min value for Y axis
 	 *
 	 * @var mixed
 	 */
-	var $yMin = NULL;
+	public $yMin = NULL;
 	
 	/**
 	 * Change max value for Y axis
 	 *
 	 * @var mixed
 	 */
-	var $yMax = NULL;
+	public $yMax = NULL;
 	
 	/**
 	 * Change min value for X axis
 	 *
 	 * @var mixed
 	 */
-	var $xMin = NULL;
+	public $xMin = NULL;
 	
 	/**
 	 * Change max value for X axis
 	 *
 	 * @var mixed
 	 */
-	var $xMax = NULL;
+	public $xMax = NULL;
 	
 	/**
 	 * Left axis
@@ -711,28 +711,28 @@ class awPlotAxis {
 	 *
 	 * @var Axis
 	 */
-	var $left;
+	public $left;
 
 	/**
 	 * Right axis
 	 *
 	 * @var Axis
 	 */
-	var $right;
+	public $right;
 
 	/**
 	 * Top axis
 	 *
 	 * @var Axis
 	 */
-	var $top;
+	public $top;
 
 	/**
 	 * Bottom axis
 	 *
 	 * @var Axis
 	 */
-	var $bottom;
+	public $bottom;
 
 	/**
 	 * Build the group of axis
@@ -805,70 +805,70 @@ class awPlotGroup extends awComponentGroup {
 	 *
 	 * @var Grid
 	 */
-	var $grid;
+	public $grid;
 	
 	/**
 	 * Left, right, top and bottom axis
 	 *
 	 * @var PlotAxis
 	 */
-	var $axis;
+	public $axis;
 	
 	/**
 	 * Set the X axis on zero
 	 *
 	 * @var bool
 	 */
-	var $xAxisZero = TRUE;
+	public $xAxisZero = TRUE;
 	
 	/**
 	 * Set the Y axis on zero
 	 *
 	 * @var bool
 	 */
-	var $yAxisZero = FALSE;
+	public $yAxisZero = FALSE;
 	
 	/**
 	 * Real axis used for Y axis
 	 *
 	 * @var string
 	 */
-	var $yRealAxis = PLOT_LEFT;
+	public $yRealAxis = PLOT_LEFT;
 	
 	/**
 	 * Real axis used for X axis
 	 *
 	 * @var string
 	 */
-	var $xRealAxis = PLOT_BOTTOM;
+	public $xRealAxis = PLOT_BOTTOM;
 	
 	/**
 	 * Change min value for Y axis
 	 *
 	 * @var mixed
 	 */
-	var $yMin = NULL;
+	public $yMin = NULL;
 	
 	/**
 	 * Change max value for Y axis
 	 *
 	 * @var mixed
 	 */
-	var $yMax = NULL;
+	public $yMax = NULL;
 	
 	/**
 	 * Change min value for X axis
 	 *
 	 * @var mixed
 	 */
-	var $xMin = NULL;
+	public $xMin = NULL;
 	
 	/**
 	 * Change max value for X axis
 	 *
 	 * @var mixed
 	 */
-	var $xMax = NULL;
+	public $xMax = NULL;
 	
 	/**
 	 * Build the PlotGroup

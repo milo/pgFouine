@@ -14,13 +14,13 @@
  */
 class awColor {
 	
-	var $red;
-	var $green;
-	var $blue;
-	var $alpha;
+	public $red;
+	public $green;
+	public $blue;
+	public $alpha;
 	
-	var $resource;
-	var $color;
+	public $resource;
+	public $color;
 
 	/**
 	 * Build your color

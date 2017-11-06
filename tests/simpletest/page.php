@@ -22,8 +22,8 @@
 	 *    @subpackage WebTester
      */
     class SimplePageBuilder extends SimpleSaxListener {
-        var $_tags;
-        var $_page;
+        public $_tags;
+        public $_page;
         
         /**
          *    Sets the builder up empty.
@@ -259,21 +259,21 @@
 	 *    @subpackage WebTester
      */
     class SimplePage {
-        var $_links;
-        var $_title;
-        var $_open_forms;
-        var $_complete_forms;
-        var $_frameset;
-        var $_frames;
-        var $_frameset_nesting_level;
-        var $_transport_error;
-        var $_raw;
-        var $_text;
-        var $_sent;
-        var $_headers;
-        var $_method;
-        var $_url;
-        var $_request_data;
+        public $_links;
+        public $_title;
+        public $_open_forms;
+        public $_complete_forms;
+        public $_frameset;
+        public $_frames;
+        public $_frameset_nesting_level;
+        public $_transport_error;
+        public $_raw;
+        public $_text;
+        public $_sent;
+        public $_headers;
+        public $_method;
+        public $_url;
+        public $_request_data;
         
         /**
          *    Parses a page ready to access it's contents.

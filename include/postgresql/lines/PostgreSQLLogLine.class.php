@@ -22,15 +22,15 @@
  */
 
 class PostgreSQLLogLine {
-	var $timestamp = false;
-	var $connectionId = false;
-	var $commandNumber = false;
-	var $lineNumber = false;
-	var $text;
-	var $duration;
-	var $ignore;
-	var $database = false;
-	var $user = false;
+	public $timestamp = false;
+	public $connectionId = false;
+	public $commandNumber = false;
+	public $lineNumber = false;
+	public $text;
+	public $duration;
+	public $ignore;
+	public $database = false;
+	public $user = false;
 	
 	function PostgreSQLLogLine($text = '', $duration = false) {
 		$this->text = rtrim($text);

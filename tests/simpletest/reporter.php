@@ -19,7 +19,7 @@
 	 *	  @subpackage UnitTester
      */
     class HtmlReporter extends SimpleReporter {
-        var $_character_set;
+        public $_character_set;
         
         /**
          *    Does nothing yet. The first output will

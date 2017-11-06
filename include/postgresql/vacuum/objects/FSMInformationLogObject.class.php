@@ -23,16 +23,16 @@
  */
 
 class FSMInformationLogObject extends VacuumLogObject {
-	var $currentNumberOfPageSlots = 0;
-	var $currentNumberOfRelations = 0;
+	public $currentNumberOfPageSlots = 0;
+	public $currentNumberOfRelations = 0;
 	
-	var $pageSlotsInUse = 0;
+	public $pageSlotsInUse = 0;
 	
-	var $pageSlotsRequired = 0;
+	public $pageSlotsRequired = 0;
 	
-	var $maxNumberOfPageSlots = 0;
-	var $maxNumberOfRelations = 0;
-	var $size = 0;
+	public $maxNumberOfPageSlots = 0;
+	public $maxNumberOfRelations = 0;
+	public $size = 0;
 	
 	function FSMInformationLogObject($currentNumberOfPageSlots, $currentNumberOfRelations) {
 		$this->currentNumberOfPageSlots = $currentNumberOfPageSlots;

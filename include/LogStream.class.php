@@ -27,13 +27,13 @@
  * a log stream is associated to one and only one PID
  */
 class LogStream {
-	var $currentBlock = false;
-	var $host = '';
-	var $port = '';
-	var $user = '';
-	var $database = '';
-	var $preparedStatements = array();
-	var $lastLineTimestamp = 0;
+	public $currentBlock = false;
+	public $host = '';
+	public $port = '';
+	public $user = '';
+	public $database = '';
+	public $preparedStatements = array();
+	public $lastLineTimestamp = 0;
 
 	/**
 	 * append a log line to the log stream

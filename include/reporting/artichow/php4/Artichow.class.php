@@ -43,35 +43,35 @@ class awGraph extends awImage {
 	 *
 	 * @var string
 	 */
-	var $name;
+	public $name;
 
 	/**
 	 * Cache timeout
 	 *
 	 * @var int
 	 */
-	var $timeout = 0;
+	public $timeout = 0;
 	
 	/**
 	 * Graph timing ?
 	 *
 	 * @var bool
 	 */
-	var $timing;
+	public $timing;
 	
 	/**
 	 * Components
 	 *
 	 * @var array
 	 */
-	var $components = array();
+	public $components = array();
 	
 	/**
 	 * Graph title
 	 *
 	 * @var Label
 	 */
-	var $title;
+	public $title;
 	
 	/**
 	 * Construct a new awgraph

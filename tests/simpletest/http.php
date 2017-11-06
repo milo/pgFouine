@@ -22,12 +22,12 @@
 	 *    @subpackage WebTester
      */
     class SimpleCookie {
-        var $_host;
-        var $_name;
-        var $_value;
-        var $_path;
-        var $_expiry;
-        var $_is_secure;
+        public $_host;
+        public $_name;
+        public $_value;
+        public $_path;
+        public $_expiry;
+        public $_is_secure;
         
         /**
          *    Constructor. Sets the stored values.
@@ -227,7 +227,7 @@
 	 *    @subpackage WebTester
      */
     class SimpleRoute {
-        var $_url;
+        public $_url;
         
         /**
          *    Sets the target URL.
@@ -317,9 +317,9 @@
 	 *    @subpackage WebTester
      */
     class SimpleProxyRoute extends SimpleRoute {
-        var $_proxy;
-        var $_username;
-        var $_password;
+        public $_proxy;
+        public $_username;
+        public $_password;
         
         /**
          *    Stashes the proxy address.
@@ -397,11 +397,11 @@
 	 *    @subpackage WebTester
      */
     class SimpleHttpRequest {
-        var $_route;
-        var $_method;
-        var $_encoding;
-        var $_headers;
-        var $_cookies;
+        public $_route;
+        public $_method;
+        public $_encoding;
+        public $_headers;
+        public $_cookies;
         
         /**
          *    Saves the URL ready for fetching.
@@ -527,14 +527,14 @@
 	 *    @subpackage WebTester
      */
     class SimpleHttpHeaders {
-        var $_raw_headers;
-        var $_response_code;
-        var $_http_version;
-        var $_mime_type;
-        var $_location;
-        var $_cookies;
-        var $_authentication;
-        var $_realm;
+        public $_raw_headers;
+        public $_response_code;
+        public $_http_version;
+        public $_mime_type;
+        public $_location;
+        public $_cookies;
+        public $_authentication;
+        public $_realm;
         
         /**
          *    Parses the incoming header block.
@@ -705,12 +705,12 @@
 	 *    @subpackage WebTester
      */
     class SimpleHttpResponse extends SimpleStickyError {
-        var $_method;
-        var $_url;
-        var $_request_data;
-        var $_sent;
-        var $_content;
-        var $_headers;
+        public $_method;
+        public $_url;
+        public $_request_data;
+        public $_sent;
+        public $_content;
+        public $_headers;
         
         /**
          *    Constructor. Reads and parses the incoming

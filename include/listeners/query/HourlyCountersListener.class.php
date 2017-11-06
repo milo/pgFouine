@@ -22,9 +22,9 @@
  */
 
 class HourlyCountersListener extends QueryListener {
-	var $hourlyStatistics = array();
+	public $hourlyStatistics = array();
 	
-	var $queryPeaksStatistics = array();
+	public $queryPeaksStatistics = array();
 	
 	function fireEvent(& $logObject) {
 		$objectTimestamp = $logObject->getTimestamp();

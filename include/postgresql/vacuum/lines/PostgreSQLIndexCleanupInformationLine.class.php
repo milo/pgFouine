@@ -22,9 +22,9 @@
  */
 
 class PostgreSQLIndexCleanupInformationLine extends PostgreSQLVacuumLogLine {
-	var $indexName;
-	var $numberOfRowVersions;
-	var $numberOfPages;
+	public $indexName;
+	public $numberOfRowVersions;
+	public $numberOfPages;
 
 	function PostgreSQLIndexCleanupInformationLine($indexName, $numberOfRowVersions, $numberOfPages) {
 		$this->PostgreSQLVacuumLogLine('');

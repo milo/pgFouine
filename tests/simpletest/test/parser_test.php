@@ -290,8 +290,8 @@
     Mock::generate("HtmlSaxParser");
     
     class TestOfHtmlLexer extends UnitTestCase {
-        var $_handler;
-        var $_lexer;
+        public $_handler;
+        public $_lexer;
         
         function setUp() {
             $this->_handler = &new MockSimpleSaxParser($this);
@@ -505,7 +505,7 @@
     }
 
     class TestSimpleSaxParser extends SimpleSaxParser {
-        var $_lexer;
+        public $_lexer;
         
         function TestSimpleSaxParser(&$listener, &$lexer) {
             $this->_lexer = &$lexer;
@@ -521,8 +521,8 @@
     Mock::generate("SimpleLexer");
     
     class TestOfSaxGeneration extends UnitTestCase {
-        var $_listener;
-        var $_lexer;
+        public $_listener;
+        public $_lexer;
         
         function setUp() {
             $this->_listener = &new MockSimpleSaxListener($this);

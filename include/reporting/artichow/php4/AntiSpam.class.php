@@ -22,14 +22,14 @@ class awAntiSpam extends awImage {
 	 *
 	 * @var string
 	 */
-	var $string;
+	public $string;
 
 	/**
 	 * Noise intensity
 	 *
 	 * @var int
 	 */
-	var $noise = 0;
+	public $noise = 0;
 	 	
 	/**
 	 * Construct a new awAntiSpam image

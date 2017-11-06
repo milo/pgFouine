@@ -63,7 +63,7 @@
 	 *    @subpackage MockObjects
      */
     class ParametersExpectation extends SimpleExpectation {
-        var $_expected;
+        public $_expected;
         
         /**
          *    Sets the expected parameter list.
@@ -196,8 +196,8 @@
      *    Confirms that the number of calls on a method is as expected.
      */
     class CallCountExpectation extends SimpleExpectation {
-        var $_method;
-        var $_count;
+        public $_method;
+        public $_count;
         
         /**
          *    Stashes the method and expected count for later
@@ -239,8 +239,8 @@
      *    Confirms that the number of calls on a method is as expected.
      */
     class MinimumCallCountExpectation extends SimpleExpectation {
-        var $_method;
-        var $_count;
+        public $_method;
+        public $_count;
         
         /**
          *    Stashes the method and expected count for later
@@ -282,8 +282,8 @@
      *    Confirms that the number of calls on a method is as expected.
      */
     class MaximumCallCountExpectation extends SimpleExpectation {
-        var $_method;
-        var $_count;
+        public $_method;
+        public $_count;
         
         /**
          *    Stashes the method and expected count for later
@@ -328,7 +328,7 @@
 	 *    @subpackage MockObjects
      */
     class CallMap {
-        var $_map;
+        public $_map;
         
         /**
          *    Creates an empty call map.
@@ -415,11 +415,11 @@
 	 *    @subpackage MockObjects
      */
     class SimpleStub {
-        var $_wildcard;
-        var $_is_strict;
-        var $_returns;
-        var $_return_sequence;
-        var $_call_counts;
+        public $_wildcard;
+        public $_is_strict;
+        public $_returns;
+        public $_return_sequence;
+        public $_call_counts;
         
         /**
          *    Sets up the wildcard and everything else empty.
@@ -638,11 +638,11 @@
 	 *    @subpackage MockObjects
      */
     class SimpleMock extends SimpleStub {
-        var $_test;
-        var $_expected_counts;
-        var $_max_counts;
-        var $_expected_args;
-        var $_expected_args_at;
+        public $_test;
+        public $_expected_counts;
+        public $_max_counts;
+        public $_expected_args;
+        public $_expected_args_at;
         
         /**
          *    Creates an empty return list and expectation list.

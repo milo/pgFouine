@@ -21,7 +21,7 @@
 	 *	  @subpackage WebTester
      */
     class FieldExpectation extends SimpleExpectation {
-        var $_value;
+        public $_value;
         
         /**
          *    Sets the field value to compare against.
@@ -129,8 +129,8 @@
 	 *	  @subpackage WebTester
      */
     class HttpHeaderExpectation extends SimpleExpectation {
-        var $_expected_header;
-        var $_expected_value;
+        public $_expected_header;
+        public $_expected_value;
         
         /**
          *    Sets the field and value to compare against.
@@ -249,8 +249,8 @@
 	 *	  @subpackage WebTester
      */
     class HttpUnwantedHeaderExpectation extends HttpHeaderExpectation {
-        var $_expected_header;
-        var $_expected_value;
+        public $_expected_header;
+        public $_expected_value;
         
         /**
          *    Sets the field and value to compare against.
@@ -322,7 +322,7 @@
 	 *	  @subpackage UnitTester
      */
     class WantedTextExpectation extends SimpleExpectation {
-        var $_substring;
+        public $_substring;
         
         /**
          *    Sets the value to compare against.
@@ -475,7 +475,7 @@
 	 *    @subpackage WebTester
      */
     class WebTestCase extends SimpleTestCase {
-        var $_browser;
+        public $_browser;
         
         /**
          *    Creates an empty test case. Should be subclassed

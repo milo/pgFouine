@@ -59,84 +59,84 @@ class awPie extends awComponent {
 	 *
 	 * @var array
 	 */
-	var $values;
+	public $values;
 	
 	/**
 	 * Pie colors
 	 *
 	 * @var array
 	 */
-	var $colors;
+	public $colors;
 	
 	/**
 	 * Pie legend
 	 * 
 	 * @var array
 	 */
-	var $legendValues = array();
+	public $legendValues = array();
 	
 	/**
 	 * Intensity of the 3D effect
 	 *
 	 * @var int
 	 */
-	var $size;
+	public $size;
 	
 	/**
 	 * Border color
 	 *
 	 * @var Color
 	 */
-	var $border;
+	public $border;
 	
 	/**
 	 * Pie explode
 	 *
 	 * @var array
 	 */
-	var $explode = array();
+	public $explode = array();
 	
 	/**
 	 * Initial angle
 	 *
 	 * @var int
 	 */
-	var $angle = 0;
+	public $angle = 0;
 	
 	/**
 	 * Labels precision
 	 *
 	 * @var int
 	 */
-	var $precision;
+	public $precision;
 	
 	/**
 	 * Labels number
 	 *
 	 * @var int
 	 */
-	var $number;
+	public $number;
 	
 	/**
 	 * Labels minimum
 	 *
 	 * @var int
 	 */
-	var $minimum;
+	public $minimum;
 	
 	/**
 	 * Labels position
 	 *
 	 * @var int
 	 */
-	var $position = 15;
+	public $position = 15;
 	
 	/**
 	 * Labels of your pie
 	 *
 	 * @var Label
 	 */
-	var $label;
+	public $label;
 	
 	/**
 	 * Build the plot
@@ -616,7 +616,7 @@ class awPiePart {
 	 *
 	 * @var Color
 	 */
-	var $color;
+	public $color;
 
 	/**
 	 * Build a new awPiePart

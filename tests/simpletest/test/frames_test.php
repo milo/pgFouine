@@ -242,8 +242,8 @@
     }
     
     class TestOfFramesetPageInterface extends UnitTestCase {
-        var $_page_interface;
-        var $_frameset_interface;
+        public $_page_interface;
+        public $_frameset_interface;
         
         function TestOfFramesetPageInterface() {
             $this->UnitTestCase();

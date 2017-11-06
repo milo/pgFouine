@@ -27,11 +27,11 @@ function getTime($microtime) {
 }
 
 class Profiler {
-	var $stages = array();
-	var $tags = array();
-	var $currentStage = '';
-	var $start;
-	var $end;
+	public $stages = array();
+	public $tags = array();
+	public $currentStage = '';
+	public $start;
+	public $end;
 	
 	function Profiler() {
 	}

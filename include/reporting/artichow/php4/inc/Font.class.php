@@ -20,7 +20,7 @@ class awFont {
 	 * 
 	 * @param int $font
 	 */
-	var $font;
+	public $font;
 	
 	/**
 	 * Build the font
@@ -162,7 +162,7 @@ class awTTFFont extends awFont {
 	 *
 	 * @var int
 	 */
-	var $size;
+	public $size;
 
 	/**
 	 * Font file

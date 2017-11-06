@@ -23,7 +23,7 @@
  */
 
 class PostgreSQLVacuumLogLine {
-	var $text;
+	public $text;
 
 	function PostgreSQLVacuumLogLine($text = '') {
 		$this->text = trim($text);

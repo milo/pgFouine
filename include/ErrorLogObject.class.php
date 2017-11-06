@@ -22,10 +22,10 @@
  */
 
 class ErrorLogObject extends LogObject {
-	var $hint = '';
-	var $detail = '';
-	var $error = '';
-	var $textIsAStatement = false;
+	public $hint = '';
+	public $detail = '';
+	public $error = '';
+	public $textIsAStatement = false;
 	
 	function ErrorLogObject($connectionId, $user, $db, $text = 'No error message') {
 		$this->error = $text;

@@ -1,7 +1,7 @@
 <?php
 
 class PostgreSQLVacuumingDatabaseLine extends PostgreSQLVacuumLogLine {
-	var $database;
+	public $database;
 
 	function PostgreSQLVacuumingDatabaseLine($database) {
 		$this->PostgreSQLVacuumLogLine();

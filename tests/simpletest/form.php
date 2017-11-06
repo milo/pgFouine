@@ -20,7 +20,7 @@
 	 *    @subpackage WebTester
      */
     class SimpleNameSelector {
-        var $_name;
+        public $_name;
         
         /**
          *    Stashes the name for later comparison.
@@ -48,7 +48,7 @@
 	 *    @subpackage WebTester
      */
     class SimpleLabelSelector {
-        var $_label;
+        public $_label;
         
         /**
          *    Stashes the name for later comparison.
@@ -75,7 +75,7 @@
 	 *    @subpackage WebTester
      */
     class SimpleIdSelector {
-        var $_id;
+        public $_id;
         
         /**
          *    Stashes the name for later comparison.
@@ -101,15 +101,15 @@
 	 *    @subpackage WebTester
      */
     class SimpleForm {
-        var $_method;
-        var $_action;
-        var $_default_target;
-        var $_id;
-        var $_buttons;
-        var $_images;
-        var $_widgets;
-        var $_radios;
-        var $_checkboxes;
+        public $_method;
+        public $_action;
+        public $_default_target;
+        public $_id;
+        public $_buttons;
+        public $_images;
+        public $_widgets;
+        public $_radios;
+        public $_checkboxes;
         
         /**
          *    Starts with no held controls/widgets.

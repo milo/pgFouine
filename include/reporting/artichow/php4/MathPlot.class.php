@@ -21,42 +21,42 @@ class awMathFunction {
 	 *
 	 * @var Line
 	 */
-	var $line;
+	public $line;
 	
 	/**
 	 * Marks for your plot
 	 *
 	 * @var Mark
 	 */
-	var $mark;
+	public $mark;
 	
 	/**
 	 * Callback function
 	 *
 	 * @var string
 	 */
-	var $f;
+	public $f;
 	
 	/**
 	 * Start the drawing from this value
 	 *
 	 * @var float
 	 */
-	var $fromX;
+	public $fromX;
 	
 	/**
 	 * Stop the drawing at this value
 	 *
 	 * @var float
 	 */
-	var $toX;
+	public $toX;
 
 	/**
 	 * Line color
 	 *
 	 * @var Color
 	 */
-	var $color;
+	public $color;
 	
 	/**
 	 * Construct the function
@@ -155,42 +155,42 @@ class awMathPlot extends awComponent {
 	 *
 	 * @var array
 	 */
-	var $functions = array();
+	public $functions = array();
 	
 	/**
 	 * Grid properties
 	 *
 	 * @var Grid
 	 */
-	var $grid;
+	public $grid;
 	
 	/**
 	 * X axis
 	 *
 	 * @var Axis
 	 */
-	var $xAxis;
+	public $xAxis;
 	
 	/**
 	 * Y axis
 	 *
 	 * @var Axis
 	 */
-	var $yAxis;
+	public $yAxis;
 	
 	/**
 	 * Extremum
 	 *
 	 * @var Side
 	 */
-	var $extremum = NULL;
+	public $extremum = NULL;
 	
 	/**
 	 * Interval
 	 *
 	 * @var float
 	 */
-	var $interval = 1;
+	public $interval = 1;
 	
 	/**
 	 * Build the plot

@@ -19,8 +19,8 @@
 	 *	  @subpackage UnitTester
      */
     class XmlReporter extends SimpleReporter {
-        var $_indent;
-        var $_namespace;
+        public $_indent;
+        public $_namespace;
         
         /**
          *    Does nothing yet.
@@ -259,8 +259,8 @@
 	 *	  @subpackage UnitTester
      */
     class NestingXmlTag {
-        var $_name;
-        var $_attributes;
+        public $_name;
+        public $_attributes;
         
         /**
          *    Sets the basic test information except
@@ -441,12 +441,12 @@
 	 *	  @subpackage UnitTester
      */
     class SimpleTestXmlParser {
-        var $_listener;
-        var $_expat;
-        var $_tag_stack;
-        var $_in_content_tag;
-        var $_content;
-        var $_attributes;
+        public $_listener;
+        public $_expat;
+        public $_tag_stack;
+        public $_in_content_tag;
+        public $_content;
+        public $_attributes;
         
         /**
          *    Loads a listener with the SimpleReporter

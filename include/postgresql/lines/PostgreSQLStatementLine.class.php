@@ -22,7 +22,7 @@
  */
 
 class PostgreSQLStatementLine extends PostgreSQLQueryStartLine {
-	var $ignore = false;
+	public $ignore = false;
 
 	function appendTo(& $logObject) {
 		if(is_a($logObject, 'ErrorLogObject')) {

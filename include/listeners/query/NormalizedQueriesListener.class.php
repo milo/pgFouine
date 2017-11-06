@@ -22,8 +22,8 @@
  */
 
 class NormalizedQueriesListener extends QueryListener {
-	var $queryList = array();
-	var $queriesNumber = 10;
+	public $queryList = array();
+	public $queriesNumber = 10;
 	
 	function NormalizedQueriesListener() {
 		$this->queriesNumber = CONFIG_TOP_QUERIES_NUMBER;

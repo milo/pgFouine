@@ -30,8 +30,8 @@
 	 *    @subpackage	UnitTester
      */
     class SimpleTestCase {
-        var $_label;
-        var $_runner;
+        public $_label;
+        public $_runner;
 
         /**
          *    Sets up the test with no display.
@@ -280,10 +280,10 @@
 	 *    @subpackage	UnitTester
      */
     class GroupTest {
-        var $_label;
-        var $_test_cases;
-        var $_old_track_errors;
-        var $_xdebug_is_enabled;
+        public $_label;
+        public $_test_cases;
+        public $_old_track_errors;
+        public $_xdebug_is_enabled;
 
         /**
          *    Sets the name of the test suite.
@@ -505,8 +505,8 @@
 	 *    @subpackage	UnitTester
      */
     class BadGroupTest {
-        var $_label;
-        var $_error;
+        public $_label;
+        public $_error;
 
         /**
          *    Sets the name of the test suite and error message.

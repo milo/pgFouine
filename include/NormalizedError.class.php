@@ -22,14 +22,14 @@
  */
 
 class NormalizedError {
-	var $normalizedText;
-	var $error = '';
-	var $hint = '';
-	var $detail = '';
-	var $textIsAStatement = false;
-	var $examples = array();
-	var $count = 0;
-	var $hourlyStatistics = array();
+	public $normalizedText;
+	public $error = '';
+	public $hint = '';
+	public $detail = '';
+	public $textIsAStatement = false;
+	public $examples = array();
+	public $count = 0;
+	public $hourlyStatistics = array();
 	
 	function NormalizedError(& $error) {
 		$this->normalizedText = $error->getNormalizedText();

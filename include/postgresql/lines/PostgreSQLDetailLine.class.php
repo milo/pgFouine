@@ -22,7 +22,7 @@
  */
 
 class PostgreSQLDetailLine extends PostgreSQLLogLine {
-	var $ignore = false;
+	public $ignore = false;
 
 	function appendTo(& $logObject) {
 		$logObject->appendDetail($this->text);

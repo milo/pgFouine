@@ -22,7 +22,7 @@
  */
 
 class DurationLogObject extends LogObject {
-	var $duration;
+	public $duration;
 	
 	function DurationLogObject($connectionId, $user, $db, $duration) {
 		$this->LogObject($connectionId, $user, $db);

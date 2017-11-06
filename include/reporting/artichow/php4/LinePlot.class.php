@@ -28,63 +28,63 @@ class awLinePlot extends awPlot {
 	 *
 	 * @var Mark
 	 */
-	var $mark;
+	public $mark;
 	
 	/**
 	 * Labels on your line plot
 	 *
 	 * @var Label
 	 */
-	var $label;
+	public $label;
 	
 	/**
 	 * Filled areas
 	 *
 	 * @var bool
 	 */
-	var $areas = array();
+	public $areas = array();
 	
 	/**
 	 * Is the line hidden
 	 *
 	 * @var bool
 	 */
-	var $lineHide = FALSE;
+	public $lineHide = FALSE;
 	
 	/**
 	 * Line color
 	 *
 	 * @var Color
 	 */
-	var $lineColor;
+	public $lineColor;
 	
 	/**
 	 * Line mode
 	 *
 	 * @var int
 	 */
-	var $lineMode = LINEPLOT_LINE;
+	public $lineMode = LINEPLOT_LINE;
 	
 	/**
 	 * Line type
 	 *
 	 * @var int
 	 */
-	var $lineStyle = LINE_SOLID;
+	public $lineStyle = LINE_SOLID;
 	
 	/**
 	 * Line thickness
 	 *
 	 * @var int
 	 */
-	var $lineThickness = 1;
+	public $lineThickness = 1;
 	
 	/**
 	 * Line background
 	 *
 	 * @var Color, Gradient
 	 */
-	var $lineBackground;
+	public $lineBackground;
 	
 	/**
 	 * Line mode
@@ -406,49 +406,49 @@ class awSimpleLinePlot extends awPlot {
 	 *
 	 * @var Color
 	 */
-	var $lineColor;
+	public $lineColor;
 	
 	/**
 	 * Line start
 	 *
 	 * @var int
 	 */
-	var $lineStart;
+	public $lineStart;
 	
 	/**
 	 * Line stop
 	 *
 	 * @var int
 	 */
-	var $lineStop;
+	public $lineStop;
 	
 	/**
 	 * Line value
 	 *
 	 * @var flaot
 	 */
-	var $lineValue;
+	public $lineValue;
 	
 	/**
 	 * Line mode
 	 *
 	 * @var int
 	 */
-	var $lineMode = LINEPLOT_LINE;
+	public $lineMode = LINEPLOT_LINE;
 	
 	/**
 	 * Line type
 	 *
 	 * @var int
 	 */
-	var $lineStyle = LINE_SOLID;
+	public $lineStyle = LINE_SOLID;
 	
 	/**
 	 * Line thickness
 	 *
 	 * @var int
 	 */
-	var $lineThickness = 1;
+	public $lineThickness = 1;
 	
 	/**
 	 * Line mode

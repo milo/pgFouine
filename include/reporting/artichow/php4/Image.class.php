@@ -37,63 +37,63 @@ class awImage {
 	 *
 	 * @var int
 	 */
-	var $width;
+	public $width;
 
 	/**
 	 * Graph height
 	 *
 	 * @var int
 	 */
-	var $height;
+	public $height;
 	
 	/**
 	 * Use anti-aliasing ?
 	 *
 	 * @var bool
 	 */
-	var $antiAliasing = FALSE;
+	public $antiAliasing = FALSE;
 	
 	/**
 	 * Image format
 	 *
 	 * @var int
 	 */
-	var $format = IMAGE_PNG;
+	public $format = IMAGE_PNG;
 	
 	/**
 	 * Image background color
 	 *
 	 * @var Color
 	 */
-	var $background;
+	public $background;
 	
 	/**
 	 * GD resource
 	 *
 	 * @var resource
 	 */
-	var $resource;
+	public $resource;
 	
 	/**
 	 * Image drawer
 	 *
 	 * @var Drawer
 	 */
-	var $drawer;
+	public $drawer;
 	
 	/**
 	 * Shadow
 	 *
 	 * @var Shadow
 	 */
-	var $shadow;
+	public $shadow;
 	
 	/**
 	 * Image border
 	 *
 	 * @var Border
 	 */
-	var $border;
+	public $border;
 	
 	/**
 	 * Use JPEG for image

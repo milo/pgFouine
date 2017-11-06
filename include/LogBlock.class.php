@@ -36,11 +36,11 @@
  * numbers).
  */
 class LogBlock {
-	var $logStream;
-	var $commandNumber;
-	var $lines = array();
-	var $complete = false;
-	var $lastLineNumber = 0;
+	public $logStream;
+	public $commandNumber;
+	public $lines = array();
+	public $complete = false;
+	public $lastLineNumber = 0;
 	
 	function LogBlock(& $logStream, $commandNumber, & $line) {
 		$this->logStream =& $logStream;

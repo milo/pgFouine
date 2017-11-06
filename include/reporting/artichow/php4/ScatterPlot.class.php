@@ -21,56 +21,56 @@ class awScatterPlot extends awPlot {
 	 *
 	 * @var Mark
 	 */
-	var $mark;
+	public $mark;
 	
 	/**
 	 * Labels on the plot
 	 *
 	 * @var Label
 	 */
-	var $label;
+	public $label;
 	
 	/**
 	 * Link points ?
 	 *
 	 * @var bool
 	 */
-	var $link = FALSE;
+	public $link = FALSE;
 	
 	/**
 	 * Display impulses
 	 *
 	 * @var bool
 	 */
-	var $impulse = NULL;
+	public $impulse = NULL;
 	
 	/**
 	 * Link NULL points ?
 	 *
 	 * @var bool
 	 */
-	var $linkNull = FALSE;
+	public $linkNull = FALSE;
 	
 	/**
 	 * Line color
 	 *
 	 * @var Color
 	 */
-	var $lineColor;
+	public $lineColor;
 	
 	/**
 	 * Line type
 	 *
 	 * @var int
 	 */
-	var $lineStyle = LINE_SOLID;
+	public $lineStyle = LINE_SOLID;
 	
 	/**
 	 * Line thickness
 	 *
 	 * @var int
 	 */
-	var $lineThickness = 1;
+	public $lineThickness = 1;
 	 	
 	/**
 	 * Construct a new awScatterPlot

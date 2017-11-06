@@ -22,9 +22,9 @@
  */
 
 class PostgreSQLPreparedStatementExecuteLine extends PostgreSQLLogLine {
-	var $statementName;
-	var $portalName;
-	var $parameters = array();
+	public $statementName;
+	public $portalName;
+	public $parameters = array();
 	
 	function PostgreSQLPreparedStatementExecuteLine($statementName, $portalName, $text, $duration = false) {
 		$this->PostgreSQLLogLine($text, $duration);

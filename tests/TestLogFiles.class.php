@@ -1,8 +1,8 @@
 <?php
 
 class TestLogFiles extends UnitTestCase {
-	var $syslogParser;
-	var $logStream;
+	public $syslogParser;
+	public $logStream;
 	
 	function setup() {
 		$this->syslogParser = new SyslogPostgreSQLParser();

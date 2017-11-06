@@ -17,7 +17,7 @@
 	 *	  @subpackage	UnitTester
      */
     class SimpleErrorQueue {
-        var $_queue;
+        public $_queue;
         
         /**
          *    Starts with an empty queue.

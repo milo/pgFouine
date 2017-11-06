@@ -22,10 +22,10 @@
  */
 
 class SlowestQueryList {
-	var $size;
-	var $queries = array();
-	var $queriesCount = 0;
-	var $shortestDuration = 100000000;
+	public $size;
+	public $queries = array();
+	public $queriesCount = 0;
+	public $shortestDuration = 100000000;
 	
 	function SlowestQueryList($size) {
 		$this->size = $size;

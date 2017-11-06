@@ -20,9 +20,9 @@
 	 *	  @subpackage UnitTester
      */
     class RemoteTestCase {
-        var $_url;
-        var $_dry_url;
-        var $_size;
+        public $_url;
+        public $_dry_url;
+        public $_size;
         
         /**
          *    Sets the location of the remote test.

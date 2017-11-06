@@ -24,7 +24,7 @@
 	 *    @subpackage WebTester
      */
     class SimpleCookieJar {
-        var $_cookies;
+        public $_cookies;
         
         /**
          *    Constructor. Jar starts empty.
@@ -159,14 +159,14 @@
 	 *    @subpackage WebTester
      */
     class SimpleUserAgent {
-        var $_cookie_jar;
-        var $_authenticator;
-        var $_max_redirects;
-        var $_proxy;
-        var $_proxy_username;
-        var $_proxy_password;
-        var $_connection_timeout;
-        var $_additional_headers;
+        public $_cookie_jar;
+        public $_authenticator;
+        public $_max_redirects;
+        public $_proxy;
+        public $_proxy_username;
+        public $_proxy_password;
+        public $_connection_timeout;
+        public $_additional_headers;
         
         /**
          *    Starts with no cookies, realms or proxies.

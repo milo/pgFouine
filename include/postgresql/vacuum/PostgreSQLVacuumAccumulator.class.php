@@ -23,7 +23,7 @@
  */
 
 class PostgreSQLVacuumAccumulator extends Accumulator {
-	var $stream;
+	public $stream;
 	
 	function PostgreSQLVacuumAccumulator() {
 		$this->stream = new VacuumLogStream();

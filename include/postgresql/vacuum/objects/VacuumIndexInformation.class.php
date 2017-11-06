@@ -22,16 +22,16 @@
  */
 
 class VacuumIndexInformation {
-	var $vacuumedTable;
-	var $indexName;
-	var $numberOfRowVersions = 0;
-	var $numberOfPages = 0;
-	var $numberOfRemovedRowVersions = 0;
-	var $numberOfDeletedPages = 0;
-	var $numberOfReusablePages = 0;
-	var $systemCpuUsage = 0;
-	var $userCpuUsage = 0;
-	var $duration = 0;
+	public $vacuumedTable;
+	public $indexName;
+	public $numberOfRowVersions = 0;
+	public $numberOfPages = 0;
+	public $numberOfRemovedRowVersions = 0;
+	public $numberOfDeletedPages = 0;
+	public $numberOfReusablePages = 0;
+	public $systemCpuUsage = 0;
+	public $userCpuUsage = 0;
+	public $duration = 0;
 
 	function VacuumIndexInformation(& $vacuumedTable, $indexName, $numberOfRowVersions, $numberOfPages) {
 		$this->vacuumedTable =& $vacuumedTable;

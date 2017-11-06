@@ -19,84 +19,84 @@ class awAxis {
 	 *
 	 * @var Line
 	 */
-	var $line;
+	public $line;
 
 	/**
 	 * Axis labels
 	 *
 	 * @var Label
 	 */
-	var $label;
+	public $label;
 	
 	/**
 	 * Axis title
 	 *
 	 * @var Label
 	 */
-	var $title;
+	public $title;
 	
 	/**
 	 * Title position
 	 *
 	 * @var float
 	 */
-	var $titlePosition = 0.5;
+	public $titlePosition = 0.5;
 
 	/**
 	 * Labels number
 	 *
 	 * @var int
 	 */
-	var $labelNumber;
+	public $labelNumber;
 	
 	/**
 	 * Axis ticks
 	 *
 	 * @var array
 	 */
-	var $ticks = array();
+	public $ticks = array();
 
 	/**
 	 * Axis and ticks color
 	 *
 	 * @var Color
 	 */
-	var $color;
+	public $color;
 
 	/**
 	 * Axis left and right padding
 	 *
 	 * @var Side
 	 */
-	var $padding;
+	public $padding;
 
 	/**
 	 * Axis range
 	 *
 	 * @var array
 	 */
-	var $range;
+	public $range;
 
 	/**
 	 * Hide axis
 	 *
 	 * @var bool
 	 */
-	var $hide = FALSE;
+	public $hide = FALSE;
 
 	/**
 	 * Auto-scaling mode
 	 *
 	 * @var bool
 	 */
-	var $auto = TRUE;
+	public $auto = TRUE;
 
 	/**
 	 * Axis range callback function
 	 *
 	 * @var array
 	 */
-	var $rangeCallback = array(
+	public $rangeCallback = array(
 		'toValue' => 'toProportionalValue',
 		'toPosition' => 'toProportionalPosition'
 	);

@@ -21,14 +21,14 @@
 	 *
 	 * @var Color
 	 */
-	var $from;
+	public $from;
 
 	/**
 	 * To color
 	 *
 	 * @var Color
 	 */
-	var $to;
+	public $to;
 	
 	/**
 	 * Build the gradient
@@ -76,7 +76,7 @@ class awLinearGradient extends awGradient {
 	 *
 	 * @var int
 	 */
-	var $angle;
+	public $angle;
 	
 	/**
 	 * Build the linear gradient
@@ -112,7 +112,7 @@ class awBilinearGradient extends awLinearGradient {
 	 *
 	 * @var int Center between 0 and 1
 	 */
-	var $center;
+	public $center;
 	
 	/**
 	 * Build the bilinear gradient

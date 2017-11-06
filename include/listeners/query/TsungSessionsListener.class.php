@@ -22,7 +22,7 @@
  */
 
 class TsungSessionsListener extends QueryListener {
-	var $sessions = array();
+	public $sessions = array();
 	
 	function fireEvent(& $logObject) {
 		$connectionId = $logObject->getConnectionId() ? $logObject->getConnectionId() : 0;

@@ -24,10 +24,10 @@
 	 *    @subpackage WebTester
      */
     class ParallelRegex {
-        var $_patterns;
-        var $_labels;
-        var $_regex;
-        var $_case;
+        public $_patterns;
+        public $_labels;
+        public $_regex;
+        public $_case;
         
         /**
          *    Constructor. Starts with no patterns.
@@ -120,7 +120,7 @@
 	 *    @subpackage WebTester
      */
     class SimpleStateStack {
-        var $_stack;
+        public $_stack;
         
         /**
          *    Constructor. Starts in named state.
@@ -176,11 +176,11 @@
 	 *    @subpackage WebTester
      */
     class SimpleLexer {
-        var $_regexes;
-        var $_parser;
-        var $_mode;
-        var $_mode_handlers;
-        var $_case;
+        public $_regexes;
+        public $_parser;
+        public $_mode;
+        public $_mode_handlers;
+        public $_case;
         
         /**
          *    Sets up the lexer in case insensitive matching
@@ -446,11 +446,11 @@
 	 *    @subpackage WebTester
      */
     class SimpleSaxParser {
-        var $_lexer;
-        var $_listener;
-        var $_tag;
-        var $_attributes;
-        var $_current_attribute;
+        public $_lexer;
+        public $_listener;
+        public $_tag;
+        public $_attributes;
+        public $_current_attribute;
         
         /**
          *    Sets the listener.

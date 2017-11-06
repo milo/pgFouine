@@ -23,7 +23,7 @@
  */
 
 class FSMInformationListener {
-	var $fsmInformation;
+	public $fsmInformation;
 
 	function FSMInformationListener() {
 	}

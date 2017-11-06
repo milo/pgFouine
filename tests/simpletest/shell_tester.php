@@ -18,7 +18,7 @@
 	 *	  @subpackage UnitTester
      */
     class SimpleShell {
-        var $_output;
+        public $_output;
 
         /**
          *    Executes the shell comand and stashes the output.
@@ -69,9 +69,9 @@
 	 *	  @subpackage UnitTester
      */
     class ShellTestCase extends SimpleTestCase {
-        var $_current_shell;
-        var $_last_status;
-        var $_last_command;
+        public $_current_shell;
+        public $_last_status;
+        public $_last_command;
 
         /**
          *    Creates an empty test case. Should be subclassed

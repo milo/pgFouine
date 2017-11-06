@@ -18,7 +18,7 @@
     require_once('../xml.php');
 
     class TestDisplayClass {
-        var $_a;
+        public $_a;
 
         function TestDisplayClass($a) {
             $this->_a = $a;

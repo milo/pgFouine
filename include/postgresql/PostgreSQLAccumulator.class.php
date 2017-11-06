@@ -22,9 +22,9 @@
  */
 
 class PostgreSQLAccumulator extends Accumulator {
-	var $working = array();
-	var $stream;
-	var $lastTimestamp;
+	public $working = array();
+	public $stream;
+	public $lastTimestamp;
 	
 	function PostgreSQLAccumulator() {
 		$this->stream = new LogStream();

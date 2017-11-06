@@ -22,10 +22,10 @@
  */
 
 class Report {
-	var $reportAggregator;
-	var $title = '';
-	var $needs = array();
-	var $displayTitle = true;
+	public $reportAggregator;
+	public $title = '';
+	public $needs = array();
+	public $displayTitle = true;
 	
 	function Report(& $reportAggregator, $title, $needs, $displayTitle = true) {
 		$this->reportAggregator =& $reportAggregator;

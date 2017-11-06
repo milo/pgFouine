@@ -19,21 +19,21 @@ class awBorder {
 	 *
 	 * @var Color
 	 */
-	var $color;
+	public $color;
 
 	/**
 	 * Hide border ?
 	 *
 	 * @var bool
 	 */
-	var $hide = FALSE;
+	public $hide = FALSE;
 
 	/**
 	 * Border line style
 	 *
 	 * @var int
 	 */
-	var $style;
+	public $style;
 	
 	/**
 	 * Build the border

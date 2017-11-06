@@ -22,7 +22,7 @@ require_once dirname(__FILE__)."/Graph.class.php";
 	 *
 	 * @var array
 	 */
-	var $components;
+	public $components;
 	
 	/**
 	 * Build the component group
@@ -52,35 +52,35 @@ registerClass('ComponentGroup', TRUE);
 	 *
 	 * @var Drawer
 	 */
-	var $drawer;
+	public $drawer;
 
 	/**
 	 * Component width
 	 *
 	 * @var float
 	 */
-	var $width = 1.0;
+	public $width = 1.0;
 
 	/**
 	 * Component height
 	 *
 	 * @var float
 	 */
-	var $height = 1.0;
+	public $height = 1.0;
 
 	/**
 	 * Position X of the center the graph (from 0 to 1)
 	 *
 	 * @var float
 	 */
-	var $x = 0.5;
+	public $x = 0.5;
 
 	/**
 	 * Position Y of the center the graph (from 0 to 1)
 	 *
 	 * @var float
 	 */
-	var $y = 0.5;
+	public $y = 0.5;
 	
 	/**
 	 * Component absolute width (in pixels)
@@ -88,7 +88,7 @@ registerClass('ComponentGroup', TRUE);
 	 *
 	 * @var int
 	 */
-	var $w;
+	public $w;
 	
 	/**
 	 * Component absolute height (in pixels)
@@ -96,63 +96,63 @@ registerClass('ComponentGroup', TRUE);
 	 *
 	 * @var int
 	 */
-	var $h;
+	public $h;
 
 	/**
 	 * Left-top corner Y position
 	 *
 	 * @var float
 	 */
-	var $top;
+	public $top;
 
 	/**
 	 * Left-top corner X position
 	 *
 	 * @var float
 	 */
-	var $left;
+	public $left;
 	
 	/**
 	 * Component background color
 	 *
 	 * @var Color
 	 */
-	var $background;
+	public $background;
 	
 	/**
 	 * Component padding
 	 *
 	 * @var Side
 	 */
-	var $padding;
+	public $padding;
 	
 	/**
 	 * Component space
 	 *
 	 * @var Side
 	 */
-	var $space;
+	public $space;
 	
 	/**
 	 * Component title
 	 *
 	 * @var Label
 	 */
-	var $title;
+	public $title;
 	
 	/**
 	 * Adjust automatically the component ?
 	 *
 	 * @var bool
 	 */
-	var $auto = TRUE;
+	public $auto = TRUE;
 	
 	/**
 	 * Legend
 	 *
 	 * @var Legend
 	 */
-	var $legend;
+	public $legend;
 	
 	/**
 	 * Build the component

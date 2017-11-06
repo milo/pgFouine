@@ -22,7 +22,7 @@
  */
 
 class PostgreSQLContinuationLine extends PostgreSQLLogLine {
-	var $ignore = false;
+	public $ignore = false;
 
 	function PostgreSQLContinuationLine($text, $duration = false) {
 		$text = str_replace('^I', "\t", $text);

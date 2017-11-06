@@ -23,10 +23,10 @@
  */
 
 class VacuumLogObject {
-	var $database = '';
-	var $schema = '';
-	var $table = '';
-	var $ignored = false;
+	public $database = '';
+	public $schema = '';
+	public $table = '';
+	public $ignored = false;
 
 	function VacuumLogObject($database, $schema, $table, $ignored = false) {
 		$this->database = $database;

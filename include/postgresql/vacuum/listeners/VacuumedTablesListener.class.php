@@ -23,8 +23,8 @@
  */
 
 class VacuumedTablesListener {
-	var $vacuumedTables = array();
-	var $counter = 1;
+	public $vacuumedTables = array();
+	public $counter = 1;
 
 	function VacuumedTablesListener() {
 	}

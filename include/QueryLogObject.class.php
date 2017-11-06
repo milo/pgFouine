@@ -22,8 +22,8 @@
  */
 
 class QueryLogObject extends LogObject {
-	var $duration = false;
-	var $subQueries = array();
+	public $duration = false;
+	public $subQueries = array();
 
 	function QueryLogObject($connectionId, $user, $db, $text = '', $ignored = false) {
 		if(DEBUG > 1 && !$text) stderr('Empty text for QueryLogObject', true);
