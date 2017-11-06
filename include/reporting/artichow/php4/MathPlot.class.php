@@ -65,7 +65,7 @@ class awMathFunction {
 	 * @param float $fromX
 	 * @param float $toX
 	 */
-	 function awMathFunction($f, $fromX = NULL, $toX = NULL) {
+	 function __construct($f, $fromX = NULL, $toX = NULL) {
 	
 		$this->f = (string)$f;
 		$this->fromX = is_null($fromX) ? NULL : (float)$fromX;
@@ -200,7 +200,7 @@ class awMathPlot extends awComponent {
 	 * @param int $yMax Maximum Y value
 	 * @param int $yMin Minimum Y value
 	 */
-	 function awMathPlot($xMin, $xMax, $yMax, $yMin) {
+	 function __construct($xMin, $xMax, $yMax, $yMin) {
 	
 		parent::awComponent();
 		

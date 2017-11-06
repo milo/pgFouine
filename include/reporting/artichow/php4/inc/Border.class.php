@@ -41,7 +41,7 @@ class awBorder {
 	 * @param $color Border color
 	 * @param int $style Border style
 	 */
-	 function awBorder($color = NULL, $style = LINE_SOLID) {
+	 function __construct($color = NULL, $style = LINE_SOLID) {
 	
 		$this->setStyle($style);
 		

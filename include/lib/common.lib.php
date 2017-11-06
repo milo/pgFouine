@@ -141,7 +141,7 @@ function str_putcsv($input, $delimiter = ',', $enclosure = '"') {
 class RegExp {
 	public $pattern;
 	
-	function RegExp($pattern) {
+	function __construct($pattern) {
 		$this->pattern = $pattern;
 	}
 	
@@ -174,7 +174,7 @@ class RegExpMatch {
 	public $text;
 	public $matches = [];
 	
-	function RegExpMatch($text, & $matches) {
+	function __construct($text, & $matches) {
 		$this->text = $text;
 		$this->matches =& $matches;
 	}

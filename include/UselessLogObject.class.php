@@ -22,7 +22,7 @@
  */
 
 class UselessLogObject extends LogObject {
-	function UselessLogObject() {
+	function __construct() {
 	}
 	
 	function appendContext($context) {

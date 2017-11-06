@@ -22,7 +22,7 @@
  */
 
 class NormalizedQueriesSlowestAverageReport extends NormalizedReport {
-	function NormalizedQueriesSlowestAverageReport(& $reportAggregator) {
+	function __construct(& $reportAggregator) {
 		$this->NormalizedReport($reportAggregator, 'Slowest queries');
 	}
 	

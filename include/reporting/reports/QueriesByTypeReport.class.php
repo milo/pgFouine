@@ -22,7 +22,7 @@
  */
 
 class QueriesByTypeReport extends Report {
-	function QueriesByTypeReport(& $reportAggregator) {
+	function __construct(& $reportAggregator) {
 		$this->Report($reportAggregator, 'Queries by type', ['GlobalCountersListener']);
 	}
 	

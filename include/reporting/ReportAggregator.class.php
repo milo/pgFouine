@@ -26,7 +26,7 @@ class ReportAggregator {
 	public $logReader;
 	public $outputFilePath;
 	
-	function ReportAggregator(& $logReader, $outputFilePath = false) {
+	function __construct(& $logReader, $outputFilePath = false) {
 		$this->logReader =& $logReader;
 		$this->outputFilePath = $outputFilePath;
 	}

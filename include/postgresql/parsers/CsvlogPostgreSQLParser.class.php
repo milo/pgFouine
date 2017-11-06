@@ -23,7 +23,7 @@
 
 class CsvlogPostgreSQLParser extends PostgreSQLParser {
 	
-	function CsvlogPostgreSQLParser() {
+	function __construct() {
 	}
 
 	function & parse($data) {

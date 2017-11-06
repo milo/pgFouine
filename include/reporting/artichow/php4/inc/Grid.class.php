@@ -87,7 +87,7 @@ class awGrid {
 	/**
 	 * Build the factory
 	 */
-	 function awGrid() {
+	 function __construct() {
 	
 		// Set a grid default color
 		$this->color = new awColor(210, 210, 210);

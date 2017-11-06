@@ -157,7 +157,7 @@ class awLabel {
 	 *
 	 * @param string $label First label
 	 */
-	 function awLabel($label = NULL, $font = NULL, $color = NULL, $angle = 0) {
+	 function __construct($label = NULL, $font = NULL, $color = NULL, $angle = 0) {
 	
 		if(is_array($label)) {
 			$this->set($label);

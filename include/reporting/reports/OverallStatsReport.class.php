@@ -22,7 +22,7 @@
  */
 
 class OverallStatsReport extends Report {
-	function OverallStatsReport(& $reportAggregator) {
+	function __construct(& $reportAggregator) {
 		$this->Report($reportAggregator, 'Overall statistics', ['GlobalCountersListener']);
 	}
 	

@@ -22,7 +22,7 @@
  */
 
 class NormalizedReport extends Report {
-	function NormalizedReport(& $reportAggregator, $title, $needs = []) {
+	function __construct(& $reportAggregator, $title, $needs = []) {
 		$needs = array_merge(['NormalizedQueriesListener'], $needs);
 		$this->Report($reportAggregator, $title.' (N)', $needs);
 	}

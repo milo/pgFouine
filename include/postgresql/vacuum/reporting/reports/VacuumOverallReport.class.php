@@ -23,7 +23,7 @@
  */
 
 class VacuumOverallReport extends Report {
-	function VacuumOverallReport(& $reportAggregator) {
+	function __construct(& $reportAggregator) {
 		$this->Report($reportAggregator, 'Vacuum overall statistics', ['VacuumOverallListener']);
 	}
 	

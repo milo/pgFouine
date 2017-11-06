@@ -22,7 +22,7 @@
  */
 
 class QueriesHistoryPerPidReport extends Report {
-	function QueriesHistoryPerPidReport(& $reportAggregator) {
+	function __construct(& $reportAggregator) {
 		$this->Report($reportAggregator, 'Queries history per PID', ['QueriesHistoryListener']);
 	}
 	

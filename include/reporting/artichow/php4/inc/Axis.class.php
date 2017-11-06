@@ -107,7 +107,7 @@ class awAxis {
 	 * @param float $min Begin of the range of the axis
 	 * @param float $max End of the range of the axis
 	 */
-	 function awAxis($min = NULL, $max = NULL) {
+	 function __construct($min = NULL, $max = NULL) {
 	
 		$this->line = new awVector(
 			new awPoint(0, 0),

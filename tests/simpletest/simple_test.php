@@ -39,7 +39,7 @@
          *                            the class name is used.
          *    @access public
          */
-        function SimpleTestCase($label = false) {
+        function __construct($label = false) {
             $this->_label = $label ? $label : get_class($this);
             $this->_runner = false;
         }
@@ -291,7 +291,7 @@
          *                            of the test.
          *    @access public
          */
-        function GroupTest($label) {
+        function __construct($label) {
             $this->_label = $label;
             $this->_test_cases = [];
             $this->_old_track_errors = ini_get('track_errors');
@@ -514,7 +514,7 @@
          *                            of the test.
          *    @access public
          */
-        function BadGroupTest($label, $error) {
+        function __construct($label, $error) {
             $this->_label = $label;
             $this->_error = $error;
         }

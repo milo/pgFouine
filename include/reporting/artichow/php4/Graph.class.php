@@ -88,7 +88,7 @@ class awGraph extends awImage {
 	 * @param string $name Graph name for the cache (must be unique). Let it null to not use the cache.
 	 * @param int $timeout Cache timeout (unix timestamp)
 	 */
-	 function awGraph($width = NULL, $height = NULL, $name = NULL, $timeout = 0) {
+	 function __construct($width = NULL, $height = NULL, $name = NULL, $timeout = 0) {
 		
 		parent::awImage();
 	

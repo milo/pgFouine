@@ -49,7 +49,7 @@ class VacuumTableLogObject extends VacuumLogObject {
 	
 	public $number;
 	
-	function VacuumTableLogObject($database, $schema, $table, $ignored = false) {
+	function __construct($database, $schema, $table, $ignored = false) {
 		$this->VacuumLogObject($database, $schema, $table, $ignored);
 	}
 	

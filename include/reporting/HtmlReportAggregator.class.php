@@ -26,7 +26,7 @@ class HtmlReportAggregator extends ReportAggregator {
 	public $stylesheets = ['common.css'];
 	public $scripts = [];
 	
-	function HtmlReportAggregator(& $logReader, $outputFilePath = false) {
+	function __construct(& $logReader, $outputFilePath = false) {
 		$this->ReportAggregator($logReader, $outputFilePath);
 		
 		$this->geshi = new GeSHi('', 'sql');

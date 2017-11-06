@@ -24,7 +24,7 @@
 
 class PostgreSQLFSMInformationDetailLine extends PostgreSQLVacuumLogLine {
 
-	function PostgreSQLFSMInformationDetailLine($text) {
+	function __construct($text) {
 		$this->PostgreSQLVacuumLogLine($text);
 	}
 	

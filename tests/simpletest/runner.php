@@ -34,7 +34,7 @@
          *    Stashes the test case for later.
          *    @param SimpleTestCase $test_case  Test case to run.
          */
-        function SimpleInvoker(&$test_case) {
+        function __construct(&$test_case) {
             $this->_test_case = &$test_case;
         }
         
@@ -73,7 +73,7 @@
          *    Stores the invoker to wrap.
          *    @param SimpleInvoker $invoker  Test method runner.
          */
-        function SimpleInvokerDecorator(&$invoker) {
+        function __construct(&$invoker) {
             $this->_invoker = &$invoker;
         }
         
@@ -109,7 +109,7 @@
          *    Stores the invoker to wrap.
          *    @param SimpleInvoker $invoker  Test method runner.
          */
-        function SimpleErrorTrappingInvoker(&$invoker) {
+        function __construct(&$invoker) {
             $this->SimpleInvokerDecorator($invoker);
         }
         
@@ -148,7 +148,7 @@
          *    @param SimpleTestCase $test_case  Test case to run.
          *    @param SimpleScorer $scorer       Reporter to receive events.
          */
-        function SimpleRunner(&$test_case, &$scorer) {
+        function __construct(&$test_case, &$scorer) {
             $this->_test_case = &$test_case;
             $this->_scorer = &$scorer;
         }

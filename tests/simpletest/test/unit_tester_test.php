@@ -26,7 +26,7 @@
     }
     
     class JBehaveStyleRunner extends SimpleRunner {
-        function JBehaveStyleRunner(&$test_case, &$scorer) {
+        function __construct(&$test_case, &$scorer) {
             $this->SimpleRunner($test_case, $scorer);
         }
         

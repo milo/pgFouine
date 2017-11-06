@@ -40,7 +40,7 @@ class GenericLogReader {
 	public $reportAggregators = [];
 	public $listeners = [];
 	
-	function GenericLogReader($fileName, $lineParserName, $accumulatorName, $displayHelp = true) {
+	function __construct($fileName, $lineParserName, $accumulatorName, $displayHelp = true) {
 		$this->fileName = $fileName;
 		$this->lineParserName = $lineParserName;
 		$this->accumulatorName = $accumulatorName;

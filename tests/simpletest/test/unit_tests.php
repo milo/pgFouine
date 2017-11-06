@@ -12,7 +12,7 @@
     require_once('../extensions/phpunit_test_case.php');
     
     class UnitTests extends GroupTest {
-        function UnitTests() {
+        function __construct() {
             $this->GroupTest('Unit tests');
             $this->addTestFile('errors_test.php');
             $this->addTestFile('options_test.php');

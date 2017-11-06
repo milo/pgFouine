@@ -22,7 +22,7 @@
  */
 
 class NormalizedErrorsMostFrequentReport extends NormalizedErrorsReport {
-	function NormalizedErrorsMostFrequentReport(& $reportAggregator) {
+	function __construct(& $reportAggregator) {
 		$this->NormalizedErrorsReport($reportAggregator, 'Most frequent errors');
 	}
 	

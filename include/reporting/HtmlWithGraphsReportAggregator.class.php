@@ -22,7 +22,7 @@
  */
 
 class HtmlWithGraphsReportAggregator extends HtmlReportAggregator {
-	function HtmlWithGraphsReportAggregator(& $logReader, $outputFilePath = false) {
+	function __construct(& $logReader, $outputFilePath = false) {
 		require_once('artichow/LinePlot.class.php');
 		require_once('artichow/BarPlot.class.php');
 		

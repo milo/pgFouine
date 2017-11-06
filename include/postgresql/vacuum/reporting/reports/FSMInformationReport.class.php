@@ -23,7 +23,7 @@
  */
 
 class FSMInformationReport extends Report {
-	function FSMInformationReport(& $reportAggregator) {
+	function __construct(& $reportAggregator) {
 		$this->Report($reportAggregator, 'FSM information', ['FSMInformationListener']);
 	}
 	

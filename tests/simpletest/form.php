@@ -26,7 +26,7 @@
          *    Stashes the name for later comparison.
          *    @param string $name     Name attribute to match.
          */
-        function SimpleNameSelector($name) {
+        function __construct($name) {
             $this->_name = $name;
         }
 
@@ -54,7 +54,7 @@
          *    Stashes the name for later comparison.
          *    @param string $label     Visible text to match.
          */
-        function SimpleLabelSelector($label) {
+        function __construct($label) {
             $this->_label = $label;
         }
 
@@ -81,7 +81,7 @@
          *    Stashes the name for later comparison.
          *    @param string $id     ID atribute to match.
          */
-        function SimpleIdSelector($id) {
+        function __construct($id) {
             $this->_id = $id;
         }
 
@@ -116,7 +116,7 @@
          *    @param SimpleTag $tag        Form tag to read.
          *    @param SimpleUrl $url        Location of holding page.
          */
-        function SimpleForm($tag, $url) {
+        function __construct($tag, $url) {
             $this->_method = $tag->getAttribute('method');
             $this->_action = $this->_createAction($tag->getAttribute('action'), $url);
             $this->_default_target = false;

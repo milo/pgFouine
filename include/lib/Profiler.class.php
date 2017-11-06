@@ -33,7 +33,7 @@ class Profiler {
 	public $start;
 	public $end;
 	
-	function Profiler() {
+	function __construct() {
 	}
 	
 	function start() {

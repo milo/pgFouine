@@ -25,7 +25,7 @@
 class FSMInformationListener {
 	public $fsmInformation;
 
-	function FSMInformationListener() {
+	function __construct() {
 	}
 	
 	function fireEvent(& $fsmInformation) {

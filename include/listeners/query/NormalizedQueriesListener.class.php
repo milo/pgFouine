@@ -25,7 +25,7 @@ class NormalizedQueriesListener extends QueryListener {
 	public $queryList = [];
 	public $queriesNumber = 10;
 	
-	function NormalizedQueriesListener() {
+	function __construct() {
 		$this->queriesNumber = CONFIG_TOP_QUERIES_NUMBER;
 	}
 	

@@ -69,7 +69,7 @@ class awText {
 	 *
 	 * @param string $text Your text
 	 */
-	 function awText($text, $font = NULL, $color = NULL, $angle = 0) {
+	 function __construct($text, $font = NULL, $color = NULL, $angle = 0) {
 	
 		if(is_null($font)) {
 			$font = new awFont2;

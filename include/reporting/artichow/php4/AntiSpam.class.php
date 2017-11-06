@@ -36,7 +36,7 @@ class awAntiSpam extends awImage {
 	 *
 	 * @param string $string A string to display
 	 */
-	 function awAntiSpam($string = '') {
+	 function __construct($string = '') {
 	
 		parent::awImage();
 		

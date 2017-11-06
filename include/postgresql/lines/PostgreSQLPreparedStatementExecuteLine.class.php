@@ -26,7 +26,7 @@ class PostgreSQLPreparedStatementExecuteLine extends PostgreSQLLogLine {
 	public $portalName;
 	public $parameters = [];
 	
-	function PostgreSQLPreparedStatementExecuteLine($statementName, $portalName, $text, $duration = false) {
+	function __construct($statementName, $portalName, $text, $duration = false) {
 		$this->PostgreSQLLogLine($text, $duration);
 		
 		$this->statementName = $statementName;

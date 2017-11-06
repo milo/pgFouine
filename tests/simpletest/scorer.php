@@ -24,7 +24,7 @@
          *    Starts the test run with no results.
          *    @access public
          */
-        function SimpleScorer() {
+        function __construct() {
             $this->_passes = 0;
             $this->_fails = 0;
             $this->_exceptions = 0;
@@ -223,7 +223,7 @@
          *    Starts the display with no results in.
          *    @access public
          */
-        function SimpleReporter() {
+        function __construct() {
             $this->SimpleScorer();
             $this->_test_stack = [];
             $this->_size = null;

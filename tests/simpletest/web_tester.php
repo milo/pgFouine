@@ -28,7 +28,7 @@
          *    @param mixed $value        Test value to match.
          *    @access public
          */
-        function FieldExpectation($value) {
+        function __construct($value) {
             $this->SimpleExpectation();
             if (is_array($value)) {
                 sort($value);
@@ -138,7 +138,7 @@
          *    @param string $value    Optional value to compare. If not
          *                            given then any value will match.
          */
-        function HttpHeaderExpectation($header, $value = false) {
+        function __construct($header, $value = false) {
             $this->_expected_header = $this->_normaliseHeader($header);
             $this->_expected_value = $value;
         }
@@ -256,7 +256,7 @@
          *    Sets the field and value to compare against.
          *    @param string $unwanted   Case insenstive trimmed header name.
          */
-        function HttpUnwantedHeaderExpectation($unwanted) {
+        function __construct($unwanted) {
             $this->HttpHeaderExpectation($unwanted);
         }
         
@@ -300,7 +300,7 @@
          *    @param string $pattern  Pattern to compare value against.
          *    @access public
          */
-        function HttpHeaderPatternExpectation($header, $pattern) {
+        function __construct($header, $pattern) {
             $this->HttpHeaderExpectation($header, $pattern);
         }
         
@@ -330,7 +330,7 @@
          *    @param string $message    Customised message on failure.
          *    @access public
          */
-        function WantedTextExpectation($substring, $message = '%s') {
+        function __construct($substring, $message = '%s') {
             $this->SimpleExpectation($message);
             $this->_substring = $substring;
         }
@@ -403,7 +403,7 @@
          *    @param string $message    Customised message on failure.
          *    @access public
          */
-        function UnwantedTextExpectation($substring, $message = '%s') {
+        function __construct($substring, $message = '%s') {
             $this->WantedTextExpectation($substring, $message);
         }
         
@@ -450,7 +450,7 @@
          *    @param SimpleTestCase $test_case  Test case to run.
          *    @param SimpleScorer $scorer       Reporter to receive events.
          */
-        function WebTestCaseInvoker(&$invoker) {
+        function __construct(&$invoker) {
             $this->SimpleInvokerDecorator($invoker);
         }
         
@@ -484,7 +484,7 @@
          *                             the class name if none specified.
          *    @access public
          */
-        function WebTestCase($label = false) {
+        function __construct($label = false) {
             $this->SimpleTestCase($label);
         }
         

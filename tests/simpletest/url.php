@@ -37,7 +37,7 @@
          *    @param string $url        Incoming URL.
          *    @access public
          */
-        function SimpleUrl($url) {
+        function __construct($url) {
             list($x, $y) = $this->_chompCoordinates($url);
             $this->_scheme = $this->_chompScheme($url);
             list($this->_username, $this->_password) = $this->_chompLogin($url);

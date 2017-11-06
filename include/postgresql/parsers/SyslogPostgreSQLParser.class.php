@@ -24,7 +24,7 @@
 class SyslogPostgreSQLParser extends PostgreSQLParser {
 	public $regexpSyslogContext;
 	
-	function SyslogPostgreSQLParser($syslogString = CONFIG_SYSLOG_IDENTITY) {
+	function __construct($syslogString = CONFIG_SYSLOG_IDENTITY) {
 		$this->regexpSyslogContext = new RegExp('/^((?:[0-9]{4}\-[0-9]{2}\-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2})|(?:(?:[0-9]{4} )?[A-Z][a-z]{2} [ 0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}))..*? '.$syslogString.'\[(\d{1,7})\]: .*?\[(\d{1,20})(?:\-(\d{1,5}))?\] /');
 	}
 

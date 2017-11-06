@@ -42,7 +42,7 @@ class LogBlock {
 	public $complete = false;
 	public $lastLineNumber = 0;
 	
-	function LogBlock(& $logStream, $commandNumber, & $line) {
+	function __construct(& $logStream, $commandNumber, & $line) {
 		$this->logStream =& $logStream;
 		$this->commandNumber = $commandNumber;
 		$this->addLine($line);

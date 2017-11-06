@@ -27,7 +27,7 @@ require_once dirname(__FILE__)."/Graph.class.php";
 	/**
 	 * Build the component group
 	 */
-	 function awComponentGroup() {
+	 function __construct() {
 		parent::awComponent();
 		$this->components = [];
 	}
@@ -157,7 +157,7 @@ registerClass('ComponentGroup', TRUE);
 	/**
 	 * Build the component
 	 */
-	 function awComponent() {
+	 function __construct() {
 		
 		// Component legend
 		$this->legend = new awLegend();

@@ -13,7 +13,7 @@
     // SimpleTestOptions::useProxy('http://my-proxy', 'optional username', 'optional password');
         
     class AllTests extends GroupTest {
-        function AllTests() {
+        function __construct() {
             $this->GroupTest('All tests for SimpleTest ' . SimpleTestOptions::getVersion());
             $this->addTestCase(new UnitTests());
             $this->addTestFile('shell_test.php');

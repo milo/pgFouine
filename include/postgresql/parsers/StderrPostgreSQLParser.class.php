@@ -30,7 +30,7 @@ class StderrPostgreSQLParser extends PostgreSQLParser {
 	public $lineNumber = false;
 	public $tainted = false;
 	
-	function StderrPostgreSQLParser() {
+	function __construct() {
 		$this->regexpStderrContext = new RegExp('/^([0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2})(?: [A-Z]{2,4})? .*?\[(\d{1,7})\]: \[(\d{1,10})(?:\-(\d{1,5}))?\] /');
 	}
 

@@ -36,7 +36,7 @@
 	 * @param $from From color
 	 * @param $to To color
 	 */
-	 function awGradient($from, $to) {
+	 function __construct($from, $to) {
 	
 		$this->from = $from;
 		$this->to = $to;
@@ -85,7 +85,7 @@ class awLinearGradient extends awGradient {
 	 * @param $to To color
 	 * @param int $angle Gradient angle
 	 */
-	 function awLinearGradient($from, $to, $angle) {
+	 function __construct($from, $to, $angle) {
 	
 		parent::awGradient(
 			$from, $to
@@ -122,7 +122,7 @@ class awBilinearGradient extends awLinearGradient {
 	 * @param int $angle Gradient angle
 	 * @param int $center Gradient center
 	 */
-	 function awBilinearGradient($from, $to, $angle, $center = 0.5) {
+	 function __construct($from, $to, $angle, $center = 0.5) {
 	
 		parent::awLinearGradient(
 			$from, $to, $angle

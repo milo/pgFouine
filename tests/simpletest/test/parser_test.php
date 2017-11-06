@@ -507,7 +507,7 @@
     class TestSimpleSaxParser extends SimpleSaxParser {
         public $_lexer;
         
-        function TestSimpleSaxParser(&$listener, &$lexer) {
+        function __construct(&$listener, &$lexer) {
             $this->_lexer = &$lexer;
             $this->SimpleSaxParser($listener);
         }

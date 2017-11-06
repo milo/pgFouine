@@ -145,7 +145,7 @@ class awPoint extends awShape {
 	 * @param float $x
 	 * @param float $y
 	 */
-	 function awPoint($x, $y) {
+	 function __construct($x, $y) {
 	
 		$this->setLocation($x, $y);
 		
@@ -256,7 +256,7 @@ class awLine extends awShape {
 	 * @param int $type Style of line (default to solid)
 	 * @param int $thickness Line thickness (default to 1)
 	 */
-	 function awLine($p1 = NULL, $p2 = NULL, $type = LINE_SOLID, $thickness = 1) {
+	 function __construct($p1 = NULL, $p2 = NULL, $type = LINE_SOLID, $thickness = 1) {
 	
 		$this->setLocation($p1, $p2);
 		$this->setStyle($type);

@@ -26,7 +26,7 @@ class PostgreSQLVacuumOperationInformationLine extends PostgreSQLVacuumLogLine {
 	public $numberOfRowVersionsMoved;
 	public $numberOfPagesRemoved;
 
-	function PostgreSQLVacuumOperationInformationLine($numberOfRowVersionsMoved, $numberOfPagesRemoved) {
+	function __construct($numberOfRowVersionsMoved, $numberOfPagesRemoved) {
 		$this->PostgreSQLVacuumLogLine();
 		
 		$this->numberOfRowVersionsMoved = $numberOfRowVersionsMoved;

@@ -24,7 +24,7 @@
 
 class AnalyzeTableLogObject extends VacuumLogObject {
 	
-	function AnalyzeTableLogObject($database, $schema, $table, $ignored = false) {
+	function __construct($database, $schema, $table, $ignored = false) {
 		$this->VacuumLogObject($database, $schema, $table, $ignored);
 	}
 	

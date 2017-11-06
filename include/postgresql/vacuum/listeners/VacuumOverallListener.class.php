@@ -26,7 +26,7 @@ class VacuumOverallListener {
 	public $statistics = [];
 	public $statisticsPerDatabase = [];
 
-	function VacuumOverallListener() {
+	function __construct() {
 		$this->statistics['numberOfTables'] = 0;
 		$this->statistics['numberOfPages'] = 0;
 		$this->statistics['numberOfPagesRemoved'] = 0;

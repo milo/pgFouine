@@ -28,7 +28,7 @@ class VacuumLogObject {
 	public $table = '';
 	public $ignored = false;
 
-	function VacuumLogObject($database, $schema, $table, $ignored = false) {
+	function __construct($database, $schema, $table, $ignored = false) {
 		$this->database = $database;
 		$this->schema = $schema;
 		$this->table = $table;

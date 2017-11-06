@@ -108,7 +108,7 @@ class awShadow {
 	 *
 	 * @param int $position Shadow position
 	 */
-	 function awShadow($position) {
+	 function __construct($position) {
 		$this->setPosition($position);
 	}
 	

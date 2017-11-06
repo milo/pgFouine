@@ -106,7 +106,7 @@ class awLinePlot extends awPlot {
 	 * @param array $values Some numeric values for Y axis
 	 * @param int $mode
 	 */
-	 function awLinePlot($values, $mode = LINEPLOT_LINE) {
+	 function __construct($values, $mode = LINEPLOT_LINE) {
 	
 		parent::awPlot();
 		
@@ -472,7 +472,7 @@ class awSimpleLinePlot extends awPlot {
 	 * @param int $stop Line stop index
 	 * @param int $mode Line mode
 	 */
-	 function awSimpleLinePlot($value, $start, $stop, $mode = LINEPLOT_LINE) {
+	 function __construct($value, $start, $stop, $mode = LINEPLOT_LINE) {
 	
 		parent::awPlot();
 		

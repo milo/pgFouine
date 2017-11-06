@@ -23,7 +23,7 @@
          *    Starts with an empty queue.
          *    @access public
          */
-        function SimpleErrorQueue() {
+        function __construct() {
             $this->clear();
         }
         

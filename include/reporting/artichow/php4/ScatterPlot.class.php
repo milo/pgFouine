@@ -79,7 +79,7 @@ class awScatterPlot extends awPlot {
 	 * @param array $datax Numeric values for X axis
 	 * @param int $mode
 	 */
-	 function awScatterPlot($datay, $datax = NULL) {
+	 function __construct($datay, $datax = NULL) {
 	
 		parent::awPlot();
 		

@@ -156,7 +156,7 @@ define("PLOT_BOTH", 'both');
 	 * Build the plot
 	 *
 	 */
-	 function awPlot() {
+	 function __construct() {
 	
 		parent::awComponent();
 		
@@ -737,7 +737,7 @@ class awPlotAxis {
 	/**
 	 * Build the group of axis
 	 */
-	 function awPlotAxis() {
+	 function __construct() {
 	
 		$this->left = new awAxis;
 		$this->left->auto(TRUE);
@@ -874,7 +874,7 @@ class awPlotGroup extends awComponentGroup {
 	 * Build the PlotGroup
 	 *
 	 */
-	 function awPlotGroup() {
+	 function __construct() {
 	
 		parent::awComponentGroup();
 		

@@ -32,7 +32,7 @@ class PostgreSQLLogLine {
 	public $database = false;
 	public $user = false;
 	
-	function PostgreSQLLogLine($text = '', $duration = false) {
+	function __construct($text = '', $duration = false) {
 		$this->text = rtrim($text);
 		$this->duration = $duration;
 		

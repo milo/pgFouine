@@ -27,7 +27,7 @@ class awFont {
 	 *
 	 * @param int $font Font identifier
 	 */
-	 function awFont($font) {
+	 function __construct($font) {
 	
 		$this->font = $font;
 	
@@ -170,7 +170,7 @@ class awTTFFont extends awFont {
 	 * @param string $font Font file
 	 * @param int $size Font size
 	 */
-	 function awTTFFont($font, $size) {
+	 function __construct($font, $size) {
 	
 		parent::awFont($font);
 		

@@ -23,7 +23,7 @@
 
 class PostgreSQLIndexCleanupDetailLine extends PostgreSQLVacuumLogLine {
 
-	function PostgreSQLIndexCleanupDetailLine($text) {
+	function __construct($text) {
 		$this->PostgreSQLVacuumLogLine($text);
 	}
 	

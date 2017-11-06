@@ -24,7 +24,7 @@
 
 class PostgreSQLVacuumDetailLine extends PostgreSQLVacuumLogLine {
 
-	function PostgreSQLVacuumDetailLine($text) {
+	function __construct($text) {
 		$this->PostgreSQLVacuumLogLine($text);
 	}
 	

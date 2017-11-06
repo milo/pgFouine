@@ -27,7 +27,7 @@ class SlowestQueryList {
 	public $queriesCount = 0;
 	public $shortestDuration = 100000000;
 	
-	function SlowestQueryList($size) {
+	function __construct($size) {
 		$this->size = $size;
 	}
 	

@@ -22,7 +22,7 @@
  */
 
 class NormalizedQueriesMostTimeReport extends NormalizedReport {
-	function NormalizedQueriesMostTimeReport(& $reportAggregator) {
+	function __construct(& $reportAggregator) {
 		$this->NormalizedReport($reportAggregator, 'Queries that took up the most time');
 	}
 	

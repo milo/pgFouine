@@ -26,7 +26,7 @@ class PostgreSQLAccumulator extends Accumulator {
 	public $stream;
 	public $lastTimestamp;
 	
-	function PostgreSQLAccumulator() {
+	function __construct() {
 		$this->stream = new LogStream();
 	}
 

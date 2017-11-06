@@ -26,7 +26,7 @@ class PostgreSQLVacuumingTableLine extends PostgreSQLVacuumLogLine {
 	public $schema;
 	public $table;
 	
-	function PostgreSQLVacuumingTableLine($schema, $table) {
+	function __construct($schema, $table) {
 		$this->schema = $schema;
 		$this->table = $table;
 	}

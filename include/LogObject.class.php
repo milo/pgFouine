@@ -34,7 +34,7 @@ class LogObject {
 	public $number = 0;
 	public $location;
 
-	function LogObject($connectionId, $user, $database, $text = '', $ignored = false) {
+	function __construct($connectionId, $user, $database, $text = '', $ignored = false) {
 		$this->connectionId = $connectionId;
 		$this->user = $user;
 		$this->database = $database;

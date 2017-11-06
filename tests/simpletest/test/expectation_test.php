@@ -141,7 +141,7 @@
     class RecursiveNasty {
         public $_me;
         
-        function RecursiveNasty() {
+        function __construct() {
             $this->_me = $this;
         }
     }

@@ -25,7 +25,7 @@
 class PostgreSQLVacuumLogLine {
 	public $text;
 
-	function PostgreSQLVacuumLogLine($text = '') {
+	function __construct($text = '') {
 		$this->text = trim($text);
 	}
 	

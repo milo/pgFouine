@@ -22,7 +22,7 @@
  */
 
 class TsungSessionsReport extends Report {
-	function TsungSessionsReport(& $reportAggregator) {
+	function __construct(& $reportAggregator) {
 		$this->Report($reportAggregator, 'Tsung sessions', ['TsungSessionsListener'], false);
 	}
 	

@@ -47,7 +47,7 @@
     }
     
     class TestOfPhpUnitAdapter extends TestCase {
-        function TestOfPhpUnitAdapter() {
+        function __construct() {
             $this->TestCase("TestOfPhpUnitAdapter");
         }
         

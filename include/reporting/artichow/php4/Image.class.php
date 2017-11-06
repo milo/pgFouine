@@ -119,7 +119,7 @@ class awImage {
 	/**
 	 * Build the image
 	 */
-	 function awImage() {
+	 function __construct() {
 		
 		$this->background = new awColor(255, 255, 255);
 		$this->shadow = new awShadow(SHADOW_RIGHT_BOTTOM);
@@ -390,7 +390,7 @@ class awFileImage extends awImage {
 	 *
 	 * @param string $file Image file name
 	 */
-	 function awFileImage($file) {
+	 function __construct($file) {
 	
 		$image = @getimagesize($file);
 		

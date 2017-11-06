@@ -27,7 +27,7 @@ class Report {
 	public $needs = [];
 	public $displayTitle = true;
 	
-	function Report(& $reportAggregator, $title, $needs, $displayTitle = true) {
+	function __construct(& $reportAggregator, $title, $needs, $displayTitle = true) {
 		$this->reportAggregator =& $reportAggregator;
 		$this->title = $title;
 		$this->needs = $needs;

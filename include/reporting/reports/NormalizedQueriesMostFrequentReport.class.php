@@ -22,7 +22,7 @@
  */
 
 class NormalizedQueriesMostFrequentReport extends NormalizedReport {
-	function NormalizedQueriesMostFrequentReport(& $reportAggregator) {
+	function __construct(& $reportAggregator) {
 		$this->NormalizedReport($reportAggregator, 'Most frequent queries');
 	}
 	

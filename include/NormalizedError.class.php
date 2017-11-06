@@ -31,7 +31,7 @@ class NormalizedError {
 	public $count = 0;
 	public $hourlyStatistics = [];
 	
-	function NormalizedError(& $error) {
+	function __construct(& $error) {
 		$this->normalizedText = $error->getNormalizedText();
 		$this->error = $error->getError();
 		$this->hint = $error->getHint();

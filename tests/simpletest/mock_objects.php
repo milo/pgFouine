@@ -30,7 +30,7 @@
          *    Chains constructor only.
          *    @access public
          */
-        function WildcardExpectation() {
+        function __construct() {
             $this->SimpleExpectation();
         }
         
@@ -76,7 +76,7 @@
          *    @param string $message    Customised message on failure.
          *    @access public
          */
-        function ParametersExpectation($expected = false, $message = '%s') {
+        function __construct($expected = false, $message = '%s') {
             $this->SimpleExpectation($message);
             $this->_expected = $expected;
         }
@@ -206,7 +206,7 @@
          *    @param integer $count    Expected number of calls.
          *    @param string $message   Custom error message.
          */
-        function CallCountExpectation($method, $count, $message = '%s') {
+        function __construct($method, $count, $message = '%s') {
             $this->_method = $method;
             $this->_count = $count;
             $this->SimpleExpectation($message);
@@ -249,7 +249,7 @@
          *    @param integer $count    Minimum number of calls.
          *    @param string $message   Custom error message.
          */
-        function MinimumCallCountExpectation($method, $count, $message = '%s') {
+        function __construct($method, $count, $message = '%s') {
             $this->_method = $method;
             $this->_count = $count;
             $this->SimpleExpectation($message);
@@ -292,7 +292,7 @@
          *    @param integer $count    Minimum number of calls.
          *    @param string $message   Custom error message.
          */
-        function MaximumCallCountExpectation($method, $count, $message = '%s') {
+        function __construct($method, $count, $message = '%s') {
             $this->_method = $method;
             $this->_count = $count;
             $this->SimpleExpectation($message);
@@ -334,7 +334,7 @@
          *    Creates an empty call map.
          *    @access public
          */
-        function CallMap() {
+        function __construct() {
             $this->_map = [];
         }
         
@@ -427,7 +427,7 @@
          *    @param boolean $is_strict   Enables method name checks.
          *    @access public
          */
-        function SimpleStub($wildcard, $is_strict = true) {
+        function __construct($wildcard, $is_strict = true) {
             $this->_wildcard = $wildcard;
             $this->_is_strict = $is_strict;
             $this->_returns = [];
@@ -653,7 +653,7 @@
          *                                   expectations.
          *    @access public
          */
-        function SimpleMock(&$test, $wildcard, $is_strict = true) {
+        function __construct(&$test, $wildcard, $is_strict = true) {
             $this->SimpleStub($wildcard, $is_strict);
             if (! $test) {
                 trigger_error('No unit tester for mock object', E_USER_ERROR);
@@ -969,7 +969,7 @@
         /**
          *    Factory for server stub classes.
          */
-        function Stub() {
+        function __construct() {
             trigger_error('Stub factory methods are class only.');
         }
         
@@ -1082,7 +1082,7 @@
          *    Factory for mock object classes.
          *    @access public
          */
-        function Mock() {
+        function __construct() {
             trigger_error("Mock factory methods are class only.");
         }
         

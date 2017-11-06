@@ -22,7 +22,7 @@
  */
 
 class PostgreSQLQueryStartLine extends PostgreSQLLogLine {
-	function PostgreSQLQueryStartLine($text, $duration = false) {
+	function __construct($text, $duration = false) {
 		$this->PostgreSQLLogLine($this->filterQuery($text), $duration);
 	}
 

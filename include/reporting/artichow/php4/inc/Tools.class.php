@@ -59,7 +59,7 @@ class awSide {
 	 * @param mixed $top
 	 * @param mixed $bottom
 	 */
-	 function awSide($left = NULL, $right = NULL, $top = NULL, $bottom = NULL) {
+	 function __construct($left = NULL, $right = NULL, $top = NULL, $bottom = NULL) {
 		$this->set($left, $right, $top, $bottom);
 	}
 	

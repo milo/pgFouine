@@ -34,7 +34,7 @@ class FSMInformationLogObject extends VacuumLogObject {
 	public $maxNumberOfRelations = 0;
 	public $size = 0;
 	
-	function FSMInformationLogObject($currentNumberOfPageSlots, $currentNumberOfRelations) {
+	function __construct($currentNumberOfPageSlots, $currentNumberOfRelations) {
 		$this->currentNumberOfPageSlots = $currentNumberOfPageSlots;
 		$this->currentNumberOfRelations = $currentNumberOfRelations;
 	}

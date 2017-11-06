@@ -143,7 +143,7 @@ class awPie extends awComponent {
 	 *
 	 * @param array $values Pie values
 	 */
-	 function awPie($values, $colors = PIE_COLORED) {
+	 function __construct($values, $colors = PIE_COLORED) {
 		
 		$this->setValues($values);
 		
@@ -623,7 +623,7 @@ class awPiePart {
 	 *
 	 * @param $color Pie part color
 	 */
-	 function awPiePart($color) {
+	 function __construct($color) {
 	
 		$this->color = $color;
 	

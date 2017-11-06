@@ -26,7 +26,7 @@ class PostgreSQLFSMInformationLine extends PostgreSQLVacuumLogLine {
 	public $currentNumberOfPages;
 	public $currentNumberOfRelations;
 	
-	function PostgreSQLFSMInformationLine($currentNumberOfPages, $currentNumberOfRelations) {
+	function __construct($currentNumberOfPages, $currentNumberOfRelations) {
 		$this->currentNumberOfPages = $currentNumberOfPages;
 		$this->currentNumberOfRelations = $currentNumberOfRelations;
 	}

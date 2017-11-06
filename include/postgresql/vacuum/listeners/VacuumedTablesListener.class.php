@@ -26,7 +26,7 @@ class VacuumedTablesListener {
 	public $vacuumedTables = [];
 	public $counter = 1;
 
-	function VacuumedTablesListener() {
+	function __construct() {
 	}
 	
 	function fireEvent(& $vacuumedTable) {

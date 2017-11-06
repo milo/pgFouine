@@ -25,7 +25,7 @@ class PostgreSQLContextLine extends PostgreSQLLogLine {
 	public $ignore = false;
 	public $recognized = true;
 
-	function PostgreSQLContextLine($text) {
+	function __construct($text) {
 		global $postgreSQLRegexps;
 		
 		$statementMatch =& $postgreSQLRegexps['ContextSqlStatement']->match($text);

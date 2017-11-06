@@ -126,7 +126,7 @@ class awMark {
 	/**
 	 * Build the mark
 	 */
-	 function awMark() {
+	 function __construct() {
 		
 		$this->fill = new awColor(255, 0, 0, 0);
 		$this->border = new awBorder;

@@ -25,7 +25,7 @@ class PostgreSQLPreparedStatementExecuteWithDurationLine extends PostgreSQLPrepa
 	public $statementName;
 	public $portalName;
 	
-	function PostgreSQLPreparedStatementExecuteWithDurationLine($statementName, $portalName, $text, $timeString, $unit) {
+	function __construct($statementName, $portalName, $text, $timeString, $unit) {
 		$this->PostgreSQLPreparedStatementExecuteLine($statementName, $portalName, $text, $this->parseDuration($timeString, $unit));
 	}
 	

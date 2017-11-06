@@ -22,7 +22,7 @@
  */
 
 class SlowestQueriesReport extends Report {
-	function SlowestQueriesReport(& $reportAggregator) {
+	function __construct(& $reportAggregator) {
 		$this->Report($reportAggregator, 'Slowest queries', ['SlowestQueriesListener']);
 	}
 	

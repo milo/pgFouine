@@ -28,7 +28,7 @@ class NormalizedQuery {
 	public $examples = false;
 	public $hourlyStatistics = [];
 	
-	function NormalizedQuery(& $query) {
+	function __construct(& $query) {
 		$this->normalizedText = $query->getNormalizedText();
 		$maxExamples = CONFIG_MAX_NUMBER_OF_EXAMPLES;
 		if($maxExamples) {

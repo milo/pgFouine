@@ -112,7 +112,7 @@ class awTick {
 	 * @param int $number Number of ticks
 	 * @param int $size Ticks size
 	 */
-	 function awTick($number, $size) {
+	 function __construct($number, $size) {
 		
 		$this->setSize($size);
 		$this->setNumber($number);

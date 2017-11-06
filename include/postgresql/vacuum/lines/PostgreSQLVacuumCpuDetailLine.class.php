@@ -27,7 +27,7 @@ class PostgreSQLVacuumCpuDetailLine extends PostgreSQLVacuumLogLine {
 	public $userCpuUsage;
 	public $duration;
 
-	function PostgreSQLVacuumCpuDetailLine($systemCpuUsage, $userCpuUsage, $duration) {
+	function __construct($systemCpuUsage, $userCpuUsage, $duration) {
 		$this->PostgreSQLVacuumLogLine();
 		
 		$this->systemCpuUsage = $systemCpuUsage;

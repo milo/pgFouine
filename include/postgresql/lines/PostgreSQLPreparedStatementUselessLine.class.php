@@ -23,7 +23,7 @@
 
 class PostgreSQLPreparedStatementUselessLine extends PostgreSQLLogLine {
 	
-	function PostgreSQLPreparedStatementUselessLine() {
+	function __construct() {
 		$this->PostgreSQLLogLine('');
 	}
 	

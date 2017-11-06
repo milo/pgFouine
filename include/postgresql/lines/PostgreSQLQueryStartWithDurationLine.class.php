@@ -24,7 +24,7 @@
 class PostgreSQLQueryStartWithDurationLine extends PostgreSQLQueryStartLine {
 	public $ignore = false;
 	
-	function PostgreSQLQueryStartWithDurationLine($text, $timeString, $unit) {
+	function __construct($text, $timeString, $unit) {
 		global $postgreSQLRegexps;
 		
 		$this->PostgreSQLQueryStartLine($text, $this->parseDuration($timeString, $unit));

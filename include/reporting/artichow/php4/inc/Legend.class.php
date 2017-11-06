@@ -193,7 +193,7 @@ class awLegend {
 	 *
 	 * @param int $model Legend model
 	 */
-	 function awLegend($model = LEGEND_MODEL_RIGHT) {
+	 function __construct($model = LEGEND_MODEL_RIGHT) {
 	
 		$this->shadow = new awShadow(SHADOW_LEFT_BOTTOM);
 		$this->border = new awBorder;

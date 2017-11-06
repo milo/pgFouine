@@ -28,7 +28,7 @@ class GlobalCountersListener extends QueryListener {
 	
 	public $queryPeakByTimestamp = [];
 	
-	function GlobalCountersListener() {
+	function __construct() {
 		$this->counter = new QueryCounter();
 	}
 	

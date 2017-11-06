@@ -57,7 +57,7 @@ class awDrawer {
 	 *
 	 * @var resource $resource A GD resource
 	 */
-	 function awDrawer($resource) {
+	 function __construct($resource) {
 	
 		$this->resource = $resource;
 		
@@ -655,7 +655,7 @@ class awGradientDrawer {
 	 *
 	 * @var $drawer 
 	 */
-	 function awGradientDrawer($drawer) {
+	 function __construct($drawer) {
 	
 		$this->drawer = $drawer;
 		

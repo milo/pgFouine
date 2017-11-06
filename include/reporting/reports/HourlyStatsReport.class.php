@@ -22,7 +22,7 @@
  */
 
 class HourlyStatsReport extends Report {
-	function HourlyStatsReport(& $reportAggregator) {
+	function __construct(& $reportAggregator) {
 		$this->Report($reportAggregator, 'Hourly statistics', ['HourlyCountersListener']);
 	}
 	

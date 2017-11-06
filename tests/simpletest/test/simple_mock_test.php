@@ -140,7 +140,7 @@
     }
     
     class Dummy {
-        function Dummy() {
+        function __construct() {
         }
         
         function aMethod($parameter) {
@@ -157,7 +157,7 @@
     Stub::generate("Dummy", "StubDummyWithExtraMethods", ["extraMethod"]);
     
     class SpecialSimpleStub extends SimpleStub {
-        function SpecialSimpleStub($wildcard) {
+        function __construct($wildcard) {
             $this->SimpleStub($wildcard);
         }
     }
@@ -318,7 +318,7 @@
     Mock::generate("Dummy", "MockDummyWithExtraMethods", ["extraMethod"]);
     
     class SpecialSimpleMock extends SimpleMock {
-        function SpecialSimpleMock(&$test, $wildcard) {
+        function __construct(&$test, $wildcard) {
             $this->SimpleMock($test, $wildcard);
         }
     }
@@ -432,7 +432,7 @@
     class TestOfMockExpectations extends UnitTestCase {
         public $_test;
         
-        function TestOfMockExpectations() {
+        function __construct() {
             $this->UnitTestCase();
         }
         

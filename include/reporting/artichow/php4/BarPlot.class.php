@@ -94,7 +94,7 @@ class awBarPlot extends awPlot {
 	 * @param int $number Bar plot number
 	 * @param int $depth Bar plot depth in pixels
 	 */
-	 function awBarPlot($values, $identifier = 1, $number = 1, $depth = 0) {
+	 function __construct($values, $identifier = 1, $number = 1, $depth = 0) {
 	
 		parent::awPlot();
 		

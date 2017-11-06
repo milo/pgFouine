@@ -33,7 +33,7 @@ class VacuumIndexInformation {
 	public $userCpuUsage = 0;
 	public $duration = 0;
 
-	function VacuumIndexInformation(& $vacuumedTable, $indexName, $numberOfRowVersions, $numberOfPages) {
+	function __construct(& $vacuumedTable, $indexName, $numberOfRowVersions, $numberOfPages) {
 		$this->vacuumedTable =& $vacuumedTable;
 		$this->indexName = $indexName;
 		$this->numberOfRowVersions = $numberOfRowVersions;

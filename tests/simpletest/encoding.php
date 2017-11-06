@@ -24,7 +24,7 @@
          *                                           as lists on a single key.
          *    @access public
          */
-        function SimpleFormEncoding($query = false) {
+        function __construct($query = false) {
             if (! $query) {
                 $query = [];
             }

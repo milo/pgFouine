@@ -37,7 +37,7 @@
          *    @param string $expiry          Expiry date as string.
          *    @param boolean $is_secure      Currently ignored.
          */
-        function SimpleCookie($name, $value = false, $path = false, $expiry = false, $is_secure = false) {
+        function __construct($name, $value = false, $path = false, $expiry = false, $is_secure = false) {
             $this->_host = false;
             $this->_name = $name;
             $this->_value = $value;
@@ -234,7 +234,7 @@
          *    @param SimpleUrl $url   URL as object.
          *    @access public
          */
-        function SimpleRoute($url) {
+        function __construct($url) {
             $this->_url = $url;
         }
         
@@ -329,7 +329,7 @@
          *    @param string $password   Password for autentication.
          *    @access public
          */
-        function SimpleProxyRoute($url, $proxy, $username = false, $password = false) {
+        function __construct($url, $proxy, $username = false, $password = false) {
             $this->SimpleRoute($url);
             $this->_proxy = $proxy;
             $this->_username = $username;
@@ -412,7 +412,7 @@
          *                                           request or false.
          *    @access public
          */
-        function SimpleHttpRequest(&$route, $method, $encoding = false) {
+        function __construct(&$route, $method, $encoding = false) {
             $this->_route = &$route;
             $this->_method = $method;
             $this->_encoding = $encoding;
@@ -541,7 +541,7 @@
          *    @param string $headers     Header block.
          *    @access public
          */
-        function SimpleHttpHeaders($headers) {
+        function __construct($headers) {
             $this->_raw_headers = $headers;
             $this->_response_code = false;
             $this->_http_version = false;
@@ -722,7 +722,7 @@
          *    @param mixed $request_data    Record of content sent.
          *    @access public
          */
-        function SimpleHttpResponse(&$socket, $method, $url, $request_data = '') {
+        function __construct(&$socket, $method, $url, $request_data = '') {
             $this->SimpleStickyError();
             $this->_method = $method;
             $this->_url = $url;

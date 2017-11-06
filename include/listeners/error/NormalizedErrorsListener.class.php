@@ -25,7 +25,7 @@ class NormalizedErrorsListener extends ErrorListener {
 	public $errorsList = [];
 	public $errorsNumber = 10;
 	
-	function NormalizedErrorsListener() {
+	function __construct() {
 		$this->errorsNumber = CONFIG_TOP_QUERIES_NUMBER;
 	}
 	

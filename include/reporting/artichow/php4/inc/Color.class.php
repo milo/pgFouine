@@ -30,7 +30,7 @@ class awColor {
 	 * @var int $blue Blue intensity (from 0 to 255)
 	 * @var int $alpha Alpha channel (from 0 to 100)
 	 */
-	 function awColor($red, $green, $blue, $alpha = 0) {
+	 function __construct($red, $green, $blue, $alpha = 0) {
 	
 		$this->red = (int)$red;
 		$this->green = (int)$green;

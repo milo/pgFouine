@@ -27,7 +27,7 @@ class ErrorLogObject extends LogObject {
 	public $error = '';
 	public $textIsAStatement = false;
 	
-	function ErrorLogObject($connectionId, $user, $db, $text = 'No error message') {
+	function __construct($connectionId, $user, $db, $text = 'No error message') {
 		$this->error = $text;
 		$this->LogObject($connectionId, $user, $db, $text);
 	}

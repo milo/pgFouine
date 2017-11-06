@@ -23,7 +23,7 @@
 
 class TextReportAggregator extends ReportAggregator {
 	
-	function TextReportAggregator(& $logReader, $outputFilePath = false) {
+	function __construct(& $logReader, $outputFilePath = false) {
 		$this->ReportAggregator($logReader, $outputFilePath);
 	}
 	
