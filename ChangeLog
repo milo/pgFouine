@@ -1,0 +1,508 @@
+2010-02-24  Guillaume Smet <guillaume.smet@gmail.com>
+
+	* applied [#1010728] support for rsyslog timestamp format by Peter Eisentraut
+	slightly modified by me
+	* fixed [#1010689] undefined method UselessLogObject::appendContext()
+	* fixed [#1010690] Incorrect results in report. Repeating examples, incorrect
+	statistics
+	* released 1.2
+
+2009-09-01  Guillaume Smet <guillaume-pg@smet.org>
+
+	* applied [#1010669] Add a '-quiet' option so unrecognised lines are not
+	displayed by Chris Smith
+
+2009-08-24  Guillaume Smet <guillaume-pg@smet.org>
+
+	* added -maxquerylength option per request from Josh Berkus
+	* added a CSV query report per request from David Fetter
+
+2009-04-26  Guillaume Smet <guillaume-pg@smet.org>
+
+	* added normalization of IN() clauses
+	* changed the default order of reports
+	* raised the default memory limit to 512 MB
+	* released 1.1
+
+2009-04-25  Guillaume Smet <guillaume-pg@smet.org>
+
+	* fixed an oversight in stderr parser related to [#1010525] stderr
+	Multiline queries are not parsed
+	* backported fixes from BRANCH_1_0
+
+2009-04-18  Guillaume Smet <guillaume-pg@smet.org>
+
+	* added support for lists and regexps in -user and -database filter options
+	* updated GeSHi to 1.0.8.3
+
+2009-04-12  Guillaume Smet <guillaume-pg@smet.org>
+
+	* implemented a simple garbage collector mechanism which should reduce
+	dramatically the memory usage when a connection pooler is not used
+
+2009-04-05  Guillaume Smet <guillaume-pg@smet.org>
+
+	* applied a patch from Max Valjanski to support large pids on 64 bits
+	servers
+	* applied a patch from Steve Woodcock to fix a long standing problem
+	resulting in leading "statement: " in the query text for some queries
+
+2009-04-01  Guillaume Smet <guillaume-pg@smet.org>
+
+	* applied [#1010529] Error in normalize for bigint (or numeric) numbers
+	(length > 10) by Oleg Serov
+
+2008-05-15  Guillaume Smet <guillaume-pg@smet.org>
+
+	* fixed the regexp of the stderr parser to exclude the timezone
+	from the timestamp pattern
+	* fixed a problem with NOTICE lines causing other lines to be ignored
+	(not sure about the consequences though...)
+
+2008-05-13  Guillaume Smet <guillaume-pg@smet.org>
+
+	* moved from Vera to DejaVuSans
+
+2008-05-05  Guillaume Smet <guillaume.smet@openwide.fr>
+
+	* fixed [#1010324] "Fails to recognize FSM info" reported by
+	Peter Eisentraut
+	* fixed [#1010306] "pgfouine 1.0 not recognizing postgres syslog
+	lines" reported by Neil Murray by adding log_error_verbosity=verbose
+	support
+
+2008-03-19  Guillaume Smet <guillaume-pg@smet.org>
+
+	* preliminary support for CSV log format introduced in 8.3
+
+2008-03-09  Guillaume Smet <guillaume-pg@smet.org>
+
+	* global copyright update
+	* made date parsing more clever in syslog parser
+
+2008-02-25  Guillaume Smet <guillaume-pg@smet.org>
+
+	* applied a patch from Russell Garrett @last.fm to normalize
+	hexadecimal numbers
+	* added invalid startup packet error to ignore list [#1010261]
+	* added a couple of words to colorize per [#1006782]
+	* updated GeSHi to 1.0.7.20
+
+2007-05-11  Guillaume Smet <guillaume-pg@smet.org>
+
+	* [1.0] applied [#1003645] Avoid PHP Notice for undefined $line error
+	by Russell Smith
+
+2007-03-30  Guillaume Smet <guillaume-pg@smet.org>
+
+	* updated GeSHi to 1.0.7.18
+	* fixed test cases
+	* fixed pgfouine_vacuum.php
+	* released 1.0
+
+2007-03-12  Guillaume Smet <guillaume-pg@smet.org>
+
+	* improved stderr support by adding isContextual() method to lines
+	* fixed normalization of query text for quote escaping
+	* the timezone is not always present in stderr prefix so make it
+	optional
+	* removed the random selection of examples as it is slower than
+	simply adding them all
+	* all four per report from Stephen Denne in
+	http://pgfoundry.org/forum/forum.php?thread_id=1204&forum_id=555
+
+2007-02-05  Guillaume Smet <guillaume-pg@smet.org>
+
+	* made syslog pattern matching a bit more permissive
+
+2006-12-25  Guillaume Smet <guillaume-pg@smet.org>
+
+	* renamed history per connection to history per pid
+
+2006-12-23  Guillaume Smet <guillaume-pg@smet.org>
+
+	* merged 0.7 branch into HEAD
+	* updated GeSHi to 1.0.7.16
+	* renamed -timeunit option to -durationunit
+	* implemented -durationunit option for graphs and fixed hourly stats
+	table header
+	* PHP errors are now written in stderr instead of the standard output
+
+2006-12-22  Open Wide <guillaume.smet@openwide.fr>
+
+	* added a history per connection report
+
+2006-12-11  Open Wide <guillaume.smet@openwide.fr>
+
+	* [0.7] improved error detection and added exit code
+	* [0.7] released 0.7.2
+
+2006-12-08  Open Wide <guillaume.smet@openwide.fr>
+
+	* [0.7] fixed hourly stats when there are hours with no query at all
+	* [0.7] commited a tutorial for RPM packaging per Devrim Gunduz
+
+2006-11-24  Guillaume Smet <guillaume-pg@smet.org>
+
+	* [0.7] fixed [#1000792] tooltip dates incorrect
+
+2006-10-27  Guillaume Smet <guillaume-pg@smet.org>
+
+	* work on adding a unit option (graphs don't support it yet)
+	* [0.7] fixed a typo that prevents -from option from working
+	* [0.7] fixed an error when pgFouine does not find any query
+	* [0.7] allowed -from and -to options to be used separately
+	* [0.7] released 0.7.1
+
+2006-10-14  Guillaume Smet <guillaume-pg@smet.org>
+
+	* updated GeSHi to 1.0.7.14 to fix [#1000753]
+
+2006-09-17  Guillaume Smet <guillaume-pg@smet.org>
+
+	* resynced prepared statements support with current CVS tip
+	* added duration in history report
+	* merged 0.7 branch into HEAD
+
+2006-09-12  Guillaume Smet <guillaume-pg@smet.org>
+
+	* improved -keepformatting option (keep commented lines and allow
+	space indent)
+
+2006-09-07  Guillaume Smet <guillaume-pg@smet.org>
+
+	* implemented -keepformatting option to close [#1000724]
+	Do not strip \n's from SQL queries
+	* [0.7] fixed [#1000723] Normalization: negative and positive numbers
+	produces separate groups
+
+2006-09-03  Guillaume Smet <guillaume-pg@smet.org>
+
+	* [0.7] commited Devrim Gunduz's changes to the spec file
+	* [0.7] fixed problems raised by Toshio Kuratomi in Red Hat's
+	bugzilla: https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=202901#c2
+
+2006-08-31  Guillaume Smet <guillaume-pg@smet.org>
+
+	* reworked everything in prepared statements support for current
+	CVS tip
+	* fixed a bug in history listener: queries were not ordered
+	correctly if their timestamps were identical
+
+2006-08-28  Guillaume Smet <guillaume-pg@smet.org>
+
+	* added support for prepared statements (including CVS tip bind
+	parameters)
+
+2006-08-19  Guillaume Smet <guillaume-pg@smet.org>
+
+	* [0.7] fixed detection of malformed log files
+
+2006-08-17  Guillaume Smet <guillaume-pg@smet.org>
+
+	* released 0.7
+	* [0.7] applied Devrim Gunduz's patch to RPM spec file
+
+2006-08-16  Guillaume Smet <guillaume-pg@smet.org>
+
+	* [vacuum] fixed elapsed time calculation. The problem
+	was due to inconsistency in PostgreSQL code.
+
+2006-08-11  Guillaume Smet <guillaume.smet@openwide.fr>
+
+	* fixed [#1000703] reported by Jérôme Benois
+
+2006-08-10  Guillaume Smet <guillaume-pg@smet.org>
+
+	* updated RPM packaging for 0.7
+
+2006-08-09  Guillaume Smet <guillaume-pg@smet.org>
+
+	* [vacuum] fixed the FSM report if we don't find any
+	FSM information
+	* [vacuum] minor cosmetic fixes
+
+2006-08-08  Guillaume Smet <guillaume-pg@smet.org>
+
+	* fixed unit tests
+
+2006-08-07  Guillaume Smet <guillaume-pg@smet.org>
+
+	* [tsung] completed Tsung support
+
+2006-08-06  Guillaume Smet <guillaume-pg@smet.org>
+
+	* [tsung] began the work on Tsung sessions generator
+
+2006-08-03  Guillaume Smet <guillaume-pg@smet.org>
+
+	* [vacuum] improved the layout
+	* [vacuum] fixed the default sort order to work also
+	for simple VACUUM
+	* [vacuum] added the CPU usage
+
+2006-08-02  Guillaume Smet <guillaume-pg@smet.org>
+
+	* [vacuum] added the duration information
+	* [vacuum] added a detailed report
+
+2006-08-02  Open Wide <guillaume.smet@openwide.fr>
+
+	* [vacuum] fixed a bug in database/schema filter
+
+2006-07-26  Guillaume Smet <guillaume-pg@smet.org>
+
+	* added a few hints if pgFouine does not find any valid
+	PostgreSQL log line
+
+2006-07-25  Guillaume Smet <guillaume-pg@smet.org>
+
+	* changed the default order for vacuumed tables report
+	* added the ability to filter vacuum log analysis on
+	database and schema
+
+2006-07-24  Guillaume Smet <guillaume-pg@smet.org>
+
+	* added a queries history report
+
+2006-07-23  Guillaume Smet <guillaume-pg@smet.org>
+
+	* added the collect of index cleanup information
+	* added more information in vacuum overall statistics
+
+2006-07-19  Guillaume Smet <guillaume-pg@smet.org>
+
+	* more work on vacuum verbose output analysis
+
+2006-07-19  Open Wide <guillaume.smet@openwide.fr>
+
+	* began the work on vacuum verbose output analysis
+
+2006-07-13 Guillaume Smet <guillaume-pg@smet.org>
+
+	* fixed a problem with older versions of PHP
+
+2006-06-11  Guillaume Smet <guillaume-pg@smet.org>
+
+	* fixed a problem with NOTICE/STATEMENT couple on DDL
+	* improved the -report option analysis
+	* NOTICEs for a query are now displayed
+	* improved normalized queries formatting
+
+2006-05-27  Guillaume Smet <guillaume-pg@smet.org>
+
+	* fixed a bug when there is no query in the log file
+
+2006-05-21  Guillaume Smet <guillaume-pg@smet.org>
+
+	* released 0.6
+
+2006-05-20  Guillaume Smet <guillaume-pg@smet.org>
+
+	* normalized error code cleanup
+
+2006-05-19  Guillaume Smet <guillaume-pg@smet.org>
+
+	* added a test to check the freetype support
+	* reported changes made on PHP4 version of Artichow to the PHP5 version
+	* added -memorylimit option
+
+2006-04-21  Guillaume Smet <guillaume-pg@smet.org>
+
+	* fixed a stupid notice in tooltips thanks to Larry Rosenman
+	* added an option to set syslog ident (postgres by default) following
+	Larry Rosenman's suggestion
+
+2006-04-18  Guillaume Smet <guillaume-pg@smet.org>
+
+	* query count peaks don't depend anymore on the order of the log file
+	(useful when you concatenate 2 log files from 2 different servers)
+
+2006-04-17  Guillaume Smet <guillaume-pg@smet.org>
+
+	* added tooltip with hourly statistics on errors too
+
+2006-04-06  Guillaume Smet <guillaume-pg@smet.org>
+
+	* only generate graphs if we have enough data to do it
+	* added -title option to define the title of the report
+
+2006-04-05  Guillaume Smet <guillaume-pg@smet.org>
+
+	* added the framework for unit testing on real log files
+	* first test case
+
+2006-04-04  Guillaume Smet <guillaume-pg@smet.org>
+
+	* added a tooltip with hourly statistics on normalized queries
+
+2006-04-03  Guillaume Smet <guillaume-pg@smet.org>
+
+	* added a tooltip with detailed information on queries and errors
+	* only display identified statistics if different from overall
+
+2006-04-02  Guillaume Smet <guillaume-pg@smet.org>
+
+	* added a stderr parser based on Tatsuo Ishii's suggestion:
+	http://pgfoundry.org/forum/forum.php?thread_id=735&forum_id=555
+
+2006-04-01  Guillaume Smet <guillaume-pg@smet.org>
+
+	* added filter on database and user
+
+2006-03-31  Open Wide <guillaume.smet@openwide.fr>
+
+	* added two more lines to ignore
+	* fixed error reporting for php 4.4
+	* fixed a bug when two consecutive blocks have the same command line
+	number in the same logstream (should not happen but seems to happen
+	sometimes anyway)
+
+2006-03-27  Open Wide <guillaume.smet@openwide.fr>
+
+	* removed a few notices with PHP 5.1
+	* added another line to ignore
+
+2006-03-26  Guillaume Smet <guillaume-pg@smet.org>
+
+	* improved the errors report
+	* released 0.5
+
+2006-03-25  Guillaume Smet <guillaume-pg@smet.org>
+
+	* fixed a bug reported by Simon Riggs on pgsql-hackers
+	http://archives.postgresql.org/pgsql-hackers/2006-03/msg00694.php
+	* added html output for hourly statistics report
+	* rewrote the configuration stuff to use constants instead of a function
+	* fixed unit tests
+	* added a dynamic CSS based TOC for users who use a real browser
+	* ignore autovacuum log lines
+	* fixed syslog date detection again
+
+2006-03-23  Guillaume Smet <guillaume-pg@smet.org>
+
+	* added the ability to parse a log from stdin
+	* added the microsecond unit (us) so that we can use pgFouine to parse
+	a special apache log file
+
+2006-03-13  Guillaume Smet <guillaume-pg@smet.org>
+
+	* fixed syslog date detection (problem with php 4.3.2 on CentOS 3.5)
+
+2006-03-07  Guillaume Smet <guillaume-pg@smet.org>
+
+	* fixed an infinite loop when duration and count are exactly identical
+	for two different normalized queries reported by David Touitou
+
+2006-02-11  Guillaume Smet <guillaume-pg@smet.org>
+
+	* fixed references for PHP 5.1
+	* lowered error reporting level for PHP 4.4 due to a problem with references
+	* released development version 0.4.99 for PHP 5.1 users
+
+2006-01-26  Guillaume Smet <guillaume-pg@smet.org>
+
+	* fixed a problem with CONTEXT lines introduced with the new parser refactoring
+	* fixed a bug in LogStream when we have a blank continuation line
+
+2006-01-25  Guillaume Smet <guillaume-pg@smet.org>
+	
+	* fixed a missing reference to $logStream in LogBlock
+	* removed useless code from LogStream
+	* fixed html output method of errors report
+
+2006-01-24  Guillaume Smet <guillaume-pg@smet.org>
+
+	* fixed a bug on duration if log_duration and log_min_duration_statement
+	are set to true in the new parser (duration counted twice)
+	* minor fix in command line help
+
+2006-01-11  Guillaume Smet <guillaume-pg@smet.org>
+
+	* it is now possible to generate several reports with only one parse
+	* we now check that GD2 extension is available if we use the
+	HTML with graphs format
+	* merged 0.2 branch (0.2.1) into HEAD
+
+2006-01-10  Guillaume Smet <guillaume-pg@smet.org>
+
+	* [0.2] fixed a bug on duration if log_duration was set to true
+	submitted by David Link
+	* [0.2] improved the sort in normalized queries reports
+	* [0.2] released 0.2.1
+
+2005-12-25  Guillaume Smet <guillaume-pg@smet.org>
+
+	* rewrote large parts of the parser to fix various problems
+	* added the ability to take into account duration only log lines
+
+2005-12-22  Guillaume Smet <guillaume-pg@smet.org>
+
+	* more work on graphs
+	* tagged RELEASE_0_3 even if it is not an official release
+	before major parser changes
+
+2005-12-21  Guillaume Smet <guillaume-pg@smet.org>
+
+	* worked on graphs for hourly reports
+	* added all the command line stuff to manage graphs
+
+2005-12-20  Guillaume Smet <guillaume-pg@smet.org>
+
+	* added Artichow library to draw graphs
+
+2005-12-19  Guillaume Smet <guillaume-pg@smet.org>
+
+	* applied patch from Laurent Almeras to add -from and -to
+	options (ability to filter on timestamps)
+	* worked on hourly statistics (no pretty output yet)
+
+2005-12-18  Guillaume Smet <guillaume-pg@smet.org>
+
+	* enhanced the syslog parser to get log line timestamps
+	* added the ability to get the timestamp of a query
+
+2005-12-16  Guillaume Smet <guillaume-pg@smet.org>
+
+	* fixed a few bugs
+	* released 0.2
+
+2005-11-28  Guillaume Smet <guillaume-pg@smet.org>
+
+	* applied [#1000450] from Laurent Almeras
+
+2005-11-24  Guillaume Smet <guillaume-pg@smet.org>
+
+	* optimized the parsers
+	* improved html error report and fixed text error report
+
+2005-11-23  Guillaume Smet <guillaume-pg@smet.org>
+
+	* added a Profiler class
+	* updated the Profiler test case
+	* implemented the Profiler in the parsers
+	* optimized the parsers
+
+2005-11-22  Guillaume Smet <guillaume-pg@smet.org>
+
+	* added the Profiler test case
+	* added the -profile option to command line
+	* added the -examples option to command line
+
+2005-11-21  Guillaume Smet <guillaume-pg@smet.org>
+
+	* pgFouine should now work with PostgreSQL 8 log prefix feature
+	* added the -onlyselect option to command line
+	* added config functions
+	* preliminary work on error reports
+	* ignored more common LOG: lines which should not raise an error
+	* fixed references to listeners in reports
+
+2005-11-20  Guillaume Smet <guillaume-pg@smet.org>
+	
+	* improved SQL highlighting by adding PostgreSQL specific functions
+	* added the ability to choose reports generated
+
+2005-11-19  Guillaume Smet <guillaume-pg@smet.org>
+
+	* released 0.1

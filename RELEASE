@@ -1,0 +1,9 @@
+How to release pgFouine:
+- update the ChangeLog with the release date
+- tag (RELEASE_X_X) and branch (BRANCH_X_X)
+- build the tarball, the .src.rpm and the .rpm files (use a cvs export to create the tarball)
+- publish the tarball to http://pgfouine.projects.postgresql.org/releases/
+- publish the files on pgFoundry
+- update the website with the release date, the changelog and the files urls
+- email David Fetter to be included in PWN
+- publish the new version on freshmeat

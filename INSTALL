@@ -1,0 +1,4 @@
+To install pgFouine, you can:
+* use your distribution's package,
+* untar the pgFouine tarball anywhere you want,
+* install the pgFouine RPM package with rpm -Uvh pgfouine-<version>.noarch.rpm.

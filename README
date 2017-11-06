@@ -1,0 +1,10 @@
+pgFouine is a PostgreSQL log analyzer designed to parse
+big log files with a low memory footprint.
+You can generate text or HTML reports containing aggregated
+information about the queries executed by your database.
+
+Example:
+pgfouine.php -file path/to/your/log/file.log > report.html
+
+For comprehensive usage information, just run:
+pgfouine.php -help
