@@ -26,7 +26,7 @@ class NormalizedQuery {
 	public $duration = 0;
 	public $count = 0;
 	public $examples = false;
-	public $hourlyStatistics = array();
+	public $hourlyStatistics = [];
 	
 	function NormalizedQuery(& $query) {
 		$this->normalizedText = $query->getNormalizedText();
@@ -91,7 +91,7 @@ class NormalizedQuery {
 			}
 			unset($example);
 		}
-		$examples = array();
+		$examples = [];
 		return $examples;
 	}
 	

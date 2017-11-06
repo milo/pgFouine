@@ -37,8 +37,8 @@ class GenericLogReader {
 	public $firstLineTimestamp;
 	public $lastLineTimestamp;
 	
-	public $reportAggregators = array();
-	public $listeners = array();
+	public $reportAggregators = [];
+	public $listeners = [];
 	
 	function GenericLogReader($fileName, $lineParserName, $accumulatorName, $displayHelp = true) {
 		$this->fileName = $fileName;
@@ -178,7 +178,7 @@ class GenericLogReader {
 	}
 	
 	function prepare() {
-		$needs = array();
+		$needs = [];
 		
 		for($i = 0; $i < count($this->reportAggregators); $i++) {
 			$needs = array_merge($needs, $this->reportAggregators[$i]->getNeeds());

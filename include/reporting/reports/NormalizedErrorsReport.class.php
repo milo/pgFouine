@@ -22,8 +22,8 @@
  */
 
 class NormalizedErrorsReport extends Report {
-	function NormalizedErrorsReport(& $reportAggregator, $title, $needs = array()) {
-		$needs = array_merge(array('NormalizedErrorsListener', 'GlobalErrorCountersListener'), $needs);
+	function NormalizedErrorsReport(& $reportAggregator, $title, $needs = []) {
+		$needs = array_merge(['NormalizedErrorsListener', 'GlobalErrorCountersListener'], $needs);
 		$this->Report($reportAggregator, $title.' (N)', $needs);
 	}
 	

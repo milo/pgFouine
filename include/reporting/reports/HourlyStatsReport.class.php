@@ -23,7 +23,7 @@
 
 class HourlyStatsReport extends Report {
 	function HourlyStatsReport(& $reportAggregator) {
-		$this->Report($reportAggregator, 'Hourly statistics', array('HourlyCountersListener'));
+		$this->Report($reportAggregator, 'Hourly statistics', ['HourlyCountersListener']);
 	}
 	
 	function getText() {
@@ -141,7 +141,7 @@ class HourlyStatsReport extends Report {
 	}
 	
 	function generateGraphs(& $statsListener) {
-		$graphsGenerated = array();
+		$graphsGenerated = [];
 		
 		$hourlyStatistics =& $statsListener->getHourlyStatistics();
 		$hours = array_keys($hourlyStatistics);
@@ -149,16 +149,16 @@ class HourlyStatsReport extends Report {
 		$maxHour = strtotime(max($hours));
 		$hourCount = ($maxHour - $minHour) / 3600;
 		
-		$hoursAxis = array();
-		$queryCountValues = array();
-		$queryDurationValues = array();
-		$selectCountValues = array();
-		$selectDurationValues = array();
-		$insertCountValues = array();
-		$deleteCountValues = array();
-		$updateCountValues = array();
-		$globalCountValues = array();
-		$writeDurationValues = array();
+		$hoursAxis = [];
+		$queryCountValues = [];
+		$queryDurationValues = [];
+		$selectCountValues = [];
+		$selectDurationValues = [];
+		$insertCountValues = [];
+		$deleteCountValues = [];
+		$updateCountValues = [];
+		$globalCountValues = [];
+		$writeDurationValues = [];
 		
 		for($currentHour = $minHour; $currentHour <= $maxHour; $currentHour += 3600) {
 			$formattedHour = date('Y-m-d H:00:00', $currentHour);
@@ -222,10 +222,10 @@ class HourlyStatsReport extends Report {
 		$lastTimestamp = max(array_keys($peaksStatistics));
 		$firstData = false;
 		
-		$xAxis = array();
-		$average = array();
-		$min = array();
-		$max = array();
+		$xAxis = [];
+		$average = [];
+		$min = [];
+		$max = [];
 
 		while($currentTimestamp <= $lastTimestamp) {
 			if($currentTimestamp % 3600 == 0) {
@@ -276,7 +276,7 @@ class HourlyStatsReport extends Report {
 			$group->grid->setBackgroundColor(new White);
 			
 			$group->axis->left->label->setFont(new Font2);
-			$group->axis->left->label->setCallbackFormatFunction(array(&$this, 'formatQueryNumber'));
+			$group->axis->left->label->setCallbackFormatFunction([&$this, 'formatQueryNumber']);
 	
 			$group->axis->bottom->setLabelText($xAxis);
 			$group->axis->bottom->label->setFont(new Font1);
@@ -337,7 +337,7 @@ class HourlyStatsReport extends Report {
 			
 			$group->axis->left->setColor(new MidRed);
 			$group->axis->left->label->setFont(new Font2);
-			$group->axis->left->label->setCallbackFormatFunction(array(&$this, 'formatQueryNumber'));
+			$group->axis->left->label->setCallbackFormatFunction([&$this, 'formatQueryNumber']);
 			
 			$group->axis->right->setColor(new DarkGreen);
 			$group->axis->right->label->setFont(new Font2);

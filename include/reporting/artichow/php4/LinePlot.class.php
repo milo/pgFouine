@@ -42,7 +42,7 @@ class awLinePlot extends awPlot {
 	 *
 	 * @var bool
 	 */
-	public $areas = array();
+	public $areas = [];
 	
 	/**
 	 * Is the line hidden
@@ -141,7 +141,7 @@ class awLinePlot extends awPlot {
 			trigger_error("End position can not be greater than begin position in awLinePlot::setFilledArea()", E_USER_ERROR);
 		}
 	
-		$this->areas[] = array((int)$start, (int)$stop, $background);
+		$this->areas[] = [(int)$start, (int)$stop, $background];
 	
 	}
 	
@@ -334,7 +334,7 @@ class awLinePlot extends awPlot {
 	
 	 function drawArea($drawer, &$polygon) {
 	
-		$starts = array();
+		$starts = [];
 		foreach($this->areas as $area) {
 			list($start) = $area;
 			$starts[$start] = TRUE;

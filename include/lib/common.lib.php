@@ -121,7 +121,7 @@ function &pop(& $array) {
 
 function arrayAdd($array1, $array2) {
 	$size = count($array1);
-	$sum = array();
+	$sum = [];
 	for($i = 0; $i < $size; $i++) {
 		$sum[] = $array1[$i] + $array2[$i];
 	}
@@ -155,7 +155,7 @@ class RegExp {
 	}
 	
 	function & matchAll($text) {
-		$matches = array();
+		$matches = [];
 		$found = preg_match_all($this->pattern, $text, $matches, PREG_SET_ORDER);
 		
 		return $matches;
@@ -172,7 +172,7 @@ class RegExp {
 
 class RegExpMatch {
 	public $text;
-	public $matches = array();
+	public $matches = [];
 	
 	function RegExpMatch($text, & $matches) {
 		$this->text = $text;

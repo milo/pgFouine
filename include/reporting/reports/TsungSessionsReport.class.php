@@ -23,7 +23,7 @@
 
 class TsungSessionsReport extends Report {
 	function TsungSessionsReport(& $reportAggregator) {
-		$this->Report($reportAggregator, 'Tsung sessions', array('TsungSessionsListener'), false);
+		$this->Report($reportAggregator, 'Tsung sessions', ['TsungSessionsListener'], false);
 	}
 	
 	function getText() {

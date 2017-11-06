@@ -123,14 +123,14 @@
         
         function testSinglePattern() {
             $handler = &new MockTestParser($this);
-            $handler->expectArgumentsAt(0, "accept", array("aaa", LEXER_MATCHED));
-            $handler->expectArgumentsAt(1, "accept", array("x", LEXER_UNMATCHED));
-            $handler->expectArgumentsAt(2, "accept", array("a", LEXER_MATCHED));
-            $handler->expectArgumentsAt(3, "accept", array("yyy", LEXER_UNMATCHED));
-            $handler->expectArgumentsAt(4, "accept", array("a", LEXER_MATCHED));
-            $handler->expectArgumentsAt(5, "accept", array("x", LEXER_UNMATCHED));
-            $handler->expectArgumentsAt(6, "accept", array("aaa", LEXER_MATCHED));
-            $handler->expectArgumentsAt(7, "accept", array("z", LEXER_UNMATCHED));
+            $handler->expectArgumentsAt(0, "accept", ["aaa", LEXER_MATCHED]);
+            $handler->expectArgumentsAt(1, "accept", ["x", LEXER_UNMATCHED]);
+            $handler->expectArgumentsAt(2, "accept", ["a", LEXER_MATCHED]);
+            $handler->expectArgumentsAt(3, "accept", ["yyy", LEXER_UNMATCHED]);
+            $handler->expectArgumentsAt(4, "accept", ["a", LEXER_MATCHED]);
+            $handler->expectArgumentsAt(5, "accept", ["x", LEXER_UNMATCHED]);
+            $handler->expectArgumentsAt(6, "accept", ["aaa", LEXER_MATCHED]);
+            $handler->expectArgumentsAt(7, "accept", ["z", LEXER_UNMATCHED]);
             $handler->expectCallCount("accept", 8);
             $handler->setReturnValue("accept", true);
             $lexer = &new SimpleLexer($handler);
@@ -141,9 +141,9 @@
         
         function testMultiplePattern() {
             $handler = &new MockTestParser($this);
-            $target = array("a", "b", "a", "bb", "x", "b", "a", "xxxxxx", "a", "x");
+            $target = ["a", "b", "a", "bb", "x", "b", "a", "xxxxxx", "a", "x"];
             for ($i = 0; $i < count($target); $i++) {
-                $handler->expectArgumentsAt($i, "accept", array($target[$i], '*'));
+                $handler->expectArgumentsAt($i, "accept", [$target[$i], '*']);
             }
             $handler->expectCallCount("accept", count($target));
             $handler->setReturnValue("accept", true);
@@ -159,14 +159,14 @@
         
         function testIsolatedPattern() {
             $handler = &new MockTestParser($this);
-            $handler->expectArgumentsAt(0, "a", array("a", LEXER_MATCHED));
-            $handler->expectArgumentsAt(1, "a", array("b", LEXER_UNMATCHED));
-            $handler->expectArgumentsAt(2, "a", array("aa", LEXER_MATCHED));
-            $handler->expectArgumentsAt(3, "a", array("bxb", LEXER_UNMATCHED));
-            $handler->expectArgumentsAt(4, "a", array("aaa", LEXER_MATCHED));
-            $handler->expectArgumentsAt(5, "a", array("x", LEXER_UNMATCHED));
-            $handler->expectArgumentsAt(6, "a", array("aaaa", LEXER_MATCHED));
-            $handler->expectArgumentsAt(7, "a", array("x", LEXER_UNMATCHED));
+            $handler->expectArgumentsAt(0, "a", ["a", LEXER_MATCHED]);
+            $handler->expectArgumentsAt(1, "a", ["b", LEXER_UNMATCHED]);
+            $handler->expectArgumentsAt(2, "a", ["aa", LEXER_MATCHED]);
+            $handler->expectArgumentsAt(3, "a", ["bxb", LEXER_UNMATCHED]);
+            $handler->expectArgumentsAt(4, "a", ["aaa", LEXER_MATCHED]);
+            $handler->expectArgumentsAt(5, "a", ["x", LEXER_UNMATCHED]);
+            $handler->expectArgumentsAt(6, "a", ["aaaa", LEXER_MATCHED]);
+            $handler->expectArgumentsAt(7, "a", ["x", LEXER_UNMATCHED]);
             $handler->expectCallCount("a", 8);
             $handler->setReturnValue("a", true);
             $lexer = &new SimpleLexer($handler, "a");
@@ -178,19 +178,19 @@
         
         function testModeChange() {
             $handler = &new MockTestParser($this);
-            $handler->expectArgumentsAt(0, "a", array("a", LEXER_MATCHED));
-            $handler->expectArgumentsAt(1, "a", array("b", LEXER_UNMATCHED));
-            $handler->expectArgumentsAt(2, "a", array("aa", LEXER_MATCHED));
-            $handler->expectArgumentsAt(3, "a", array("b", LEXER_UNMATCHED));
-            $handler->expectArgumentsAt(4, "a", array("aaa", LEXER_MATCHED));
-            $handler->expectArgumentsAt(0, "b", array(":", LEXER_ENTER));
-            $handler->expectArgumentsAt(1, "b", array("a", LEXER_UNMATCHED));
-            $handler->expectArgumentsAt(2, "b", array("b", LEXER_MATCHED));
-            $handler->expectArgumentsAt(3, "b", array("a", LEXER_UNMATCHED));
-            $handler->expectArgumentsAt(4, "b", array("bb", LEXER_MATCHED));
-            $handler->expectArgumentsAt(5, "b", array("a", LEXER_UNMATCHED));
-            $handler->expectArgumentsAt(6, "b", array("bbb", LEXER_MATCHED));
-            $handler->expectArgumentsAt(7, "b", array("a", LEXER_UNMATCHED));
+            $handler->expectArgumentsAt(0, "a", ["a", LEXER_MATCHED]);
+            $handler->expectArgumentsAt(1, "a", ["b", LEXER_UNMATCHED]);
+            $handler->expectArgumentsAt(2, "a", ["aa", LEXER_MATCHED]);
+            $handler->expectArgumentsAt(3, "a", ["b", LEXER_UNMATCHED]);
+            $handler->expectArgumentsAt(4, "a", ["aaa", LEXER_MATCHED]);
+            $handler->expectArgumentsAt(0, "b", [":", LEXER_ENTER]);
+            $handler->expectArgumentsAt(1, "b", ["a", LEXER_UNMATCHED]);
+            $handler->expectArgumentsAt(2, "b", ["b", LEXER_MATCHED]);
+            $handler->expectArgumentsAt(3, "b", ["a", LEXER_UNMATCHED]);
+            $handler->expectArgumentsAt(4, "b", ["bb", LEXER_MATCHED]);
+            $handler->expectArgumentsAt(5, "b", ["a", LEXER_UNMATCHED]);
+            $handler->expectArgumentsAt(6, "b", ["bbb", LEXER_MATCHED]);
+            $handler->expectArgumentsAt(7, "b", ["a", LEXER_UNMATCHED]);
             $handler->expectCallCount("a", 5);
             $handler->expectCallCount("b", 8);
             $handler->setReturnValue("a", true);
@@ -207,17 +207,17 @@
             $handler = &new MockTestParser($this);
             $handler->setReturnValue("a", true);
             $handler->setReturnValue("b", true);
-            $handler->expectArgumentsAt(0, "a", array("aa", LEXER_MATCHED));
-            $handler->expectArgumentsAt(1, "a", array("b", LEXER_UNMATCHED));
-            $handler->expectArgumentsAt(2, "a", array("aa", LEXER_MATCHED));
-            $handler->expectArgumentsAt(3, "a", array("b", LEXER_UNMATCHED));
-            $handler->expectArgumentsAt(0, "b", array("(", LEXER_ENTER));
-            $handler->expectArgumentsAt(1, "b", array("bb", LEXER_MATCHED));
-            $handler->expectArgumentsAt(2, "b", array("a", LEXER_UNMATCHED));
-            $handler->expectArgumentsAt(3, "b", array("bb", LEXER_MATCHED));
-            $handler->expectArgumentsAt(4, "b", array(")", LEXER_EXIT));
-            $handler->expectArgumentsAt(4, "a", array("aa", LEXER_MATCHED));
-            $handler->expectArgumentsAt(5, "a", array("b", LEXER_UNMATCHED));
+            $handler->expectArgumentsAt(0, "a", ["aa", LEXER_MATCHED]);
+            $handler->expectArgumentsAt(1, "a", ["b", LEXER_UNMATCHED]);
+            $handler->expectArgumentsAt(2, "a", ["aa", LEXER_MATCHED]);
+            $handler->expectArgumentsAt(3, "a", ["b", LEXER_UNMATCHED]);
+            $handler->expectArgumentsAt(0, "b", ["(", LEXER_ENTER]);
+            $handler->expectArgumentsAt(1, "b", ["bb", LEXER_MATCHED]);
+            $handler->expectArgumentsAt(2, "b", ["a", LEXER_UNMATCHED]);
+            $handler->expectArgumentsAt(3, "b", ["bb", LEXER_MATCHED]);
+            $handler->expectArgumentsAt(4, "b", [")", LEXER_EXIT]);
+            $handler->expectArgumentsAt(4, "a", ["aa", LEXER_MATCHED]);
+            $handler->expectArgumentsAt(5, "a", ["b", LEXER_UNMATCHED]);
             $handler->expectCallCount("a", 6);
             $handler->expectCallCount("b", 5);
             $lexer = &new SimpleLexer($handler, "a");
@@ -233,12 +233,12 @@
             $handler = &new MockTestParser($this);
             $handler->setReturnValue("a", true);
             $handler->setReturnValue("b", true);
-            $handler->expectArgumentsAt(0, "a", array("aa", LEXER_MATCHED));
-            $handler->expectArgumentsAt(1, "a", array("aa", LEXER_MATCHED));
-            $handler->expectArgumentsAt(2, "a", array("xx", LEXER_UNMATCHED));
-            $handler->expectArgumentsAt(3, "a", array("xx", LEXER_UNMATCHED));
-            $handler->expectArgumentsAt(0, "b", array("b", LEXER_SPECIAL));
-            $handler->expectArgumentsAt(1, "b", array("bbb", LEXER_SPECIAL));
+            $handler->expectArgumentsAt(0, "a", ["aa", LEXER_MATCHED]);
+            $handler->expectArgumentsAt(1, "a", ["aa", LEXER_MATCHED]);
+            $handler->expectArgumentsAt(2, "a", ["xx", LEXER_UNMATCHED]);
+            $handler->expectArgumentsAt(3, "a", ["xx", LEXER_UNMATCHED]);
+            $handler->expectArgumentsAt(0, "b", ["b", LEXER_SPECIAL]);
+            $handler->expectArgumentsAt(1, "b", ["bbb", LEXER_SPECIAL]);
             $handler->expectCallCount("a", 4);
             $handler->expectCallCount("b", 2);
             $lexer = &new SimpleLexer($handler, "a");
@@ -251,8 +251,8 @@
         function testUnwindTooFar() {
             $handler = &new MockTestParser($this);
             $handler->setReturnValue("a", true);
-            $handler->expectArgumentsAt(0, "a", array("aa", LEXER_MATCHED));
-            $handler->expectArgumentsAt(1, "a", array(")", LEXER_EXIT));
+            $handler->expectArgumentsAt(0, "a", ["aa", LEXER_MATCHED]);
+            $handler->expectArgumentsAt(1, "a", [")", LEXER_EXIT]);
             $handler->expectCallCount("a", 2);
             $lexer = &new SimpleLexer($handler, "a");
             $lexer->addPattern("a+", "a");
@@ -267,13 +267,13 @@
         function testModeMapping() {
             $handler = &new MockTestParser($this);
             $handler->setReturnValue("a", true);
-            $handler->expectArgumentsAt(0, "a", array("aa", LEXER_MATCHED));
-            $handler->expectArgumentsAt(1, "a", array("(", LEXER_ENTER));
-            $handler->expectArgumentsAt(2, "a", array("bb", LEXER_MATCHED));
-            $handler->expectArgumentsAt(3, "a", array("a", LEXER_UNMATCHED));
-            $handler->expectArgumentsAt(4, "a", array("bb", LEXER_MATCHED));
-            $handler->expectArgumentsAt(5, "a", array(")", LEXER_EXIT));
-            $handler->expectArgumentsAt(6, "a", array("b", LEXER_UNMATCHED));
+            $handler->expectArgumentsAt(0, "a", ["aa", LEXER_MATCHED]);
+            $handler->expectArgumentsAt(1, "a", ["(", LEXER_ENTER]);
+            $handler->expectArgumentsAt(2, "a", ["bb", LEXER_MATCHED]);
+            $handler->expectArgumentsAt(3, "a", ["a", LEXER_UNMATCHED]);
+            $handler->expectArgumentsAt(4, "a", ["bb", LEXER_MATCHED]);
+            $handler->expectArgumentsAt(5, "a", [")", LEXER_EXIT]);
+            $handler->expectArgumentsAt(6, "a", ["b", LEXER_UNMATCHED]);
             $handler->expectCallCount("a", 7);
             $lexer = &new SimpleLexer($handler, "mode_a");
             $lexer->addPattern("a+", "mode_a");
@@ -309,7 +309,7 @@
         }
         
         function testUninteresting() {
-            $this->_handler->expectOnce("acceptTextToken", array("<html></html>", "*"));
+            $this->_handler->expectOnce("acceptTextToken", ["<html></html>", "*"]);
             $this->assertTrue($this->_lexer->parse("<html></html>"));
         }
         
@@ -332,127 +332,127 @@
         }
         
         function testTitleTag() {
-            $this->_handler->expectArgumentsAt(0, "acceptStartToken", array("<title", "*"));
-            $this->_handler->expectArgumentsAt(1, "acceptStartToken", array(">", "*"));
+            $this->_handler->expectArgumentsAt(0, "acceptStartToken", ["<title", "*"]);
+            $this->_handler->expectArgumentsAt(1, "acceptStartToken", [">", "*"]);
             $this->_handler->expectCallCount("acceptStartToken", 2);
-            $this->_handler->expectOnce("acceptTextToken", array("Hello", "*"));
-            $this->_handler->expectOnce("acceptEndToken", array("</title>", "*"));
+            $this->_handler->expectOnce("acceptTextToken", ["Hello", "*"]);
+            $this->_handler->expectOnce("acceptEndToken", ["</title>", "*"]);
             $this->assertTrue($this->_lexer->parse("<title>Hello</title>"));
         }
         
         function testFramesetTag() {
-            $this->_handler->expectArgumentsAt(0, "acceptStartToken", array("<frameset", "*"));
-            $this->_handler->expectArgumentsAt(1, "acceptStartToken", array(">", "*"));
+            $this->_handler->expectArgumentsAt(0, "acceptStartToken", ["<frameset", "*"]);
+            $this->_handler->expectArgumentsAt(1, "acceptStartToken", [">", "*"]);
             $this->_handler->expectCallCount("acceptStartToken", 2);
-            $this->_handler->expectOnce("acceptTextToken", array("Frames", "*"));
-            $this->_handler->expectOnce("acceptEndToken", array("</frameset>", "*"));
+            $this->_handler->expectOnce("acceptTextToken", ["Frames", "*"]);
+            $this->_handler->expectOnce("acceptEndToken", ["</frameset>", "*"]);
             $this->assertTrue($this->_lexer->parse("<frameset>Frames</frameset>"));
         }
         
         function testInputTag() {
-            $this->_handler->expectArgumentsAt(0, "acceptStartToken", array("<input", "*"));
-            $this->_handler->expectArgumentsAt(1, "acceptStartToken", array("name", "*"));
-            $this->_handler->expectArgumentsAt(2, "acceptStartToken", array("value", "*"));
-            $this->_handler->expectArgumentsAt(3, "acceptStartToken", array(">", "*"));
-            $this->_handler->expectArgumentsAt(0, "acceptAttributeToken", array("=a.b.c", "*"));
-            $this->_handler->expectArgumentsAt(1, "acceptAttributeToken", array("= d", "*"));
+            $this->_handler->expectArgumentsAt(0, "acceptStartToken", ["<input", "*"]);
+            $this->_handler->expectArgumentsAt(1, "acceptStartToken", ["name", "*"]);
+            $this->_handler->expectArgumentsAt(2, "acceptStartToken", ["value", "*"]);
+            $this->_handler->expectArgumentsAt(3, "acceptStartToken", [">", "*"]);
+            $this->_handler->expectArgumentsAt(0, "acceptAttributeToken", ["=a.b.c", "*"]);
+            $this->_handler->expectArgumentsAt(1, "acceptAttributeToken", ["= d", "*"]);
             $this->assertTrue($this->_lexer->parse("<input name=a.b.c value = d>"));
         }
         
         function testEmptyLink() {
-            $this->_handler->expectArgumentsAt(0, "acceptStartToken", array("<a", "*"));
-            $this->_handler->expectArgumentsAt(1, "acceptStartToken", array(">", "*"));
+            $this->_handler->expectArgumentsAt(0, "acceptStartToken", ["<a", "*"]);
+            $this->_handler->expectArgumentsAt(1, "acceptStartToken", [">", "*"]);
             $this->_handler->expectCallCount("acceptStartToken", 2);
-            $this->_handler->expectOnce("acceptEndToken", array("</a>", "*"));
+            $this->_handler->expectOnce("acceptEndToken", ["</a>", "*"]);
             $this->assertTrue($this->_lexer->parse("<html><a></a></html>"));
         }
         
         function testLabelledLink() {
-            $this->_handler->expectArgumentsAt(0, "acceptStartToken", array("<a", "*"));
-            $this->_handler->expectArgumentsAt(1, "acceptStartToken", array(">", "*"));
+            $this->_handler->expectArgumentsAt(0, "acceptStartToken", ["<a", "*"]);
+            $this->_handler->expectArgumentsAt(1, "acceptStartToken", [">", "*"]);
             $this->_handler->expectCallCount("acceptStartToken", 2);
-            $this->_handler->expectOnce("acceptEndToken", array("</a>", "*"));
-            $this->_handler->expectArgumentsAt(0, "acceptTextToken", array("<html>", "*"));
-            $this->_handler->expectArgumentsAt(1, "acceptTextToken", array("label", "*"));
-            $this->_handler->expectArgumentsAt(2, "acceptTextToken", array("</html>", "*"));
+            $this->_handler->expectOnce("acceptEndToken", ["</a>", "*"]);
+            $this->_handler->expectArgumentsAt(0, "acceptTextToken", ["<html>", "*"]);
+            $this->_handler->expectArgumentsAt(1, "acceptTextToken", ["label", "*"]);
+            $this->_handler->expectArgumentsAt(2, "acceptTextToken", ["</html>", "*"]);
             $this->_handler->expectCallCount("acceptTextToken", 3);
             $this->assertTrue($this->_lexer->parse("<html><a>label</a></html>"));
         }
         
         function testLinkAddress() {
-            $this->_handler->expectArgumentsAt(0, "acceptTextToken", array("<html>", "*"));
-            $this->_handler->expectArgumentsAt(1, "acceptTextToken", array("label", "*"));
-            $this->_handler->expectArgumentsAt(2, "acceptTextToken", array("</html>", "*"));
+            $this->_handler->expectArgumentsAt(0, "acceptTextToken", ["<html>", "*"]);
+            $this->_handler->expectArgumentsAt(1, "acceptTextToken", ["label", "*"]);
+            $this->_handler->expectArgumentsAt(2, "acceptTextToken", ["</html>", "*"]);
             $this->_handler->expectCallCount("acceptTextToken", 3);
-            $this->_handler->expectArgumentsAt(0, "acceptStartToken", array("<a", "*"));
-            $this->_handler->expectArgumentsAt(1, "acceptStartToken", array("href", "*"));
-            $this->_handler->expectArgumentsAt(2, "acceptStartToken", array(">", "*"));
+            $this->_handler->expectArgumentsAt(0, "acceptStartToken", ["<a", "*"]);
+            $this->_handler->expectArgumentsAt(1, "acceptStartToken", ["href", "*"]);
+            $this->_handler->expectArgumentsAt(2, "acceptStartToken", [">", "*"]);
             $this->_handler->expectCallCount("acceptStartToken", 3);
-            $this->_handler->expectArgumentsAt(0, "acceptAttributeToken", array("= '", "*"));
-            $this->_handler->expectArgumentsAt(1, "acceptAttributeToken", array("here.html", "*"));
-            $this->_handler->expectArgumentsAt(2, "acceptAttributeToken", array("'", "*"));
+            $this->_handler->expectArgumentsAt(0, "acceptAttributeToken", ["= '", "*"]);
+            $this->_handler->expectArgumentsAt(1, "acceptAttributeToken", ["here.html", "*"]);
+            $this->_handler->expectArgumentsAt(2, "acceptAttributeToken", ["'", "*"]);
             $this->_handler->expectCallCount("acceptAttributeToken", 3);
             $this->assertTrue($this->_lexer->parse("<html><a href = 'here.html'>label</a></html>"));
         }
         
         function testEncodedLinkAddress() {
-            $this->_handler->expectArgumentsAt(0, "acceptTextToken", array("<html>", "*"));
-            $this->_handler->expectArgumentsAt(1, "acceptTextToken", array("label", "*"));
-            $this->_handler->expectArgumentsAt(2, "acceptTextToken", array("</html>", "*"));
+            $this->_handler->expectArgumentsAt(0, "acceptTextToken", ["<html>", "*"]);
+            $this->_handler->expectArgumentsAt(1, "acceptTextToken", ["label", "*"]);
+            $this->_handler->expectArgumentsAt(2, "acceptTextToken", ["</html>", "*"]);
             $this->_handler->expectCallCount("acceptTextToken", 3);
-            $this->_handler->expectArgumentsAt(0, "acceptStartToken", array("<a", "*"));
-            $this->_handler->expectArgumentsAt(1, "acceptStartToken", array("href", "*"));
-            $this->_handler->expectArgumentsAt(2, "acceptStartToken", array(">", "*"));
+            $this->_handler->expectArgumentsAt(0, "acceptStartToken", ["<a", "*"]);
+            $this->_handler->expectArgumentsAt(1, "acceptStartToken", ["href", "*"]);
+            $this->_handler->expectArgumentsAt(2, "acceptStartToken", [">", "*"]);
             $this->_handler->expectCallCount("acceptStartToken", 3);
-            $this->_handler->expectArgumentsAt(0, "acceptAttributeToken", array("= '", "*"));
-            $this->_handler->expectArgumentsAt(1, "acceptAttributeToken", array("here&amp;there.html", "*"));
-            $this->_handler->expectArgumentsAt(2, "acceptAttributeToken", array("'", "*"));
+            $this->_handler->expectArgumentsAt(0, "acceptAttributeToken", ["= '", "*"]);
+            $this->_handler->expectArgumentsAt(1, "acceptAttributeToken", ["here&amp;there.html", "*"]);
+            $this->_handler->expectArgumentsAt(2, "acceptAttributeToken", ["'", "*"]);
             $this->_handler->expectCallCount("acceptAttributeToken", 3);
             $this->assertTrue($this->_lexer->parse("<html><a href = 'here&amp;there.html'>label</a></html>"));
         }
         
         function testEmptyLinkWithId() {
-            $this->_handler->expectArgumentsAt(0, "acceptTextToken", array("<html>", "*"));
-            $this->_handler->expectArgumentsAt(1, "acceptTextToken", array("label", "*"));
-            $this->_handler->expectArgumentsAt(2, "acceptTextToken", array("</html>", "*"));
+            $this->_handler->expectArgumentsAt(0, "acceptTextToken", ["<html>", "*"]);
+            $this->_handler->expectArgumentsAt(1, "acceptTextToken", ["label", "*"]);
+            $this->_handler->expectArgumentsAt(2, "acceptTextToken", ["</html>", "*"]);
             $this->_handler->expectCallCount("acceptTextToken", 3);
-            $this->_handler->expectArgumentsAt(0, "acceptStartToken", array("<a", "*"));
-            $this->_handler->expectArgumentsAt(1, "acceptStartToken", array("id", "*"));
-            $this->_handler->expectArgumentsAt(2, "acceptStartToken", array(">", "*"));
+            $this->_handler->expectArgumentsAt(0, "acceptStartToken", ["<a", "*"]);
+            $this->_handler->expectArgumentsAt(1, "acceptStartToken", ["id", "*"]);
+            $this->_handler->expectArgumentsAt(2, "acceptStartToken", [">", "*"]);
             $this->_handler->expectCallCount("acceptStartToken", 3);
-            $this->_handler->expectArgumentsAt(0, "acceptAttributeToken", array("=\"", "*"));
-            $this->_handler->expectArgumentsAt(1, "acceptAttributeToken", array("0", "*"));
-            $this->_handler->expectArgumentsAt(2, "acceptAttributeToken", array("\"", "*"));
+            $this->_handler->expectArgumentsAt(0, "acceptAttributeToken", ["=\"", "*"]);
+            $this->_handler->expectArgumentsAt(1, "acceptAttributeToken", ["0", "*"]);
+            $this->_handler->expectArgumentsAt(2, "acceptAttributeToken", ["\"", "*"]);
             $this->_handler->expectCallCount("acceptAttributeToken", 3);
             $this->assertTrue($this->_lexer->parse("<html><a id=\"0\">label</a></html>"));
         }
         
         function testComplexLink() {
-            $this->_handler->expectArgumentsAt(0, "acceptStartToken", array("<a", LEXER_ENTER));
-            $this->_handler->expectArgumentsAt(1, "acceptStartToken", array("HREF", "*"));
-            $this->_handler->expectArgumentsAt(2, "acceptStartToken", array("bool", "*"));
-            $this->_handler->expectArgumentsAt(3, "acceptStartToken", array("Style", "*"));
-            $this->_handler->expectArgumentsAt(4, "acceptStartToken", array(">", LEXER_EXIT));
+            $this->_handler->expectArgumentsAt(0, "acceptStartToken", ["<a", LEXER_ENTER]);
+            $this->_handler->expectArgumentsAt(1, "acceptStartToken", ["HREF", "*"]);
+            $this->_handler->expectArgumentsAt(2, "acceptStartToken", ["bool", "*"]);
+            $this->_handler->expectArgumentsAt(3, "acceptStartToken", ["Style", "*"]);
+            $this->_handler->expectArgumentsAt(4, "acceptStartToken", [">", LEXER_EXIT]);
             $this->_handler->expectCallCount("acceptStartToken", 5);
-            $this->_handler->expectArgumentsAt(0, "acceptAttributeToken", array("= '", "*"));
-            $this->_handler->expectArgumentsAt(1, "acceptAttributeToken", array("here.html", LEXER_UNMATCHED));
-            $this->_handler->expectArgumentsAt(2, "acceptAttributeToken", array("'", "*"));
-            $this->_handler->expectArgumentsAt(3, "acceptAttributeToken", array("=\"", "*"));
-            $this->_handler->expectArgumentsAt(4, "acceptAttributeToken", array("'coo", "*"));
-            $this->_handler->expectArgumentsAt(5, "acceptAttributeToken", array('\"', "*"));
-            $this->_handler->expectArgumentsAt(6, "acceptAttributeToken", array("l'", "*"));
-            $this->_handler->expectArgumentsAt(7, "acceptAttributeToken", array("\"", "*"));
+            $this->_handler->expectArgumentsAt(0, "acceptAttributeToken", ["= '", "*"]);
+            $this->_handler->expectArgumentsAt(1, "acceptAttributeToken", ["here.html", LEXER_UNMATCHED]);
+            $this->_handler->expectArgumentsAt(2, "acceptAttributeToken", ["'", "*"]);
+            $this->_handler->expectArgumentsAt(3, "acceptAttributeToken", ["=\"", "*"]);
+            $this->_handler->expectArgumentsAt(4, "acceptAttributeToken", ["'coo", "*"]);
+            $this->_handler->expectArgumentsAt(5, "acceptAttributeToken", ['\"', "*"]);
+            $this->_handler->expectArgumentsAt(6, "acceptAttributeToken", ["l'", "*"]);
+            $this->_handler->expectArgumentsAt(7, "acceptAttributeToken", ["\"", "*"]);
             $this->_handler->expectCallCount("acceptAttributeToken", 8);
             $this->assertTrue($this->_lexer->parse("<HTML><a HREF = 'here.html' bool Style=\"'coo\\\"l'\">label</A></Html>"));
         }
         
         function testSubmit() {
-            $this->_handler->expectArgumentsAt(0, "acceptStartToken", array("<input", LEXER_ENTER));
-            $this->_handler->expectArgumentsAt(1, "acceptStartToken", array("type", "*"));
-            $this->_handler->expectArgumentsAt(2, "acceptStartToken", array("name", "*"));
-            $this->_handler->expectArgumentsAt(3, "acceptStartToken", array("value", "*"));
-            $this->_handler->expectArgumentsAt(4, "acceptStartToken", array("/", "*"));
-            $this->_handler->expectArgumentsAt(5, "acceptStartToken", array(">", LEXER_EXIT));
+            $this->_handler->expectArgumentsAt(0, "acceptStartToken", ["<input", LEXER_ENTER]);
+            $this->_handler->expectArgumentsAt(1, "acceptStartToken", ["type", "*"]);
+            $this->_handler->expectArgumentsAt(2, "acceptStartToken", ["name", "*"]);
+            $this->_handler->expectArgumentsAt(3, "acceptStartToken", ["value", "*"]);
+            $this->_handler->expectArgumentsAt(4, "acceptStartToken", ["/", "*"]);
+            $this->_handler->expectArgumentsAt(5, "acceptStartToken", [">", LEXER_EXIT]);
             $this->_handler->expectCallCount("acceptStartToken", 6);
             $this->assertTrue($this->_lexer->parse('<input type="submit" name="N" value="V" />'));
         }
@@ -547,7 +547,7 @@
         
         function testSimpleLinkStart() {
             $this->_parser->parse("");
-            $this->_listener->expectOnce("startElement", array("a", array()));
+            $this->_listener->expectOnce("startElement", ["a", []]);
             $this->_listener->setReturnValue("startElement", true);
             $this->assertTrue($this->_parser->acceptStartToken("<a", LEXER_ENTER));
             $this->assertTrue($this->_parser->acceptStartToken(">", LEXER_EXIT));
@@ -555,7 +555,7 @@
         
         function testSimpleTitleStart() {
             $this->_parser->parse("");
-            $this->_listener->expectOnce("startElement", array("title", array()));
+            $this->_listener->expectOnce("startElement", ["title", []]);
             $this->_listener->setReturnValue("startElement", true);
             $this->assertTrue($this->_parser->acceptStartToken("<title", LEXER_ENTER));
             $this->assertTrue($this->_parser->acceptStartToken(">", LEXER_EXIT));
@@ -563,7 +563,7 @@
         
         function testLinkStart() {
             $this->_parser->parse("");
-            $this->_listener->expectOnce("startElement", array("a", array("href" => "here.html")));
+            $this->_listener->expectOnce("startElement", ["a", ["href" => "here.html"]]);
             $this->_listener->setReturnValue("startElement", true);
             $this->assertTrue($this->_parser->acceptStartToken("<a", LEXER_ENTER));
             $this->assertTrue($this->_parser->acceptStartToken("href", LEXER_MATCHED));
@@ -577,7 +577,7 @@
             $this->_parser->parse("");
             $this->_listener->expectOnce(
                     "startElement",
-                    array("a", array("href" => "here&there.html")));
+                    ["a", ["href" => "here&there.html"]]);
             $this->_listener->setReturnValue("startElement", true);
             $this->assertTrue($this->_parser->acceptStartToken("<a", LEXER_ENTER));
             $this->assertTrue($this->_parser->acceptStartToken("href", LEXER_MATCHED));
@@ -591,7 +591,7 @@
             $this->_parser->parse("");
             $this->_listener->expectOnce(
                     "startElement",
-                    array("a", array("id" => "0")));
+                    ["a", ["id" => "0"]]);
             $this->_listener->setReturnValue("startElement", true);
             $this->assertTrue($this->_parser->acceptStartToken("<a", LEXER_ENTER));
             $this->assertTrue($this->_parser->acceptStartToken("id", LEXER_MATCHED));
@@ -603,7 +603,7 @@
         
         function testLinkEnd() {
             $this->_parser->parse("");
-            $this->_listener->expectOnce("endElement", array("a"));
+            $this->_listener->expectOnce("endElement", ["a"]);
             $this->_listener->setReturnValue("endElement", true);
             $this->assertTrue($this->_parser->acceptEndToken("</a>", LEXER_SPECIAL));
         }
@@ -612,7 +612,7 @@
             $this->_parser->parse("");
             $this->_listener->expectOnce(
                     "startElement",
-                    array("input", array("name" => "a")));
+                    ["input", ["name" => "a"]]);
             $this->_listener->setReturnValue("startElement", true);
             $this->assertTrue($this->_parser->acceptStartToken("<input", LEXER_ENTER));
             $this->assertTrue($this->_parser->acceptStartToken("name", LEXER_MATCHED));
@@ -624,7 +624,7 @@
             $this->_parser->parse("");
             $this->_listener->expectOnce(
                     "startElement",
-                    array("button", array("name" => "a")));
+                    ["button", ["name" => "a"]]);
             $this->_listener->setReturnValue("startElement", true);
             $this->assertTrue($this->_parser->acceptStartToken("<button", LEXER_ENTER));
             $this->assertTrue($this->_parser->acceptStartToken("name", LEXER_MATCHED));
@@ -634,7 +634,7 @@
        
         function testContent() {
             $this->_parser->parse("");
-            $this->_listener->expectOnce("addContent", array("stuff"));
+            $this->_listener->expectOnce("addContent", ["stuff"]);
             $this->_listener->setReturnValue("addContent", true);
             $this->assertTrue($this->_parser->acceptTextToken("stuff", LEXER_UNMATCHED));
         }

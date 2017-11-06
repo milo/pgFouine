@@ -129,14 +129,14 @@ class awLabel {
 	 *
 	 * @var array
 	 */
-	public $hideKey = array();
+	public $hideKey = [];
 	
 	/**
 	 * Values to hide
 	 *
 	 * @var array
 	 */
-	public $hideValue = array();
+	public $hideValue = [];
 	
 	/**
 	 * Hide first label
@@ -162,7 +162,7 @@ class awLabel {
 		if(is_array($label)) {
 			$this->set($label);
 		} else if(is_string($label)) {
-			$this->set(array($label));
+			$this->set([$label]);
 		}
 		
 		if($font === NULL) {
@@ -212,7 +212,7 @@ class awLabel {
 	 function set($labels) {
 	
 		if(is_string($labels)) {
-			$this->texts = array($labels);
+			$this->texts = [$labels];
 		} else if(is_array($labels)) {
 			$this->texts = $labels;
 		}
@@ -335,7 +335,7 @@ class awLabel {
 	 * @param int $bottom Bottom padding
 	 */
 	 function setPadding($left, $right, $top, $bottom) {
-		$this->padding = array((int)$left, (int)$right, (int)$top, (int)$bottom);
+		$this->padding = [(int)$left, (int)$right, (int)$top, (int)$bottom];
 	}
 	
 	/**
@@ -463,7 +463,7 @@ class awLabel {
 			$text->border = $this->border;
 			
 			if($this->padding !== NULL) {
-				call_user_func_array(array(&$text, 'setPadding'), $this->padding);
+				call_user_func_array([&$text, 'setPadding'], $this->padding);
 			}
 			
 			return $text;

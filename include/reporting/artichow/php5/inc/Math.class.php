@@ -186,7 +186,7 @@ class awPoint extends awShape {
 	 * @param array Point location
 	 */
 	public function getLocation() {
-		return array($this->x, $this->y);
+		return [$this->x, $this->y];
 	}
 	
 	/**
@@ -324,7 +324,7 @@ class awLine extends awShape {
 	 * @param array Line location
 	 */
 	public function getLocation() {
-		return array($this->p1, $this->p2);
+		return [$this->p1, $this->p2];
 	}
 	
 	/**
@@ -433,7 +433,7 @@ class awPolygon extends awShape {
 	 *
 	 * @var array
 	 */
-	protected $points = array();
+	protected $points = [];
 
 	/**
 	 * Set a point in the polygon

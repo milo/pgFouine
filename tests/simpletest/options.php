@@ -192,14 +192,14 @@
          *    @static
          */
         function _getDefaults() {
-            return array(
+            return [
                     'StubBaseClass' => 'SimpleStub',
                     'MockBaseClass' => 'SimpleMock',
-                    'IgnoreList' => array(),
+                    'IgnoreList' => [],
                     'AdditionalPartialMockCode' => '',
                     'DefaultProxy' => false,
                     'DefaultProxyUsername' => false,
-                    'DefaultProxyPassword' => false);
+                    'DefaultProxyPassword' => false];
         }
     }
     
@@ -360,6 +360,6 @@
             if (function_exists('debug_backtrace')) {
                 return array_reverse(debug_backtrace());
             }
-            return array();
+            return [];
         }
     }

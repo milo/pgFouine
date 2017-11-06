@@ -23,7 +23,7 @@
 
 class OverallStatsReport extends Report {
 	function OverallStatsReport(& $reportAggregator) {
-		$this->Report($reportAggregator, 'Overall statistics', array('GlobalCountersListener'));
+		$this->Report($reportAggregator, 'Overall statistics', ['GlobalCountersListener']);
 	}
 	
 	function getText() {
@@ -79,7 +79,7 @@ class OverallStatsReport extends Report {
 		$html .= '<li>Last query: '.$lastQueryTime.'</li>';
 		$peakTimestamps = $statsListener->getQueryPeakTimestamps();
 		if($peakTimestamps) {
-			array_walk($peakTimestamps, array(&$this, 'walkFormatTimestamp'));
+			array_walk($peakTimestamps, [&$this, 'walkFormatTimestamp']);
 			$html .= '<li>Query peak: '.$this->formatInteger($statsListener->getQueryPeakQueryCount()).' queries/s at '.implode(', ', $peakTimestamps).'</li>';
 		}
 		if($errorCountersListener) {

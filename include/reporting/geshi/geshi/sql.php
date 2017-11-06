@@ -49,15 +49,15 @@
  *
  ************************************************************************************/
 
-$language_data = array (
+$language_data = [
     'LANG_NAME' => 'SQL',
-    'COMMENT_SINGLE' => array(1 =>'--', 2 => '#'),
-    'COMMENT_MULTI' => array('/*' => '*/'),
+    'COMMENT_SINGLE' => [1 =>'--', 2 => '#'],
+    'COMMENT_MULTI' => ['/*' => '*/'],
     'CASE_KEYWORDS' => 0,
-    'QUOTEMARKS' => array("'", '"', '`'),
+    'QUOTEMARKS' => ["'", '"', '`'],
     'ESCAPE_CHAR' => '\\',
-    'KEYWORDS' => array(
-        1 => array(
+    'KEYWORDS' => [
+        1 => [
             'ALL', 'ASC', 'AS',  'ALTER', 'AND', 'ADD', 'AUTO_INCREMENT', 'ANY', 'ANALYZE',
             'BETWEEN', 'BINARY', 'BOTH', 'BY', 'BOOLEAN', 'BEGIN',
             'CHANGE', 'CHECK', 'COLUMNS', 'COLUMN', 'CROSS','CREATE', 'CASE', 'COMMIT', 'COALESCE', 'CLUSTER', 'COPY',
@@ -82,8 +82,8 @@ $language_data = array (
             'WITH', 'WRITE', 'WHERE', 'WHEN',
             'ZEROFILL',
             'XOR',
-            ),
-        2 => array(
+            ],
+        2 => [
             'ascii', 'age',
             'bit_length', 'btrim',
             'char_length', 'character_length', 'convert', 'chr', 'current_date', 'current_time', 'current_timestamp', 'count',
@@ -102,64 +102,64 @@ $language_data = array (
             'substring', 'split_part', 'strpos', 'substr', 'set_byte', 'set_bit',
             'trim', 'to_ascii', 'to_hex', 'translate', 'to_char', 'to_date', 'to_timestamp', 'to_number', 'timeofday',
             'upper',
-            ),
-        3 => array(
+            ],
+        3 => [
             'STDIN', 'STDOUT'
-            ),
-        ),
-    'SYMBOLS' => array(
+            ],
+        ],
+    'SYMBOLS' => [
         '(', ')', '=', '<', '>', '|', ',', '.', '+', '-', '*', '/', '!='
-        ),
-    'CASE_SENSITIVE' => array(
+        ],
+    'CASE_SENSITIVE' => [
         GESHI_COMMENTS => false,
         1 => false,
         2 => false,
         3 => false,
-        ),
-    'STYLES' => array(
-        'KEYWORDS' => array(
+        ],
+    'STYLES' => [
+        'KEYWORDS' => [
             1 => 'color: #993333; font-weight: bold; text-transform: uppercase;',
             2 => 'color: #993333; font-style: italic;',
             3 => 'color: #993333; text-transform: uppercase;'
-            ),
-        'COMMENTS' => array(
+            ],
+        'COMMENTS' => [
             1 => 'color: #808080; font-style: italic;',
             2 => 'color: #808080; font-style: italic;',
             'MULTI' => 'color: #808080; font-style: italic;'
-            ),
-        'ESCAPE_CHAR' => array(
+            ],
+        'ESCAPE_CHAR' => [
             0 => 'color: #000099; font-weight: bold;'
-            ),
-        'BRACKETS' => array(
+            ],
+        'BRACKETS' => [
             0 => 'color: #66cc66;'
-            ),
-        'STRINGS' => array(
+            ],
+        'STRINGS' => [
             0 => 'color: #ff0000;'
-            ),
-        'NUMBERS' => array(
+            ],
+        'NUMBERS' => [
             0 => 'color: #cc66cc;'
-            ),
-        'METHODS' => array(
-            ),
-        'SYMBOLS' => array(
+            ],
+        'METHODS' => [
+            ],
+        'SYMBOLS' => [
             0 => 'color: #000000;'
-            ),
-        'SCRIPT' => array(
-            ),
-        'REGEXPS' => array(
-            )
-        ),
-    'URLS' => array(
+            ],
+        'SCRIPT' => [
+            ],
+        'REGEXPS' => [
+            ]
+        ],
+    'URLS' => [
         1 => ''
-        ),
+        ],
     'OOLANG' => false,
-    'OBJECT_SPLITTERS' => array(
-        ),
-    'REGEXPS' => array(
-        ),
+    'OBJECT_SPLITTERS' => [
+        ],
+    'REGEXPS' => [
+        ],
     'STRICT_MODE_APPLIES' => GESHI_NEVER,
-    'SCRIPT_DELIMITERS' => array(
-        ),
-    'HIGHLIGHT_STRICT_BLOCK' => array(
-        )
-);
+    'SCRIPT_DELIMITERS' => [
+        ],
+    'HIGHLIGHT_STRICT_BLOCK' => [
+        ]
+];

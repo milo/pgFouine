@@ -27,9 +27,9 @@ class NormalizedError {
 	public $hint = '';
 	public $detail = '';
 	public $textIsAStatement = false;
-	public $examples = array();
+	public $examples = [];
 	public $count = 0;
-	public $hourlyStatistics = array();
+	public $hourlyStatistics = [];
 	
 	function NormalizedError(& $error) {
 		$this->normalizedText = $error->getNormalizedText();
@@ -66,7 +66,7 @@ class NormalizedError {
 	}
 	
 	function & getFilteredExamplesArray() {
-		$examples = array();
+		$examples = [];
 		$exampleCount = count($this->examples);
 		
 		for($i = 0; $i < $exampleCount; $i++) {

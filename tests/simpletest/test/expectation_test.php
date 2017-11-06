@@ -26,13 +26,13 @@
         }
         
         function testStringPosition() {
-            $comparisons = array(
+            $comparisons = [
                     "ab" => 2,
                     "a" => 1,
                     "abcz" => 3,
                     "abz" => 2,
                     "az" => 1,
-                    "z" => 0);
+                    "z" => 0];
             $str = &new EqualExpectation("abc");
             foreach ($comparisons as $compare => $position) {
                 $this->assertWantedPattern(
@@ -72,54 +72,54 @@
         }
         
         function testArray() {
-            $colours = &new EqualExpectation(array("r", "g", "b"));
-            $this->assertTrue($colours->test(array("r", "g", "b")));
-            $this->assertFalse($colours->test(array("g", "b", "r")));
+            $colours = &new EqualExpectation(["r", "g", "b"]);
+            $this->assertTrue($colours->test(["r", "g", "b"]));
+            $this->assertFalse($colours->test(["g", "b", "r"]));
             $this->assertEqual(
-                    $colours->testMessage(array("r", "g", "b")),
+                    $colours->testMessage(["r", "g", "b"]),
                     "Equal expectation [Array: 3 items]");
-            $this->assertWantedPattern('/fails/', $colours->testMessage(array("r", "g", "z")));
+            $this->assertWantedPattern('/fails/', $colours->testMessage(["r", "g", "z"]));
             $this->assertWantedPattern(
                     '/\[2\] at character 0/',
-                    $colours->testMessage(array("r", "g", "z")));
+                    $colours->testMessage(["r", "g", "z"]));
             $this->assertWantedPattern(
                     '/key.*? does not match/',
-                    $colours->testMessage(array("r", "g")));
+                    $colours->testMessage(["r", "g"]));
             $this->assertWantedPattern(
                     '/key.*? does not match/',
-                    $colours->testMessage(array("r", "g", "b", "z")));
+                    $colours->testMessage(["r", "g", "b", "z"]));
         }
         
         function testHash() {
-            $is_blue = &new EqualExpectation(array("r" => 0, "g" => 0, "b" => 255));
-            $this->assertTrue($is_blue->test(array("r" => 0, "g" => 0, "b" => 255)));
-            $this->assertFalse($is_blue->test(array("r" => 0, "g" => 255, "b" => 0)));
+            $is_blue = &new EqualExpectation(["r" => 0, "g" => 0, "b" => 255]);
+            $this->assertTrue($is_blue->test(["r" => 0, "g" => 0, "b" => 255]));
+            $this->assertFalse($is_blue->test(["r" => 0, "g" => 255, "b" => 0]));
             $this->assertWantedPattern(
                     '/array.*?3 items/i',
-                    $is_blue->testMessage(array("r" => 0, "g" => 0, "b" => 255)));
+                    $is_blue->testMessage(["r" => 0, "g" => 0, "b" => 255]));
             $this->assertWantedPattern(
                     '/fails.*?\[b\]/',
-                    $is_blue->testMessage(array("r" => 0, "g" => 0, "b" => 254)));
+                    $is_blue->testMessage(["r" => 0, "g" => 0, "b" => 254]));
         }
         
         function testNestedHash() {
-            $tree = &new EqualExpectation(array(
+            $tree = &new EqualExpectation([
                     "a" => 1,
-                    "b" => array(
+                    "b" => [
                             "c" => 2,
-                            "d" => "Three")));
+                            "d" => "Three"]]);
             $this->assertWantedPattern(
                     '/member.*?\[b\].*?\[d\].*?at character 5/',
-                    $tree->testMessage(array(
+                    $tree->testMessage([
                         "a" => 1,
-                        "b" => array(
+                        "b" => [
                                 "c" => 2,
-                                "d" => "Threeish"))));
+                                "d" => "Threeish"]]));
         }
         
         function testHashWithOutOfOrderKeysShouldStillMatch() {
-            $any_order = &new EqualExpectation(array('a' => 1, 'b' => 2));
-            $this->assertTrue($any_order->test(array('b' => 2, 'a' => 1)));
+            $any_order = &new EqualExpectation(['a' => 1, 'b' => 2]);
+            $this->assertTrue($any_order->test(['b' => 2, 'a' => 1]));
         }
     }
     

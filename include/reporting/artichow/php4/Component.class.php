@@ -29,7 +29,7 @@ require_once dirname(__FILE__)."/Graph.class.php";
 	 */
 	 function awComponentGroup() {
 		parent::awComponent();
-		$this->components = array();
+		$this->components = [];
 	}
 
 	/**
@@ -316,7 +316,7 @@ registerClass('ComponentGroup', TRUE);
 		$x2 = $this->w - $this->padding->right;
 		$y2 = $this->h - $this->padding->bottom;
 	
-		return array($x1, $y1, $x2, $y2);
+		return [$x1, $y1, $x2, $y2];
 	
 	}
 	
@@ -405,7 +405,7 @@ registerClass('ComponentGroup', TRUE);
 		$top = (int)($height * $this->space->top / 100);
 		$bottom = (int)($height * $this->space->bottom / 100);
 		
-		return array($left, $right, $top, $bottom);
+		return [$left, $right, $top, $bottom];
 		
 	}
 	

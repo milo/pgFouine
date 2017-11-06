@@ -73,7 +73,7 @@ class awPie extends awComponent {
 	 * 
 	 * @var array
 	 */
-	protected $legendValues = array();
+	protected $legendValues = [];
 	
 	/**
 	 * Intensity of the 3D effect
@@ -94,7 +94,7 @@ class awPie extends awComponent {
 	 *
 	 * @var array
 	 */
-	protected $explode = array();
+	protected $explode = [];
 	
 	/**
 	 * Initial angle
@@ -154,18 +154,18 @@ class awPie extends awComponent {
 			switch($colors) {
 			
 				case awPie::AQUA :
-					$this->colors = array(
+					$this->colors = [
 						new awColor(131, 220, 215),
 						new awColor(131, 190, 215),
 						new awColor(131, 160, 215),
 						new awColor(160, 140, 215),
 						new awColor(190, 131, 215),
 						new awColor(220, 131, 215)
-					);
+					];
 					break;
 			
 				case awPie::EARTH :
-					$this->colors = array(
+					$this->colors = [
 						new awColor(97, 179, 110),
 						new awColor(130, 179, 97),
 						new awColor(168, 179, 97),
@@ -173,22 +173,22 @@ class awPie extends awComponent {
 						new awColor(179, 108, 97),
 						new awColor(99, 107, 189),
 						new awColor(99, 165, 189)
-					);
+					];
 					break;
 			
 				case awPie::DARK :
-					$this->colors = array(
+					$this->colors = [
 						new awColor(140, 100, 170),
 						new awColor(130, 170, 100),
 						new awColor(160, 160, 120),
 						new awColor(150, 110, 140),
 						new awColor(130, 150, 160),
 						new awColor(90, 170, 140)
-					);
+					];
 					break;
 					
 				default :
-					$this->colors = array(
+					$this->colors = [
 						new awColor(187, 213, 151),
 						new awColor(223, 177, 151),
 						new awColor(111, 186, 132),
@@ -200,7 +200,7 @@ class awPie extends awComponent {
 						new awColor(127, 205, 177),
 						new awColor(205, 160, 160),
 						new awColor(190, 190, 190)
-					);
+					];
 					break;
 			
 			}
@@ -318,8 +318,8 @@ class awPie extends awComponent {
 		}
 		
 		$position = $this->angle;
-		$values = array();
-		$parts = array();
+		$values = [];
+		$parts = [];
 		$angles = 0;
 		
 		if($aliasing) {
@@ -363,9 +363,9 @@ class awPie extends awComponent {
 				$explode = new awPoint(0, 0);
 			}
 			
-			$values[$key] = array(
+			$values[$key] = [
 				$position, ($position + $angle), $explode
-			);
+			];
 			
 			$color = $this->colors[$key % count($this->colors)];
 			$parts[$key] = new awPiePart($color);
@@ -480,7 +480,7 @@ class awPie extends awComponent {
 		}
 		
 		// Get labels values
-		$pc = array();
+		$pc = [];
 		foreach($this->values as $key => $value) {
 			$pc[$key] = round($value / $sum * 100, $this->precision);
 		}
@@ -554,7 +554,7 @@ class awPie extends awComponent {
 		$topAxis = $this->padding->top;
 		$bottomAxis = $this->padding->bottom;
 		
-		return array($leftAxis, $rightAxis, $topAxis, $bottomAxis);
+		return [$leftAxis, $rightAxis, $topAxis, $bottomAxis];
 		
 	}
 	

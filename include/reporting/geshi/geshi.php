@@ -270,7 +270,7 @@ class GeSHi {
      * The data for the language used
      * @var array
      */
-    public $language_data = array();
+    public $language_data = [];
 
     /**
      * The path to the language files
@@ -289,12 +289,12 @@ class GeSHi {
      * Possible error messages
      * @var array
      */
-    public $error_messages = array(
+    public $error_messages = [
         GESHI_ERROR_NO_SUCH_LANG => 'GeSHi could not find the language {LANGUAGE} (using path {PATH})',
         GESHI_ERROR_FILE_NOT_READABLE => 'The file specified for load_from_file was not readable',
         GESHI_ERROR_INVALID_HEADER_TYPE => 'The header type specified is invalid',
         GESHI_ERROR_INVALID_LINE_NUMBER_TYPE => 'The line number type specified is invalid'
-    );
+    ];
 
     /**
      * Whether highlighting is strict or not
@@ -324,10 +324,10 @@ class GeSHi {
      * Array of permissions for which lexics should be highlighted
      * @var array
      */
-    public $lexic_permissions = array(
-        'KEYWORDS' =>    array(),
-        'COMMENTS' =>    array('MULTI' => true),
-        'REGEXPS' =>     array(),
+    public $lexic_permissions = [
+        'KEYWORDS' =>    [],
+        'COMMENTS' =>    ['MULTI' => true],
+        'REGEXPS' =>     [],
         'ESCAPE_CHAR' => true,
         'BRACKETS' =>    true,
         'SYMBOLS' =>     false,
@@ -335,7 +335,7 @@ class GeSHi {
         'NUMBERS' =>     true,
         'METHODS' =>     true,
         'SCRIPT' =>      true
-    );
+    ];
 
     /**
      * The time it took to parse the code
@@ -378,7 +378,7 @@ class GeSHi {
      * The styles for hyperlinks in the code
      * @var array
      */
-    public $link_styles = array();
+    public $link_styles = [];
 
     /**
      * Whether important blocks should be recognised or not
@@ -407,13 +407,13 @@ class GeSHi {
      * Lines that should be highlighted extra
      * @var array
      */
-    public $highlight_extra_lines = array();
+    public $highlight_extra_lines = [];
 
     /**
      * Styles of lines that should be highlighted extra
      * @var array
      */
-    public $highlight_extra_lines_styles = array();
+    public $highlight_extra_lines_styles = [];
 
     /**
      * Styles of extra-highlighted lines
@@ -608,10 +608,10 @@ class GeSHi {
     function error() {
         if ($this->error) {
             //Put some template variables for debugging here ...
-            $debug_tpl_vars = array(
+            $debug_tpl_vars = [
                 '{LANGUAGE}' => $this->language,
                 '{PATH}' => $this->language_path
-            );
+            ];
             $msg = str_replace(
                 array_keys($debug_tpl_vars),
                 array_values($debug_tpl_vars),
@@ -644,7 +644,7 @@ class GeSHi {
      */
     function set_source($source) {
         $this->source = $source;
-        $this->highlight_extra_lines = array();
+        $this->highlight_extra_lines = [];
     }
 
     /**
@@ -745,8 +745,8 @@ class GeSHi {
      */
     function set_header_type($type) {
         //Check if we got a valid header type
-        if (!in_array($type, array(GESHI_HEADER_NONE, GESHI_HEADER_DIV,
-            GESHI_HEADER_PRE, GESHI_HEADER_PRE_VALID, GESHI_HEADER_PRE_TABLE))) {
+        if (!in_array($type, [GESHI_HEADER_NONE, GESHI_HEADER_DIV,
+            GESHI_HEADER_PRE, GESHI_HEADER_PRE_VALID, GESHI_HEADER_PRE_TABLE])) {
             $this->error = GESHI_ERROR_INVALID_HEADER_TYPE;
             return;
         }
@@ -1214,8 +1214,8 @@ class GeSHi {
      * @since 1.0.1
      */
     function set_case_keywords($case) {
-        if (in_array($case, array(
-            GESHI_CAPS_NO_CHANGE, GESHI_CAPS_UPPER, GESHI_CAPS_LOWER))) {
+        if (in_array($case, [
+            GESHI_CAPS_NO_CHANGE, GESHI_CAPS_UPPER, GESHI_CAPS_LOWER])) {
             $this->language_data['CASE_KEYWORDS'] = $case;
         }
     }
@@ -1326,75 +1326,75 @@ class GeSHi {
      *       a extension->lang lookup?)
      * @todo static?
      */
-    function get_language_name_from_extension( $extension, $lookup = array() ) {
+    function get_language_name_from_extension( $extension, $lookup = [] ) {
         if ( !is_array($lookup) || empty($lookup)) {
-            $lookup = array(
-                'actionscript' => array('as'),
-                'ada' => array('a', 'ada', 'adb', 'ads'),
-                'apache' => array('conf'),
-                'asm' => array('ash', 'asm', 'inc'),
-                'asp' => array('asp'),
-                'bash' => array('sh'),
-                'bf' => array('bf'),
-                'c' => array('c', 'h'),
-                'c_mac' => array('c', 'h'),
-                'caddcl' => array(),
-                'cadlisp' => array(),
-                'cdfg' => array('cdfg'),
-                'cobol' => array('cbl'),
-                'cpp' => array('cpp', 'hpp', 'C', 'H', 'CPP', 'HPP'),
-                'csharp' => array('cs'),
-                'css' => array('css'),
-                'd' => array('d'),
-                'delphi' => array('dpk', 'dpr', 'pp', 'pas'),
-                'diff' => array('diff', 'patch'),
-                'dos' => array('bat', 'cmd'),
-                'gettext' => array('po', 'pot'),
-                'gml' => array('gml'),
-                'gnuplot' => array('plt'),
-                'groovy' => array('groovy'),
-                'haskell' => array('hs'),
-                'html4strict' => array('html', 'htm'),
-                'ini' => array('ini', 'desktop'),
-                'java' => array('java'),
-                'javascript' => array('js'),
-                'klonec' => array('kl1'),
-                'klonecpp' => array('klx'),
-                'latex' => array('tex'),
-                'lisp' => array('lisp'),
-                'lua' => array('lua'),
-                'matlab' => array('m'),
-                'mpasm' => array(),
-                'mysql' => array('sql'),
-                'nsis' => array(),
-                'objc' => array(),
-                'oobas' => array(),
-                'oracle8' => array(),
-                'oracle10' => array(),
-                'pascal' => array('pas'),
-                'perl' => array('pl', 'pm'),
-                'php' => array('php', 'php5', 'phtml', 'phps'),
-                'povray' => array('pov'),
-                'providex' => array('pvc', 'pvx'),
-                'prolog' => array('pl'),
-                'python' => array('py'),
-                'qbasic' => array('bi'),
-                'reg' => array('reg'),
-                'ruby' => array('rb'),
-                'sas' => array('sas'),
-                'scala' => array('scala'),
-                'scheme' => array('scm'),
-                'scilab' => array('sci'),
-                'smalltalk' => array('st'),
-                'smarty' => array(),
-                'tcl' => array('tcl'),
-                'vb' => array('bas'),
-                'vbnet' => array(),
-                'visualfoxpro' => array(),
-                'whitespace' => array('ws'),
-                'xml' => array('xml', 'svg'),
-                'z80' => array('z80', 'asm', 'inc')
-            );
+            $lookup = [
+                'actionscript' => ['as'],
+                'ada' => ['a', 'ada', 'adb', 'ads'],
+                'apache' => ['conf'],
+                'asm' => ['ash', 'asm', 'inc'],
+                'asp' => ['asp'],
+                'bash' => ['sh'],
+                'bf' => ['bf'],
+                'c' => ['c', 'h'],
+                'c_mac' => ['c', 'h'],
+                'caddcl' => [],
+                'cadlisp' => [],
+                'cdfg' => ['cdfg'],
+                'cobol' => ['cbl'],
+                'cpp' => ['cpp', 'hpp', 'C', 'H', 'CPP', 'HPP'],
+                'csharp' => ['cs'],
+                'css' => ['css'],
+                'd' => ['d'],
+                'delphi' => ['dpk', 'dpr', 'pp', 'pas'],
+                'diff' => ['diff', 'patch'],
+                'dos' => ['bat', 'cmd'],
+                'gettext' => ['po', 'pot'],
+                'gml' => ['gml'],
+                'gnuplot' => ['plt'],
+                'groovy' => ['groovy'],
+                'haskell' => ['hs'],
+                'html4strict' => ['html', 'htm'],
+                'ini' => ['ini', 'desktop'],
+                'java' => ['java'],
+                'javascript' => ['js'],
+                'klonec' => ['kl1'],
+                'klonecpp' => ['klx'],
+                'latex' => ['tex'],
+                'lisp' => ['lisp'],
+                'lua' => ['lua'],
+                'matlab' => ['m'],
+                'mpasm' => [],
+                'mysql' => ['sql'],
+                'nsis' => [],
+                'objc' => [],
+                'oobas' => [],
+                'oracle8' => [],
+                'oracle10' => [],
+                'pascal' => ['pas'],
+                'perl' => ['pl', 'pm'],
+                'php' => ['php', 'php5', 'phtml', 'phps'],
+                'povray' => ['pov'],
+                'providex' => ['pvc', 'pvx'],
+                'prolog' => ['pl'],
+                'python' => ['py'],
+                'qbasic' => ['bi'],
+                'reg' => ['reg'],
+                'ruby' => ['rb'],
+                'sas' => ['sas'],
+                'scala' => ['scala'],
+                'scheme' => ['scm'],
+                'scilab' => ['sci'],
+                'smalltalk' => ['st'],
+                'smarty' => [],
+                'tcl' => ['tcl'],
+                'vb' => ['bas'],
+                'vbnet' => [],
+                'visualfoxpro' => [],
+                'whitespace' => ['ws'],
+                'xml' => ['xml', 'svg'],
+                'z80' => ['z80', 'asm', 'inc']
+            ];
         }
 
         foreach ($lookup as $lang => $extensions) {
@@ -1422,7 +1422,7 @@ class GeSHi {
      * @todo Complete rethink of this and above method
      * @since 1.0.5
      */
-    function load_from_file($file_name, $lookup = array()) {
+    function load_from_file($file_name, $lookup = []) {
         if (is_readable($file_name)) {
             $this->set_source(file_get_contents($file_name));
             $this->set_language($this->get_language_name_from_extension(substr(strrchr($file_name, '.'), 1), $lookup));
@@ -1484,7 +1484,7 @@ class GeSHi {
      * @param array  The words to use for the keyword group
      * @since 1.0.0
      */
-    function add_keyword_group($key, $styles, $case_sensitive = true, $words = array()) {
+    function add_keyword_group($key, $styles, $case_sensitive = true, $words = []) {
         $words = (array) $words;
         if  (empty($words)) {
             // empty word lists mess up highlighting
@@ -1796,7 +1796,7 @@ class GeSHi {
             if(is_array($this->language_data['NUMBERS'])) {
                 $this->language_data['NUMBERS_CACHE'] = $this->language_data['NUMBERS'];
             } else {
-                $this->language_data['NUMBERS_CACHE'] = array();
+                $this->language_data['NUMBERS_CACHE'] = [];
                 if(!$this->language_data['NUMBERS']) {
                     $this->language_data['NUMBERS'] =
                         GESHI_NUMBER_INT_BASIC |
@@ -1845,9 +1845,9 @@ class GeSHi {
         if ($this->lexic_permissions['SYMBOLS'] && !empty($this->language_data['SYMBOLS'])) {
             $this->language_data['MULTIPLE_SYMBOL_GROUPS'] = count($this->language_data['STYLES']['SYMBOLS']) > 1;
 
-            $this->language_data['SYMBOL_DATA'] = array();
-            $symbol_preg_multi = array(); // multi char symbols
-            $symbol_preg_single = array(); // single char symbols
+            $this->language_data['SYMBOL_DATA'] = [];
+            $symbol_preg_multi = []; // multi char symbols
+            $symbol_preg_single = []; // single char symbols
             foreach ($this->language_data['SYMBOLS'] as $key => $symbols) {
                 if (is_array($symbols)) {
                     foreach ($symbols as $sym) {
@@ -1886,7 +1886,7 @@ class GeSHi {
             //This way we can set the correct style just the moment we highlight ...
             //
             //Now we need to rewrite our array to get a search string that
-            $symbol_preg = array();
+            $symbol_preg = [];
             if (!empty($symbol_preg_multi)) {
                 rsort($symbol_preg_multi);
                 $symbol_preg[] = implode('|', $symbol_preg_multi);
@@ -1900,7 +1900,7 @@ class GeSHi {
 
         // cache optimized regexp for keyword matching
         // remove old cache
-        $this->language_data['CACHED_KEYWORD_LISTS'] = array();
+        $this->language_data['CACHED_KEYWORD_LISTS'] = [];
         foreach (array_keys($this->language_data['KEYWORDS']) as $key) {
             if (!isset($this->lexic_permissions['KEYWORDS'][$key]) ||
                     $this->lexic_permissions['KEYWORDS'][$key]) {
@@ -1910,26 +1910,26 @@ class GeSHi {
 
         // brackets
         if ($this->lexic_permissions['BRACKETS']) {
-            $this->language_data['CACHE_BRACKET_MATCH'] = array('[', ']', '(', ')', '{', '}');
+            $this->language_data['CACHE_BRACKET_MATCH'] = ['[', ']', '(', ')', '{', '}'];
             if (!$this->use_classes && isset($this->language_data['STYLES']['BRACKETS'][0])) {
-                $this->language_data['CACHE_BRACKET_REPLACE'] = array(
+                $this->language_data['CACHE_BRACKET_REPLACE'] = [
                     '<| style="' . $this->language_data['STYLES']['BRACKETS'][0] . '">&#91;|>',
                     '<| style="' . $this->language_data['STYLES']['BRACKETS'][0] . '">&#93;|>',
                     '<| style="' . $this->language_data['STYLES']['BRACKETS'][0] . '">&#40;|>',
                     '<| style="' . $this->language_data['STYLES']['BRACKETS'][0] . '">&#41;|>',
                     '<| style="' . $this->language_data['STYLES']['BRACKETS'][0] . '">&#123;|>',
                     '<| style="' . $this->language_data['STYLES']['BRACKETS'][0] . '">&#125;|>',
-                );
+                ];
             }
             else {
-                $this->language_data['CACHE_BRACKET_REPLACE'] = array(
+                $this->language_data['CACHE_BRACKET_REPLACE'] = [
                     '<| class="br0">&#91;|>',
                     '<| class="br0">&#93;|>',
                     '<| class="br0">&#40;|>',
                     '<| class="br0">&#41;|>',
                     '<| class="br0">&#123;|>',
                     '<| class="br0">&#125;|>',
-                );
+                ];
             }
         }
 
@@ -1943,7 +1943,7 @@ class GeSHi {
 
             //Number format specification
             //All this formats are matched case-insensitively!
-            static $numbers_format = array(
+            static $numbers_format = [
                 GESHI_NUMBER_INT_BASIC =>
                     '(?<![0-9a-z_\.%])(?<![\d\.]e[+\-])([1-9]\d*?|0)(?![0-9a-z\.])',
                 GESHI_NUMBER_INT_CSTYLE =>
@@ -1970,18 +1970,18 @@ class GeSHi {
                     '(?<![0-9a-z_\.])(?<![\d\.]e[+\-])\.\d+?(?:e[+\-]?\d+?)?(?![0-9a-z\.])',
                 GESHI_NUMBER_FLT_SCI_ZERO =>
                     '(?<![0-9a-z_\.])(?<![\d\.]e[+\-])(?:\d+?(?:\.\d*?)?|\.\d+?)(?:e[+\-]?\d+?)?(?![0-9a-z\.])'
-                );
+                ];
 
             //At this step we have an associative array with flag groups for a
             //specific style or an string denoting a regexp given its index.
-            $this->language_data['NUMBERS_RXCACHE'] = array();
+            $this->language_data['NUMBERS_RXCACHE'] = [];
             foreach($this->language_data['NUMBERS_CACHE'] as $key => $rxdata) {
                 if(is_string($rxdata)) {
                     $regexp = $rxdata;
                 } else {
                     //This is a bitfield of number flags to highlight:
                     //Build an array, implode them together and make this the actual RX
-                    $rxuse = array();
+                    $rxuse = [];
                     for($i = 1; $i <= $rxdata; $i<<=1) {
                         if($rxdata & $i) {
                             $rxuse[] = $numbers_format[$i];
@@ -2019,7 +2019,7 @@ class GeSHi {
 
             //This fix is related to SF#1923020, but has to be applied regardless of
             //actually highlighting symbols.
-            $result = str_replace(array('<SEMI>', '<PIPE>'), array(';', '|'), $result);
+            $result = str_replace(['<SEMI>', '<PIPE>'], [';', '|'], $result);
 
             // Timing is irrelevant
             $this->set_time($start_time, $start_time);
@@ -2055,8 +2055,8 @@ class GeSHi {
             // Break the source into bits. Each bit will be a portion of the code
             // within script delimiters - for example, HTML between < and >
             $k = 0;
-            $parts = array();
-            $matches = array();
+            $parts = [];
+            $matches = [];
             $next_match_pointer = null;
             // we use a copy to unset delimiters on demand (when they are not found)
             $delim_copy = $this->language_data['SCRIPT_DELIMITERS'];
@@ -2068,7 +2068,7 @@ class GeSHi {
                         foreach ($delimiters as $open => $close) {
                             // make sure the cache is setup properly
                             if (!isset($matches[$dk][$open])) {
-                                $matches[$dk][$open] = array(
+                                $matches[$dk][$open] = [
                                     'next_match' => -1,
                                     'dk' => $dk,
 
@@ -2077,7 +2077,7 @@ class GeSHi {
 
                                     'close' => $close,
                                     'close_strlen' => strlen($close),
-                                );
+                                ];
                             }
                             // Get the next little bit for this opening string
                             if ($matches[$dk][$open]['next_match'] < $i) {
@@ -2110,13 +2110,13 @@ class GeSHi {
                         if(!GESHI_PHP_PRE_433 && //Needs proper rewrite to work with PHP >=4.3.0; 4.3.3 is guaranteed to work.
                             preg_match($delimiters, $code, $matches_rx, PREG_OFFSET_CAPTURE, $i)) {
                             //We got a match ...
-                            $matches[$dk] = array(
+                            $matches[$dk] = [
                                 'next_match' => $matches_rx[1][1],
                                 'dk' => $dk,
 
                                 'close_strlen' => strlen($matches_rx[2][0]),
                                 'close_pos' => $matches_rx[2][1],
-                                );
+                                ];
                         } else {
                             // no match for this delimiter ever
                             unset($delim_copy[$dk]);
@@ -2130,9 +2130,9 @@ class GeSHi {
                     }
                 }
                 // non-highlightable text
-                $parts[$k] = array(
+                $parts[$k] = [
                     1 => substr($code, $i, $next_match_pos - $i)
-                );
+                ];
                 ++$k;
 
                 if ($next_match_pos > $length) {
@@ -2192,32 +2192,32 @@ class GeSHi {
             if ($num_parts == 1 && $this->strict_mode == GESHI_MAYBE) {
                 // when we have only one part, we don't have anything to highlight at all.
                 // if we have a "maybe" strict language, this should be handled as highlightable code
-                $parts = array(
-                    0 => array(
+                $parts = [
+                    0 => [
                         0 => '',
                         1 => ''
-                    ),
-                    1 => array(
+                    ],
+                    1 => [
                         0 => null,
                         1 => $parts[0][1]
-                    )
-                );
+                    ]
+                ];
                 $num_parts = 2;
             }
 
         } else {
             // Not strict mode - simply dump the source into
             // the array at index 1 (the first highlightable block)
-            $parts = array(
-                0 => array(
+            $parts = [
+                0 => [
                     0 => '',
                     1 => ''
-                ),
-                1 => array(
+                ],
+                1 => [
                     0 => null,
                     1 => $code
-                )
-            );
+                ]
+            ];
             $num_parts = 2;
         }
 
@@ -2252,15 +2252,15 @@ class GeSHi {
         }
 
         //Fix for SF#1932083: Multichar Quotemarks unsupported
-        $is_string_starter = array();
+        $is_string_starter = [];
         if ($this->lexic_permissions['STRINGS']) {
             foreach ($this->language_data['QUOTEMARKS'] as $quotemark) {
                 if (!isset($is_string_starter[$quotemark[0]])) {
                     $is_string_starter[$quotemark[0]] = (string)$quotemark;
                 } else if (is_string($is_string_starter[$quotemark[0]])) {
-                    $is_string_starter[$quotemark[0]] = array(
+                    $is_string_starter[$quotemark[0]] = [
                         $is_string_starter[$quotemark[0]],
-                        $quotemark);
+                        $quotemark];
                 } else {
                     $is_string_starter[$quotemark[0]][] = $quotemark;
                 }
@@ -2314,12 +2314,12 @@ class GeSHi {
                 $next_comment_regexp_pos = -1;
                 $next_comment_multi_pos = -1;
                 $next_comment_single_pos = -1;
-                $comment_regexp_cache_per_key = array();
-                $comment_multi_cache_per_key = array();
-                $comment_single_cache_per_key = array();
+                $comment_regexp_cache_per_key = [];
+                $comment_multi_cache_per_key = [];
+                $comment_single_cache_per_key = [];
                 $next_open_comment_multi = '';
                 $next_comment_single_key = '';
-                $escape_regexp_cache_per_key = array();
+                $escape_regexp_cache_per_key = [];
                 $next_escape_regexp_key = '';
                 $next_escape_regexp_pos = -1;
 
@@ -2353,11 +2353,11 @@ class GeSHi {
                                     $match_i += $i;
                                 }
 
-                                $comment_regexp_cache_per_key[$comment_key] = array(
+                                $comment_regexp_cache_per_key[$comment_key] = [
                                     'key' => $comment_key,
                                     'length' => strlen($match[0][0]),
                                     'pos' => $match_i
-                                );
+                                ];
                             } else {
                                 $comment_regexp_cache_per_key[$comment_key]['pos'] = false;
                                 continue;
@@ -2461,11 +2461,11 @@ class GeSHi {
                                                 $match_i += $start;
                                             }
 
-                                            $escape_regexp_cache_per_key[$escape_key] = array(
+                                            $escape_regexp_cache_per_key[$escape_key] = [
                                                 'key' => $escape_key,
                                                 'length' => strlen($match[0][0]),
                                                 'pos' => $match_i
-                                            );
+                                            ];
                                         } else {
                                             $escape_regexp_cache_per_key[$escape_key]['pos'] = false;
                                             continue;
@@ -2948,7 +2948,7 @@ class GeSHi {
         //This fix is related to SF#1923020, but has to be applied regardless of
         //actually highlighting symbols.
         /** NOTE: memorypeak #3 */
-        $endresult = str_replace(array('<SEMI>', '<PIPE>'), array(';', '|'), $endresult);
+        $endresult = str_replace(['<SEMI>', '<PIPE>'], [';', '|'], $endresult);
 
 //        // Parse the last stuff (redundant?)
 //        $result .= $this->parse_non_string_part($stuff_to_parse);
@@ -3122,16 +3122,16 @@ class GeSHi {
 
                 $before = '<|UR1|"' .
                     str_replace(
-                        array(
+                        [
                             '{FNAME}',
                             '{FNAMEL}',
                             '{FNAMEU}',
-                            '.'),
-                        array(
+                            '.'],
+                        [
                             str_replace('+', '%20', urlencode($this->hsc($word))),
                             str_replace('+', '%20', urlencode($this->hsc(strtolower($word)))),
                             str_replace('+', '%20', urlencode($this->hsc(strtoupper($word)))),
-                            '<DOT>'),
+                            '<DOT>'],
                         $this->language_data['URLS'][$k]
                     ) . '">';
                 $after = '</a>';
@@ -3171,7 +3171,7 @@ class GeSHi {
         $after = $this->_hmr_after;
         if ($this->_hmr_replace) {
             $replace = $this->_hmr_replace;
-            $search = array();
+            $search = [];
 
             foreach (array_keys($matches) as $k) {
                 $search[] = '\\' . $k;
@@ -3214,7 +3214,7 @@ class GeSHi {
                         $this->_hmr_after = $regexp[GESHI_AFTER];
                         $stuff_to_parse = preg_replace_callback(
                             "/" . $regexp[GESHI_SEARCH] . "/{$regexp[GESHI_MODIFIERS]}",
-                            array($this, 'handle_multiline_regexps'),
+                            [$this, 'handle_multiline_regexps'],
                             $stuff_to_parse);
                         $this->_hmr_replace = false;
                         $this->_hmr_before = '';
@@ -3230,7 +3230,7 @@ class GeSHi {
                         // produce valid HTML when we match multiple lines
                         $this->_hmr_key = $key;
                         $stuff_to_parse = preg_replace_callback( "/(" . $regexp . ")/",
-                                              array($this, 'handle_multiline_regexps'), $stuff_to_parse);
+                                              [$this, 'handle_multiline_regexps'], $stuff_to_parse);
                         $this->_hmr_key = '';
                     } else {
                         $stuff_to_parse = preg_replace( "/(" . $regexp . ")/", "<|!REG3XP$key!>\\1|>", $stuff_to_parse);
@@ -3319,7 +3319,7 @@ class GeSHi {
                     // get highlighted if the language has a CSS keyword in it (like CSS, for example ;))
                     $stuff_to_parse = preg_replace_callback(
                         "/$disallowed_before_local({$keywordset})(?!\<DOT\>(?:htm|php))$disallowed_after_local/$modifiers",
-                        array($this, 'handle_keyword_replace'),
+                        [$this, 'handle_keyword_replace'],
                         $stuff_to_parse
                         );
                 }
@@ -3479,7 +3479,7 @@ class GeSHi {
                 if (is_callable($this->language_data['STYLES']['REGEXPS'][$key])) {
                     $this->_rx_key = $key;
                     $stuff_to_parse = preg_replace_callback("/!REG3XP$key!(.*)\|>/U",
-                        array($this, 'handle_regexps_callback'),
+                        [$this, 'handle_regexps_callback'],
                         $stuff_to_parse);
                 } else {
                     if (!$this->use_classes) {
@@ -3601,7 +3601,7 @@ class GeSHi {
         $this->loaded_language = $file_name;
         $this->parse_cache_built = false;
         $this->enable_highlighting();
-        $language_data = array();
+        $language_data = [];
 
         //Load the language file
         require $file_name;
@@ -3732,7 +3732,7 @@ class GeSHi {
             // Foreach line...
             for ($i = 0, $n = count($code); $i < $n;) {
                 //Reset the attributes for a new line ...
-                $attrs = array();
+                $attrs = [];
 
                 // Make lines have at least one space in them if they're empty
                 // BenBE: Checking emptiness using trim instead of relying on blanks
@@ -4075,7 +4075,7 @@ class GeSHi {
      * @access private
      */
     function replace_keywords($instr) {
-        $keywords = $replacements = array();
+        $keywords = $replacements = [];
 
         $keywords[] = '<TIME>';
         $keywords[] = '{TIME}';
@@ -4161,7 +4161,7 @@ class GeSHi {
      */
     function hsc($string, $quote_style = ENT_COMPAT) {
         // init
-        static $aTransSpecchar = array(
+        static $aTransSpecchar = [
             '&' => '&amp;',
             '"' => '&quot;',
             '<' => '&lt;',
@@ -4175,7 +4175,7 @@ class GeSHi {
             //was not to be processed as an entity.
             ';' => '<SEMI>', // Force ; to be processed as entity
             '|' => '<PIPE>' // Force | to be processed as entity
-            );                      // ENT_COMPAT set
+            ];                      // ENT_COMPAT set
 
         switch ($quote_style) {
             case ENT_NOQUOTES: // don't convert double quotes
@@ -4431,16 +4431,16 @@ class GeSHi {
     * @access private
     */
     function optimize_regexp_list($list, $regexp_delimiter = '/') {
-        $regex_chars = array('.', '\\', '+', '*', '?', '[', '^', ']', '$',
-            '(', ')', '{', '}', '=', '!', '<', '>', '|', ':', $regexp_delimiter);
+        $regex_chars = ['.', '\\', '+', '*', '?', '[', '^', ']', '$',
+            '(', ')', '{', '}', '=', '!', '<', '>', '|', ':', $regexp_delimiter];
         sort($list);
-        $regexp_list = array('');
+        $regexp_list = [''];
         $num_subpatterns = 0;
         $list_key = 0;
 
         // the tokens which we will use to generate the regexp list
-        $tokens = array();
-        $prev_keys = array();
+        $tokens = [];
+        $prev_keys = [];
         // go through all entries of the list and generate the token list
         $cur_len = 0;
         for ($i = 0, $i_max = count($list); $i < $i_max; ++$i) {
@@ -4448,7 +4448,7 @@ class GeSHi {
                 // seems like the length of this pcre is growing exorbitantly
                 $regexp_list[++$list_key] = $this->_optimize_regexp_list_tokens_to_string($tokens);
                 $num_subpatterns = substr_count($regexp_list[$list_key], '(?:');
-                $tokens = array();
+                $tokens = [];
                 $cur_len = 0;
             }
             $level = 0;
@@ -4481,17 +4481,17 @@ class GeSHi {
                             if (in_array($new_key_part1[0], $regex_chars)
                                 || in_array($new_key_part2[0], $regex_chars)) {
                                 // this is bad, a regex char as first character
-                                $pointer[$entry] = array('' => true);
+                                $pointer[$entry] = ['' => true];
                                 array_splice($prev_keys, $level, count($prev_keys), $entry);
                                 $cur_len += strlen($entry);
                                 continue;
                             } else {
                                 // relocate previous tokens
-                                $pointer[$new_key_part1] = array($new_key_part2 => $pointer[$prev_keys[$level]]);
+                                $pointer[$new_key_part1] = [$new_key_part2 => $pointer[$prev_keys[$level]]];
                                 unset($pointer[$prev_keys[$level]]);
                                 $pointer = &$pointer[$new_key_part1];
                                 // recreate key index
-                                array_splice($prev_keys, $level, count($prev_keys), array($new_key_part1, $new_key_part2));
+                                array_splice($prev_keys, $level, count($prev_keys), [$new_key_part1, $new_key_part2]);
                                 $cur_len += strlen($new_key_part2);
                             }
                         }
@@ -4515,11 +4515,11 @@ class GeSHi {
                         $regexp_list[$list_key] .= $new_entry;
                         $num_subpatterns += $new_subpatterns;
                     }
-                    $tokens = array();
+                    $tokens = [];
                     $cur_len = 0;
                 }
                 // no further common denominator found
-                $pointer[$entry] = array('' => true);
+                $pointer[$entry] = ['' => true];
                 array_splice($prev_keys, $level, count($prev_keys), $entry);
 
                 $cur_len += strlen($entry);

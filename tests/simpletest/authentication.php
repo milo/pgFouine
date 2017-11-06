@@ -125,7 +125,7 @@
          *    @access public
          */
         function restartSession() {
-            $this->_realms = array();
+            $this->_realms = [];
         }
         
         /**

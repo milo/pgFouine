@@ -22,7 +22,7 @@
  */
 
 class ReportAggregator {
-	public $reportBlocks = array();
+	public $reportBlocks = [];
 	public $logReader;
 	public $outputFilePath;
 	
@@ -64,7 +64,7 @@ class ReportAggregator {
 	}
 	
 	function getNeeds() {
-		$needs = array();
+		$needs = [];
 		$count = count($this->reportBlocks);
 		for($i = 0; $i < $count; $i++) {
 			$needs = array_merge($needs, $this->reportBlocks[$i]->getNeeds());

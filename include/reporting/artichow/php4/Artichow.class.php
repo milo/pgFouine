@@ -64,7 +64,7 @@ class awGraph extends awImage {
 	 *
 	 * @var array
 	 */
-	public $components = array();
+	public $components = [];
 	
 	/**
 	 * Graph title

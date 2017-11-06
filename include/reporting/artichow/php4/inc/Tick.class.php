@@ -201,7 +201,7 @@ class awTick {
 	 */
 	 function setNumberByTick(&$tick, $number) {
 		
-		$this->numberByTick = array(&$tick, (int)$number);
+		$this->numberByTick = [&$tick, (int)$number];
 		
 	}
 	

@@ -22,7 +22,7 @@
  */
 
 class PostgreSQLAccumulator extends Accumulator {
-	public $working = array();
+	public $working = [];
 	public $stream;
 	public $lastTimestamp;
 	

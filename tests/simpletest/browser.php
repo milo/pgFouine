@@ -33,7 +33,7 @@
          *    @access public
          */
         function SimpleBrowserHistory() {
-            $this->_sequence = array();
+            $this->_sequence = [];
             $this->_position = -1;
         }
         
@@ -75,7 +75,7 @@
             $this->_dropFuture();
             array_push(
                     $this->_sequence,
-                    array('method' => $method, 'url' => $url, 'parameters' => $parameters));
+                    ['method' => $method, 'url' => $url, 'parameters' => $parameters]);
             $this->_position++;
         }
         
@@ -247,7 +247,7 @@
             }
             $frameset = &new SimpleFrameset($page);
             foreach ($page->getFrameset() as $key => $url) {
-                $frame = &$this->_fetch('GET', $url, array(), $depth + 1);
+                $frame = &$this->_fetch('GET', $url, [], $depth + 1);
                 $frameset->addFrame($frame, $key);
             }
             return $frameset;
@@ -284,7 +284,7 @@
             if (! $frame || ! $this->_page->hasFrames() || (strtolower($frame) == '_top')) {
                 return $this->_loadPage($method, $url, $parameters);
             }
-            return $this->_loadFrame(array($frame), $method, $url, $parameters);
+            return $this->_loadFrame([$frame], $method, $url, $parameters);
         }
         
         /**

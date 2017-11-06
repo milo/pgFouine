@@ -39,7 +39,7 @@ class awLegend {
 	 *
 	 * @var array
 	 */
-	public $legends = array();
+	public $legends = [];
 
 	/**
 	 * The current component
@@ -271,7 +271,7 @@ class awLegend {
 	 */
 	 function add(&$legendable, $title, $type = LEGEND_LINE) {
 	
-		$legend = array($legendable, $title, $type);
+		$legend = [$legendable, $title, $type];
 	
 		$this->legends[] = $legend;
 		
@@ -286,7 +286,7 @@ class awLegend {
 	 * @param int $bottom
 	 */
 	 function setPadding($left, $right, $top, $bottom) {
-		$this->padding = array((int)$left, (int)$right, (int)$top, (int)$bottom);
+		$this->padding = [(int)$left, (int)$right, (int)$top, (int)$bottom];
 	}
 	
 	/**
@@ -434,9 +434,9 @@ class awLegend {
 		}
 		
 		// Get text widths and heights of each element of the legend
-		$widths = array();
-		$heights = array();
-		$texts = array();
+		$widths = [];
+		$heights = [];
+		$texts = [];
 		for($i = 0; $i < $count; $i++) {
 			list(, $title, ) = $this->legends[$i];
 			$text = new awText(
@@ -467,7 +467,7 @@ class awLegend {
 		$rows = (int)ceil($count / $columns);
 		
 		// Get maximum with of each column
-		$widthMax = array();
+		$widthMax = [];
 		for($i = 0; $i < $count; $i++) {
 			// Get column width
 			$column = $i % $columns;

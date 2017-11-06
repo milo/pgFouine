@@ -29,7 +29,7 @@
  * to all the listeners
  */
 class Accumulator {
-	public $listeners = array();
+	public $listeners = [];
 	
 	function append(& $line) {
 	}

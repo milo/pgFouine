@@ -121,11 +121,11 @@
             $this->_action = $this->_createAction($tag->getAttribute('action'), $url);
             $this->_default_target = false;
             $this->_id = $tag->getAttribute('id');
-            $this->_buttons = array();
-            $this->_images = array();
-            $this->_widgets = array();
-            $this->_radios = array();
-            $this->_checkboxes = array();
+            $this->_buttons = [];
+            $this->_images = [];
+            $this->_widgets = [];
+            $this->_radios = [];
+            $this->_checkboxes = [];
         }
         
         /**

@@ -204,9 +204,9 @@ abstract class awPlot extends awComponent {
 		if($ratio > 1) {
 		
 			$tmpy = $this->datay;
-			$datay = array();
+			$datay = [];
 			
-			$datax = array();
+			$datax = [];
 			$cbLabel = $this->xAxis->label->getCallbackFunction();
 			
 			for($i = 0; $i < $count; $i += $ratio) {
@@ -478,7 +478,7 @@ abstract class awPlot extends awComponent {
 		}
 		
 		// Set axis labels
-		$labels = array();
+		$labels = [];
 		for($i = 0, $count = $this->getXAxisNumber(); $i < $count; $i++) {
 			$labels[] = $i;
 		}
@@ -574,7 +574,7 @@ abstract class awPlot extends awComponent {
 		
 		// Horizontal lines of the grid
 		
-		$h = array();
+		$h = [];
 		for($i = 0; $i <= $number; $i++) {
 			$h[] = $i / $number;
 		}
@@ -585,7 +585,7 @@ abstract class awPlot extends awComponent {
 		$interval = $major->getInterval();
 		$number = $this->getXAxisNumber() - 1;
 		
-		$w = array();
+		$w = [];
 		
 		if($number > 0) {
 			
@@ -618,7 +618,7 @@ abstract class awPlot extends awComponent {
 		}
 		
 		if($datax === NULL) {
-			$datax = array();
+			$datax = [];
 			for($i = 0; $i < count($datay); $i++) {
 				$datax[] = $i;
 			}
@@ -662,7 +662,7 @@ abstract class awPlot extends awComponent {
 		}
 		$stop = $i;
 		
-		return array($start, $stop);
+		return [$start, $stop];
 		
 	}
 	
@@ -1149,7 +1149,7 @@ class awPlotGroup extends awComponentGroup {
 		}
 		
 		// Set Y axis range
-		foreach(array('left', 'right') as $axis) {
+		foreach(['left', 'right'] as $axis) {
 		
 			if($this->isAxisUsed($axis)) {
 			
@@ -1181,7 +1181,7 @@ class awPlotGroup extends awComponentGroup {
 		}
 		
 		// Center labels on X axis if needed
-		$test = array(awPlot::TOP => FALSE, awPlot::BOTTOM => FALSE);
+		$test = [awPlot::TOP => FALSE, awPlot::BOTTOM => FALSE];
 		
 		for($i = 0; $i < count($this->components); $i++) {
 		
@@ -1214,7 +1214,7 @@ class awPlotGroup extends awComponentGroup {
 		}
 		
 		// Set axis labels
-		$labels = array();
+		$labels = [];
 		for($i = $xMin; $i <= $xMax; $i++) {
 			$labels[] = $i;
 		}
@@ -1323,7 +1323,7 @@ class awPlotGroup extends awComponentGroup {
 		list($x1, $y1, $x2, $y2) = $this->getPosition();
 		
 		// Hide unused axis
-		foreach(array(awPlot::LEFT, awPlot::RIGHT, awPlot::TOP, awPlot::BOTTOM) as $axis) {
+		foreach([awPlot::LEFT, awPlot::RIGHT, awPlot::TOP, awPlot::BOTTOM] as $axis) {
 			if($this->isAxisUsed($axis) === FALSE) {
 				$this->axis->{$axis}->hide(TRUE);
 			}
@@ -1411,7 +1411,7 @@ class awPlotGroup extends awComponentGroup {
 		
 		// Horizontal lines of grid
 		
-		$h = array();
+		$h = [];
 		for($i = 0; $i <= $number; $i++) {
 			$h[] = $i / $number;
 		}
@@ -1422,7 +1422,7 @@ class awPlotGroup extends awComponentGroup {
 		$interval = $major->getInterval();
 		$number = $this->getXAxisNumber() - 1;
 		
-		$w = array();
+		$w = [];
 		
 		if($number > 0) {
 			

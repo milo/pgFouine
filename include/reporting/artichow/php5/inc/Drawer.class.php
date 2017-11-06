@@ -158,7 +158,7 @@ class awDrawer {
 	 */
 	public function getSize() {
 		
-		return array($this->w, $this->h);
+		return [$this->w, $this->h];
 	
 	}
 	
@@ -596,7 +596,7 @@ class awDrawer {
 	
 	private function getPolygonPoints(awPolygon $polygon) {
 		
-		$points = array();
+		$points = [];
 		
 		foreach($polygon->all() as $point) {
 			$points[] = $point->x + $this->x;
@@ -809,7 +809,7 @@ class awGradientDrawer {
 			
 			$c = new awPoint($x1 + ($x2 - $x1) / 2, $y1 + ($y2 - $y1) / 2); 
 			$r = ($x2 - $x1) / 2;
-			$ok = array();
+			$ok = [];
 			
 			// Init gradient
 			$this->init($gradient, $r);

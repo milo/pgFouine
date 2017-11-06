@@ -7,8 +7,8 @@
         
         function testLastCraft() {
             $this->assertTrue($this->get('http://www.lastcraft.com'));
-            $this->assertResponse(array(200));
-            $this->assertMime(array('text/html'));
+            $this->assertResponse([200]);
+            $this->assertMime(['text/html']);
             $this->clickLink('About');
             $this->assertTitle('About Last Craft');
         }

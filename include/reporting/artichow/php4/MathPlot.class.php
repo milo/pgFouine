@@ -155,7 +155,7 @@ class awMathPlot extends awComponent {
 	 *
 	 * @var array
 	 */
-	public $functions = array();
+	public $functions = [];
 	
 	/**
 	 * Grid properties
@@ -301,13 +301,13 @@ class awMathPlot extends awComponent {
 		
 		
 		// Set axis labels
-		$labels = array();
+		$labels = [];
 		for($i = 0, $count = $this->xAxis->getLabelNumber(); $i < $count; $i++) {
 			$labels[] = $i;
 		}
 		$this->xAxis->label->set($labels);
 		
-		$labels = array();
+		$labels = [];
 		for($i = 0, $count = $this->yAxis->getLabelNumber(); $i < $count; $i++) {
 			$labels[] = $i;
 		}
@@ -407,7 +407,7 @@ class awMathPlot extends awComponent {
 		$interval = $major->getInterval();
 		$number = $this->yAxis->getLabelNumber() - 1;
 		
-		$h = array();
+		$h = [];
 		if($number > 0) {
 			for($i = 0; $i <= $number; $i++) {
 				$h[] = $i / $number;
@@ -420,7 +420,7 @@ class awMathPlot extends awComponent {
 		$interval = $major->getInterval();
 		$number = $this->xAxis->getLabelNumber() - 1;
 		
-		$w = array();
+		$w = [];
 		if($number > 0) {
 			for($i = 0; $i <= $number; $i++) {
 				if($i%$interval === 0) {

@@ -13,16 +13,16 @@
     Mock::generatePartial(
             'SimplePageBuilder',
             'PartialSimplePageBuilder',
-            array('_createPage', '_createParser'));
+            ['_createPage', '_createParser']);
     
     class TestOfPageBuilder extends UnitTestCase {
         
         function testLink() {
-            $tag = &new SimpleAnchorTag(array('href' => 'http://somewhere'));
+            $tag = &new SimpleAnchorTag(['href' => 'http://somewhere']);
             $tag->addContent('Label');
             
             $page = &new MockSimplePage($this);
-            $page->expectArguments('acceptTag', array($tag));
+            $page->expectArguments('acceptTag', [$tag]);
             $page->expectCallCount('acceptTag', 1);
             
             $builder = &new PartialSimplePageBuilder($this);
@@ -33,7 +33,7 @@
             $builder->parse(new MockSimpleHttpResponse($this));
             $this->assertTrue($builder->startElement(
                     'a',
-                    array('href' => 'http://somewhere')));
+                    ['href' => 'http://somewhere']));
             $this->assertTrue($builder->addContent('Label'));
             $this->assertTrue($builder->endElement('a'));
             
@@ -41,11 +41,11 @@
         }
         
         function testLinkWithId() {
-            $tag = &new SimpleAnchorTag(array("href" => "http://somewhere", "id" => "44"));
+            $tag = &new SimpleAnchorTag(["href" => "http://somewhere", "id" => "44"]);
             $tag->addContent("Label");
             
             $page = &new MockSimplePage($this);
-            $page->expectArguments("acceptTag", array($tag));
+            $page->expectArguments("acceptTag", [$tag]);
             $page->expectCallCount("acceptTag", 1);
             
             $builder = &new PartialSimplePageBuilder($this);
@@ -56,7 +56,7 @@
             $builder->parse(new MockSimpleHttpResponse($this));
             $this->assertTrue($builder->startElement(
                     "a",
-                    array("href" => "http://somewhere", "id" => "44")));
+                    ["href" => "http://somewhere", "id" => "44"]));
             $this->assertTrue($builder->addContent("Label"));
             $this->assertTrue($builder->endElement("a"));
             
@@ -64,11 +64,11 @@
         }
         
         function testLinkExtraction() {
-            $tag = &new SimpleAnchorTag(array("href" => "http://somewhere"));
+            $tag = &new SimpleAnchorTag(["href" => "http://somewhere"]);
             $tag->addContent("Label");
             
             $page = &new MockSimplePage($this);
-            $page->expectArguments("acceptTag", array($tag));
+            $page->expectArguments("acceptTag", [$tag]);
             $page->expectCallCount("acceptTag", 1);
             
             $builder = &new PartialSimplePageBuilder($this);
@@ -80,7 +80,7 @@
             $this->assertTrue($builder->addContent("Starting stuff"));
             $this->assertTrue($builder->startElement(
                     "a",
-                    array("href" => "http://somewhere")));
+                    ["href" => "http://somewhere"]));
             $this->assertTrue($builder->addContent("Label"));
             $this->assertTrue($builder->endElement("a"));
             $this->assertTrue($builder->addContent("Trailing stuff"));
@@ -89,15 +89,15 @@
         }
         
         function testMultipleLinks() {
-            $a1 = new SimpleAnchorTag(array("href" => "http://somewhere"));
+            $a1 = new SimpleAnchorTag(["href" => "http://somewhere"]);
             $a1->addContent("1");
             
-            $a2 = new SimpleAnchorTag(array("href" => "http://elsewhere"));
+            $a2 = new SimpleAnchorTag(["href" => "http://elsewhere"]);
             $a2->addContent("2");
             
             $page = &new MockSimplePage($this);
-            $page->expectArgumentsAt(0, "acceptTag", array($a1));
-            $page->expectArgumentsAt(1, "acceptTag", array($a2));
+            $page->expectArgumentsAt(0, "acceptTag", [$a1]);
+            $page->expectArgumentsAt(1, "acceptTag", [$a2]);
             $page->expectCallCount("acceptTag", 2);
             
             $builder = &new PartialSimplePageBuilder($this);
@@ -106,11 +106,11 @@
             $builder->SimplePageBuilder();
             
             $builder->parse(new MockSimpleHttpResponse($this));
-            $builder->startElement("a", array("href" => "http://somewhere"));
+            $builder->startElement("a", ["href" => "http://somewhere"]);
             $builder->addContent("1");
             $builder->endElement("a");
             $builder->addContent("Padding");
-            $builder->startElement("a", array("href" => "http://elsewhere"));
+            $builder->startElement("a", ["href" => "http://elsewhere"]);
             $builder->addContent("2");
             $builder->endElement("a");
             
@@ -118,11 +118,11 @@
         }
         
         function testTitle() {
-            $tag = &new SimpleTitleTag(array());
+            $tag = &new SimpleTitleTag([]);
             $tag->addContent("HereThere");
             
             $page = &new MockSimplePage($this);
-            $page->expectArguments("acceptTag", array($tag));
+            $page->expectArguments("acceptTag", [$tag]);
             $page->expectCallCount("acceptTag", 1);
             
             $builder = &new PartialSimplePageBuilder($this);
@@ -131,7 +131,7 @@
             $builder->SimplePageBuilder();
             
             $builder->parse(new MockSimpleHttpResponse($this));
-            $builder->startElement("title", array());
+            $builder->startElement("title", []);
             $builder->addContent("Here");
             $builder->addContent("There");
             $builder->endElement("title");
@@ -141,8 +141,8 @@
         
         function testForm() {
             $page = &new MockSimplePage($this);
-            $page->expectOnce("acceptFormStart", array(new SimpleFormTag(array())));
-            $page->expectOnce("acceptFormEnd", array());
+            $page->expectOnce("acceptFormStart", [new SimpleFormTag([])]);
+            $page->expectOnce("acceptFormEnd", []);
             
             $builder = &new PartialSimplePageBuilder($this);
             $builder->setReturnReference('_createPage', $page);
@@ -150,7 +150,7 @@
             $builder->SimplePageBuilder();
             
             $builder->parse(new MockSimpleHttpResponse($this));
-            $builder->startElement("form", array());
+            $builder->startElement("form", []);
             $builder->addContent("Stuff");
             $builder->endElement("form");
             $page->tally();
@@ -161,7 +161,7 @@
         
         function testParseMechanics() {
             $parser = &new MockSimpleSaxParser($this);
-            $parser->expectOnce('parse', array('stuff'));
+            $parser->expectOnce('parse', ['stuff']);
             
             $page = &new MockSimplePage($this);
             $page->expectOnce('acceptPageEnd');
@@ -192,8 +192,8 @@
             $this->assertIdentical($page->getAuthentication(), false);
             $this->assertIdentical($page->getRealm(), false);
             $this->assertFalse($page->hasFrames());
-            $this->assertIdentical($page->getAbsoluteUrls(), array());
-            $this->assertIdentical($page->getRelativeUrls(), array());
+            $this->assertIdentical($page->getAbsoluteUrls(), []);
+            $this->assertIdentical($page->getRelativeUrls(), []);
             $this->assertIdentical($page->getTitle(), false);
         }
     }
@@ -207,12 +207,12 @@
             $response->setReturnValue('getHeaders', $headers);
             $response->setReturnValue('getMethod', 'POST');
             $response->setReturnValue('getUrl', new SimpleUrl('here'));
-            $response->setReturnValue('getRequestData', array('a' => 'A'));
+            $response->setReturnValue('getRequestData', ['a' => 'A']);
 
             $page = &new SimplePage($response);
             $this->assertEqual($page->getMethod(), 'POST');
             $this->assertEqual($page->getUrl(), new SimpleUrl('here'));
-            $this->assertEqual($page->getRequestData(), array('a' => 'A'));
+            $this->assertEqual($page->getRequestData(), ['a' => 'A']);
         }
         
         function testTransportError() {
@@ -290,27 +290,27 @@
         
         function testNoLinks() {
             $page = &new SimplePage(new MockSimpleHttpResponse($this));
-            $this->assertIdentical($page->getAbsoluteUrls(), array(), 'abs->%s');
-            $this->assertIdentical($page->getRelativeUrls(), array(), 'rel->%s');
-            $this->assertIdentical($page->getUrlsByLabel('Label'), array());
+            $this->assertIdentical($page->getAbsoluteUrls(), [], 'abs->%s');
+            $this->assertIdentical($page->getRelativeUrls(), [], 'rel->%s');
+            $this->assertIdentical($page->getUrlsByLabel('Label'), []);
         }
         
         function testAddAbsoluteLink() {
-            $link = &new SimpleAnchorTag(array('href' => 'http://somewhere.com'));
+            $link = &new SimpleAnchorTag(['href' => 'http://somewhere.com']);
             $link->addContent('Label');
             
             $page = &new SimplePage(new MockSimpleHttpResponse($this));
             $page->AcceptTag($link);
             
-            $this->assertEqual($page->getAbsoluteUrls(), array('http://somewhere.com'), 'abs->%s');
-            $this->assertIdentical($page->getRelativeUrls(), array(), 'rel->%s');
+            $this->assertEqual($page->getAbsoluteUrls(), ['http://somewhere.com'], 'abs->%s');
+            $this->assertIdentical($page->getRelativeUrls(), [], 'rel->%s');
             $this->assertEqual(
                     $page->getUrlsByLabel('Label'),
-                    array(new SimpleUrl('http://somewhere.com')));
+                    [new SimpleUrl('http://somewhere.com')]);
         }
         
         function testAddStrictRelativeLink() {
-            $link = &new SimpleAnchorTag(array('href' => './somewhere.php'));
+            $link = &new SimpleAnchorTag(['href' => './somewhere.php']);
             $link->addContent('Label');
             
             $response = &new MockSimpleHttpResponse($this);
@@ -319,15 +319,15 @@
             $page = &new SimplePage($response);
             $page->AcceptTag($link);
             
-            $this->assertEqual($page->getAbsoluteUrls(), array(), 'abs->%s');
-            $this->assertIdentical($page->getRelativeUrls(), array('./somewhere.php'), 'rel->%s');
+            $this->assertEqual($page->getAbsoluteUrls(), [], 'abs->%s');
+            $this->assertIdentical($page->getRelativeUrls(), ['./somewhere.php'], 'rel->%s');
             $this->assertEqual(
                     $page->getUrlsByLabel('Label'),
-                    array(new SimpleUrl('http://host/somewhere.php')));
+                    [new SimpleUrl('http://host/somewhere.php')]);
         }
         
         function testAddRelativeLink() {
-            $link = &new SimpleAnchorTag(array('href' => 'somewhere.php'));
+            $link = &new SimpleAnchorTag(['href' => 'somewhere.php']);
             $link->addContent('Label');
             
             $response = &new MockSimpleHttpResponse($this);
@@ -336,15 +336,15 @@
             $page = &new SimplePage($response);
             $page->AcceptTag($link);
             
-            $this->assertEqual($page->getAbsoluteUrls(), array(), 'abs->%s');
-            $this->assertIdentical($page->getRelativeUrls(), array('somewhere.php'), 'rel->%s');
+            $this->assertEqual($page->getAbsoluteUrls(), [], 'abs->%s');
+            $this->assertIdentical($page->getRelativeUrls(), ['somewhere.php'], 'rel->%s');
             $this->assertEqual(
                     $page->getUrlsByLabel('Label'),
-                    array(new SimpleUrl('http://host/somewhere.php')));
+                    [new SimpleUrl('http://host/somewhere.php')]);
         }
         
         function testLinkIds() {
-            $link = &new SimpleAnchorTag(array('href' => './somewhere.php', 'id' => 33));
+            $link = &new SimpleAnchorTag(['href' => './somewhere.php', 'id' => 33]);
             $link->addContent('Label');
             
             $response = &new MockSimpleHttpResponse($this);
@@ -355,7 +355,7 @@
             
             $this->assertEqual(
                     $page->getUrlsByLabel('Label'),
-                    array(new SimpleUrl('http://host/somewhere.php')));
+                    [new SimpleUrl('http://host/somewhere.php')]);
             $this->assertFalse($page->getUrlById(0));
             $this->assertEqual(
                     $page->getUrlById(33),
@@ -363,7 +363,7 @@
         }
         
         function testFindLinkWithNormalisation() {
-            $link = &new SimpleAnchorTag(array('href' => './somewhere.php', 'id' => 33));
+            $link = &new SimpleAnchorTag(['href' => './somewhere.php', 'id' => 33]);
             $link->addContent(' <em>Long &amp; thin</em> ');
             
             $response = &new MockSimpleHttpResponse($this);
@@ -374,11 +374,11 @@
             
             $this->assertEqual(
                     $page->getUrlsByLabel('Long & thin'),
-                    array(new SimpleUrl('http://host/somewhere.php')));
+                    [new SimpleUrl('http://host/somewhere.php')]);
         }
         
         function testFindLinkWithImage() {
-            $link = &new SimpleAnchorTag(array('href' => './somewhere.php', 'id' => 33));
+            $link = &new SimpleAnchorTag(['href' => './somewhere.php', 'id' => 33]);
             $link->addContent('<img src="pic.jpg" alt="&lt;A picture&gt;">');
             
             $response = &new MockSimpleHttpResponse($this);
@@ -389,11 +389,11 @@
             
             $this->assertEqual(
                     $page->getUrlsByLabel('<A picture>'),
-                    array(new SimpleUrl('http://host/somewhere.php')));
+                    [new SimpleUrl('http://host/somewhere.php')]);
         }
         
         function testTitleSetting() {
-            $title = &new SimpleTitleTag(array());
+            $title = &new SimpleTitleTag([]);
             $title->addContent('Title');
             $page = &new SimplePage(new MockSimpleHttpResponse($this));
             $page->AcceptTag($title);
@@ -411,10 +411,10 @@
         
         function testHasEmptyFrameset() {
             $page = &new SimplePage(new MockSimpleHttpResponse($this));
-            $page->acceptFramesetStart(new SimpleTag('frameset', array()));
+            $page->acceptFramesetStart(new SimpleTag('frameset', []));
             $page->acceptFramesetEnd();
             $this->assertTrue($page->hasFrames());
-            $this->assertIdentical($page->getFrameset(), array());
+            $this->assertIdentical($page->getFrameset(), []);
         }
         
         function testFramesInPage() {
@@ -422,17 +422,17 @@
             $response->setReturnValue('getUrl', new SimpleUrl('http://here'));
             
             $page = &new SimplePage($response);
-            $page->acceptFrame(new SimpleFrameTag(array('src' => '1.html')));
-            $page->acceptFramesetStart(new SimpleTag('frameset', array()));
-            $page->acceptFrame(new SimpleFrameTag(array('src' => '2.html')));
-            $page->acceptFrame(new SimpleFrameTag(array('src' => '3.html')));
+            $page->acceptFrame(new SimpleFrameTag(['src' => '1.html']));
+            $page->acceptFramesetStart(new SimpleTag('frameset', []));
+            $page->acceptFrame(new SimpleFrameTag(['src' => '2.html']));
+            $page->acceptFrame(new SimpleFrameTag(['src' => '3.html']));
             $page->acceptFramesetEnd();
-            $page->acceptFrame(new SimpleFrameTag(array('src' => '4.html')));
+            $page->acceptFrame(new SimpleFrameTag(['src' => '4.html']));
             
             $this->assertTrue($page->hasFrames());
-            $this->assertIdentical($page->getFrameset(), array(
+            $this->assertIdentical($page->getFrameset(), [
                     1 => new SimpleUrl('http://here/2.html'),
-                    2 => new SimpleUrl('http://here/3.html')));
+                    2 => new SimpleUrl('http://here/3.html')]);
         }
         
         function testNamedFramesInPage() {
@@ -440,19 +440,19 @@
             $response->setReturnValue('getUrl', new SimpleUrl('http://here'));
             
             $page = &new SimplePage($response);
-            $page->acceptFramesetStart(new SimpleTag('frameset', array()));
-            $page->acceptFrame(new SimpleFrameTag(array('src' => '1.html')));
-            $page->acceptFrame(new SimpleFrameTag(array('src' => '2.html', 'name' => 'A')));
-            $page->acceptFrame(new SimpleFrameTag(array('src' => '3.html', 'name' => 'B')));
-            $page->acceptFrame(new SimpleFrameTag(array('src' => '4.html')));
+            $page->acceptFramesetStart(new SimpleTag('frameset', []));
+            $page->acceptFrame(new SimpleFrameTag(['src' => '1.html']));
+            $page->acceptFrame(new SimpleFrameTag(['src' => '2.html', 'name' => 'A']));
+            $page->acceptFrame(new SimpleFrameTag(['src' => '3.html', 'name' => 'B']));
+            $page->acceptFrame(new SimpleFrameTag(['src' => '4.html']));
             $page->acceptFramesetEnd();
             
             $this->assertTrue($page->hasFrames());
-            $this->assertIdentical($page->getFrameset(), array(
+            $this->assertIdentical($page->getFrameset(), [
                     1 => new SimpleUrl('http://here/1.html'),
                     'A' => new SimpleUrl('http://here/2.html'),
                     'B' => new SimpleUrl('http://here/3.html'),
-                    4 => new SimpleUrl('http://here/4.html')));
+                    4 => new SimpleUrl('http://here/4.html')]);
         }
     }
 
@@ -461,14 +461,14 @@
         function testButtons() {
             $page = &new SimplePage(new MockSimpleHttpResponse($this));
             $page->acceptFormStart(
-                    new SimpleFormTag(array("method" => "GET", "action" => "here.php")));
+                    new SimpleFormTag(["method" => "GET", "action" => "here.php"]));
             $page->AcceptTag(
-                    new SimpleSubmitTag(array("type" => "submit", "name" => "s")));
+                    new SimpleSubmitTag(["type" => "submit", "name" => "s"]));
             $page->acceptFormEnd();
             $form = &$page->getFormBySubmitLabel("Submit");
             $this->assertEqual(
                     $form->submitButtonByLabel("Submit"),
-                    new SimpleFormEncoding(array("s" => "Submit")));
+                    new SimpleFormEncoding(["s" => "Submit"]));
         }
     }
 
@@ -481,8 +481,8 @@
         
         function testEmptyPage() {
             $page = &new SimplePage(new MockSimpleHttpResponse($this));
-            $this->assertIdentical($page->getAbsoluteUrls(), array());
-            $this->assertIdentical($page->getRelativeUrls(), array());
+            $this->assertIdentical($page->getAbsoluteUrls(), []);
+            $this->assertIdentical($page->getRelativeUrls(), []);
             $this->assertIdentical($page->getTitle(), false);
         }
         
@@ -491,8 +491,8 @@
             $response->setReturnValue('getContent', '<html><body><p>Stuff</p></body></html>');
             
             $page = &$this->parse($response);
-            $this->assertIdentical($page->getAbsoluteUrls(), array());
-            $this->assertIdentical($page->getRelativeUrls(), array());
+            $this->assertIdentical($page->getAbsoluteUrls(), []);
+            $this->assertIdentical($page->getRelativeUrls(), []);
         }
         
         function testLinksPage() {
@@ -507,13 +507,13 @@
             $page = &$this->parse($response);
             $this->assertIdentical(
                     $page->getAbsoluteUrls(),
-                    array('http://there.com/that.html'));
+                    ['http://there.com/that.html']);
             $this->assertIdentical(
                     $page->getRelativeUrls(),
-                    array('there.html'));
+                    ['there.html']);
             $this->assertIdentical(
                     $page->getUrlsByLabel('There'),
-                    array(new SimpleUrl('http://www.here.com/a/there.html')));
+                    [new SimpleUrl('http://www.here.com/a/there.html')]);
             $this->assertEqual(
                     $page->getUrlById('0'),
                     new SimpleUrl('http://there.com/that.html'));
@@ -567,7 +567,7 @@
             
             $page = &$this->parse($response);
             $this->assertTrue($page->hasFrames());
-            $this->assertIdentical($page->getFrameset(), array());
+            $this->assertIdentical($page->getFrameset(), []);
         }
         
         function testSingleFrame() {
@@ -581,7 +581,7 @@
             $this->assertTrue($page->hasFrames());
             $this->assertIdentical(
                     $page->getFrameset(),
-                    array(1 => new SimpleUrl('http://host/a.html')));
+                    [1 => new SimpleUrl('http://host/a.html')]);
         }
         
         function testSingleFrameInNestedFrameset() {
@@ -596,7 +596,7 @@
             $this->assertTrue($page->hasFrames());
             $this->assertIdentical(
                     $page->getFrameset(),
-                    array(1 => new SimpleUrl('http://host/a.html')));
+                    [1 => new SimpleUrl('http://host/a.html')]);
         }
         
         function testFrameWithNoSource() {
@@ -607,7 +607,7 @@
             
             $page = &$this->parse($response);
             $this->assertTrue($page->hasFrames());
-            $this->assertIdentical($page->getFrameset(), array());
+            $this->assertIdentical($page->getFrameset(), []);
         }
         
         function testFramesCollectedWithNestedFramesetTags() {
@@ -622,10 +622,10 @@
             
             $page = &$this->parse($response);
             $this->assertTrue($page->hasFrames());
-            $this->assertIdentical($page->getFrameset(), array(
+            $this->assertIdentical($page->getFrameset(), [
                     1 => new SimpleUrl('http://host/a.html'),
                     2 => new SimpleUrl('http://host/b.html'),
-                    3 => new SimpleUrl('http://host/c.html')));
+                    3 => new SimpleUrl('http://host/c.html')]);
         }
         
         function testNamedFrames() {
@@ -640,11 +640,11 @@
             
             $page = &$this->parse($response);
             $this->assertTrue($page->hasFrames());
-            $this->assertIdentical($page->getFrameset(), array(
+            $this->assertIdentical($page->getFrameset(), [
                     1 => new SimpleUrl('http://host/a.html'),
                     '_one' => new SimpleUrl('http://host/b.html'),
                     3 => new SimpleUrl('http://host/c.html'),
-                    '_two' => new SimpleUrl('http://host/d.html')));
+                    '_two' => new SimpleUrl('http://host/d.html')]);
         }
         
         function testFindFormByLabel() {

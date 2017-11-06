@@ -225,7 +225,7 @@
          */
         function SimpleReporter() {
             $this->SimpleScorer();
-            $this->_test_stack = array();
+            $this->_test_stack = [];
             $this->_size = null;
             $this->_progress = 0;
         }

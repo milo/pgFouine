@@ -24,7 +24,7 @@
 
 class FSMInformationReport extends Report {
 	function FSMInformationReport(& $reportAggregator) {
-		$this->Report($reportAggregator, 'FSM information', array('FSMInformationListener'));
+		$this->Report($reportAggregator, 'FSM information', ['FSMInformationListener']);
 	}
 	
 	function getText() {

@@ -23,7 +23,7 @@
 
 class QueriesHistoryPerPidReport extends Report {
 	function QueriesHistoryPerPidReport(& $reportAggregator) {
-		$this->Report($reportAggregator, 'Queries history per PID', array('QueriesHistoryListener'));
+		$this->Report($reportAggregator, 'Queries history per PID', ['QueriesHistoryListener']);
 	}
 	
 	function getHtml() {

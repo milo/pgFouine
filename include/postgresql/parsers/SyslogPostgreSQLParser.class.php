@@ -65,7 +65,7 @@ class SyslogPostgreSQLParser extends PostgreSQLParser {
 	}
 	
 	function getTimestampFromFormattedDate($formattedDate) {
-		$matches = array();
+		$matches = [];
 		if(preg_match('/^[0-9]{4}([- ])/', $formattedDate, $matches)) {
 			if ($matches[1] == ' ') {
 				$timestamp = strtotime(preg_replace('/^([0-9]{4} )([a-z]{3}[ ]+[0-9]{1,2})/i', '\2 \1', $formattedDate));

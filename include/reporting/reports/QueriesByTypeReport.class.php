@@ -23,7 +23,7 @@
 
 class QueriesByTypeReport extends Report {
 	function QueriesByTypeReport(& $reportAggregator) {
-		$this->Report($reportAggregator, 'Queries by type', array('GlobalCountersListener'));
+		$this->Report($reportAggregator, 'Queries by type', ['GlobalCountersListener']);
 	}
 	
 	function getText() {
@@ -62,7 +62,7 @@ class QueriesByTypeReport extends Report {
 		
 		$queriesCount = $listener->getIdentifiedQueryCount();
 		
-		$typeCount = array();
+		$typeCount = [];
 		if($listener->getSelectCount()) {
 			$typeCount['SELECT'] = $listener->getSelectCount();
 		}

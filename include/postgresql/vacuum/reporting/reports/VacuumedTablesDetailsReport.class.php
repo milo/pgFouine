@@ -23,7 +23,7 @@
 
 class VacuumedTablesDetailsReport extends Report {
 	function VacuumedTablesDetailsReport(& $reportAggregator) {
-		$this->Report($reportAggregator, 'Vacuumed tables details', array('VacuumedTablesListener'));
+		$this->Report($reportAggregator, 'Vacuumed tables details', ['VacuumedTablesListener']);
 	}
 	
 	function getText() {

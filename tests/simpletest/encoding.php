@@ -26,9 +26,9 @@
          */
         function SimpleFormEncoding($query = false) {
             if (! $query) {
-                $query = array();
+                $query = [];
             }
-            $this->_request = array();
+            $this->_request = [];
             $this->setCoordinates();
             $this->merge($query);
         }
@@ -44,7 +44,7 @@
                 return;
             }
             if (! isset($this->_request[$key])) {
-                $this->_request[$key] = array();
+                $this->_request[$key] = [];
             }
             if (is_array($value)) {
                 foreach ($value as $item) {
@@ -143,7 +143,7 @@
          *    @access public
          */
         function asString() {
-            $statements = array();
+            $statements = [];
             foreach ($this->_request as $key => $values) {
                 foreach ($values as $value) {
                     $statements[] = "$key=" . urlencode($value);

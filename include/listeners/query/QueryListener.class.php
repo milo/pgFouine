@@ -30,6 +30,6 @@ class QueryListener {
 	}
 	
 	function getSubscriptions() {
-		return array(EVENT_QUERY);
+		return [EVENT_QUERY];
 	}
 }

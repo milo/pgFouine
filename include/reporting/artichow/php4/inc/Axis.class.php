@@ -54,7 +54,7 @@ class awAxis {
 	 *
 	 * @var array
 	 */
-	public $ticks = array();
+	public $ticks = [];
 
 	/**
 	 * Axis and ticks color
@@ -96,10 +96,10 @@ class awAxis {
 	 *
 	 * @var array
 	 */
-	public $rangeCallback = array(
+	public $rangeCallback = [
 		'toValue' => 'toProportionalValue',
 		'toPosition' => 'toProportionalPosition'
-	);
+	];
 	
 	/**
 	 * Build the axis
@@ -455,10 +455,10 @@ class awAxis {
 	 * @param string $toPosition Transform a value to a position between 0 and 1 on the axis
 	 */
 	 function setRangeCallback($toValue, $toPosition) {
-		$this->rangeCallback = array(
+		$this->rangeCallback = [
 			'toValue' => (string)$toValue,
 			'toPosition' => (string)$toPosition
-		);
+		];
 	}
 	
 	/**
@@ -693,7 +693,7 @@ class awAxis {
 				return;
 			}
 			$function = $this->rangeCallback['toValue'];
-			$labels = array();
+			$labels = [];
 			for($i = 0; $i <= $number; $i++) {
 				$labels[] = $function($i / $number, $min, $max);
 			}

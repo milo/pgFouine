@@ -303,7 +303,7 @@
          *    @access protected
          */
         function &_createSocket($scheme, $host, $port, $timeout) {
-            if (in_array($scheme, array('https'))) {
+            if (in_array($scheme, ['https'])) {
                 return new SimpleSecureSocket($host, $port, $timeout);
             }
             return new SimpleSocket($host, $port, $timeout);
@@ -416,8 +416,8 @@
             $this->_route = &$route;
             $this->_method = $method;
             $this->_encoding = $encoding;
-            $this->_headers = array();
-            $this->_cookies = array();
+            $this->_headers = [];
+            $this->_cookies = [];
         }
         
         /**
@@ -499,7 +499,7 @@
          *    @access private
          */
         function _marshallCookies($cookies) {
-            $cookie_pairs = array();
+            $cookie_pairs = [];
             foreach ($cookies as $cookie) {
                 $cookie_pairs[] = $cookie->getName() . "=" . $cookie->getValue();
             }
@@ -547,7 +547,7 @@
             $this->_http_version = false;
             $this->_mime_type = '';
             $this->_location = false;
-            $this->_cookies = array();
+            $this->_cookies = [];
             $this->_authentication = false;
             $this->_realm = false;
             foreach (split("\r\n", $headers) as $header_line) {
@@ -598,7 +598,7 @@
          *    @access public
          */
         function isRedirect() {
-            return in_array($this->_response_code, array(301, 302, 303, 307)) &&
+            return in_array($this->_response_code, [301, 302, 303, 307]) &&
                     (boolean)$this->getLocation();
         }
         
@@ -684,7 +684,7 @@
          */
         function _parseCookie($cookie_line) {
             $parts = split(";", $cookie_line);
-            $cookie = array();
+            $cookie = [];
             preg_match('/\s*(.*?)\s*=(.*)/', array_shift($parts), $cookie);
             foreach ($parts as $part) {
                 if (preg_match('/\s*(.*?)\s*=(.*)/', $part, $matches)) {

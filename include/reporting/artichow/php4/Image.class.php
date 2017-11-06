@@ -394,7 +394,7 @@ class awFileImage extends awImage {
 	
 		$image = @getimagesize($file);
 		
-		if($image and in_array($image[2], array(2, 3))) {
+		if($image and in_array($image[2], [2, 3])) {
 		
 			$this->setSize($image[0], $image[1]);
 			

@@ -27,8 +27,8 @@ function getTime($microtime) {
 }
 
 class Profiler {
-	public $stages = array();
-	public $tags = array();
+	public $stages = [];
+	public $tags = [];
 	public $currentStage = '';
 	public $start;
 	public $end;
@@ -49,9 +49,9 @@ class Profiler {
 		$this->currentStage .= (empty($this->currentStage) ? '' : '>').$stage;
 		$stagePath = $this->currentStage;
 		if(!isset($this->stages[$stagePath])) {
-			$this->stages[$stagePath] = array();
+			$this->stages[$stagePath] = [];
 			$this->stages[$stagePath]['count'] = 0;
-			$this->stages[$stagePath]['time'] = array();
+			$this->stages[$stagePath]['time'] = [];
 		}
 		$this->stages[$stagePath]['time'][] = microtime();
 	}
@@ -70,9 +70,9 @@ class Profiler {
 	
 	function addToTag($tag, $start, $end) {
 		if(!isset($this->tags[$tag])) {
-			$this->tags[$tag] = array();
+			$this->tags[$tag] = [];
 			$this->tags[$tag]['count'] = 0;
-			$this->tags[$tag]['time'] = array();
+			$this->tags[$tag]['time'] = [];
 		}
 		$this->tags[$tag]['count'] ++;
 		$this->tags[$tag]['time'][] = $start;

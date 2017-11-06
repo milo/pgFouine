@@ -147,7 +147,7 @@
                         "] but got " . count($parameters) .
                         " arguments of [" . $this->_renderArguments($parameters) . "]";
             }
-            $messages = array();
+            $messages = [];
             for ($i = 0; $i < count($expected); $i++) {
                 $comparison = $this->_coerceToExpectation($expected[$i]);
                 if (! $comparison->test($parameters[$i])) {
@@ -181,7 +181,7 @@
          *    @access private
          */
         function _renderArguments($args) {
-            $descriptions = array();
+            $descriptions = [];
             if (is_array($args)) {
                 foreach ($args as $arg) {
                     $dumper = &new SimpleDumper();
@@ -335,7 +335,7 @@
          *    @access public
          */
         function CallMap() {
-            $this->_map = array();
+            $this->_map = [];
         }
         
         /**
@@ -356,7 +356,7 @@
          */
         function addReference($parameters, &$reference) {
             $place = count($this->_map);
-            $this->_map[$place] = array();
+            $this->_map[$place] = [];
             $this->_map[$place]["params"] = new ParametersExpectation($parameters);
             $this->_map[$place]["content"] = &$reference;
         }
@@ -430,9 +430,9 @@
         function SimpleStub($wildcard, $is_strict = true) {
             $this->_wildcard = $wildcard;
             $this->_is_strict = $is_strict;
-            $this->_returns = array();
-            $this->_return_sequence = array();
-            $this->_call_counts = array();
+            $this->_returns = [];
+            $this->_return_sequence = [];
+            $this->_call_counts = [];
         }
         
         /**
@@ -550,7 +550,7 @@
             $args = $this->_replaceWildcards($args);
             $method = strtolower($method);
             if (! isset($this->_return_sequence[$method])) {
-                $this->_return_sequence[$method] = array();
+                $this->_return_sequence[$method] = [];
             }
             if (! isset($this->_return_sequence[$method][$timing])) {
                 $this->_return_sequence[$method][$timing] = new CallMap();
@@ -596,7 +596,7 @@
             $args = $this->_replaceWildcards($args);
             $method = strtolower($method);
             if (! isset($this->_return_sequence[$method])) {
-                $this->_return_sequence[$method] = array();
+                $this->_return_sequence[$method] = [];
             }
             if (! isset($this->_return_sequence[$method][$timing])) {
                 $this->_return_sequence[$method][$timing] = new CallMap();
@@ -660,10 +660,10 @@
                 return;
             }
             $this->_test = SimpleMock::registerTest($test);
-            $this->_expected_counts = array();
-            $this->_max_counts = array();
-            $this->_expected_args = array();
-            $this->_expected_args_at = array();
+            $this->_expected_counts = [];
+            $this->_max_counts = [];
+            $this->_expected_args = [];
+            $this->_expected_args_at = [];
         }
         
         /**
@@ -729,7 +729,7 @@
             $this->_checkArgumentsIsArray($args, 'set expected arguments at time');
             $args = $this->_replaceWildcards($args);
             if (! isset($this->_expected_args_at[$timing])) {
-                $this->_expected_args_at[$timing] = array();
+                $this->_expected_args_at[$timing] = [];
             }
             $method = strtolower($method);
             $message .= Mock::getExpectationLine(' at line [%d]');
@@ -952,7 +952,7 @@
         function &_getRegistry() {
             static $registry;
             if (! isset($registry)) {
-                $registry = array();
+                $registry = [];
             }
             return $registry;
         }
@@ -1001,7 +1001,7 @@
             return eval(Stub::_createClassCode(
                     $class,
                     $stub_class,
-                    $methods ? $methods : array()) . " return true;");
+                    $methods ? $methods : []) . " return true;");
         }
         
         /**
@@ -1066,7 +1066,7 @@
         function _isSpecialMethod($method) {
             return in_array(
                     strtolower($method),
-                    array('__construct', '__clone', '__get', '__set', '__call'));
+                    ['__construct', '__clone', '__get', '__set', '__call']);
         }
     }
     
@@ -1114,7 +1114,7 @@
             return eval(Mock::_createClassCode(
                     $class,
                     $mock_class,
-                    $methods ? $methods : array()) . " return true;");
+                    $methods ? $methods : []) . " return true;");
         }
         
         /**

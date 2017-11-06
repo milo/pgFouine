@@ -22,7 +22,7 @@
  */
 
 class NormalizedErrorsListener extends ErrorListener {
-	public $errorsList = array();
+	public $errorsList = [];
 	public $errorsNumber = 10;
 	
 	function NormalizedErrorsListener() {
@@ -40,7 +40,7 @@ class NormalizedErrorsListener extends ErrorListener {
 	
 	function & getMostFrequentErrors() {
 		$errorsList = $this->errorsList;
-		usort($errorsList, array($this, 'compareMostFrequent'));
+		usort($errorsList, [$this, 'compareMostFrequent']);
 		$errors =& array_slice($errorsList, 0, $this->errorsNumber);
 		return $errors;
 	}

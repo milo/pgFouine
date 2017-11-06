@@ -70,8 +70,8 @@
         
         function testDescribeArray() {
             $dumper = new SimpleDumper();
-            $this->assertWantedPattern('/array/i', $dumper->describeValue(array(1, 4)));
-            $this->assertWantedPattern('/2/i', $dumper->describeValue(array(1, 4)));
+            $this->assertWantedPattern('/array/i', $dumper->describeValue([1, 4]));
+            $this->assertWantedPattern('/2/i', $dumper->describeValue([1, 4]));
         }
         
         function testDescribeObject() {

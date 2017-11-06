@@ -45,7 +45,7 @@ class VacuumTableLogObject extends VacuumLogObject {
 	public $userCpuUsage = 0;
 	public $duration = 0;
 	
-	public $indexesInformation = array();
+	public $indexesInformation = [];
 	
 	public $number;
 	

@@ -8,27 +8,27 @@
         function testEmpty() {
             $encoding = &new SimpleFormEncoding();
             $this->assertIdentical($encoding->getValue('a'), false);
-            $this->assertIdentical($encoding->getKeys(), array());
+            $this->assertIdentical($encoding->getKeys(), []);
             $this->assertIdentical($encoding->asString(), '');
         }
         
         function testPrefilled() {
-            $encoding = &new SimpleFormEncoding(array('a' => 'aaa'));
+            $encoding = &new SimpleFormEncoding(['a' => 'aaa']);
             $this->assertIdentical($encoding->getValue('a'), 'aaa');
-            $this->assertIdentical($encoding->getKeys(), array('a'));
+            $this->assertIdentical($encoding->getKeys(), ['a']);
             $this->assertIdentical($encoding->asString(), 'a=aaa');
         }
         
         function testPrefilledWithObject() {
-            $encoding = &new SimpleFormEncoding(new SimpleFormEncoding(array('a' => 'aaa')));
+            $encoding = &new SimpleFormEncoding(new SimpleFormEncoding(['a' => 'aaa']));
             $this->assertIdentical($encoding->getValue('a'), 'aaa');
-            $this->assertIdentical($encoding->getKeys(), array('a'));
+            $this->assertIdentical($encoding->getKeys(), ['a']);
             $this->assertIdentical($encoding->asString(), 'a=aaa');
         }
         
         function testMultiplePrefilled() {
-            $encoding = &new SimpleFormEncoding(array('a' => array('a1', 'a2')));
-            $this->assertIdentical($encoding->getValue('a'), array('a1', 'a2'));
+            $encoding = &new SimpleFormEncoding(['a' => ['a1', 'a2']]);
+            $this->assertIdentical($encoding->getValue('a'), ['a1', 'a2']);
             $this->assertIdentical($encoding->asString(), 'a=a1&a=a2');
         }
         
@@ -70,7 +70,7 @@
             $encoding = &new SimpleFormEncoding();
             $encoding->add('a', 'Hello');
             $encoding->add('a', 'Goodbye');
-            $this->assertIdentical($encoding->getValue('a'), array('Hello', 'Goodbye'));
+            $this->assertIdentical($encoding->getValue('a'), ['Hello', 'Goodbye']);
             $this->assertIdentical($encoding->asString(), 'a=Hello&a=Goodbye');
         }
         
@@ -98,34 +98,34 @@
         
         function testAddingLists() {
             $encoding = &new SimpleFormEncoding();
-            $encoding->add('a', array('Hello', 'Goodbye'));
-            $this->assertIdentical($encoding->getValue('a'), array('Hello', 'Goodbye'));
+            $encoding->add('a', ['Hello', 'Goodbye']);
+            $this->assertIdentical($encoding->getValue('a'), ['Hello', 'Goodbye']);
             $this->assertIdentical($encoding->asString(), 'a=Hello&a=Goodbye');
         }
         
         function testMergeInHash() {
-            $encoding = &new SimpleFormEncoding(array('a' => 'A1', 'b' => 'B'));
-            $encoding->merge(array('a' => 'A2'));
-            $this->assertIdentical($encoding->getValue('a'), array('A1', 'A2'));
+            $encoding = &new SimpleFormEncoding(['a' => 'A1', 'b' => 'B']);
+            $encoding->merge(['a' => 'A2']);
+            $this->assertIdentical($encoding->getValue('a'), ['A1', 'A2']);
             $this->assertIdentical($encoding->getValue('b'), 'B');
         }
         
         function testMergeInObject() {
-            $encoding = &new SimpleFormEncoding(array('a' => 'A1', 'b' => 'B'));
-            $encoding->merge(new SimpleFormEncoding(array('a' => 'A2')));
-            $this->assertIdentical($encoding->getValue('a'), array('A1', 'A2'));
+            $encoding = &new SimpleFormEncoding(['a' => 'A1', 'b' => 'B']);
+            $encoding->merge(new SimpleFormEncoding(['a' => 'A2']));
+            $this->assertIdentical($encoding->getValue('a'), ['A1', 'A2']);
             $this->assertIdentical($encoding->getValue('b'), 'B');
         }
         
         function testMergeInObjectWithCordinates() {
-            $incoming = new SimpleFormEncoding(array('a' => 'A2'));
+            $incoming = new SimpleFormEncoding(['a' => 'A2']);
             $incoming->setCoordinates(25, 24);
             
-            $encoding = &new SimpleFormEncoding(array('a' => 'A1'));
+            $encoding = &new SimpleFormEncoding(['a' => 'A1']);
             $encoding->setCoordinates(1, 2);
             $encoding->merge($incoming);
             
-            $this->assertIdentical($encoding->getValue('a'), array('A1', 'A2'));
+            $this->assertIdentical($encoding->getValue('a'), ['A1', 'A2']);
             $this->assertIdentical($encoding->getX(), 25);
             $this->assertIdentical($encoding->getY(), 24);
             $this->assertIdentical($encoding->asString(), 'a=A1&a=A2?25,24');
