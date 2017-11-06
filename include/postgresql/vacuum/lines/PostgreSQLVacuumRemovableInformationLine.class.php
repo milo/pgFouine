@@ -28,7 +28,7 @@ class PostgreSQLVacuumRemovableInformationLine extends PostgreSQLVacuumLogLine {
 	public $numberOfPages;
 
 	function __construct($numberOfRemovableRows, $numberOfNonRemovableRows, $numberOfPages) {
-		$this->PostgreSQLVacuumLogLine();
+		parent::__construct();
 		
 		$this->numberOfRemovableRows = $numberOfRemovableRows;
 		$this->numberOfNonRemovableRows = $numberOfNonRemovableRows;

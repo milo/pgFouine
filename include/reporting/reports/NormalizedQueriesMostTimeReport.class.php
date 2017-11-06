@@ -23,7 +23,7 @@
 
 class NormalizedQueriesMostTimeReport extends NormalizedReport {
 	function __construct(& $reportAggregator) {
-		$this->NormalizedReport($reportAggregator, 'Queries that took up the most time');
+		parent::__construct($reportAggregator, 'Queries that took up the most time');
 	}
 	
 	function getText() {

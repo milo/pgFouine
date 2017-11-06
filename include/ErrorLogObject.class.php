@@ -29,7 +29,7 @@ class ErrorLogObject extends LogObject {
 	
 	function __construct($connectionId, $user, $db, $text = 'No error message') {
 		$this->error = $text;
-		$this->LogObject($connectionId, $user, $db, $text);
+		parent::__construct($connectionId, $user, $db, $text);
 	}
 	
 	function getEventType() {

@@ -27,7 +27,7 @@ class PostgreSQLVacuumContinuationLine extends PostgreSQLVacuumLogLine {
 	function __construct($text) {
 		$text = str_replace('^I', "\t", $text);
 		
-		$this->PostgreSQLVacuumLogLine($text);
+		parent::__construct($text);
 	}
 	
 	function getText() {

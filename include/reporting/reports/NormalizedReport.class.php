@@ -24,7 +24,7 @@
 class NormalizedReport extends Report {
 	function __construct(& $reportAggregator, $title, $needs = []) {
 		$needs = array_merge(['NormalizedQueriesListener'], $needs);
-		$this->Report($reportAggregator, $title.' (N)', $needs);
+		parent::__construct($reportAggregator, $title.' (N)', $needs);
 	}
 	
 	function getNormalizedQueryWithExamplesHtml($counter, & $normalizedQuery) {

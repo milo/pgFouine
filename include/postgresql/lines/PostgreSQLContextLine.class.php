@@ -30,14 +30,14 @@ class PostgreSQLContextLine extends PostgreSQLLogLine {
 		
 		$statementMatch =& $postgreSQLRegexps['ContextSqlStatement']->match($text);
 		if($statementMatch) {
-			$this->PostgreSQLLogLine(substr($statementMatch->getPostMatch(), -1, 1));
+			parent::__construct(substr($statementMatch->getPostMatch(), -1, 1));
 		} else {
 			$functionMatch =& $postgreSQLRegexps['ContextSqlFunction']->match($text);
 			if($functionMatch) {
-				$this->PostgreSQLLogLine($functionMatch->getMatch(2));
+				parent::__construct($functionMatch->getMatch(2));
 			} else {
 				$this->recognized = false;
-				$this->PostgreSQLLogLine($text);
+				parent::__construct($text);
 			}
 		}
 	}

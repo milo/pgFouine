@@ -24,7 +24,7 @@
 class PostgreSQLPreparedStatementUselessLine extends PostgreSQLLogLine {
 	
 	function __construct() {
-		$this->PostgreSQLLogLine('');
+		parent::__construct('');
 	}
 	
 	function & getLogObject(& $logStream) {

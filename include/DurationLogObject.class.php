@@ -25,7 +25,7 @@ class DurationLogObject extends LogObject {
 	public $duration;
 	
 	function __construct($connectionId, $user, $db, $duration) {
-		$this->LogObject($connectionId, $user, $db);
+		parent::__construct($connectionId, $user, $db);
 		$this->duration = $duration;
 	}
 	

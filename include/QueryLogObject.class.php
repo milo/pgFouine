@@ -28,7 +28,7 @@ class QueryLogObject extends LogObject {
 	function __construct($connectionId, $user, $db, $text = '', $ignored = false) {
 		if(DEBUG > 1 && !$text) stderr('Empty text for QueryLogObject', true);
 		
-		$this->LogObject($connectionId, $user, $db, $text, $ignored);
+		parent::__construct($connectionId, $user, $db, $text, $ignored);
 	}
 	
 	function getEventType() {

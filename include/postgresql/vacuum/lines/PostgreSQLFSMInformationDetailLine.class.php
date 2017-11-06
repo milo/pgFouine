@@ -25,7 +25,7 @@
 class PostgreSQLFSMInformationDetailLine extends PostgreSQLVacuumLogLine {
 
 	function __construct($text) {
-		$this->PostgreSQLVacuumLogLine($text);
+		parent::__construct($text);
 	}
 	
 	function appendTo(& $logObject) {

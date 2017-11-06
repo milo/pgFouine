@@ -4,7 +4,7 @@ class PostgreSQLVacuumingDatabaseLine extends PostgreSQLVacuumLogLine {
 	public $database;
 
 	function __construct($database) {
-		$this->PostgreSQLVacuumLogLine();
+		parent::__construct();
 		
 		$this->database = $database;
 	}

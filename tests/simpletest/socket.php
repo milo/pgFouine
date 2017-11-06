@@ -84,7 +84,7 @@
          *    @access public
          */
         function __construct($host, $port, $timeout) {
-            $this->SimpleStickyError();
+            parent::__construct();
             $this->_is_open = false;
             $this->_sent = '';
             if (! ($this->_handle = $this->_openSocket($host, $port, $error_number, $error, $timeout))) {
@@ -197,7 +197,7 @@
          *    @access public
          */
         function __construct($host, $port, $timeout) {
-            $this->SimpleSocket($host, $port, $timeout);
+            parent::__construct($host, $port, $timeout);
         }
 
         /**

@@ -37,7 +37,7 @@ log=# COPY log FROM 'pgfouine-output.csv' WITH CSV;
 
 class CsvQueriesHistoryReport extends Report {
 	function __construct(& $reportAggregator) {
-		$this->Report($reportAggregator, 'Queries history in CSV format', ['QueriesHistoryListener'], false);
+		parent::__construct($reportAggregator, 'Queries history in CSV format', ['QueriesHistoryListener'], false);
 	}
 	
 	function getText() {

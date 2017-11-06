@@ -433,7 +433,7 @@
         public $_test;
         
         function __construct() {
-            $this->UnitTestCase();
+            parent::__construct();
         }
         
         function setUp() {

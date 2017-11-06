@@ -50,7 +50,7 @@ class VacuumTableLogObject extends VacuumLogObject {
 	public $number;
 	
 	function __construct($database, $schema, $table, $ignored = false) {
-		$this->VacuumLogObject($database, $schema, $table, $ignored);
+		parent::__construct($database, $schema, $table, $ignored);
 	}
 	
 	function getEventType() {

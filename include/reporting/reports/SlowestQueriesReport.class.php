@@ -23,7 +23,7 @@
 
 class SlowestQueriesReport extends Report {
 	function __construct(& $reportAggregator) {
-		$this->Report($reportAggregator, 'Slowest queries', ['SlowestQueriesListener']);
+		parent::__construct($reportAggregator, 'Slowest queries', ['SlowestQueriesListener']);
 	}
 	
 	function getText() {

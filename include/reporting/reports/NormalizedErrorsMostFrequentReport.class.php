@@ -23,7 +23,7 @@
 
 class NormalizedErrorsMostFrequentReport extends NormalizedErrorsReport {
 	function __construct(& $reportAggregator) {
-		$this->NormalizedErrorsReport($reportAggregator, 'Most frequent errors');
+		parent::__construct($reportAggregator, 'Most frequent errors');
 	}
 	
 	function getText() {

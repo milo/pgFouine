@@ -330,7 +330,7 @@
          *    @access public
          */
         function __construct($url, $proxy, $username = false, $password = false) {
-            $this->SimpleRoute($url);
+            parent::__construct($url);
             $this->_proxy = $proxy;
             $this->_username = $username;
             $this->_password = $password;
@@ -723,7 +723,7 @@
          *    @access public
          */
         function __construct(&$socket, $method, $url, $request_data = '') {
-            $this->SimpleStickyError();
+            parent::__construct();
             $this->_method = $method;
             $this->_url = $url;
             $this->_request_data = $request_data;

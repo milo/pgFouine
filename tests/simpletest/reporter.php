@@ -28,7 +28,7 @@
          *    @access public
          */
         function __construct($character_set = 'ISO-8859-1') {
-            $this->SimpleReporter();
+            parent::__construct();
             $this->_character_set = $character_set;
         }
         
@@ -166,7 +166,7 @@
          *    @access public
          */
         function __construct() {
-            $this->SimpleReporter();
+            parent::__construct();
         }
         
         /**

@@ -31,7 +31,7 @@
          *    @access public
          */
         function __construct() {
-            $this->SimpleExpectation();
+            parent::__construct();
         }
         
         /**
@@ -77,7 +77,7 @@
          *    @access public
          */
         function __construct($expected = false, $message = '%s') {
-            $this->SimpleExpectation($message);
+            parent::__construct($message);
             $this->_expected = $expected;
         }
         
@@ -209,7 +209,7 @@
         function __construct($method, $count, $message = '%s') {
             $this->_method = $method;
             $this->_count = $count;
-            $this->SimpleExpectation($message);
+            parent::__construct($message);
         }
         
         /**
@@ -252,7 +252,7 @@
         function __construct($method, $count, $message = '%s') {
             $this->_method = $method;
             $this->_count = $count;
-            $this->SimpleExpectation($message);
+            parent::__construct($message);
         }
         
         /**
@@ -295,7 +295,7 @@
         function __construct($method, $count, $message = '%s') {
             $this->_method = $method;
             $this->_count = $count;
-            $this->SimpleExpectation($message);
+            parent::__construct($message);
         }
         
         /**
@@ -654,7 +654,7 @@
          *    @access public
          */
         function __construct(&$test, $wildcard, $is_strict = true) {
-            $this->SimpleStub($wildcard, $is_strict);
+            parent::__construct($wildcard, $is_strict);
             if (! $test) {
                 trigger_error('No unit tester for mock object', E_USER_ERROR);
                 return;

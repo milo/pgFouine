@@ -24,7 +24,7 @@
 class NormalizedErrorsReport extends Report {
 	function __construct(& $reportAggregator, $title, $needs = []) {
 		$needs = array_merge(['NormalizedErrorsListener', 'GlobalErrorCountersListener'], $needs);
-		$this->Report($reportAggregator, $title.' (N)', $needs);
+		parent::__construct($reportAggregator, $title.' (N)', $needs);
 	}
 	
 	function getNormalizedErrorWithExamplesHtml($counter, & $normalizedError) {

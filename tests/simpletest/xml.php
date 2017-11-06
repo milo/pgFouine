@@ -27,7 +27,7 @@
          *    @access public
          */
         function __construct($namespace = false, $indent = '  ') {
-            $this->SimpleReporter();
+            parent::__construct();
             $this->_namespace = ($namespace ? $namespace . ':' : '');
             $this->_indent = $indent;
         }
@@ -317,7 +317,7 @@
          *    @access public
          */
         function __construct($attributes) {
-            $this->NestingXmlTag($attributes);
+            parent::__construct($attributes);
         }
         
         /**
@@ -357,7 +357,7 @@
          *    @access public
          */
         function __construct($attributes) {
-            $this->NestingXmlTag($attributes);
+            parent::__construct($attributes);
         }
         
         /**
@@ -397,7 +397,7 @@
          *    @access public
          */
         function __construct($attributes) {
-            $this->NestingXmlTag($attributes);
+            parent::__construct($attributes);
         }
 
         /**

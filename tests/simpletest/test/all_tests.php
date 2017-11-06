@@ -14,7 +14,7 @@
         
     class AllTests extends GroupTest {
         function __construct() {
-            $this->GroupTest('All tests for SimpleTest ' . SimpleTestOptions::getVersion());
+            parent::__construct('All tests for SimpleTest ' . SimpleTestOptions::getVersion());
             $this->addTestCase(new UnitTests());
             $this->addTestFile('shell_test.php');
             $this->addTestFile('live_test.php');

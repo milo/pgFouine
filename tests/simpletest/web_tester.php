@@ -29,7 +29,7 @@
          *    @access public
          */
         function __construct($value) {
-            $this->SimpleExpectation();
+            parent::__construct();
             if (is_array($value)) {
                 sort($value);
             }
@@ -257,7 +257,7 @@
          *    @param string $unwanted   Case insenstive trimmed header name.
          */
         function __construct($unwanted) {
-            $this->HttpHeaderExpectation($unwanted);
+            parent::__construct($unwanted);
         }
         
         /**
@@ -301,7 +301,7 @@
          *    @access public
          */
         function __construct($header, $pattern) {
-            $this->HttpHeaderExpectation($header, $pattern);
+            parent::__construct($header, $pattern);
         }
         
         /**
@@ -331,7 +331,7 @@
          *    @access public
          */
         function __construct($substring, $message = '%s') {
-            $this->SimpleExpectation($message);
+            parent::__construct($message);
             $this->_substring = $substring;
         }
         
@@ -404,7 +404,7 @@
          *    @access public
          */
         function __construct($substring, $message = '%s') {
-            $this->WantedTextExpectation($substring, $message);
+            parent::__construct($substring, $message);
         }
         
         /**
@@ -451,7 +451,7 @@
          *    @param SimpleScorer $scorer       Reporter to receive events.
          */
         function __construct(&$invoker) {
-            $this->SimpleInvokerDecorator($invoker);
+            parent::__construct($invoker);
         }
         
         /**
@@ -485,7 +485,7 @@
          *    @access public
          */
         function __construct($label = false) {
-            $this->SimpleTestCase($label);
+            parent::__construct($label);
         }
         
         /**

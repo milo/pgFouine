@@ -23,7 +23,7 @@
 
 class PostgreSQLQueryStartLine extends PostgreSQLLogLine {
 	function __construct($text, $duration = false) {
-		$this->PostgreSQLLogLine($this->filterQuery($text), $duration);
+		parent::__construct($this->filterQuery($text), $duration);
 	}
 
 	// TODO: remove this test from here and implement a -ignore option

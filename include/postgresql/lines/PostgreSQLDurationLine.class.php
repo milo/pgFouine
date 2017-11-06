@@ -25,7 +25,7 @@ class PostgreSQLDurationLine extends PostgreSQLLogLine {
 	public $ignore = false;
 	
 	function __construct($timeString, $unit) {
-		$this->PostgreSQLLogLine('', $this->parseDuration($timeString, $unit));
+		parent::__construct('', $this->parseDuration($timeString, $unit));
 	}
 	
 	function & getLogObject(& $logStream) {

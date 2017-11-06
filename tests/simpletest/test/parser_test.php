@@ -509,7 +509,7 @@
         
         function __construct(&$listener, &$lexer) {
             $this->_lexer = &$lexer;
-            $this->SimpleSaxParser($listener);
+            parent::__construct($listener);
         }
         
         function &createLexer() {

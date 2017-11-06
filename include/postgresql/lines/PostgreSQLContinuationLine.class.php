@@ -29,7 +29,7 @@ class PostgreSQLContinuationLine extends PostgreSQLLogLine {
 		if(substr(trim($text), 0, 2) == '--' && !CONFIG_KEEP_FORMATTING) {
 			$text = false;
 		}
-		$this->PostgreSQLLogLine($text);
+		parent::__construct($text);
 	}
 	
 	function isContextual() {

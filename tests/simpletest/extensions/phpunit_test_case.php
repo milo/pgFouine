@@ -29,7 +29,7 @@
          *    @public
          */
         function __construct($label) {
-            $this->SimpleTestCase($label);
+            parent::__construct($label);
         }
         
         /**

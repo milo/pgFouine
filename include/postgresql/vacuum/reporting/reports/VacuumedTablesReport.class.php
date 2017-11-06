@@ -24,7 +24,7 @@
 
 class VacuumedTablesReport extends Report {
 	function __construct(& $reportAggregator) {
-		$this->Report($reportAggregator, 'Vacuumed tables', ['VacuumedTablesListener']);
+		parent::__construct($reportAggregator, 'Vacuumed tables', ['VacuumedTablesListener']);
 		
 		$reportAggregator->addScript('sorttable.js');
 	}

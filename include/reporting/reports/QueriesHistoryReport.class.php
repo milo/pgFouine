@@ -23,7 +23,7 @@
 
 class QueriesHistoryReport extends Report {
 	function __construct(& $reportAggregator) {
-		$this->Report($reportAggregator, 'Queries history', ['QueriesHistoryListener']);
+		parent::__construct($reportAggregator, 'Queries history', ['QueriesHistoryListener']);
 	}
 	
 	function getText() {

@@ -13,7 +13,7 @@
     
     class UnitTests extends GroupTest {
         function __construct() {
-            $this->GroupTest('Unit tests');
+            parent::__construct('Unit tests');
             $this->addTestFile('errors_test.php');
             $this->addTestFile('options_test.php');
             $this->addTestFile('dumper_test.php');

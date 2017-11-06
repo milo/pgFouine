@@ -24,7 +24,7 @@
 class TextReportAggregator extends ReportAggregator {
 	
 	function __construct(& $logReader, $outputFilePath = false) {
-		$this->ReportAggregator($logReader, $outputFilePath);
+		parent::__construct($logReader, $outputFilePath);
 	}
 	
 	function getHeader() {
