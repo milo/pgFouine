@@ -157,7 +157,7 @@
          *    @return boolean              True if correct.
          *    @access public
          */
-        function test($compare) {
+        function test($compare, $nasty = false) {
             return ! parent::test($compare);
         }
         
@@ -205,7 +205,7 @@
          *    @return boolean              True if correct.
          *    @access public
          */
-        function test($compare) {
+        function test($compare, $nasty = false) {
             return SimpleTestCompatibility::isIdentical($this->_getValue(), $compare);
         }
         
@@ -253,7 +253,7 @@
          *    @return boolean              True if correct.
          *    @access public
          */
-        function test($compare) {
+        function test($compare, $nasty = false) {
             return ! parent::test($compare);
         }
         

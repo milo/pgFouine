@@ -197,7 +197,7 @@ class HtmlReportAggregator extends ReportAggregator {
 		return $content;
 	}
 	
-	function formatRealQuery(& $query, $prepend = '', $append = '') {
+	function formatRealQuery($query, $prepend = '', $append = '') {
 		$html = $this->highlightSql($this->shortenQueryText($query->getText()), $prepend, $append);
 		$notices = $query->getNotices();
 		foreach($notices AS $notice) {
