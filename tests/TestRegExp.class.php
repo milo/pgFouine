@@ -34,5 +34,3 @@ class TestRegExp extends UnitTestCase {
 		$this->assertEqual(' string', $regexpMatch->getPostMatch());
 	}
 }
-
-?>

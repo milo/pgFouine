@@ -92,5 +92,3 @@ class VacuumLogStream {
 		$this->currentBlock = false;
 	}
 }
-
-?>

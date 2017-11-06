@@ -113,5 +113,3 @@ class TestQueryLogObject extends UnitTestCase {
 		$this->assertReference($query3, $subQueries[1]);
 	}
 }
-
-?>

@@ -593,4 +593,3 @@ class awSimpleLinePlot extends awPlot implements awLegendable {
 }
 
 registerClass('SimpleLinePlot');
-?>

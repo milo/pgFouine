@@ -612,4 +612,3 @@ class awLabel {
 }
 
 registerClass('Label');
-?>

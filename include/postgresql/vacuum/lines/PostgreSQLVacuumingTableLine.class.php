@@ -37,5 +37,3 @@ class PostgreSQLVacuumingTableLine extends PostgreSQLVacuumLogLine {
 		return $vacuumInformation;
 	}
 }
-
-?>

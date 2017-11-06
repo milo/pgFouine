@@ -174,5 +174,3 @@ class LogObject {
 		return $this->location;
 	}
 }
-
-?>

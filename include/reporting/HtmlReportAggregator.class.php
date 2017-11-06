@@ -213,5 +213,3 @@ class HtmlReportAggregator extends ReportAggregator {
 		
 	}
 }
-
-?>

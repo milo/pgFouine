@@ -293,5 +293,3 @@ class QueryCounter {
 		return $this->deleteDuration;
 	}
 }
-
-?>

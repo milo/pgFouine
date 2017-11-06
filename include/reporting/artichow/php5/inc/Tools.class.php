@@ -170,4 +170,3 @@ class awSide {
 }
 
 registerClass('Side');
-?>

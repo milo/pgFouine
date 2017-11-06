@@ -45,5 +45,3 @@ require_once('reports/CsvQueriesHistoryReport.class.php');
 
 require_once('reports/NormalizedErrorsReport.class.php');
 require_once('reports/NormalizedErrorsMostFrequentReport.class.php');
-
-?>

@@ -85,5 +85,3 @@ class PreparedStatementLogObject extends QueryLogObject {
 		}
 	}
 }
-
-?>

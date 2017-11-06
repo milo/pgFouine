@@ -131,5 +131,3 @@ class PostgreSQLLogLine {
 		return false;
 	}
 }
-
-?>

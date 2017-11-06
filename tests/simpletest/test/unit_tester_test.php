@@ -49,4 +49,3 @@
             $this->pass('This should be run');
         }
     }
-?>

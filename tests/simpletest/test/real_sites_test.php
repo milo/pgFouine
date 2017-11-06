@@ -26,4 +26,3 @@
             $this->assertWantedPattern('/Statistics for the past \d+ months/');
         }
     }
-?>

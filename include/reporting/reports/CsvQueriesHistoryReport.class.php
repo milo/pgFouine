@@ -72,5 +72,3 @@ class CsvQueriesHistoryReport extends Report {
 		return $html;
 	}
 }
-
-?>

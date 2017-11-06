@@ -131,4 +131,3 @@
             $this->assertIdentical($encoding->asString(), 'a=A1&a=A2?25,24');
         }
     }
-?>

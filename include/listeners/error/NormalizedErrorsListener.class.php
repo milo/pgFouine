@@ -59,5 +59,3 @@ class NormalizedErrorsListener extends ErrorListener {
 		return count($this->errorsList);
 	}
 }
-
-?>

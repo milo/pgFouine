@@ -422,4 +422,3 @@ class awFileImage extends awImage {
 }
 
 registerClass('FileImage');
-?>

@@ -130,4 +130,3 @@
             $this->assertIdentical($expectation->test('the wanted text is here'), false);
         }
     }
-?>

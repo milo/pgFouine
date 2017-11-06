@@ -412,4 +412,3 @@ registerClass('ComponentGroup', TRUE);
 }
 
 registerClass('Component', TRUE);
-?>

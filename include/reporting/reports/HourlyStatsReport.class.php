@@ -594,5 +594,3 @@ class HourlyStatsReport extends Report {
 		return $count;
 	}
 }
-
-?>

@@ -37,5 +37,3 @@ class TsungSessionsListener extends QueryListener {
 		return $this->sessions;
 	}
 }
-
-?>

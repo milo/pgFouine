@@ -7,4 +7,3 @@
     $test = &new GroupTest('This should fail');
     $test->addTestFile('test_with_parse_error.php');
     $test->run(new HtmlReporter());
-?>

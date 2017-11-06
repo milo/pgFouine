@@ -323,4 +323,3 @@
             $this->assertIdentical($form->getValue('a'), 'me');
         }
     }
-?>

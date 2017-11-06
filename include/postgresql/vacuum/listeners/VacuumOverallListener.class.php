@@ -78,5 +78,3 @@ class VacuumOverallListener {
 		return $this->statistics;
 	}
 }
-
-?>

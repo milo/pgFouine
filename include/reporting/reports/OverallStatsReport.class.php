@@ -97,5 +97,3 @@ class OverallStatsReport extends Report {
 		$value = $this->formatTimestamp($value);
 	}
 }
-
-?>

@@ -93,6 +93,4 @@ class NormalizedReport extends Report {
 		$html .= '</div>';
 		return $html;
 	}
-} 
-
-?>
+}

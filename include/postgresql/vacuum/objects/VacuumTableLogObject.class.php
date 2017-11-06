@@ -205,5 +205,3 @@ class VacuumTableLogObject extends VacuumLogObject {
 		return ($this->ignored || $filtered);
 	}
 }
-
-?>

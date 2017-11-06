@@ -125,5 +125,3 @@ class PostgreSQLVacuumParser extends PostgreSQLParser {
 		return $line;
 	}
 }
-
-?>

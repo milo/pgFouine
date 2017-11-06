@@ -87,5 +87,3 @@ class ErrorLogObject extends LogObject {
 		return $this->textIsAStatement;
 	}
 }
-
-?>

@@ -1124,4 +1124,3 @@ class awGradientDrawer {
 }
 
 registerClass('GradientDrawer');
-?>

@@ -71,5 +71,3 @@ class NormalizedQueriesMostFrequentReport extends NormalizedReport {
 		return $html;
 	}
 }
-
-?>

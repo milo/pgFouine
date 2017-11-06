@@ -867,4 +867,3 @@
             $this->assertEqual($browser->getContent(), 'Page onePage two');
         }
     }
-?>

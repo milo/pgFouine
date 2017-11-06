@@ -688,4 +688,3 @@ registerClass('Legend');
 
 
 registerInterface('Legendable');
-?>

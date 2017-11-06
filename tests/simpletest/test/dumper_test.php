@@ -84,4 +84,3 @@
                     $dumper->describeValue(new DumperDummy()));
         }
     }
-?>

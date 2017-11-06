@@ -82,5 +82,3 @@ class FSMInformationLogObject extends VacuumLogObject {
 		return $this->size;
 	}
 }
-
-?>

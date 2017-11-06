@@ -73,5 +73,3 @@ class QueriesHistoryPerPidReport extends Report {
 		return $html;
 	}
 }
-
-?>

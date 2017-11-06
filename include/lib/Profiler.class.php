@@ -167,5 +167,3 @@ class Profiler {
 		stderr('');
 	}
 }
-
-?>

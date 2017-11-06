@@ -71,5 +71,3 @@ class NormalizedQueriesSlowestAverageReport extends NormalizedReport {
 		return $html;
 	}
 }
-
-?>

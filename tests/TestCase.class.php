@@ -42,5 +42,3 @@ $postgresqlTests->addTestFile('TestLogFiles.class.php');
 $postgresqlTests->run(new TextReporter());
 
 fclose($stderr);
-
-?>

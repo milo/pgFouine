@@ -383,4 +383,3 @@
         $reporter->makeDry();
     }
     exit ($test->run($reporter) ? 0 : 1);
-?>

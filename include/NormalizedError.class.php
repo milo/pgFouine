@@ -98,5 +98,3 @@ class NormalizedError {
 		return $this->hourlyStatistics;
 	}
 }
-
-?>

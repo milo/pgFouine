@@ -179,5 +179,3 @@ class ReportAggregator {
 		return false;
 	}
 }
-
-?>

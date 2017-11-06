@@ -41,5 +41,3 @@ class TestErrorLogObject extends UnitTestCase {
 		$this->assertEqual(TEST_DETAIL, $errorLogObject->getDetail());
 	}
 }
-
-?>

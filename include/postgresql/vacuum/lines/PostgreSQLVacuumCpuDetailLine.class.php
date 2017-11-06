@@ -41,5 +41,3 @@ class PostgreSQLVacuumCpuDetailLine extends PostgreSQLVacuumLogLine {
 		$logObject->addDuration($this->duration);
 	}
 }
-
-?>

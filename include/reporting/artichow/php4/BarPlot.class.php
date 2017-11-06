@@ -361,4 +361,3 @@ class awBarPlot extends awPlot {
 }
 
 registerClass('BarPlot');
-?>

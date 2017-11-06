@@ -153,4 +153,3 @@
             return implode('&', $statements) . $coords;
         }
     }
-?>

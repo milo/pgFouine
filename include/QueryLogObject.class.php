@@ -85,5 +85,3 @@ class QueryLogObject extends LogObject {
 		return $this->duration;
 	}
 }
-
-?>

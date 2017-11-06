@@ -104,5 +104,3 @@ class NormalizedErrorsMostFrequentReport extends NormalizedErrorsReport {
 		return $html;
 	}
 }
-
-?>

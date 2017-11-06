@@ -196,4 +196,3 @@
         function setName($name) {
         }
     }
-?>

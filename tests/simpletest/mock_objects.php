@@ -1320,4 +1320,3 @@
             return SimpleDumper::getFormattedAssertionLine($stack, $format, 'expect');
         }
     }
-?>

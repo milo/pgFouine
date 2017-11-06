@@ -43,5 +43,3 @@ class AnalyzeTableLogObject extends VacuumLogObject {
 		return ($this->ignored || $filtered);
 	}
 }
-
-?>

@@ -92,5 +92,3 @@ class FSMInformationReport extends Report {
 		return $html;
 	}
 }
-
-?>

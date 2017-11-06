@@ -489,4 +489,3 @@ class awPolygon extends awShape {
 }
 
 registerClass('Polygon');
-?>

@@ -367,5 +367,3 @@ foreach($fonts as $font) {
 eval($php);
 
 -- </php4> */
-
-?>

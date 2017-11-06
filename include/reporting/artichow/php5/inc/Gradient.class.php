@@ -146,4 +146,3 @@ class awRadialGradient extends awGradient {
 }
 
 registerClass('RadialGradient');
-?>

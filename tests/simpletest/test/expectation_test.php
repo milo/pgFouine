@@ -279,4 +279,3 @@
             $this->assertTrue($expectation->test(5));
         }
     }
-?>

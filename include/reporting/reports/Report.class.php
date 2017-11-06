@@ -107,6 +107,4 @@ class Report {
 	function shortenQueryText($queryText) {
 		return $this->reportAggregator->shortenQueryText($queryText);
 	}
-} 
-
-?>
+}

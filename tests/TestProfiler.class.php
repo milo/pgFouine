@@ -181,5 +181,3 @@ class TestProfiler extends UnitTestCase {
 		$this->assertTrue($tags[TEST_PROFILER_TAG_2]['duration'] < 2);
 	}
 }
-
-?>

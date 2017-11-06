@@ -38,5 +38,3 @@ class PostgreSQLErrorLine extends PostgreSQLLogLine {
 		return true;
 	}
 }
-
-?>

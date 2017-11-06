@@ -1327,4 +1327,3 @@
                     sprintf($message, "Not expecting cookie [$name]"));
         }
     }
-?>

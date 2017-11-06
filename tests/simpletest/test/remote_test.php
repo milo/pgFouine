@@ -14,4 +14,3 @@
         exit ($test->run(new XmlReporter()) ? 0 : 1);
     }
     $test->run(new HtmlReporter());
-?>

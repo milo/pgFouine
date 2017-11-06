@@ -311,7 +311,3 @@ foreach($fonts as $font) {
 }
 
 eval($php);
-
-
-
-?>

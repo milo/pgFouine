@@ -57,5 +57,3 @@ class PostgreSQLQueryStartLine extends PostgreSQLLogLine {
 		$this->text .= $text;
 	}
 }
-
-?>

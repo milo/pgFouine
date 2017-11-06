@@ -670,4 +670,3 @@
             return null;
         }
     }
-?>

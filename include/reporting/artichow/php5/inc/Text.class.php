@@ -214,4 +214,3 @@ class awText {
 }
 
 registerClass('Text');
-?>

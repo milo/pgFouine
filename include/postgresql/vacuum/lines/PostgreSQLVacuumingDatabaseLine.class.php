@@ -13,5 +13,3 @@ class PostgreSQLVacuumingDatabaseLine extends PostgreSQLVacuumLogLine {
 		return $this->database;
 	}
 }
-
-?>

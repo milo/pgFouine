@@ -35,4 +35,3 @@
             $this->assertNoFilePattern('/sputnik/i', dirname(__FILE__) . '/all_tests.php');
         }
     }
-?>

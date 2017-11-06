@@ -82,5 +82,3 @@ class CsvlogPostgreSQLParser extends PostgreSQLParser {
 		return $lines;
 	}
 }
-
-?>

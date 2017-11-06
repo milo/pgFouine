@@ -789,4 +789,3 @@
             $this->assertEqual($page->getField('a'), 'aaa');
         }
     }
-?>

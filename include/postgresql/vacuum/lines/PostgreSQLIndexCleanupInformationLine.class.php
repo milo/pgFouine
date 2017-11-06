@@ -39,5 +39,3 @@ class PostgreSQLIndexCleanupInformationLine extends PostgreSQLVacuumLogLine {
 		$logObject->addIndexInformation($indexInformation);
 	}
 }
-
-?>

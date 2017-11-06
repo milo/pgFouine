@@ -58,5 +58,3 @@ class CsvlogLogReader extends GenericLogReader {
 		}
 	}
 }
-
-?>

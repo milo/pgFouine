@@ -30,5 +30,3 @@ class UselessLogObject extends LogObject {
 		// (see http://pgfoundry.org/tracker/index.php?func=detail&aid=1010689&group_id=1000152&atid=618)
 	}
 }
-
-?>

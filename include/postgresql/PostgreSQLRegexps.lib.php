@@ -49,5 +49,3 @@ $postgreSQLRegexps['BindDetail'] = new RegExp('/^parameters: /');
 $postgreSQLRegexps['BindParameters'] = new RegExp('/(\$[0-9]+) = (.*)(?=(?:, \$[0-9]+ = |\z))/U');
 
 $GLOBALS['postgreSQLRegexps'] =& $postgreSQLRegexps;
-
-?>

@@ -26,5 +26,3 @@ class PrintQueryListener extends QueryListener {
 		print_r($query);
 	}
 }
-
-?>

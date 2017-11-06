@@ -366,4 +366,3 @@
             $this->assertIdentical($url->getTarget(), 'A frame');
         }
     }
-?>

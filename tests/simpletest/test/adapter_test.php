@@ -71,4 +71,3 @@
             $this->assertRegexp('/hello/', "A big hello from me", "PEAR regex");
         }
     }
-?>

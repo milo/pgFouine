@@ -44,4 +44,3 @@
                     "Connection: close\r\n\r\n");
         }
     }
-?>

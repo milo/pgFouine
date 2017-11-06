@@ -565,4 +565,3 @@
 					"] should contain method [$method]";
         }
     }
-?>

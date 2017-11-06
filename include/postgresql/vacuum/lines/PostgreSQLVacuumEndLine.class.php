@@ -27,5 +27,3 @@ class PostgreSQLVacuumEndLine extends PostgreSQLVacuumLogLine {
 	function PostgreSQLVacuumEndLine() {
 	}
 }
-
-?>

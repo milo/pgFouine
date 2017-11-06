@@ -300,4 +300,3 @@
                     "Expected pattern match [$pattern] in PHP error [$content] severity [$severity] in [$file] line [$line]");
         }
     }
-?>

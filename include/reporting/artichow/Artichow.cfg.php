@@ -58,5 +58,3 @@ define('ARTICHOW_DEPRECATED', TRUE);
 $fonts = array(
 	'DejaVuSans',
 );
-
-?>

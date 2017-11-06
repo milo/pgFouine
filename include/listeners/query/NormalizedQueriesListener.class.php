@@ -101,5 +101,3 @@ class NormalizedQueriesListener extends QueryListener {
 		return count($this->queryList);
 	}
 }
-
-?>

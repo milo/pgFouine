@@ -97,5 +97,3 @@ class QueriesByTypeReport extends Report {
 		return $html;
 	}
 }
-
-?>

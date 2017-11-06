@@ -1103,4 +1103,3 @@
             $this->assertWantedPattern('/A target for the SimpleTest test suite/');
         }
     }
-?>

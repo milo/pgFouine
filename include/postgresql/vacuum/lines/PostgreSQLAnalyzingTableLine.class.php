@@ -37,5 +37,3 @@ class PostgreSQLAnalyzingTableLine extends PostgreSQLVacuumLogLine {
 		return $analyzeInformation;
 	}
 }
-
-?>

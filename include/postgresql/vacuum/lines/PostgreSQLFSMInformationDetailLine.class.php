@@ -46,5 +46,3 @@ class PostgreSQLFSMInformationDetailLine extends PostgreSQLVacuumLogLine {
 		}
 	}
 }
-
-?>

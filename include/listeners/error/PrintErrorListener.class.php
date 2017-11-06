@@ -26,5 +26,3 @@ class PrintErrorListener extends ErrorListener {
 		print_r($query);
 	}
 }
-
-?>

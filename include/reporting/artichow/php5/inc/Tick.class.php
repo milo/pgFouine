@@ -349,4 +349,3 @@ class awTick {
 }
 
 registerClass('Tick');
-?>

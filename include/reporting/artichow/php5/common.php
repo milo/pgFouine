@@ -109,4 +109,3 @@ function registerInterface($interface) {
 	/* </php5> */
 
 }
-?>

@@ -34,5 +34,3 @@ class PostgreSQLNoticeLine extends PostgreSQLLogLine {
 		return true;
 	}
 }
-
-?>

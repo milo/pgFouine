@@ -71,5 +71,3 @@ class QueriesHistoryListener extends QueryListener {
 		}
 	}
 }
-
-?>

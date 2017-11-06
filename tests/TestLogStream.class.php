@@ -27,5 +27,3 @@ class TestLogStream extends UnitTestCase {
 		$this->assertEqual(LOG_STREAM_DB, $logStream->getDatabase());
 	}
 }
-
-?>

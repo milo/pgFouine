@@ -297,4 +297,3 @@
             $this->_scorer->paintSignal($type, $payload);
         }
     }
-?>

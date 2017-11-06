@@ -66,5 +66,3 @@ class VacuumLogObject {
 		return $this->table;
 	}
 }
-
-?>

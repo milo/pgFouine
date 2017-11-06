@@ -300,4 +300,3 @@ class awScatterPlot extends awPlot implements awLegendable {
 }
 
 registerClass('ScatterPlot');
-?>

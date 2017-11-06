@@ -48,5 +48,3 @@ $postgreSQLVacuumRegexps['FSMDetailLine'] = new RegExp('/A total of ([0-9]+) pag
 $postgreSQLVacuumRegexps['IndexCleanupDetailLine'] = new RegExp('/(?:([0-9]+) index row versions were removed\. )?([0-9]+) index pages have been deleted, ([0-9]+) are currently reusable\. CPU ([0-9.]+)s\/([0-9.]+)u sec elapsed ([0-9.]+) sec\./');
 
 $GLOBALS['postgreSQLVacuumRegexps'] =& $postgreSQLVacuumRegexps;
-
-?>

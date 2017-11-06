@@ -42,5 +42,3 @@ class PostgreSQLStatusLine extends PostgreSQLLogLine {
 		return true;
 	}
 }
-
-?>

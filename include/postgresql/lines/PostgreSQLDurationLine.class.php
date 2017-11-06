@@ -50,5 +50,3 @@ class PostgreSQLDurationLine extends PostgreSQLLogLine {
 		return true;
 	}
 }
-
-?>

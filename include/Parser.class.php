@@ -26,5 +26,3 @@ class Parser {
 	function & parse($text) {
 	}
 }
-
-?>

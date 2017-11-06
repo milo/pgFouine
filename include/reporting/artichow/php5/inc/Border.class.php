@@ -155,4 +155,3 @@ class awBorder {
 }
 
 registerClass('Border');
-?>

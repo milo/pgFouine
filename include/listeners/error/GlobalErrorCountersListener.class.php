@@ -32,5 +32,3 @@ class GlobalErrorCountersListener extends ErrorListener {
 		return $this->errorCount;
 	}
 }
-
-?>

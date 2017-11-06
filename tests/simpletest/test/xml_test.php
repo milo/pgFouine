@@ -186,4 +186,3 @@
             $listener->tally();
         }
     }
-?>

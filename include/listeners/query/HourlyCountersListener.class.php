@@ -71,5 +71,3 @@ class HourlyCountersListener extends QueryListener {
 		return $this->queryPeaksStatistics;
 	}
 }
-
-?>

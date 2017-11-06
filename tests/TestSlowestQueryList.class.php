@@ -45,5 +45,3 @@ class TestSlowestQueryList extends UnitTestCase {
 		$this->assertReference($queries['1.7'][0], $query3);
 	}
 }
-
-?>

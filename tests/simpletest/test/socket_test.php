@@ -23,4 +23,3 @@
             $this->assertFalse($error->isError());
         }
     }
-?>

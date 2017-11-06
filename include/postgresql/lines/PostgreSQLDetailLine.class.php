@@ -32,5 +32,3 @@ class PostgreSQLDetailLine extends PostgreSQLLogLine {
 		return true;
 	}
 }
-
-?>

@@ -645,4 +645,3 @@
             $this->assertTrue($this->_parser->ignore("stuff", LEXER_UNMATCHED));
         }
     }
-?>

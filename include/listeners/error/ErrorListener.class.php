@@ -32,5 +32,3 @@ class ErrorListener {
 		return array(EVENT_ERROR);
 	}
 }
-
-?>

@@ -60,5 +60,3 @@ class TestLogObject extends UnitTestCase {
 		$this->assertEqual(TEST_TEXT1.' '.TEST_TEXT2, $logObject->getText());
 	}
 }
-
-?>

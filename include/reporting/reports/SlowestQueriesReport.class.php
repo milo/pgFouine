@@ -70,5 +70,3 @@ class SlowestQueriesReport extends Report {
 		return $html;
 	}
 }
-
-?>

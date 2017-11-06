@@ -36,5 +36,3 @@ class PostgreSQLVacuumAccumulator extends Accumulator {
 		}
 	}
 }
-
-?>

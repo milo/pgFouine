@@ -97,5 +97,3 @@ class VacuumIndexInformation {
 		return $this->userCpuUsage;
 	}
 }
-
-?>

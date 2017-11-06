@@ -141,5 +141,3 @@ class LogBlock {
 		return $logObject;
 	}
 }
-
-?>

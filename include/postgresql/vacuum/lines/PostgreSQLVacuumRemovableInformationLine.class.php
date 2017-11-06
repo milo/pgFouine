@@ -41,5 +41,3 @@ class PostgreSQLVacuumRemovableInformationLine extends PostgreSQLVacuumLogLine {
 		$logObject->setNumberOfPages($this->numberOfPages);
 	}
 }
-
-?>

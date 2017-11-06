@@ -72,5 +72,3 @@ class QueriesHistoryReport extends Report {
 		return $html;
 	}
 }
-
-?>

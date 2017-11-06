@@ -94,4 +94,3 @@ require_once dirname(__FILE__)."/Graph.class.php";
 }
 
 registerClass('Pattern', TRUE);
-?>

@@ -55,5 +55,3 @@ class HtmlWithGraphsReportAggregator extends HtmlReportAggregator {
 		return $imageBaseName;
 	}
 }
-
-?>

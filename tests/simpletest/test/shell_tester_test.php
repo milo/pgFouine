@@ -34,4 +34,3 @@
             $this->assertNoOutputPattern('/line 2/');
         }
     }
-?>

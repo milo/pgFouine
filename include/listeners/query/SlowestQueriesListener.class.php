@@ -37,5 +37,3 @@ class SlowestQueriesListener extends QueryListener {
 		return $sortedQueries;
 	}
 }
-
-?>

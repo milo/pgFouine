@@ -49,5 +49,3 @@ require_once('parsers/PostgreSQLParser.class.php');
 require_once('parsers/StderrPostgreSQLParser.class.php');
 require_once('parsers/SyslogPostgreSQLParser.class.php');
 require_once('parsers/CsvlogPostgreSQLParser.class.php');
-
-?>

@@ -32,5 +32,3 @@ class PostgreSQLHintLine extends PostgreSQLLogLine {
 		return true;
 	}
 }
-
-?>

@@ -34,5 +34,3 @@ class PostgreSQLVacuumContinuationLine extends PostgreSQLVacuumLogLine {
 		return ' '.parent::getText();
 	}
 }
-
-?>

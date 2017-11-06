@@ -86,5 +86,3 @@ class SlowestQueryList {
 		return last($queryList);
 	}
 }
-
-?>

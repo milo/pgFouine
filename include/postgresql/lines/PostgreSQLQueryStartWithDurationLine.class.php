@@ -45,5 +45,3 @@ class PostgreSQLQueryStartWithDurationLine extends PostgreSQLQueryStartLine {
 		return true;
 	}
 }
-
-?>

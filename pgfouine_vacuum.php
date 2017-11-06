@@ -257,5 +257,3 @@ $logReader->parse();
 $logReader->output();
 
 fclose($stderr);
-
-?>

@@ -616,4 +616,3 @@
             return $this->_getEncoding();
         }
     }
-?>

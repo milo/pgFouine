@@ -49,5 +49,3 @@ class PostgreSQLIndexCleanupDetailLine extends PostgreSQLVacuumLogLine {
 		}
 	}
 }
-
-?>

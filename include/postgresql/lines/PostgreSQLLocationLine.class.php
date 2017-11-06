@@ -32,5 +32,3 @@ class PostgreSQLLocationLine extends PostgreSQLLogLine {
 		return true;
 	}
 }
-
-?>

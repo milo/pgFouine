@@ -84,5 +84,3 @@ class VacuumedTablesReport extends Report {
 		return $html;
 	}
 }
-
-?>

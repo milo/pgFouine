@@ -747,4 +747,3 @@
         function addContent($text) {
         }
     }
-?>

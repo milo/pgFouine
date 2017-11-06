@@ -44,5 +44,3 @@ class TextReportAggregator extends ReportAggregator {
 		return $output;
 	}
 }
-
-?>

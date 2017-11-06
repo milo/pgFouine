@@ -79,5 +79,3 @@ class PostgreSQLVacuumDetailLine extends PostgreSQLVacuumLogLine {
 		}
 	}
 }
-
-?>

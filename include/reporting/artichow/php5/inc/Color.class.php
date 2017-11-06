@@ -228,5 +228,3 @@ foreach($colors as $name => $color) {
 eval($php);
 
 -- </php4> */
-
-?>

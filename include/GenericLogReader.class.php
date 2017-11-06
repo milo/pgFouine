@@ -227,5 +227,3 @@ class GenericLogReader {
 		return $this->lastLineTimestamp;
 	}
 }
-
-?>

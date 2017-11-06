@@ -61,5 +61,3 @@ class PostgreSQLVacuumLogLine {
 		$logObject->setDatabase($logStream->getDatabase());
 	}
 }
-
-?>

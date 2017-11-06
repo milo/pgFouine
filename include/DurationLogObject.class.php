@@ -37,5 +37,3 @@ class DurationLogObject extends LogObject {
 		return $this->duration;
 	}
 }
-
-?>

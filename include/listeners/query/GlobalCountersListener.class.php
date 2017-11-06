@@ -119,5 +119,3 @@ class GlobalCountersListener extends QueryListener {
 		return $peakQueryCount;
 	}
 }
-
-?>

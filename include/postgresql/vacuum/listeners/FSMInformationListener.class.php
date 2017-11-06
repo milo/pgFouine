@@ -45,5 +45,3 @@ class FSMInformationListener {
 		return $this->fsmInformation;
 	}
 }
-
-?>

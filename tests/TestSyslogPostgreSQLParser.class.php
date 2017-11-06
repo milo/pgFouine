@@ -95,5 +95,3 @@ class TestSyslogPostgreSQLParser extends UnitTestCase {
 		$this->assertTrue(is_a($line, 'PostgreSQLDetailLine'));
 	}
 }
-
-?>

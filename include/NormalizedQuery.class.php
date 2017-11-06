@@ -100,5 +100,3 @@ class NormalizedQuery {
 		return $this->hourlyStatistics;
 	}
 }
-
-?>

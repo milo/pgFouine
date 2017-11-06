@@ -86,5 +86,3 @@ class StderrPostgreSQLParser extends PostgreSQLParser {
 		return $line;
 	}
 }
-
-?>

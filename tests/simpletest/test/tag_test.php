@@ -459,4 +459,3 @@
             $this->assertTrue($group->isId(2));
         }
     }
-?>

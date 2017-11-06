@@ -129,5 +129,3 @@ class PostgreSQLParser {
 		return $line;
 	}
 }
-
-?>

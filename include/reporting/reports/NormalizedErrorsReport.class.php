@@ -89,6 +89,4 @@ class NormalizedErrorsReport extends Report {
 		$html .= '</div>';
 		return $html;
 	}
-} 
-
-?>
+}

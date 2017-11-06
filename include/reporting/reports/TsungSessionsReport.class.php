@@ -81,5 +81,3 @@ class TsungSessionsReport extends Report {
 		return $html;
 	}
 }
-
-?>

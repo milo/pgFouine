@@ -33,5 +33,3 @@ class QueryListener {
 		return array(EVENT_QUERY);
 	}
 }
-
-?>

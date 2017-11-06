@@ -38,5 +38,3 @@ class PostgreSQLVacuumOperationInformationLine extends PostgreSQLVacuumLogLine {
 		$logObject->setNumberOfPagesRemoved($this->numberOfPagesRemoved);
 	}
 }
-
-?>

@@ -412,4 +412,3 @@ abstract class awComponent {
 }
 
 registerClass('Component', TRUE);
-?>

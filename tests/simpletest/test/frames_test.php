@@ -566,4 +566,3 @@
             $this->assertIdentical($frameset->getFieldById(7), 'i');
         }
     }
-?>

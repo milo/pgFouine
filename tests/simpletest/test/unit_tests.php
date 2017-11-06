@@ -46,4 +46,3 @@
         }
         $test->run(new HtmlReporter());
     }
-?>

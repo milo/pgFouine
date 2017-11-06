@@ -564,4 +564,3 @@
             $this->assertEqual($headers->getLocation(), "http://www.somewhere-else.com:80/");
         }
     }
-?>

@@ -36,5 +36,3 @@ class PostgreSQLContinuationLine extends PostgreSQLLogLine {
 		return true;
 	}
 }
-
-?>

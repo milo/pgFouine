@@ -87,5 +87,3 @@ class SyslogPostgreSQLParser extends PostgreSQLParser {
 		return $timestamp;
 	}
 }
-
-?>

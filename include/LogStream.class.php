@@ -200,5 +200,3 @@ class LogStream {
 		return $this->lastLineTimestamp;
 	}
 }
-
-?>
