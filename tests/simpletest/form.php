@@ -225,7 +225,7 @@
          */
         function _addRadioButton($tag) {
             if (! isset($this->_radios[$tag->getName()])) {
-                $this->_widgets[] = &new SimpleRadioGroup();
+                $this->_widgets[] = new SimpleRadioGroup();
                 $this->_radios[$tag->getName()] = count($this->_widgets) - 1;
             }
             $this->_widgets[$this->_radios[$tag->getName()]]->addWidget($tag);
@@ -244,7 +244,7 @@
                 $index = $this->_checkboxes[$tag->getName()];
                 if (! SimpleTestCompatibility::isA($this->_widgets[$index], 'SimpleCheckboxGroup')) {
                     $previous = &$this->_widgets[$index];
-                    $this->_widgets[$index] = &new SimpleCheckboxGroup();
+                    $this->_widgets[$index] = new SimpleCheckboxGroup();
                     $this->_widgets[$index]->addWidget($previous);
                 }
                 $this->_widgets[$index]->addWidget($tag);

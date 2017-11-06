@@ -23,7 +23,7 @@ ini_set('error_reporting', 2039);
 
 $stderr = fopen('php://stderr', 'w');
 
-$commonTests = &new GroupTest('Common tests');
+$commonTests = new GroupTest('Common tests');
 
 $commonTests->addTestFile('TestRegExp.class.php');
 //$commonTests->addTestFile('TestProfiler.class.php');
@@ -36,7 +36,7 @@ $commonTests->addTestFile('TestSlowestQueryList.class.php');
 $commonTests->run(new TextReporter());
 
 
-$postgresqlTests = &new GroupTest('PostgreSQL tests');
+$postgresqlTests = new GroupTest('PostgreSQL tests');
 $postgresqlTests->addTestFile('TestSyslogPostgreSQLParser.class.php');
 $postgresqlTests->addTestFile('TestLogFiles.class.php');
 $postgresqlTests->run(new TextReporter());

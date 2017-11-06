@@ -349,7 +349,7 @@
          *    @access public
          */
         function clearRequest() {
-            $this->_request = &new SimpleFormEncoding();
+            $this->_request = new SimpleFormEncoding();
         }
         
         /**

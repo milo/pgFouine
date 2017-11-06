@@ -189,7 +189,7 @@
                     SimpleTestOptions::getDefaultProxy(),
                     SimpleTestOptions::getDefaultProxyUsername(),
                     SimpleTestOptions::getDefaultProxyPassword());
-            $this->_page = &new SimplePage();
+            $this->_page = new SimplePage();
             $this->_history = &$this->_createHistory();
             $this->_ignore_frames = false;
             $this->_maximum_nested_frames = DEFAULT_MAX_NESTED_FRAMES;
@@ -240,12 +240,12 @@
          *    @access protected
          */
         function &_parse($response, $depth = 0) {
-            $builder = &new SimplePageBuilder();
+            $builder = new SimplePageBuilder();
             $page = &$builder->parse($response);
             if ($this->_ignore_frames || ! $page->hasFrames() || ($depth > $this->_maximum_nested_frames)) {
                 return $page;
             }
-            $frameset = &new SimpleFrameset($page);
+            $frameset = new SimpleFrameset($page);
             foreach ($page->getFrameset() as $key => $url) {
                 $frame = &$this->_fetch('GET', $url, [], $depth + 1);
                 $frameset->addFrame($frame, $key);

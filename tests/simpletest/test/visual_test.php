@@ -43,7 +43,7 @@
         }
 
         function testExpectation() {
-            $expectation = &new EqualExpectation(25, 'My expectation message: %s');
+            $expectation = new EqualExpectation(25, 'My expectation message: %s');
             $this->assertExpectation($expectation, 25, 'My assert message : %s');
             $this->assertExpectation($expectation, 24, 'My assert message : %s');        // Fail.
         }
@@ -210,7 +210,7 @@
     class TestOfMockObjectsOutput extends UnitTestCase {
 
         function testCallCounts() {
-            $dummy = &new MockDummy($this);
+            $dummy = new MockDummy($this);
             $dummy->expectCallCount('a', 1, 'My message: %s');
             $dummy->a();
             $dummy->tally();
@@ -219,7 +219,7 @@
         }
 
         function testMinimumCallCounts() {
-            $dummy = &new MockDummy($this);
+            $dummy = new MockDummy($this);
             $dummy->expectMinimumCallCount('a', 2, 'My message: %s');
             $dummy->a();
             $dummy->tally();
@@ -228,56 +228,56 @@
         }
 
         function testEmptyMatching() {
-            $dummy = &new MockDummy($this);
+            $dummy = new MockDummy($this);
             $dummy->expectArguments('a', []);
             $dummy->a();
             $dummy->a(null);        // Fail.
         }
 
         function testEmptyMatchingWithCustomMessage() {
-            $dummy = &new MockDummy($this);
+            $dummy = new MockDummy($this);
             $dummy->expectArguments('a', [], 'My expectation message: %s');
             $dummy->a();
             $dummy->a(null);        // Fail.
         }
 
         function testNullMatching() {
-            $dummy = &new MockDummy($this);
+            $dummy = new MockDummy($this);
             $dummy->expectArguments('a', [null]);
             $dummy->a(null);
             $dummy->a();        // Fail.
         }
 
         function testBooleanMatching() {
-            $dummy = &new MockDummy($this);
+            $dummy = new MockDummy($this);
             $dummy->expectArguments('a', [true, false]);
             $dummy->a(true, false);
             $dummy->a(true, true);        // Fail.
         }
 
         function testIntegerMatching() {
-            $dummy = &new MockDummy($this);
+            $dummy = new MockDummy($this);
             $dummy->expectArguments('a', [32, 33]);
             $dummy->a(32, 33);
             $dummy->a(32, 34);        // Fail.
         }
 
         function testFloatMatching() {
-            $dummy = &new MockDummy($this);
+            $dummy = new MockDummy($this);
             $dummy->expectArguments('a', [3.2, 3.3]);
             $dummy->a(3.2, 3.3);
             $dummy->a(3.2, 3.4);        // Fail.
         }
 
         function testStringMatching() {
-            $dummy = &new MockDummy($this);
+            $dummy = new MockDummy($this);
             $dummy->expectArguments('a', ['32', '33']);
             $dummy->a('32', '33');
             $dummy->a('32', '34');        // Fail.
         }
 
         function testEmptyMatchingWithCustomExpectationMessage() {
-            $dummy = &new MockDummy($this);
+            $dummy = new MockDummy($this);
             $dummy->expectArguments(
                     'a',
                     [new EqualExpectation('A', 'My part expectation message: %s')],
@@ -287,7 +287,7 @@
         }
 
         function testArrayMatching() {
-            $dummy = &new MockDummy($this);
+            $dummy = new MockDummy($this);
             $dummy->expectArguments('a', [[32], [33]]);
             $dummy->a([32], [33]);
             $dummy->a([32], ['33']);        // Fail.
@@ -298,14 +298,14 @@
             $a->a = 'a';
             $b = new Dummy();
             $b->b = 'b';
-            $dummy = &new MockDummy($this);
+            $dummy = new MockDummy($this);
             $dummy->expectArguments('a', [$a, $b]);
             $dummy->a($a, $b);
             $dummy->a($a, $a);        // Fail.
         }
 
         function testBigList() {
-            $dummy = &new MockDummy($this);
+            $dummy = new MockDummy($this);
             $dummy->expectArguments('a', [false, 0, 1, 1.0]);
             $dummy->a(false, 0, 1, 1.0);
             $dummy->a(true, false, 2, 2.0);        // Fail.
@@ -320,7 +320,7 @@
         }
 
         function testMockWildcards() {
-            $dummy = &new MockDummy($this);
+            $dummy = new MockDummy($this);
             $dummy->expectArguments('a', ['*', [33]]);
             $dummy->a([32], [33]);
             $dummy->a([32], ['33']);        // Fail.
@@ -366,18 +366,18 @@
         }
     }
 
-    $test = &new GroupTest("Visual test with 49 passes, 49 fails and 4 exceptions");
+    $test = new GroupTest("Visual test with 49 passes, 49 fails and 4 exceptions");
     $test->addTestCase(new TestOfUnitTestCaseOutput());
     $test->addTestCase(new TestOfMockObjectsOutput());
     $test->addTestCase(new TestOfPastBugs());
     $test->addTestCase(new TestOfVisualShell());
 
     if (isset($_GET['xml']) || in_array('xml', (isset($argv) ? $argv : []))) {
-        $reporter = &new XmlReporter();
+        $reporter = new XmlReporter();
     } elseif(SimpleReporter::inCli()) {
-        $reporter = &new TextReporter();
+        $reporter = new TextReporter();
     } else {
-        $reporter = &new AllOutputReporter();
+        $reporter = new AllOutputReporter();
     }
     if (isset($_GET['dry']) || in_array('dry', (isset($argv) ? $argv : []))) {
         $reporter->makeDry();

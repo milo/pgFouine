@@ -30,7 +30,7 @@
          *    @param string $message    Customised message on failure.
          */
         function __construct($message = '%s') {
-            $this->_dumper = &new SimpleDumper();
+            $this->_dumper = new SimpleDumper();
             $this->_message = $message;
         }
         

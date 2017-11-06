@@ -184,7 +184,7 @@
             $descriptions = [];
             if (is_array($args)) {
                 foreach ($args as $arg) {
-                    $dumper = &new SimpleDumper();
+                    $dumper = new SimpleDumper();
                     $descriptions[] = $dumper->describeValue($arg);
                 }
             }
@@ -1178,7 +1178,7 @@
             $code .= Mock::_addMethodList($methods);
             $code .= "\n";
             $code .= "    function $mock_class(&\$test, \$wildcard = MOCK_WILDCARD) {\n";
-            $code .= "        \$this->_mock = &new $mock_base(\$test, \$wildcard, false);\n";
+            $code .= "        \$this->_mock = new $mock_base(\$test, \$wildcard, false);\n";
             $code .= "    }\n";
             $code .= Mock::_chainMockReturns();
             $code .= Mock::_chainMockExpectations();

@@ -18,14 +18,14 @@
     class TestOfPageBuilder extends UnitTestCase {
         
         function testLink() {
-            $tag = &new SimpleAnchorTag(['href' => 'http://somewhere']);
+            $tag = new SimpleAnchorTag(['href' => 'http://somewhere']);
             $tag->addContent('Label');
             
-            $page = &new MockSimplePage($this);
+            $page = new MockSimplePage($this);
             $page->expectArguments('acceptTag', [$tag]);
             $page->expectCallCount('acceptTag', 1);
             
-            $builder = &new PartialSimplePageBuilder($this);
+            $builder = new PartialSimplePageBuilder($this);
             $builder->setReturnReference('_createPage', $page);
             $builder->setReturnReference('_createParser', new MockSimpleSaxParser($this));
             $builder->SimplePageBuilder();
@@ -41,14 +41,14 @@
         }
         
         function testLinkWithId() {
-            $tag = &new SimpleAnchorTag(["href" => "http://somewhere", "id" => "44"]);
+            $tag = new SimpleAnchorTag(["href" => "http://somewhere", "id" => "44"]);
             $tag->addContent("Label");
             
-            $page = &new MockSimplePage($this);
+            $page = new MockSimplePage($this);
             $page->expectArguments("acceptTag", [$tag]);
             $page->expectCallCount("acceptTag", 1);
             
-            $builder = &new PartialSimplePageBuilder($this);
+            $builder = new PartialSimplePageBuilder($this);
             $builder->setReturnReference('_createPage', $page);
             $builder->setReturnReference('_createParser', new MockSimpleSaxParser($this));
             $builder->SimplePageBuilder();
@@ -64,14 +64,14 @@
         }
         
         function testLinkExtraction() {
-            $tag = &new SimpleAnchorTag(["href" => "http://somewhere"]);
+            $tag = new SimpleAnchorTag(["href" => "http://somewhere"]);
             $tag->addContent("Label");
             
-            $page = &new MockSimplePage($this);
+            $page = new MockSimplePage($this);
             $page->expectArguments("acceptTag", [$tag]);
             $page->expectCallCount("acceptTag", 1);
             
-            $builder = &new PartialSimplePageBuilder($this);
+            $builder = new PartialSimplePageBuilder($this);
             $builder->setReturnReference('_createPage', $page);
             $builder->setReturnReference('_createParser', new MockSimpleSaxParser($this));
             $builder->SimplePageBuilder();
@@ -95,12 +95,12 @@
             $a2 = new SimpleAnchorTag(["href" => "http://elsewhere"]);
             $a2->addContent("2");
             
-            $page = &new MockSimplePage($this);
+            $page = new MockSimplePage($this);
             $page->expectArgumentsAt(0, "acceptTag", [$a1]);
             $page->expectArgumentsAt(1, "acceptTag", [$a2]);
             $page->expectCallCount("acceptTag", 2);
             
-            $builder = &new PartialSimplePageBuilder($this);
+            $builder = new PartialSimplePageBuilder($this);
             $builder->setReturnReference('_createPage', $page);
             $builder->setReturnReference('_createParser', new MockSimpleSaxParser($this));
             $builder->SimplePageBuilder();
@@ -118,14 +118,14 @@
         }
         
         function testTitle() {
-            $tag = &new SimpleTitleTag([]);
+            $tag = new SimpleTitleTag([]);
             $tag->addContent("HereThere");
             
-            $page = &new MockSimplePage($this);
+            $page = new MockSimplePage($this);
             $page->expectArguments("acceptTag", [$tag]);
             $page->expectCallCount("acceptTag", 1);
             
-            $builder = &new PartialSimplePageBuilder($this);
+            $builder = new PartialSimplePageBuilder($this);
             $builder->setReturnReference('_createPage', $page);
             $builder->setReturnReference('_createParser', new MockSimpleSaxParser($this));
             $builder->SimplePageBuilder();
@@ -140,11 +140,11 @@
         }
         
         function testForm() {
-            $page = &new MockSimplePage($this);
+            $page = new MockSimplePage($this);
             $page->expectOnce("acceptFormStart", [new SimpleFormTag([])]);
             $page->expectOnce("acceptFormEnd", []);
             
-            $builder = &new PartialSimplePageBuilder($this);
+            $builder = new PartialSimplePageBuilder($this);
             $builder->setReturnReference('_createPage', $page);
             $builder->setReturnReference('_createParser', new MockSimpleSaxParser($this));
             $builder->SimplePageBuilder();
@@ -160,18 +160,18 @@
     class TestOfPageParsing extends UnitTestCase {
         
         function testParseMechanics() {
-            $parser = &new MockSimpleSaxParser($this);
+            $parser = new MockSimpleSaxParser($this);
             $parser->expectOnce('parse', ['stuff']);
             
-            $page = &new MockSimplePage($this);
+            $page = new MockSimplePage($this);
             $page->expectOnce('acceptPageEnd');
 
-            $builder = &new PartialSimplePageBuilder($this);
+            $builder = new PartialSimplePageBuilder($this);
             $builder->setReturnReference('_createPage', $page);
             $builder->setReturnReference('_createParser', $parser);
             $builder->SimplePageBuilder();
             
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getContent', 'stuff');
 
             $builder->parse($response);
@@ -183,7 +183,7 @@
     class TestOfErrorPage extends UnitTestCase {
         
         function testInterface() {
-            $page = &new SimplePage();
+            $page = new SimplePage();
             $this->assertEqual($page->getTransportError(), 'No page fetched yet');
             $this->assertIdentical($page->getRaw(), false);
             $this->assertIdentical($page->getHeaders(), false);
@@ -201,70 +201,70 @@
     class TestOfPageHeaders extends UnitTestCase {
         
         function testUrlAccessor() {
-            $headers = &new MockSimpleHttpHeaders($this);
+            $headers = new MockSimpleHttpHeaders($this);
             
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getHeaders', $headers);
             $response->setReturnValue('getMethod', 'POST');
             $response->setReturnValue('getUrl', new SimpleUrl('here'));
             $response->setReturnValue('getRequestData', ['a' => 'A']);
 
-            $page = &new SimplePage($response);
+            $page = new SimplePage($response);
             $this->assertEqual($page->getMethod(), 'POST');
             $this->assertEqual($page->getUrl(), new SimpleUrl('here'));
             $this->assertEqual($page->getRequestData(), ['a' => 'A']);
         }
         
         function testTransportError() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getError', 'Ouch');
 
-            $page = &new SimplePage($response);
+            $page = new SimplePage($response);
             $this->assertEqual($page->getTransportError(), 'Ouch');
         }
         
         function testHeadersAccessor() {
-            $headers = &new MockSimpleHttpHeaders($this);
+            $headers = new MockSimpleHttpHeaders($this);
             $headers->setReturnValue('getRaw', 'My: Headers');
             
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getHeaders', $headers);
 
-            $page = &new SimplePage($response);
+            $page = new SimplePage($response);
             $this->assertEqual($page->getHeaders(), 'My: Headers');
         }
         
         function testMimeAccessor() {
-            $headers = &new MockSimpleHttpHeaders($this);
+            $headers = new MockSimpleHttpHeaders($this);
             $headers->setReturnValue('getMimeType', 'text/html');
             
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getHeaders', $headers);
 
-            $page = &new SimplePage($response);
+            $page = new SimplePage($response);
             $this->assertEqual($page->getMimeType(), 'text/html');
         }
         
         function testResponseAccessor() {
-            $headers = &new MockSimpleHttpHeaders($this);
+            $headers = new MockSimpleHttpHeaders($this);
             $headers->setReturnValue('getResponseCode', 301);
             
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getHeaders', $headers);
 
-            $page = &new SimplePage($response);
+            $page = new SimplePage($response);
             $this->assertIdentical($page->getResponseCode(), 301);
         }
         
         function testAuthenticationAccessors() {
-            $headers = &new MockSimpleHttpHeaders($this);
+            $headers = new MockSimpleHttpHeaders($this);
             $headers->setReturnValue('getAuthentication', 'Basic');
             $headers->setReturnValue('getRealm', 'Secret stuff');
             
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getHeaders', $headers);
 
-            $page = &new SimplePage($response);
+            $page = new SimplePage($response);
             $this->assertEqual($page->getAuthentication(), 'Basic');
             $this->assertEqual($page->getRealm(), 'Secret stuff');
         }
@@ -273,33 +273,33 @@
     class TestOfHtmlPage extends UnitTestCase {
         
         function testRawAccessor() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getContent', 'Raw HTML');
 
-            $page = &new SimplePage($response);
+            $page = new SimplePage($response);
             $this->assertEqual($page->getRaw(), 'Raw HTML');
         }
         
         function testTextAccessor() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getContent', '<b>Some</b> &quot;messy&quot; HTML');
 
-            $page = &new SimplePage($response);
+            $page = new SimplePage($response);
             $this->assertEqual($page->getText(), 'Some "messy" HTML');
         }
         
         function testNoLinks() {
-            $page = &new SimplePage(new MockSimpleHttpResponse($this));
+            $page = new SimplePage(new MockSimpleHttpResponse($this));
             $this->assertIdentical($page->getAbsoluteUrls(), [], 'abs->%s');
             $this->assertIdentical($page->getRelativeUrls(), [], 'rel->%s');
             $this->assertIdentical($page->getUrlsByLabel('Label'), []);
         }
         
         function testAddAbsoluteLink() {
-            $link = &new SimpleAnchorTag(['href' => 'http://somewhere.com']);
+            $link = new SimpleAnchorTag(['href' => 'http://somewhere.com']);
             $link->addContent('Label');
             
-            $page = &new SimplePage(new MockSimpleHttpResponse($this));
+            $page = new SimplePage(new MockSimpleHttpResponse($this));
             $page->AcceptTag($link);
             
             $this->assertEqual($page->getAbsoluteUrls(), ['http://somewhere.com'], 'abs->%s');
@@ -310,13 +310,13 @@
         }
         
         function testAddStrictRelativeLink() {
-            $link = &new SimpleAnchorTag(['href' => './somewhere.php']);
+            $link = new SimpleAnchorTag(['href' => './somewhere.php']);
             $link->addContent('Label');
             
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getUrl', new SimpleUrl('http://host/'));
             
-            $page = &new SimplePage($response);
+            $page = new SimplePage($response);
             $page->AcceptTag($link);
             
             $this->assertEqual($page->getAbsoluteUrls(), [], 'abs->%s');
@@ -327,13 +327,13 @@
         }
         
         function testAddRelativeLink() {
-            $link = &new SimpleAnchorTag(['href' => 'somewhere.php']);
+            $link = new SimpleAnchorTag(['href' => 'somewhere.php']);
             $link->addContent('Label');
             
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getUrl', new SimpleUrl('http://host/'));
             
-            $page = &new SimplePage($response);
+            $page = new SimplePage($response);
             $page->AcceptTag($link);
             
             $this->assertEqual($page->getAbsoluteUrls(), [], 'abs->%s');
@@ -344,13 +344,13 @@
         }
         
         function testLinkIds() {
-            $link = &new SimpleAnchorTag(['href' => './somewhere.php', 'id' => 33]);
+            $link = new SimpleAnchorTag(['href' => './somewhere.php', 'id' => 33]);
             $link->addContent('Label');
             
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getUrl', new SimpleUrl('http://host/'));
             
-            $page = &new SimplePage($response);
+            $page = new SimplePage($response);
             $page->AcceptTag($link);
             
             $this->assertEqual(
@@ -363,13 +363,13 @@
         }
         
         function testFindLinkWithNormalisation() {
-            $link = &new SimpleAnchorTag(['href' => './somewhere.php', 'id' => 33]);
+            $link = new SimpleAnchorTag(['href' => './somewhere.php', 'id' => 33]);
             $link->addContent(' <em>Long &amp; thin</em> ');
             
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getUrl', new SimpleUrl('http://host/'));
             
-            $page = &new SimplePage($response);
+            $page = new SimplePage($response);
             $page->AcceptTag($link);
             
             $this->assertEqual(
@@ -378,13 +378,13 @@
         }
         
         function testFindLinkWithImage() {
-            $link = &new SimpleAnchorTag(['href' => './somewhere.php', 'id' => 33]);
+            $link = new SimpleAnchorTag(['href' => './somewhere.php', 'id' => 33]);
             $link->addContent('<img src="pic.jpg" alt="&lt;A picture&gt;">');
             
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getUrl', new SimpleUrl('http://host/'));
             
-            $page = &new SimplePage($response);
+            $page = new SimplePage($response);
             $page->AcceptTag($link);
             
             $this->assertEqual(
@@ -393,9 +393,9 @@
         }
         
         function testTitleSetting() {
-            $title = &new SimpleTitleTag([]);
+            $title = new SimpleTitleTag([]);
             $title->addContent('Title');
-            $page = &new SimplePage(new MockSimpleHttpResponse($this));
+            $page = new SimplePage(new MockSimpleHttpResponse($this));
             $page->AcceptTag($title);
             $this->assertEqual($page->getTitle(), 'Title');
         }
@@ -404,13 +404,13 @@
             $url = new SimpleUrl('here');
             $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getUrl', $url);
-            $page = &new SimplePage($response);
+            $page = new SimplePage($response);
             $this->assertFalse($page->hasFrames());
             $this->assertIdentical($page->getFrameset(), false);
         }
         
         function testHasEmptyFrameset() {
-            $page = &new SimplePage(new MockSimpleHttpResponse($this));
+            $page = new SimplePage(new MockSimpleHttpResponse($this));
             $page->acceptFramesetStart(new SimpleTag('frameset', []));
             $page->acceptFramesetEnd();
             $this->assertTrue($page->hasFrames());
@@ -418,10 +418,10 @@
         }
         
         function testFramesInPage() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getUrl', new SimpleUrl('http://here'));
             
-            $page = &new SimplePage($response);
+            $page = new SimplePage($response);
             $page->acceptFrame(new SimpleFrameTag(['src' => '1.html']));
             $page->acceptFramesetStart(new SimpleTag('frameset', []));
             $page->acceptFrame(new SimpleFrameTag(['src' => '2.html']));
@@ -436,10 +436,10 @@
         }
         
         function testNamedFramesInPage() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getUrl', new SimpleUrl('http://here'));
             
-            $page = &new SimplePage($response);
+            $page = new SimplePage($response);
             $page->acceptFramesetStart(new SimpleTag('frameset', []));
             $page->acceptFrame(new SimpleFrameTag(['src' => '1.html']));
             $page->acceptFrame(new SimpleFrameTag(['src' => '2.html', 'name' => 'A']));
@@ -459,7 +459,7 @@
     class TestOfForms extends UnitTestCase {
         
         function testButtons() {
-            $page = &new SimplePage(new MockSimpleHttpResponse($this));
+            $page = new SimplePage(new MockSimpleHttpResponse($this));
             $page->acceptFormStart(
                     new SimpleFormTag(["method" => "GET", "action" => "here.php"]));
             $page->AcceptTag(
@@ -475,19 +475,19 @@
     class TestOfPageScraping extends UnitTestCase {
         
         function &parse($response) {
-            $builder = &new SimplePageBuilder();
+            $builder = new SimplePageBuilder();
             return $builder->parse($response);
         }
         
         function testEmptyPage() {
-            $page = &new SimplePage(new MockSimpleHttpResponse($this));
+            $page = new SimplePage(new MockSimpleHttpResponse($this));
             $this->assertIdentical($page->getAbsoluteUrls(), []);
             $this->assertIdentical($page->getRelativeUrls(), []);
             $this->assertIdentical($page->getTitle(), false);
         }
         
         function testUninterestingPage() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getContent', '<html><body><p>Stuff</p></body></html>');
             
             $page = &$this->parse($response);
@@ -500,7 +500,7 @@
             $raw .= '<a href="there.html">There</a>';
             $raw .= '<a href="http://there.com/that.html" id="0">That page</a>';
             $raw .= '</html>';
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getContent', $raw);
             $response->setReturnValue('getUrl', new SimpleUrl('http://www.here.com/a/index.html'));
 
@@ -520,7 +520,7 @@
         }
         
         function testTitle() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getContent', '<html><head><title>Me</title></head></html>');
             
             $page = &$this->parse($response);
@@ -528,7 +528,7 @@
         }
         
         function testNastyTitle() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue(
                     'getContent',
                     '<html><head><Title> <b>Me&amp;Me </TITLE></b></head></html>');
@@ -538,7 +538,7 @@
         }
         
         function testCompleteForm() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getContent',
                     '<html><head><form>' .
                     '<input type="text" name="here" value="Hello">' .
@@ -549,7 +549,7 @@
         }
         
         function testUnclosedForm() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getContent',
                     '<html><head><form>' .
                     '<input type="text" name="here" value="Hello">' .
@@ -560,7 +560,7 @@
         }
         
         function testEmptyFrameset() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue(
                     'getContent',
                     '<html><frameset></frameset></html>');
@@ -571,7 +571,7 @@
         }
         
         function testSingleFrame() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue(
                     'getContent',
                     '<html><frameset><frame src="a.html"></frameset></html>');
@@ -585,7 +585,7 @@
         }
         
         function testSingleFrameInNestedFrameset() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getContent',
                     '<html><frameset><frameset>' .
                     '<frame src="a.html">' .
@@ -600,7 +600,7 @@
         }
         
         function testFrameWithNoSource() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue(
                     'getContent',
                     '<html><frameset><frame></frameset></html>');
@@ -611,7 +611,7 @@
         }
         
         function testFramesCollectedWithNestedFramesetTags() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getContent',
                     '<html><frameset>' .
                     '<frame src="a.html">' .
@@ -629,7 +629,7 @@
         }
         
         function testNamedFrames() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getContent', '<html><frameset>' .
                     '<frame src="a.html">' .
                     '<frame name="_one" src="b.html">' .
@@ -648,7 +648,7 @@
         }
         
         function testFindFormByLabel() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue(
                     'getContent',
                     '<html><head><form><input type="submit"></form></head></html>');
@@ -660,7 +660,7 @@
         }
         
         function testConfirmSubmitAttributesAreCaseInsensitive() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue(
                     'getContent',
                     '<html><head><FORM><INPUT TYPE="SUBMIT"></FORM></head></html>');
@@ -671,7 +671,7 @@
         }
         
         function testFindFormByImage() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getContent', '<html><head><form>' .
                     '<input type="image" id=100 alt="Label" name="me">' .
                     '</form></head></html>');
@@ -683,7 +683,7 @@
         }
         
         function testFindFormByButtonTag() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getContent', '<html><head><form>' .
                     '<button type="submit" name="b" value="B">BBB</button>' .
                     '</form></head></html>');
@@ -696,7 +696,7 @@
         }
         
         function testFindFormById() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue(
                     'getContent',
                     '<html><head><form id="55"><input type="submit"></form></head></html>');
@@ -707,7 +707,7 @@
         }
         
         function testReadingTextField() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getContent', '<html><head><form>' .
                     '<input type="text" name="a">' .
                     '<input type="text" name="b" value="bbb" id=3>' .
@@ -720,7 +720,7 @@
         }
         
         function testReadingTextFieldIsCaseInsensitive() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getContent', '<html><head><FORM>' .
                     '<INPUT TYPE="TEXT" NAME="a">' .
                     '<INPUT TYPE="TEXT" NAME="b" VALUE="bbb" id=3>' .
@@ -733,7 +733,7 @@
         }
         
         function testSettingTextField() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getContent', '<html><head><form>' .
                     '<input type="text" name="a">' .
                     '<input type="text" name="b" id=3>' .
@@ -750,7 +750,7 @@
         }
         
         function testReadingTextArea() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getContent', '<html><head><form>' .
                     '<textarea name="a">aaa</textarea>' .
                     '<input type="submit">' .
@@ -761,7 +761,7 @@
         }
         
         function testSettingTextArea() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getContent', '<html><head><form>' .
                     '<textarea name="a">aaa</textarea>' .
                     '<input type="submit">' .
@@ -773,7 +773,7 @@
         }
         
         function testSettingSelectionField() {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getContent', '<html><head><form>' .
                     '<select name="a">' .
                     '<option>aaa</option>' .

@@ -8,7 +8,7 @@
     class TestOfLiveBrowser extends UnitTestCase {
         
         function testGet() {
-            $browser = &new SimpleBrowser();
+            $browser = new SimpleBrowser();
             $browser->addHeader('User-Agent: SimpleTest ' . SimpleTestOptions::getVersion());
             
             $this->assertTrue($browser->get('http://www.lastcraft.com/test/network_confirm.php'));
@@ -20,7 +20,7 @@
         }
         
         function testPost() {
-            $browser = &new SimpleBrowser();
+            $browser = new SimpleBrowser();
             $browser->addHeader('User-Agent: SimpleTest ' . SimpleTestOptions::getVersion());
             $this->assertTrue($browser->post('http://www.lastcraft.com/test/network_confirm.php'));
             $this->assertWantedPattern('/target for the SimpleTest/', $browser->getContent());
@@ -28,7 +28,7 @@
         }
         
         function testAbsoluteLinkFollowing() {
-            $browser = &new SimpleBrowser();
+            $browser = new SimpleBrowser();
             $browser->addHeader('User-Agent: SimpleTest ' . SimpleTestOptions::getVersion());
             $browser->get('http://www.lastcraft.com/test/link_confirm.php');
             $this->assertTrue($browser->clickLink('Absolute'));
@@ -36,7 +36,7 @@
         }
         
         function testRelativeLinkFollowing() {
-            $browser = &new SimpleBrowser();
+            $browser = new SimpleBrowser();
             $browser->addHeader('User-Agent: SimpleTest ' . SimpleTestOptions::getVersion());
             $browser->get('http://www.lastcraft.com/test/link_confirm.php');
             $this->assertTrue($browser->clickLink('Relative'));
@@ -44,7 +44,7 @@
         }
         
         function testIdLinkFollowing() {
-            $browser = &new SimpleBrowser();
+            $browser = new SimpleBrowser();
             $browser->addHeader('User-Agent: SimpleTest ' . SimpleTestOptions::getVersion());
             $browser->get('http://www.lastcraft.com/test/link_confirm.php');
             $this->assertTrue($browser->clickLinkById(1));
@@ -52,7 +52,7 @@
         }
         
         function testCookieReading() {
-            $browser = &new SimpleBrowser();
+            $browser = new SimpleBrowser();
             $browser->addHeader('User-Agent: SimpleTest ' . SimpleTestOptions::getVersion());
             $browser->get('http://www.lastcraft.com/test/set_cookies.php');
             $this->assertEqual($browser->getCurrentCookieValue('session_cookie'), 'A');
@@ -61,7 +61,7 @@
         }
         
         function testSimpleSubmit() {
-            $browser = &new SimpleBrowser();
+            $browser = new SimpleBrowser();
             $browser->addHeader('User-Agent: SimpleTest ' . SimpleTestOptions::getVersion());
             $browser->get('http://www.lastcraft.com/test/form.html');
             $this->assertTrue($browser->clickSubmit('Go!'));

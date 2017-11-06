@@ -23,20 +23,20 @@
     class TestOfHistory extends UnitTestCase {
         
         function testEmptyHistoryHasFalseContents() {
-            $history = &new SimpleBrowserHistory();
+            $history = new SimpleBrowserHistory();
             $this->assertIdentical($history->getMethod(), false);
             $this->assertIdentical($history->getUrl(), false);
             $this->assertIdentical($history->getParameters(), false);
         }
         
         function testCannotMoveInEmptyHistory() {
-            $history = &new SimpleBrowserHistory();
+            $history = new SimpleBrowserHistory();
             $this->assertFalse($history->back());
             $this->assertFalse($history->forward());
         }
         
         function testCurrentTargetAccessors() {
-            $history = &new SimpleBrowserHistory();
+            $history = new SimpleBrowserHistory();
             $history->recordEntry(
                     'GET',
                     new SimpleUrl('http://www.here.com/'),
@@ -47,7 +47,7 @@
         }
         
         function testSecondEntryAccessors() {
-            $history = &new SimpleBrowserHistory();
+            $history = new SimpleBrowserHistory();
             $history->recordEntry(
                     'GET',
                     new SimpleUrl('http://www.first.com/'),
@@ -64,7 +64,7 @@
         }
         
         function testGoingBackwards() {
-            $history = &new SimpleBrowserHistory();
+            $history = new SimpleBrowserHistory();
             $history->recordEntry(
                     'GET',
                     new SimpleUrl('http://www.first.com/'),
@@ -80,7 +80,7 @@
         }
         
         function testGoingBackwardsOffBeginning() {
-            $history = &new SimpleBrowserHistory();
+            $history = new SimpleBrowserHistory();
             $history->recordEntry(
                     'GET',
                     new SimpleUrl('http://www.first.com/'),
@@ -92,7 +92,7 @@
         }
         
         function testGoingForwardsOffEnd() {
-            $history = &new SimpleBrowserHistory();
+            $history = new SimpleBrowserHistory();
             $history->recordEntry(
                     'GET',
                     new SimpleUrl('http://www.first.com/'),
@@ -104,7 +104,7 @@
         }
         
         function testGoingBackwardsAndForwards() {
-            $history = &new SimpleBrowserHistory();
+            $history = new SimpleBrowserHistory();
             $history->recordEntry(
                     'GET',
                     new SimpleUrl('http://www.first.com/'),
@@ -123,7 +123,7 @@
         }
         
         function testNewEntryReplacesNextOne() {
-            $history = &new SimpleBrowserHistory();
+            $history = new SimpleBrowserHistory();
             $history->recordEntry(
                     'GET',
                     new SimpleUrl('http://www.first.com/'),
@@ -143,7 +143,7 @@
         }
         
         function testNewEntryDropsFutureEntries() {
-            $history = &new SimpleBrowserHistory();
+            $history = new SimpleBrowserHistory();
             $history->recordEntry(
                     'GET',
                     new SimpleUrl('http://www.first.com/'),
@@ -173,12 +173,12 @@
     class TestOfParsedPageAccess extends UnitTestCase {
         
         function &loadPage(&$page) {
-            $response = &new MockSimpleHttpResponse($this);
+            $response = new MockSimpleHttpResponse($this);
             
-            $agent = &new MockSimpleUserAgent($this);
+            $agent = new MockSimpleUserAgent($this);
             $agent->setReturnReference('fetchResponse', $response);
             
-            $browser = &new MockParseSimpleBrowser($this);
+            $browser = new MockParseSimpleBrowser($this);
             $browser->setReturnReference('_createUserAgent', $agent);
             $browser->setReturnReference('_parse', $page);
             $browser->SimpleBrowser();
@@ -188,9 +188,9 @@
         }
         
         function testAccessorsWhenNoPage() {
-            $agent = &new MockSimpleUserAgent($this);
+            $agent = new MockSimpleUserAgent($this);
             
-            $browser = &new MockParseSimpleBrowser($this);
+            $browser = new MockParseSimpleBrowser($this);
             $browser->setReturnReference('_createUserAgent', $agent);
             $browser->SimpleBrowser();
             
@@ -198,7 +198,7 @@
         }
         
         function testParse() {
-            $page = &new MockSimplePage($this);
+            $page = new MockSimplePage($this);
             $page->setReturnValue('getRequest', "GET here.html\r\n\r\n");
             $page->setReturnValue('getRaw', 'Raw HTML');
             $page->setReturnValue('getTitle', 'Here');
@@ -223,7 +223,7 @@
         }
         
         function testLinkAffirmationWhenPresent() {
-            $page = &new MockSimplePage($this);
+            $page = new MockSimplePage($this);
             $page->setReturnValue('getUrlsByLabel', ['http://www.nowhere.com']);
             $page->expectOnce('getUrlsByLabel', ['a link label']);
             
@@ -234,7 +234,7 @@
         }
         
         function testLinkAffirmationByIdWhenPresent() {
-            $page = &new MockSimplePage($this);
+            $page = new MockSimplePage($this);
             $page->setReturnValue('getUrlById', true, [99]);
             $page->setReturnValue('getUrlById', false, ['*']);
             
@@ -246,7 +246,7 @@
         }
         
         function testFormHandling() {
-            $page = &new MockSimplePage($this);
+            $page = new MockSimplePage($this);
             $page->setReturnValue('getField', 'Value');
             $page->expectOnce('getField', ['key']);
             $page->expectOnce('setField', ['key', 'Value']);
@@ -267,7 +267,7 @@
     class TestOfBrowserNavigation extends UnitTestCase {
         
         function &createBrowser(&$agent, &$page) {
-            $browser = &new MockParseSimpleBrowser($this);
+            $browser = new MockParseSimpleBrowser($this);
             $browser->setReturnReference('_createUserAgent', $agent);
             $browser->setReturnReference('_parse', $page);
             $browser->SimpleBrowser();
@@ -275,7 +275,7 @@
         }
         
         function testClickLinkRequestsPage() {
-            $agent = &new MockSimpleUserAgent($this);
+            $agent = new MockSimpleUserAgent($this);
             $agent->setReturnReference('fetchResponse', new MockSimpleHttpResponse($this));
             $agent->expectArgumentsAt(
                     0,
@@ -287,7 +287,7 @@
                     ['GET', new SimpleUrl('http://this.com/new.html'), false]);
             $agent->expectCallCount('fetchResponse', 2);
             
-            $page = &new MockSimplePage($this);
+            $page = new MockSimplePage($this);
             $page->setReturnValue('getUrlsByLabel', [new SimpleUrl('http://this.com/new.html')]);
             $page->expectOnce('getUrlsByLabel', ['New']);
             $page->setReturnValue('getRaw', 'A page');
@@ -301,7 +301,7 @@
         }
         
         function testClickLinkWithUnknownFrameStillRequestsWholePage() {
-            $agent = &new MockSimpleUserAgent($this);
+            $agent = new MockSimpleUserAgent($this);
             $agent->setReturnReference('fetchResponse', new MockSimpleHttpResponse($this));
             $agent->expectArgumentsAt(
                     0,
@@ -318,7 +318,7 @@
             $parsed_url = new SimpleUrl('http://this.com/new.html');
             $parsed_url->setTarget('missing');
             
-            $page = &new MockSimplePage($this);
+            $page = new MockSimplePage($this);
             $page->setReturnValue('getUrlsByLabel', [$parsed_url]);
             $page->setReturnValue('hasFrames', false);
             $page->expectOnce('getUrlsByLabel', ['New']);
@@ -333,10 +333,10 @@
         }
         
         function testClickingMissingLinkFails() {
-            $agent = &new MockSimpleUserAgent($this);
+            $agent = new MockSimpleUserAgent($this);
             $agent->setReturnReference('fetchResponse', new MockSimpleHttpResponse($this));
             
-            $page = &new MockSimplePage($this);
+            $page = new MockSimplePage($this);
             $page->setReturnValue('getUrlsByLabel', []);
             $page->setReturnValue('getRaw', 'stuff');
             
@@ -346,7 +346,7 @@
         }
         
         function testClickIndexedLink() {
-            $agent = &new MockSimpleUserAgent($this);
+            $agent = new MockSimpleUserAgent($this);
             $agent->setReturnReference('fetchResponse', new MockSimpleHttpResponse($this));
             $agent->expectArgumentsAt(
                     1,
@@ -354,7 +354,7 @@
                     ['GET', new SimpleUrl('1.html'), false]);
             $agent->expectCallCount('fetchResponse', 2);
             
-            $page = &new MockSimplePage($this);
+            $page = new MockSimplePage($this);
             $page->setReturnValue(
                     'getUrlsByLabel',
                     [new SimpleUrl('0.html'), new SimpleUrl('1.html')]);
@@ -368,7 +368,7 @@
         }
         
         function testClinkLinkById() {
-            $agent = &new MockSimpleUserAgent($this);
+            $agent = new MockSimpleUserAgent($this);
             $agent->setReturnReference('fetchResponse', new MockSimpleHttpResponse($this));
             $agent->expectArgumentsAt(1, 'fetchResponse', [
                     'GET',
@@ -376,7 +376,7 @@
                     false]);
             $agent->expectCallCount('fetchResponse', 2);
             
-            $page = &new MockSimplePage($this);
+            $page = new MockSimplePage($this);
             $page->setReturnValue('getUrlById', new SimpleUrl('http://this.com/link.html'));
             $page->expectOnce('getUrlById', [2]);
             $page->setReturnValue('getRaw', 'A page');
@@ -390,10 +390,10 @@
         }
         
         function testClickingMissingLinkIdFails() {
-            $agent = &new MockSimpleUserAgent($this);
+            $agent = new MockSimpleUserAgent($this);
             $agent->setReturnReference('fetchResponse', new MockSimpleHttpResponse($this));
             
-            $page = &new MockSimplePage($this);
+            $page = new MockSimplePage($this);
             $page->setReturnValue('getUrlById', false);
             
             $browser = &$this->createBrowser($agent, $page);
@@ -402,7 +402,7 @@
         }
         
         function testSubmitFormByLabel() {
-            $agent = &new MockSimpleUserAgent($this);
+            $agent = new MockSimpleUserAgent($this);
             $agent->setReturnReference('fetchResponse', new MockSimpleHttpResponse($this));
             $agent->expectArgumentsAt(1, 'fetchResponse', [
                     'POST',
@@ -410,13 +410,13 @@
                     new SimpleFormEncoding(['a' => 'A'])]);
             $agent->expectCallCount('fetchResponse', 2);
             
-            $form = &new MockSimpleForm($this);
+            $form = new MockSimpleForm($this);
             $form->setReturnValue('getAction', new SimpleUrl('http://this.com/handler.html'));
             $form->setReturnValue('getMethod', 'post');
             $form->setReturnValue('submitButtonByLabel', new SimpleFormEncoding(['a' => 'A']));
             $form->expectOnce('submitButtonByLabel', ['Go', false]);
             
-            $page = &new MockSimplePage($this);
+            $page = new MockSimplePage($this);
             $page->setReturnReference('getFormBySubmitLabel', $form);
             $page->expectOnce('getFormBySubmitLabel', ['Go']);
             $page->setReturnValue('getRaw', 'stuff');
@@ -431,7 +431,7 @@
         }
         
         function testDefaultSubmitFormByLabel() {
-            $agent = &new MockSimpleUserAgent($this);
+            $agent = new MockSimpleUserAgent($this);
             $agent->setReturnReference('fetchResponse', new MockSimpleHttpResponse($this));
             $agent->expectArgumentsAt(1,  'fetchResponse', [
                     'GET',
@@ -439,12 +439,12 @@
                     new SimpleFormEncoding(['a' => 'A'])]);
             $agent->expectCallCount('fetchResponse', 2);
             
-            $form = &new MockSimpleForm($this);
+            $form = new MockSimpleForm($this);
             $form->setReturnValue('getAction', new SimpleUrl('http://this.com/page.html'));
             $form->setReturnValue('getMethod', 'get');
             $form->setReturnValue('submitButtonByLabel', new SimpleFormEncoding(['a' => 'A']));
             
-            $page = &new MockSimplePage($this);
+            $page = new MockSimplePage($this);
             $page->setReturnReference('getFormBySubmitLabel', $form);
             $page->expectOnce('getFormBySubmitLabel', ['Submit']);
             $page->setReturnValue('getRaw', 'stuff');
@@ -460,15 +460,15 @@
         }
         
         function testSubmitFormByName() {
-            $agent = &new MockSimpleUserAgent($this);
+            $agent = new MockSimpleUserAgent($this);
             $agent->setReturnReference('fetchResponse', new MockSimpleHttpResponse($this));
             
-            $form = &new MockSimpleForm($this);
+            $form = new MockSimpleForm($this);
             $form->setReturnValue('getAction', new SimpleUrl('http://this.com/handler.html'));
             $form->setReturnValue('getMethod', 'post');
             $form->setReturnValue('submitButtonByName', new SimpleFormEncoding(['a' => 'A']));
             
-            $page = &new MockSimplePage($this);
+            $page = new MockSimplePage($this);
             $page->setReturnReference('getFormBySubmitName', $form);
             $page->expectOnce('getFormBySubmitName', ['me']);
             $page->setReturnValue('getRaw', 'stuff');
@@ -481,16 +481,16 @@
         }
         
         function testSubmitFormById() {
-            $agent = &new MockSimpleUserAgent($this);
+            $agent = new MockSimpleUserAgent($this);
             $agent->setReturnReference('fetchResponse', new MockSimpleHttpResponse($this));
             
-            $form = &new MockSimpleForm($this);
+            $form = new MockSimpleForm($this);
             $form->setReturnValue('getAction', new SimpleUrl('http://this.com/handler.html'));
             $form->setReturnValue('getMethod', 'post');
             $form->setReturnValue('submitButtonById', new SimpleFormEncoding(['a' => 'A']));
             $form->expectOnce('submitButtonById', [99, false]);
             
-            $page = &new MockSimplePage($this);
+            $page = new MockSimplePage($this);
             $page->setReturnReference('getFormBySubmitId', $form);
             $page->expectOnce('getFormBySubmitId', [99]);
             $page->setReturnValue('getRaw', 'stuff');
@@ -504,16 +504,16 @@
         }
         
         function testSubmitFormByImageLabel() {
-            $agent = &new MockSimpleUserAgent($this);
+            $agent = new MockSimpleUserAgent($this);
             $agent->setReturnReference('fetchResponse', new MockSimpleHttpResponse($this));
             
-            $form = &new MockSimpleForm($this);
+            $form = new MockSimpleForm($this);
             $form->setReturnValue('getAction', new SimpleUrl('http://this.com/handler.html'));
             $form->setReturnValue('getMethod', 'post');
             $form->setReturnValue('submitImageByLabel', new SimpleFormEncoding(['a' => 'A']));
             $form->expectOnce('submitImageByLabel', ['Go!', 10, 11, false]);
             
-            $page = &new MockSimplePage($this);
+            $page = new MockSimplePage($this);
             $page->setReturnReference('getFormByImageLabel', $form);
             $page->expectOnce('getFormByImageLabel', ['Go!']);
             $page->setReturnValue('getRaw', 'stuff');
@@ -527,16 +527,16 @@
         }
         
         function testSubmitFormByImageName() {
-            $agent = &new MockSimpleUserAgent($this);
+            $agent = new MockSimpleUserAgent($this);
             $agent->setReturnReference('fetchResponse', new MockSimpleHttpResponse($this));
             
-            $form = &new MockSimpleForm($this);
+            $form = new MockSimpleForm($this);
             $form->setReturnValue('getAction', new SimpleUrl('http://this.com/handler.html'));
             $form->setReturnValue('getMethod', 'post');
             $form->setReturnValue('submitImageByName', new SimpleFormEncoding(['a' => 'A']));
             $form->expectOnce('submitImageByName', ['a', 10, 11, false]);
             
-            $page = &new MockSimplePage($this);
+            $page = new MockSimplePage($this);
             $page->setReturnReference('getFormByImageName', $form);
             $page->expectOnce('getFormByImageName', ['a']);
             $page->setReturnValue('getRaw', 'stuff');
@@ -550,16 +550,16 @@
         }
         
         function testSubmitFormByImageId() {
-            $agent = &new MockSimpleUserAgent($this);
+            $agent = new MockSimpleUserAgent($this);
             $agent->setReturnReference('fetchResponse', new MockSimpleHttpResponse($this));
             
-            $form = &new MockSimpleForm($this);
+            $form = new MockSimpleForm($this);
             $form->setReturnValue('getAction', new SimpleUrl('http://this.com/handler.html'));
             $form->setReturnValue('getMethod', 'post');
             $form->setReturnValue('submitImageById', new SimpleFormEncoding(['a' => 'A']));
             $form->expectOnce('submitImageById', [99, 10, 11, false]);
             
-            $page = &new MockSimplePage($this);
+            $page = new MockSimplePage($this);
             $page->setReturnReference('getFormByImageId', $form);
             $page->expectOnce('getFormByImageId', [99]);
             $page->setReturnValue('getRaw', 'stuff');
@@ -573,7 +573,7 @@
         }
         
         function testSubmitFormByFormId() {
-            $agent = &new MockSimpleUserAgent($this);
+            $agent = new MockSimpleUserAgent($this);
             $agent->setReturnReference('fetchResponse', new MockSimpleHttpResponse($this));
             $agent->expectArgumentsAt(1, 'fetchResponse', [
                     'POST',
@@ -581,12 +581,12 @@
                     new SimpleFormEncoding(['a' => 'A'])]);
             $agent->expectCallCount('fetchResponse', 2);
             
-            $form = &new MockSimpleForm($this);
+            $form = new MockSimpleForm($this);
             $form->setReturnValue('getAction', new SimpleUrl('http://this.com/handler.html'));
             $form->setReturnValue('getMethod', 'post');
             $form->setReturnValue('submit', new SimpleFormEncoding(['a' => 'A']));
             
-            $page = &new MockSimplePage($this);
+            $page = new MockSimplePage($this);
             $page->setReturnReference('getFormById', $form);
             $page->expectOnce('getFormById', [33]);
             $page->setReturnValue('getRaw', 'stuff');
@@ -603,17 +603,17 @@
     class TestOfBrowserFrames extends UnitTestCase {
         
         function &createBrowser(&$agent) {
-            $browser = &new MockUserAgentSimpleBrowser($this);
+            $browser = new MockUserAgentSimpleBrowser($this);
             $browser->setReturnReference('_createUserAgent', $agent);
             $browser->SimpleBrowser();
             return $browser;
         }
         
         function &createUserAgent($pages) {
-            $agent = &new MockSimpleUserAgent($this);
+            $agent = new MockSimpleUserAgent($this);
             foreach ($pages as $url => $raw) {
                 $url = new SimpleUrl($url);
-                $response = &new MockSimpleHttpResponse($this);
+                $response = new MockSimpleHttpResponse($this);
                 $response->setReturnValue('getUrl', $url);
                 $response->setReturnValue('getContent', $raw);
                 $agent->setReturnReference('fetchResponse', $response, ['*', $url, '*']);
