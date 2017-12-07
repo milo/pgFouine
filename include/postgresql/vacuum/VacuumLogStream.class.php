@@ -44,20 +44,20 @@ class VacuumLogStream {
 			|| is_a($line, 'PostgreSQLFSMInformationLine')
 		) {
 			if($this->currentBlock) {
-				$logObject =& $this->currentBlock->close();
+				$logObject = $this->currentBlock->close();
 			}
 			$this->currentBlock = new LogBlock($this, $line->getLineNumber(), $line);
 		} elseif(is_a($line, 'PostgreSQLVacuumingDatabaseLine')) {
 			$this->database = $line->getDatabase();
 		} elseif(is_a($line, 'PostgreSQLVacuumEndLine')) {
 			if($this->currentBlock) {
-				$logObject =& $this->currentBlock->close();
+				$logObject = $this->currentBlock->close();
 			}
 		} elseif($this->currentBlock) {
 			if(is_a($line, 'PostgreSQLVacuumContinuationLine')) {
 				// it is just a continuation line so we just add the text to the text of the last line)
 				if($line->getText()) {
-					$lastLine =& last($this->currentBlock->getLines());
+					$lastLine = last($this->currentBlock->getLines());
 					$lastLine->appendText($line->getText());
 				}
 			} else {
@@ -84,7 +84,7 @@ class VacuumLogStream {
 	 */
 	function flush(& $accumulator) {
 		if($this->currentBlock && $this->currentBlock->isComplete()) {
-			$logObject =& $this->currentBlock->close();
+			$logObject = $this->currentBlock->close();
 			if($logObject) {
 				$logObject->accumulateTo($accumulator);
 			}

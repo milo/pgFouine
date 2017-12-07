@@ -29,7 +29,7 @@ class SyslogPostgreSQLParser extends PostgreSQLParser {
 	}
 
 	function & parse($data) {
-		$syslogContextMatch =& $this->regexpSyslogContext->match($data);
+		$syslogContextMatch = $this->regexpSyslogContext->match($data);
 		if($syslogContextMatch === false) {
 			$line = false;
 			return $line;
@@ -56,7 +56,7 @@ class SyslogPostgreSQLParser extends PostgreSQLParser {
 			$lineNumber = 1;
 		}
 		
-		$line =& parent::parse($text);
+		$line = parent::parse($text);
 		
 		if($line) {
 			$line->setContextInformation($timestamp, $connectionId, $commandNumber, $lineNumber);

@@ -22,24 +22,24 @@ class TestSlowestQueryList extends UnitTestCase {
 		
 		$list = new SlowestQueryList(2);
 		$list->addQuery($query1);
-		$queries =& $list->getQueries();
+		$queries = $list->getQueries();
 		$this->assertEqual(1, count($queries));
 		$this->assertReference($queries['1.2'][0], $query1);
 		
 		$list->addQuery($query2);
-		$queries =& $list->getQueries();
+		$queries = $list->getQueries();
 		$this->assertEqual(2, count($queries));
 		$this->assertReference($queries['1.2'][0], $query1);
 		$this->assertReference($queries['1.5'][0], $query2);
 		
 		$list->addQuery($query3);
-		$queries =& $list->getQueries();
+		$queries = $list->getQueries();
 		$this->assertEqual(2, count($queries));
 		$this->assertReference($queries['1.5'][0], $query2);
 		$this->assertReference($queries['1.7'][0], $query3);
 		
 		$list->addQuery($query4);
-		$queries =& $list->getQueries();
+		$queries = $list->getQueries();
 		$this->assertEqual(2, count($queries));
 		$this->assertReference($queries['1.5'][0], $query2);
 		$this->assertReference($queries['1.7'][0], $query3);

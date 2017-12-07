@@ -63,7 +63,7 @@
             $encoding = new SimpleFormEncoding();
             $encoding->add('a', '');
             $encoding->add('b', '');
-            $this->assertIdentical($encoding->asString(), 'a=&b=');
+            $this->assertIdentical($encoding->asString(), 'a=b=');
         }
         
         function testRepeatedParameter() {

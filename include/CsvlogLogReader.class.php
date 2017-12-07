@@ -33,7 +33,7 @@ class CsvlogLogReader extends GenericLogReader {
 			$lineParsedCounter ++;
 			
 			if(count($csvLine) == 22) {
-				$lines =& $lineParser->parse($csvLine);
+				$lines = $lineParser->parse($csvLine);
 				
 				if($lines) {
 					if(!isset($this->firstLineTimestamp)) {

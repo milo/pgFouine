@@ -26,7 +26,7 @@ class TestRegExp extends UnitTestCase {
 		define('TEST_MATCH_STRING', 'this is a TEST string');
 		
 		$regexp = new RegExp(TEST_MATCH_PATTERN);
-		$regexpMatch =& $regexp->match(TEST_MATCH_STRING);
+		$regexpMatch = $regexp->match(TEST_MATCH_STRING);
 		
 		$this->assertEqual('TEST', $regexpMatch->getMatch(0));
 		$this->assertEqual('ES', $regexpMatch->getMatch(1));

@@ -35,63 +35,63 @@ class TestSyslogPostgreSQLParser extends UnitTestCase {
 	}
 	
 	function testConnectionId() {
-		$line =& $this->parser->parse(QUERY_LINE_WITH_DASH_IN_CONNECTION_ID);
+		$line = $this->parser->parse(QUERY_LINE_WITH_DASH_IN_CONNECTION_ID);
 		$this->assertEqual('4545', $line->getConnectionId());
 	}
 	
 	function testCommandNumber() {
-		$line =& $this->parser->parse(QUERY_LINE);
+		$line = $this->parser->parse(QUERY_LINE);
 		$this->assertEqual('2755', $line->getCommandNumber());
 	}
 	
 	function testCommandNumberWithDash() {
-		$line =& $this->parser->parse(QUERY_LINE_WITH_DASH_IN_CONNECTION_ID);
+		$line = $this->parser->parse(QUERY_LINE_WITH_DASH_IN_CONNECTION_ID);
 		$this->assertEqual('2755', $line->getCommandNumber());
 	}
 	
 	function testLineNumber() {
-		$line =& $this->parser->parse(QUERY_LINE);
+		$line = $this->parser->parse(QUERY_LINE);
 		$this->assertEqual('1', $line->getLineNumber());
 	}
 	
 	function testLineNumberWithDash() {
-		$line =& $this->parser->parse(QUERY_LINE_WITH_DASH_IN_CONNECTION_ID);
+		$line = $this->parser->parse(QUERY_LINE_WITH_DASH_IN_CONNECTION_ID);
 		$this->assertEqual('4', $line->getLineNumber());
 	}
 	
 	function testQueryLineDetection() {
-		$line =& $this->parser->parse(DETECTION_QUERY_LINE_1);
+		$line = $this->parser->parse(DETECTION_QUERY_LINE_1);
 		$this->assertTrue(is_a($line, 'PostgreSQLQueryStartWithDurationLine'));
 		
-		$line =& $this->parser->parse(DETECTION_QUERY_LINE_2);
+		$line = $this->parser->parse(DETECTION_QUERY_LINE_2);
 		$this->assertTrue(is_a($line, 'PostgreSQLQueryStartWithDurationLine'));
 	}
 	
 	function testContinuationLineDetection() {
-		$line =& $this->parser->parse(DETECTION_CONTINUATION_LINE);
+		$line = $this->parser->parse(DETECTION_CONTINUATION_LINE);
 		$this->assertTrue(is_a($line, 'PostgreSQLContinuationLine'));
 	}
 	
 	function testStatementLineDetection() {
-		$line =& $this->parser->parse(DETECTION_STATEMENT_LINE);
+		$line = $this->parser->parse(DETECTION_STATEMENT_LINE);
 		$this->assertTrue(is_a($line, 'PostgreSQLStatementLine'));
 	}
 	
 	function testStatusLineDetection() {
-		$line =& $this->parser->parse(DETECTION_CONNECTION_RECEIVED_LINE);
+		$line = $this->parser->parse(DETECTION_CONNECTION_RECEIVED_LINE);
 		$this->assertTrue(is_a($line, 'PostgreSQLStatusLine'));
 		
-		$line =& $this->parser->parse(DETECTION_CONNECTION_AUTHORIZED_LINE);
+		$line = $this->parser->parse(DETECTION_CONNECTION_AUTHORIZED_LINE);
 		$this->assertTrue(is_a($line, 'PostgreSQLStatusLine'));
 	}
 	
 	function testErrorLineDetection() {
-		$line =& $this->parser->parse(DETECTION_ERROR_LINE);
+		$line = $this->parser->parse(DETECTION_ERROR_LINE);
 		$this->assertTrue(is_a($line, 'PostgreSQLErrorLine'));
 	}
 	
 	function testDetailLineDetection() {
-		$line =& $this->parser->parse(DETECTION_DETAIL_LINE);
+		$line = $this->parser->parse(DETECTION_DETAIL_LINE);
 		$this->assertTrue(is_a($line, 'PostgreSQLDetailLine'));
 	}
 }

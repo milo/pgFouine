@@ -27,10 +27,10 @@ class NormalizedErrorsMostFrequentReport extends NormalizedErrorsReport {
 	}
 	
 	function getText() {
-		$listener =& $this->reportAggregator->getListener('NormalizedErrorsListener');
+		$listener = $this->reportAggregator->getListener('NormalizedErrorsListener');
 		$text = '';
 		
-		$errors =& $listener->getMostFrequentErrors();
+		$errors = $listener->getMostFrequentErrors();
 		
 		$count = count($errors);
 		
@@ -53,8 +53,8 @@ class NormalizedErrorsMostFrequentReport extends NormalizedErrorsReport {
 	}
 	
 	function getHtml() {
-		$listener =& $this->reportAggregator->getListener('NormalizedErrorsListener');
-		$errors =& $listener->getMostFrequentErrors();
+		$listener = $this->reportAggregator->getListener('NormalizedErrorsListener');
+		$errors = $listener->getMostFrequentErrors();
 		$count = count($errors);
 		
 		if($count == 0) {

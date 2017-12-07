@@ -137,7 +137,7 @@ class GenericLogReader {
 			}
 			$lineParsedCounter ++;
 			
-			$line =& $lineParser->parse($text);
+			$line = $lineParser->parse($text);
 			if($line) {
 				if(!isset($this->firstLineTimestamp)) {
 					$this->firstLineTimestamp = $line->getTimestamp();

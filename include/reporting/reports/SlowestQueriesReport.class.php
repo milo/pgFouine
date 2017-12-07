@@ -27,10 +27,10 @@ class SlowestQueriesReport extends Report {
 	}
 	
 	function getText() {
-		$listener =& $this->reportAggregator->getListener('SlowestQueriesListener');
+		$listener = $this->reportAggregator->getListener('SlowestQueriesListener');
 		$text = '';
 		
-		$queries =& $listener->getSortedQueries();
+		$queries = $listener->getSortedQueries();
 		$count = count($queries);
 		for($i = 0; $i < $count; $i++) {
 			$query =& $queries[$i];
@@ -43,7 +43,7 @@ class SlowestQueriesReport extends Report {
 	}
 	
 	function getHtml() {
-		$listener =& $this->reportAggregator->getListener('SlowestQueriesListener');
+		$listener = $this->reportAggregator->getListener('SlowestQueriesListener');
 		$html = '
 <table class="queryList">
 	<tr>
@@ -51,7 +51,7 @@ class SlowestQueriesReport extends Report {
 		<th>Duration&nbsp;('.CONFIG_DURATION_UNIT.')</th>
 		<th>Query</th>
 	</tr>';
-		$queries =& $listener->getSortedQueries();
+		$queries = $listener->getSortedQueries();
 		$count = count($queries);
 		for($i = 0; $i < $count; $i++) {
 			$query =& $queries[$i];

@@ -31,7 +31,7 @@ class PostgreSQLFSMInformationDetailLine extends PostgreSQLVacuumLogLine {
 	function appendTo(& $logObject) {
 		global $postgreSQLVacuumRegexps;
 		
-		$detailMatch =& $postgreSQLVacuumRegexps['FSMDetailLine']->match($this->text);
+		$detailMatch = $postgreSQLVacuumRegexps['FSMDetailLine']->match($this->text);
 		
 		if($detailMatch) {
 			$pageSlotsInUse = $detailMatch->getMatch(1);

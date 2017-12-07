@@ -30,7 +30,7 @@ class PostgreSQLPreparedStatementExecuteWithDurationLine extends PostgreSQLPrepa
 	}
 	
 	function & getLogObject(& $logStream) {
-		$preparedStatement =& parent::getLogObject($logStream);
+		$preparedStatement = parent::getLogObject($logStream);
 		$preparedStatement->setDuration($this->duration);
 		
 		return $preparedStatement;

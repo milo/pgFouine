@@ -28,7 +28,7 @@ class NormalizedReport extends Report {
 	}
 	
 	function getNormalizedQueryWithExamplesHtml($counter, & $normalizedQuery) {
-		$examples =& $normalizedQuery->getFilteredExamplesArray();
+		$examples = $normalizedQuery->getFilteredExamplesArray();
 		$exampleCount = count($examples);
 
 		$html = '';

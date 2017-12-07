@@ -30,7 +30,7 @@ class NormalizedErrorsReport extends Report {
 	function getNormalizedErrorWithExamplesHtml($counter, & $normalizedError) {
 		$html = '';
 		
-		$examples =& $normalizedError->getFilteredExamplesArray();
+		$examples = $normalizedError->getFilteredExamplesArray();
 		$exampleCount = count($examples);
 		
 		if($exampleCount) {		

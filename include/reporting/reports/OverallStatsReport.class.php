@@ -27,10 +27,10 @@ class OverallStatsReport extends Report {
 	}
 	
 	function getText() {
-		$statsListener =& $this->reportAggregator->getListener('GlobalCountersListener');
-		$normalizedListener =& $this->reportAggregator->getListener('NormalizedQueriesListener');
-		$errorCountersListener =& $this->reportAggregator->getListener('GlobalErrorCountersListener');
-		$normalizedErrorsListener =& $this->reportAggregator->getListener('NormalizedErrorsListener');
+		$statsListener = $this->reportAggregator->getListener('GlobalCountersListener');
+		$normalizedListener = $this->reportAggregator->getListener('NormalizedQueriesListener');
+		$errorCountersListener = $this->reportAggregator->getListener('GlobalErrorCountersListener');
+		$normalizedErrorsListener = $this->reportAggregator->getListener('NormalizedErrorsListener');
 		
 		$text = '';
 		
@@ -52,10 +52,10 @@ class OverallStatsReport extends Report {
 	}
 	
 	function getHtml() {
-		$statsListener =& $this->reportAggregator->getListener('GlobalCountersListener');
-		$normalizedListener =& $this->reportAggregator->getListener('NormalizedQueriesListener');
-		$errorCountersListener =& $this->reportAggregator->getListener('GlobalErrorCountersListener');
-		$normalizedErrorsListener =& $this->reportAggregator->getListener('NormalizedErrorsListener');
+		$statsListener = $this->reportAggregator->getListener('GlobalCountersListener');
+		$normalizedListener = $this->reportAggregator->getListener('NormalizedQueriesListener');
+		$errorCountersListener = $this->reportAggregator->getListener('GlobalErrorCountersListener');
+		$normalizedErrorsListener = $this->reportAggregator->getListener('NormalizedErrorsListener');
 		
 		$html = '';
 		

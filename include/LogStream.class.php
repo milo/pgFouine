@@ -61,7 +61,7 @@ class LogStream {
 			if($this->currentBlock) {
 				// if we have an existing log block AND if the block is declared complete, we probably want to close it
 				if(is_a($line, 'PostgreSQLQueryStartWithDurationLine')
-					&& $this->currentBlock->getLineCount() == 1 && ($firstLine =& $this->currentBlock->getFirstLine())
+					&& $this->currentBlock->getLineCount() == 1 && ($firstLine = $this->currentBlock->getFirstLine())
 					&& is_a($firstLine, 'PostgreSQLDurationLine')
 					&& $firstLine->getDuration() == $line->getDuration()) {
 					// if we have a duration line with the same duration than the current query with duration, it's because log_duration and log_min_duration_statement
@@ -69,7 +69,7 @@ class LogStream {
 					// we ignore this block (the duration from log_duration) and we only consider the following one (from log_min_duration_statement)
 				} elseif($this->currentBlock->isComplete()) {
 					// we close the block and get the associated log object
-					$logObject =& $this->currentBlock->close();
+					$logObject = $this->currentBlock->close();
 				}
 			}
 			if($line->getLineNumber() == 1) {
@@ -168,7 +168,7 @@ class LogStream {
 	 */
 	function flush(& $accumulator) {
 		if($this->currentBlock && $this->currentBlock->isComplete()) {
-			$logObject =& $this->currentBlock->close();
+			$logObject = $this->currentBlock->close();
 			if($logObject) {
 				$logObject->accumulateTo($accumulator);
 			}

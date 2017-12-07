@@ -27,8 +27,8 @@ class TsungSessionsReport extends Report {
 	}
 	
 	function getText() {
-		$listener =& $this->reportAggregator->getListener('TsungSessionsListener');
-		$sessions =& $listener->getSessions();
+		$listener = $this->reportAggregator->getListener('TsungSessionsListener');
+		$sessions = $listener->getSessions();
 		$sessionsCount = count($sessions);
 		$probabilityLeft = 100;
 		
@@ -44,7 +44,7 @@ class TsungSessionsReport extends Report {
 			}
 			
 			$connectionId = key($sessions);
-			$queries =& current($sessions);
+			$queries = current($sessions);
 			$queriesCount = count($queries);
 			$text .= "\t".'<session name="pgfouine-'.$connectionId.'" probability="'.$currentProbability.'" type="ts_pgsql">'."\n";
 			

@@ -27,10 +27,10 @@ class NormalizedQueriesMostTimeReport extends NormalizedReport {
 	}
 	
 	function getText() {
-		$listener =& $this->reportAggregator->getListener('NormalizedQueriesListener');
+		$listener = $this->reportAggregator->getListener('NormalizedQueriesListener');
 		$text = '';
 		
-		$queries =& $listener->getQueriesMostTime();
+		$queries = $listener->getQueriesMostTime();
 		
 		$count = count($queries);
 		
@@ -43,7 +43,7 @@ class NormalizedQueriesMostTimeReport extends NormalizedReport {
 	}
 	
 	function getHtml() {
-		$listener =& $this->reportAggregator->getListener('NormalizedQueriesListener');
+		$listener = $this->reportAggregator->getListener('NormalizedQueriesListener');
 		$html = '
 <table class="queryList">
 	<tr>
@@ -53,7 +53,7 @@ class NormalizedQueriesMostTimeReport extends NormalizedReport {
 		<th>Av.&nbsp;duration&nbsp;('.CONFIG_DURATION_UNIT.')</th>
 		<th>Query</th>
 	</tr>';
-		$queries =& $listener->getQueriesMostTime();
+		$queries = $listener->getQueriesMostTime();
 		$count = count($queries);
 		
 		for($i = 0; $i < $count; $i++) {

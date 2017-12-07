@@ -31,9 +31,9 @@ class VacuumedTablesDetailsReport extends Report {
 	}
 	
 	function getHtml() {
-		$listener =& $this->reportAggregator->getListener('VacuumedTablesListener');
+		$listener = $this->reportAggregator->getListener('VacuumedTablesListener');
 		
-		$vacuumedTables =& $listener->getVacuumedTables();
+		$vacuumedTables = $listener->getVacuumedTables();
 		$vacuumedTablesCount = count($vacuumedTables);
 		
 		$html = '';
@@ -58,7 +58,7 @@ class VacuumedTablesDetailsReport extends Report {
 				<li>CPU usage: sys: '.$this->formatLongDuration($vacuumedTable->getSystemCpuUsage()).' / user: '.$this->formatLongDuration($vacuumedTable->getUserCpuUsage()).'</li>
 				<li>Duration: '.$this->formatLongDuration($vacuumedTable->getDuration()).'</li>				
 			</ul>';
-			$indexesInformation =& $vacuumedTable->getIndexesInformation();
+			$indexesInformation = $vacuumedTable->getIndexesInformation();
 			$numberOfIndexes = count($indexesInformation);
 			if($numberOfIndexes > 0) {
 				$html .= '<table class="queryList">

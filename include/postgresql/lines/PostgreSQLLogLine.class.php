@@ -117,7 +117,7 @@ class PostgreSQLLogLine {
 	function setLogLinePrefix($logLinePrefix) {
 		global $postgreSQLRegexps;
 		
-		$logPrefixValues =& $postgreSQLRegexps['LogLinePrefix']->matchAll($logLinePrefix);
+		$logPrefixValues = $postgreSQLRegexps['LogLinePrefix']->matchAll($logLinePrefix);
 		for($i = 0, $max = count($logPrefixValues); $i < $max; $i++) {
 			if($logPrefixValues[$i][1] == 'db') {
 				$this->database = $logPrefixValues[$i][2];

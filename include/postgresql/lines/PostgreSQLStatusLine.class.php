@@ -25,13 +25,13 @@ class PostgreSQLStatusLine extends PostgreSQLLogLine {
 	function getLogObject(& $logStream) {
 		global $postgreSQLRegexps;
 		
-		$connectionReceived =& $postgreSQLRegexps['ConnectionReceived']->match($this->text);
+		$connectionReceived = $postgreSQLRegexps['ConnectionReceived']->match($this->text);
 		if($connectionReceived) {
 			$logStream->setHostConnection($connectionReceived->getMatch(1), $connectionReceived->getMatch(2));
 			return false;
 		}
 		
-		$connectionAuthorized =& $postgreSQLRegexps['ConnectionAuthorized']->match($this->text);
+		$connectionAuthorized = $postgreSQLRegexps['ConnectionAuthorized']->match($this->text);
 		if($connectionAuthorized) {
 			$logStream->setUserDatabase($connectionAuthorized->getMatch(1), $connectionAuthorized->getMatch(2));
 		}

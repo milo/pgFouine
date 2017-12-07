@@ -32,9 +32,9 @@ class FSMInformationReport extends Report {
 	}
 	
 	function getHtml() {
-		$listener =& $this->reportAggregator->getListener('FSMInformationListener');
+		$listener = $this->reportAggregator->getListener('FSMInformationListener');
 		
-		$fsmInformation =& $listener->getFSMInformation();
+		$fsmInformation = $listener->getFSMInformation();
 		
 		$html = '';
 		

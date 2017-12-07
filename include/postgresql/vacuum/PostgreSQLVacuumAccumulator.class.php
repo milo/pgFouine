@@ -30,7 +30,7 @@ class PostgreSQLVacuumAccumulator extends Accumulator {
 	}
 
 	function append(& $line) {
-		$logObject =& $this->stream->append($line);
+		$logObject = $this->stream->append($line);
 		if($logObject) {
 			$logObject->accumulateTo($this);
 		}

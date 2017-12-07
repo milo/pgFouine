@@ -34,7 +34,7 @@ class PostgreSQLVacuumParser extends PostgreSQLParser {
 
 		$line = false;
 		
-		$logLineMatch =& $postgreSQLRegexps['LogLine']->match($text);
+		$logLineMatch = $postgreSQLRegexps['LogLine']->match($text);
 
 		if($logLineMatch) {
 			$logLinePrefix = trim($logLineMatch->getMatch(1));
@@ -42,11 +42,11 @@ class PostgreSQLVacuumParser extends PostgreSQLParser {
 			$postMatch = $logLineMatch->getPostMatch();
 			
 			if($keyword == 'INFO') {
-				$actionOnTableMatch =& $postgreSQLVacuumRegexps['VacuumingOrAnalyzingTable']->match($postMatch);
-				$removableInformationMatch =& $postgreSQLVacuumRegexps['RemovableInformation']->match($postMatch);
-				$operationInformationMatch =& $postgreSQLVacuumRegexps['OperationInformation']->match($postMatch);
-				$fsmInformationMatch =& $postgreSQLVacuumRegexps['FSMInformation']->match($postMatch);
-				$indexInformationMatch =& $postgreSQLVacuumRegexps['IndexCleanupInformation']->match($postMatch);
+				$actionOnTableMatch = $postgreSQLVacuumRegexps['VacuumingOrAnalyzingTable']->match($postMatch);
+				$removableInformationMatch = $postgreSQLVacuumRegexps['RemovableInformation']->match($postMatch);
+				$operationInformationMatch = $postgreSQLVacuumRegexps['OperationInformation']->match($postMatch);
+				$fsmInformationMatch = $postgreSQLVacuumRegexps['FSMInformation']->match($postMatch);
+				$indexInformationMatch = $postgreSQLVacuumRegexps['IndexCleanupInformation']->match($postMatch);
 				
 				if($actionOnTableMatch) {
 					$matchCount = $actionOnTableMatch->getMatchCount();
@@ -90,11 +90,11 @@ class PostgreSQLVacuumParser extends PostgreSQLParser {
 					$line = new PostgreSQLIndexCleanupInformationLine($indexName, $numberOfRowVersions, $numberOfPages);
 				}
 			} elseif($keyword == 'DETAIL') {
-				$vacuumDetailMatch =& $postgreSQLVacuumRegexps['VacuumDetail']->match($postMatch);
-				$cpuDetailMatch =& $postgreSQLVacuumRegexps['CpuDetailLine']->match($postMatch);
-				$fsmInformationDetailMatch =& $postgreSQLVacuumRegexps['FSMInformationDetail']->match($postMatch);
-				$indexDetail1Match =& $postgreSQLVacuumRegexps['IndexCleanupDetail1']->match($postMatch);
-				$indexDetail2Match =& $postgreSQLVacuumRegexps['IndexCleanupDetail2']->match($postMatch);
+				$vacuumDetailMatch = $postgreSQLVacuumRegexps['VacuumDetail']->match($postMatch);
+				$cpuDetailMatch = $postgreSQLVacuumRegexps['CpuDetailLine']->match($postMatch);
+				$fsmInformationDetailMatch = $postgreSQLVacuumRegexps['FSMInformationDetail']->match($postMatch);
+				$indexDetail1Match = $postgreSQLVacuumRegexps['IndexCleanupDetail1']->match($postMatch);
+				$indexDetail2Match = $postgreSQLVacuumRegexps['IndexCleanupDetail2']->match($postMatch);
 				
 				if($vacuumDetailMatch) {
 					$line = new PostgreSQLVacuumDetailLine($postMatch);
@@ -110,8 +110,8 @@ class PostgreSQLVacuumParser extends PostgreSQLParser {
 				}
 			}
 		} else {
-			$vacuumingDatabaseMatch =& $postgreSQLVacuumRegexps['VacuumingDatabase']->match($text);
-			$vacuumEndMatch =& $postgreSQLVacuumRegexps['VacuumEnd']->match($text);
+			$vacuumingDatabaseMatch = $postgreSQLVacuumRegexps['VacuumingDatabase']->match($text);
+			$vacuumEndMatch = $postgreSQLVacuumRegexps['VacuumEnd']->match($text);
 			
 			if($vacuumingDatabaseMatch) {
 				$line = new PostgreSQLVacuumingDatabaseLine($vacuumingDatabaseMatch->getMatch(1));

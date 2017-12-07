@@ -30,7 +30,7 @@ class TsungSessionsListener extends QueryListener {
 		if(!isset($this->sessions[$connectionId])) {
 			$this->sessions[$connectionId] = [];
 		}
-		$this->sessions[$connectionId][] =& $logObject;
+		$this->sessions[$connectionId][] = $logObject;
 	}
 	
 	function & getSessions() {

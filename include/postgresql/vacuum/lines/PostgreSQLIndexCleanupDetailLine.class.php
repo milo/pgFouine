@@ -30,7 +30,7 @@ class PostgreSQLIndexCleanupDetailLine extends PostgreSQLVacuumLogLine {
 	function appendTo(& $logObject) {
 		global $postgreSQLVacuumRegexps;
 		
-		$detailMatch =& $postgreSQLVacuumRegexps['IndexCleanupDetailLine']->match($this->text);
+		$detailMatch = $postgreSQLVacuumRegexps['IndexCleanupDetailLine']->match($this->text);
 		
 		if($detailMatch) {
 			$numberOfRemovedRowVersions = $detailMatch->getMatch(1) ? $detailMatch->getMatch(1) : 0;
@@ -40,7 +40,7 @@ class PostgreSQLIndexCleanupDetailLine extends PostgreSQLVacuumLogLine {
 			$userCpuUsage = (float) $detailMatch->getMatch(5);
 			$duration = (float) $detailMatch->getMatch(6);
 			
-			$lastIndexInformation =& $logObject->getLastIndexInformation();
+			$lastIndexInformation = $logObject->getLastIndexInformation();
 			
 			if($lastIndexInformation) {			
 				$lastIndexInformation->setDetailedInformation($numberOfRemovedRowVersions, $numberOfDeletedPages, $numberOfReusablePages,

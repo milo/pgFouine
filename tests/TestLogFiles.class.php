@@ -26,7 +26,7 @@ class TestLogFiles extends UnitTestCase {
 		
 		foreach($textLines AS $textLine) {
 			$line =& $this->syslogParser->parse($textLine);
-			$logObject =& $this->logStream->append($line);
+			$logObject = $this->logStream->append($line);
 			
 			switch($step) {
 				case 0:
@@ -146,7 +146,7 @@ class TestLogFiles extends UnitTestCase {
 		
 		foreach($textLines AS $textLine) {
 			$line =& $this->syslogParser->parse($textLine);
-			$logObject =& $this->logStream->append($line);
+			$logObject = $this->logStream->append($line);
 		}
 		
 		$this->checkQueryLogObject($logObject,

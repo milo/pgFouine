@@ -82,7 +82,7 @@ class NormalizedQuery {
 	function & getFilteredExamplesArray() {
 		$returnExamples = false;
 		
-		$examples =& $this->examples->getSortedQueries();
+		$examples = $this->examples->getSortedQueries();
 		$exampleCount = count($examples);
 		for($i = 0; $i < $exampleCount; $i++) {
 			$example =& $examples[$i];

@@ -127,7 +127,7 @@ class LogBlock {
 	 */	
 	function & close() {
 		$count = count($this->lines);
-		$logObject =& $this->lines[0]->getLogObject($this->logStream);
+		$logObject = $this->lines[0]->getLogObject($this->logStream);
 			
 		if($logObject && !$logObject->isIgnored()) {
 			for($i = 1; $i < $count; $i++) {

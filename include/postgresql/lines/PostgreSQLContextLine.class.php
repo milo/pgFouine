@@ -28,11 +28,11 @@ class PostgreSQLContextLine extends PostgreSQLLogLine {
 	function __construct($text) {
 		global $postgreSQLRegexps;
 		
-		$statementMatch =& $postgreSQLRegexps['ContextSqlStatement']->match($text);
+		$statementMatch = $postgreSQLRegexps['ContextSqlStatement']->match($text);
 		if($statementMatch) {
 			parent::__construct(substr($statementMatch->getPostMatch(), -1, 1));
 		} else {
-			$functionMatch =& $postgreSQLRegexps['ContextSqlFunction']->match($text);
+			$functionMatch = $postgreSQLRegexps['ContextSqlFunction']->match($text);
 			if($functionMatch) {
 				parent::__construct($functionMatch->getMatch(2));
 			} else {

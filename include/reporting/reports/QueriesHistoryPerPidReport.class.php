@@ -27,9 +27,9 @@ class QueriesHistoryPerPidReport extends Report {
 	}
 	
 	function getHtml() {
-		$listener =& $this->reportAggregator->getListener('QueriesHistoryListener');
+		$listener = $this->reportAggregator->getListener('QueriesHistoryListener');
 		
-		$queries =& $listener->getQueriesHistoryPerConnection();
+		$queries = $listener->getQueriesHistoryPerConnection();
 		$count = count($queries);
 		$currentConnectionId = 0;
 		

@@ -34,9 +34,9 @@ class VacuumedTablesReport extends Report {
 	}
 	
 	function getHtml() {
-		$listener =& $this->reportAggregator->getListener('VacuumedTablesListener');
+		$listener = $this->reportAggregator->getListener('VacuumedTablesListener');
 		
-		$vacuumedTables =& $listener->getVacuumedTablesSortedByPercentageOfRowVersionsRemoved();
+		$vacuumedTables = $listener->getVacuumedTablesSortedByPercentageOfRowVersionsRemoved();
 		$vacuumedTablesCount = count($vacuumedTables);
 		
 		$html = '';

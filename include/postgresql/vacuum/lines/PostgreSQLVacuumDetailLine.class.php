@@ -31,8 +31,8 @@ class PostgreSQLVacuumDetailLine extends PostgreSQLVacuumLogLine {
 	function appendTo(& $logObject) {
 		global $postgreSQLVacuumRegexps;
 		
-		$detailVacuumFullMatch =& $postgreSQLVacuumRegexps['VacuumFullDetailLine']->match($this->text);
-		$detailVacuumMatch =& $postgreSQLVacuumRegexps['VacuumDetailLine']->match($this->text);
+		$detailVacuumFullMatch = $postgreSQLVacuumRegexps['VacuumFullDetailLine']->match($this->text);
+		$detailVacuumMatch = $postgreSQLVacuumRegexps['VacuumDetailLine']->match($this->text);
 		
 		if($detailVacuumFullMatch) {
 			$nonRemovableDeadRows = $detailVacuumFullMatch->getMatch(1);

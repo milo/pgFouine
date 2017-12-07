@@ -34,13 +34,13 @@ class PreparedStatementLogObject extends QueryLogObject {
 		global $postgreSQLRegexps;
 		
 		// if we use queries, the text of the query is in the DETAIL line
-		$prepareDetailMatch =& $postgreSQLRegexps['PrepareDetail']->match($detail);
+		$prepareDetailMatch = $postgreSQLRegexps['PrepareDetail']->match($detail);
 		if($prepareDetailMatch) {
 			$this->text = $prepareDetailMatch->getPostMatch();
 		}
 		
 		// if we use the v3 protocol, bind information are in the DETAIL line below the execute line
-		$bindDetailMatch =& $postgreSQLRegexps['BindDetail']->match($detail);
+		$bindDetailMatch = $postgreSQLRegexps['BindDetail']->match($detail);
 		if($bindDetailMatch) {
 			$bindParametersMatch = $postgreSQLRegexps['BindParameters']->matchAll($bindDetailMatch->getPostMatch());
 

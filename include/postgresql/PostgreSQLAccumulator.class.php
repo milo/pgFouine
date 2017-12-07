@@ -35,9 +35,9 @@ class PostgreSQLAccumulator extends Accumulator {
 			if(!isset($this->working[$connectionId])) {
 				$this->working[$connectionId] = new LogStream();
 			}
-			$query =& $this->working[$connectionId]->append($line);
+			$query = $this->working[$connectionId]->append($line);
 		} else {
-			$query =& $this->stream->append($line);
+			$query = $this->stream->append($line);
 		}
 		if($query) {
 			$query->accumulateTo($this);
@@ -51,7 +51,7 @@ class PostgreSQLAccumulator extends Accumulator {
 		// flush streams with connection id
 		$logStreamsKeys = array_keys($this->working);
 		foreach($logStreamsKeys AS $key) {
-			$logStream =& $this->working[$key];
+			$logStream = $this->working[$key];
 			$logStream->flush($this);
 			unset($logStream);
 		}
@@ -68,7 +68,7 @@ class PostgreSQLAccumulator extends Accumulator {
 
 		$logStreamsKeys = array_keys($this->working);
 		foreach($logStreamsKeys AS $key) {
-			$logStream =& $this->working[$key];
+			$logStream = $this->working[$key];
 			if($logStream->getLastLineTimestamp() < ($lastLineTimestamp - 60)) {
 				$logStream->flush($this);
 				unset($logStream);

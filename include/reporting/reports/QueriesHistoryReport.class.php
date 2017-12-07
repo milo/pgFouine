@@ -27,10 +27,10 @@ class QueriesHistoryReport extends Report {
 	}
 	
 	function getText() {
-		$listener =& $this->reportAggregator->getListener('QueriesHistoryListener');
+		$listener = $this->reportAggregator->getListener('QueriesHistoryListener');
 		$text = '';
 		
-		$queries =& $listener->getQueriesHistory();
+		$queries = $listener->getQueriesHistory();
 		$count = count($queries);
 		for($i = 0; $i < $count; $i++) {
 			$query =& $queries[$i];
@@ -43,7 +43,7 @@ class QueriesHistoryReport extends Report {
 	}
 	
 	function getHtml() {
-		$listener =& $this->reportAggregator->getListener('QueriesHistoryListener');
+		$listener = $this->reportAggregator->getListener('QueriesHistoryListener');
 		$html = '
 <table class="queryList">
 	<tr>
@@ -52,7 +52,7 @@ class QueriesHistoryReport extends Report {
 		<th>Query</th>
 		<th>Duration&nbsp;('.CONFIG_DURATION_UNIT.')</th>
 	</tr>';
-		$queries =& $listener->getQueriesHistory();
+		$queries = $listener->getQueriesHistory();
 		$count = count($queries);
 		for($i = 0; $i < $count; $i++) {
 			$query =& $queries[$i];

@@ -26,7 +26,7 @@ class PostgreSQLParser {
 	function & parse($text) {
 		global $postgreSQLRegexps;
 		
-		$logLineMatch =& $postgreSQLRegexps['LogLine']->match($text);
+		$logLineMatch = $postgreSQLRegexps['LogLine']->match($text);
 
 		if($logLineMatch) {
 			$logLinePrefix = trim($logLineMatch->getMatch(1));
@@ -34,16 +34,16 @@ class PostgreSQLParser {
 			$postMatch = $logLineMatch->getPostMatch();
 			
 			if($keyword == 'LOG' || $keyword == 'DEBUG') {
-				$queryMatch =& $postgreSQLRegexps['RegularQueryStartPart']->match($postMatch);
+				$queryMatch = $postgreSQLRegexps['RegularQueryStartPart']->match($postMatch);
 				if($queryMatch) {
 					$line = new PostgreSQLQueryStartLine($queryMatch->getPostMatch());
-				} elseif($durationMatch =& $postgreSQLRegexps['DurationPart']->match($postMatch)) {
+				} elseif($durationMatch = $postgreSQLRegexps['DurationPart']->match($postMatch)) {
 					$additionalInformation = trim($durationMatch->getPostMatch());
 					if($additionalInformation == '') {
 						$line = new PostgreSQLDurationLine(trim($durationMatch->getMatch(1)), $durationMatch->getMatch(2));
 					} else {
 						$additionalInformation = $postgreSQLRegexps['QueryStartPart']->replace($additionalInformation, '');
-						if($preparedStatementMatch =& $postgreSQLRegexps['PreparedStatementPart']->match($additionalInformation)) {
+						if($preparedStatementMatch = $postgreSQLRegexps['PreparedStatementPart']->match($additionalInformation)) {
 							$action = strtolower($preparedStatementMatch->getMatch(1));
 							$statementInformation = explode('/', $preparedStatementMatch->getMatch(2));
 							if(count($statementInformation) > 1) {
@@ -63,9 +63,9 @@ class PostgreSQLParser {
 							$line = new PostgreSQLQueryStartWithDurationLine($additionalInformation, trim($durationMatch->getMatch(1)), $durationMatch->getMatch(2));
 						}
 					}
-				} elseif($statusMatch =& $postgreSQLRegexps['StatusPart']->match($postMatch)) {
+				} elseif($statusMatch = $postgreSQLRegexps['StatusPart']->match($postMatch)) {
 					$line = new PostgreSQLStatusLine($postMatch);
-				} elseif($preparedStatementMatch =& $postgreSQLRegexps['PreparedStatementPart']->match($postgreSQLRegexps['QueryStartPart']->replace($postMatch, ''))) {
+				} elseif($preparedStatementMatch = $postgreSQLRegexps['PreparedStatementPart']->match($postgreSQLRegexps['QueryStartPart']->replace($postMatch, ''))) {
 					$action = strtolower($preparedStatementMatch->getMatch(1));
 					$statementInformation = explode('/', $preparedStatementMatch->getMatch(2));
 					if(count($statementInformation) > 1) {

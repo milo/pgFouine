@@ -35,7 +35,7 @@ class StderrPostgreSQLParser extends PostgreSQLParser {
 	}
 
 	function & parse($data) {
-		$contextMatch =& $this->regexpStderrContext->match($data);
+		$contextMatch = $this->regexpStderrContext->match($data);
 		
 		if($contextMatch === false) {
 			if($this->lineNumber) {
@@ -78,7 +78,7 @@ class StderrPostgreSQLParser extends PostgreSQLParser {
 			$this->lineNumber = $lineNumber;
 		}
 		
-		$line =& parent::parse($text);
+		$line = parent::parse($text);
 		
 		if($line) {
 			$line->setContextInformation($timestamp, $connectionId, $commandNumber, $lineNumber);

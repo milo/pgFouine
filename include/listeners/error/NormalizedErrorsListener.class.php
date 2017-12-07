@@ -41,7 +41,7 @@ class NormalizedErrorsListener extends ErrorListener {
 	function & getMostFrequentErrors() {
 		$errorsList = $this->errorsList;
 		usort($errorsList, [$this, 'compareMostFrequent']);
-		$errors =& array_slice($errorsList, 0, $this->errorsNumber);
+		$errors = array_slice($errorsList, 0, $this->errorsNumber);
 		return $errors;
 	}
 	

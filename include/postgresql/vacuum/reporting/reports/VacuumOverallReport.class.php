@@ -32,7 +32,7 @@ class VacuumOverallReport extends Report {
 	}
 	
 	function getHtml() {
-		$listener =& $this->reportAggregator->getListener('VacuumOverallListener');
+		$listener = $this->reportAggregator->getListener('VacuumOverallListener');
 		
 		$statisticsPerDatabase = $listener->getStatisticsPerDatabase();
 		$statistics = $listener->getStatistics();

@@ -41,10 +41,10 @@ class CsvQueriesHistoryReport extends Report {
 	}
 	
 	function getText() {
-		$listener =& $this->reportAggregator->getListener('QueriesHistoryListener');
+		$listener = $this->reportAggregator->getListener('QueriesHistoryListener');
 		$text = '';
 		
-		$queries =& $listener->getQueriesHistory();
+		$queries = $listener->getQueriesHistory();
 		$count = count($queries);
 		for($i = 0; $i < $count; $i++) {
 			$query =& $queries[$i];

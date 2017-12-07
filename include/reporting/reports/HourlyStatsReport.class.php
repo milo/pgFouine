@@ -27,7 +27,7 @@ class HourlyStatsReport extends Report {
 	}
 	
 	function getText() {
-		$statsListener =& $this->reportAggregator->getListener('HourlyCountersListener');
+		$statsListener = $this->reportAggregator->getListener('HourlyCountersListener');
 		
 		$text = 'Report not supported by text format'."\n";
 
@@ -35,8 +35,8 @@ class HourlyStatsReport extends Report {
 	}
 	
 	function getHtml() {
-		$statsListener =& $this->reportAggregator->getListener('HourlyCountersListener');
-		$hourlyStatistics =& $statsListener->getHourlyStatistics();
+		$statsListener = $this->reportAggregator->getListener('HourlyCountersListener');
+		$hourlyStatistics = $statsListener->getHourlyStatistics();
 		
 		$hours = array_keys($hourlyStatistics);
 		$hourCount = count($hours);
@@ -118,7 +118,7 @@ class HourlyStatsReport extends Report {
 	}
 
 	function getHtmlWithGraphs() {
-		$statsListener =& $this->reportAggregator->getListener('HourlyCountersListener');
+		$statsListener = $this->reportAggregator->getListener('HourlyCountersListener');
 
 		$graphsGenerated = $this->generateGraphs($statsListener);
 
@@ -143,7 +143,7 @@ class HourlyStatsReport extends Report {
 	function generateGraphs(& $statsListener) {
 		$graphsGenerated = [];
 		
-		$hourlyStatistics =& $statsListener->getHourlyStatistics();
+		$hourlyStatistics = $statsListener->getHourlyStatistics();
 		$hours = array_keys($hourlyStatistics);
 		$minHour = strtotime(min($hours));
 		$maxHour = strtotime(max($hours));
@@ -214,7 +214,7 @@ class HourlyStatsReport extends Report {
 		$selectDurationValues = $this->filterNull($selectDurationValues);
 		$writeDurationValues = $this->filterNull($writeDurationValues);
 		
-		$peaksStatistics =& $statsListener->getQueryPeaksStatistics();
+		$peaksStatistics = $statsListener->getQueryPeaksStatistics();
 		if(empty($peaksStatistics)) {
 			return $graphsGenerated;
 		}

@@ -27,10 +27,10 @@ class NormalizedQueriesSlowestAverageReport extends NormalizedReport {
 	}
 	
 	function getText() {
-		$listener =& $this->reportAggregator->getListener('NormalizedQueriesListener');
+		$listener = $this->reportAggregator->getListener('NormalizedQueriesListener');
 		$text = '';
 		
-		$queries =& $listener->getSlowestQueries();
+		$queries = $listener->getSlowestQueries();
 		
 		$count = count($queries);
 		
@@ -43,7 +43,7 @@ class NormalizedQueriesSlowestAverageReport extends NormalizedReport {
 	}
 	
 	function getHtml() {
-		$listener =& $this->reportAggregator->getListener('NormalizedQueriesListener');
+		$listener = $this->reportAggregator->getListener('NormalizedQueriesListener');
 		$html = '
 <table class="queryList">
 	<tr>
@@ -53,7 +53,7 @@ class NormalizedQueriesSlowestAverageReport extends NormalizedReport {
 		<th>Total duration</th>
 		<th>Query</th>
 	</tr>';
-		$queries =& $listener->getSlowestQueries();
+		$queries = $listener->getSlowestQueries();
 		$count = count($queries);
 		
 		for($i = 0; $i < $count; $i++) {
