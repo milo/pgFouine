@@ -32,7 +32,7 @@ class LogStream {
 	public $port = '';
 	public $user = '';
 	public $database = '';
-	public $preparedStatements = [];
+	public $preparedStatements = array();
 	public $lastLineTimestamp = 0;
 
 	/**

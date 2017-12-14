@@ -23,7 +23,7 @@
 
 class SlowestQueryList {
 	public $size;
-	public $queries = [];
+	public $queries = array();
 	public $queriesCount = 0;
 	public $shortestDuration = 100000000;
 	
@@ -42,7 +42,7 @@ class SlowestQueryList {
 		
 		if($queriesCount < $this->size) {
 			if(!array_key_exists($duration, $this->queries)) {
-				$this->queries[$duration] = [];
+				$this->queries[$duration] = array();
 			}
 			$this->queries[$duration][] =& $query;
 			$this->shortestDuration = min($shortestDuration, $duration);
@@ -56,7 +56,7 @@ class SlowestQueryList {
 					unset($this->queries[$shortestDuration][$shortestDurationQueriesCount - 1]);
 				}
 				if(!array_key_exists($duration, $this->queries)) {
-					$this->queries[$duration] = [];
+					$this->queries[$duration] = array();
 				}
 				$this->queries[$duration][] =& $query;
 				$this->shortestDuration = min(array_keys($this->queries));
@@ -69,7 +69,7 @@ class SlowestQueryList {
 	}
 	
 	function & getSortedQueries() {
-		$queryList = [];
+		$queryList = array();
 		krsort($this->queries, SORT_NUMERIC);
 		$keys = array_keys($this->queries);
 		foreach($keys AS $key) {

@@ -8,7 +8,7 @@
     Mock::generate('SimpleHttpRequest');
     Mock::generate('SimpleHttpResponse');
     Mock::generate('SimpleHttpHeaders');
-    Mock::generatePartial('SimpleUserAgent', 'MockRequestUserAgent', ['_createHttpRequest']);
+    Mock::generatePartial('SimpleUserAgent', 'MockRequestUserAgent', array('_createHttpRequest'));
 
     class TestOfSimpleCookieJar extends UnitTestCase {
         
@@ -98,9 +98,9 @@
             $jar = new SimpleCookieJar();
             $jar->setCookie($cookie);
             $jar->restartSession("Wed, 25-Dec-02 04:24:19 GMT");
-            $this->assertIdentical($list = $jar->getValidCookies(false, "/"), [$cookie]);
+            $this->assertIdentical($list = $jar->getValidCookies(false, "/"), array($cookie));
             $jar->restartSession("Wed, 25-Dec-02 04:24:21 GMT");
-            $this->assertIdentical($list = $jar->getValidCookies(false, "/"), []);
+            $this->assertIdentical($list = $jar->getValidCookies(false, "/"), array());
         }
         
         function testExpiryFilterByAgeing() {
@@ -108,10 +108,10 @@
             $jar = new SimpleCookieJar();
             $jar->setCookie($cookie);
             $jar->restartSession("Wed, 25-Dec-02 04:24:19 GMT");
-            $this->assertIdentical($list = $jar->getValidCookies(false, "/"), [$cookie]);
+            $this->assertIdentical($list = $jar->getValidCookies(false, "/"), array($cookie));
             $jar->agePrematurely(2);
             $jar->restartSession("Wed, 25-Dec-02 04:24:19 GMT");
-            $this->assertIdentical($list = $jar->getValidCookies(false, "/"), []);
+            $this->assertIdentical($list = $jar->getValidCookies(false, "/"), array());
         }
         
         function testCookieClearing() {
@@ -139,7 +139,7 @@
             $headers = new MockSimpleHttpHeaders($this);
             $headers->setReturnValue('getMimeType', 'text/html');
             $headers->setReturnValue('getResponseCode', 200);
-            $headers->setReturnValue('getNewCookies', []);
+            $headers->setReturnValue('getNewCookies', array());
             
             $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getContent', 'stuff');
@@ -150,16 +150,16 @@
             
             $agent = new MockRequestUserAgent($this);
             $agent->setReturnReference('_createHttpRequest', $request);
-            $agent->expectOnce('_createHttpRequest', [
+            $agent->expectOnce('_createHttpRequest', array(
                     'GET',
                     new SimpleUrl('http://test:secret@this.com/page.html?a=A&b=B'),
-                    new SimpleFormEncoding()]);
+                    new SimpleFormEncoding()));
             $agent->SimpleUserAgent();
             
             $agent->fetchResponse(
                     'GET',
                     new SimpleUrl('http://test:secret@this.com/page.html'),
-                    new SimpleFormEncoding(['a' => 'A', 'b' => 'B']));
+                    new SimpleFormEncoding(array('a' => 'A', 'b' => 'B')));
             $agent->tally();
         }
         
@@ -167,7 +167,7 @@
             $headers = new MockSimpleHttpHeaders($this);
             $headers->setReturnValue('getMimeType', 'text/html');
             $headers->setReturnValue('getResponseCode', 200);
-            $headers->setReturnValue('getNewCookies', []);
+            $headers->setReturnValue('getNewCookies', array());
             
             $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getContent', 'stuff');
@@ -177,20 +177,20 @@
             $request->setReturnReference('fetch', $response);
             
             $url = new SimpleUrl('http://this.com/page.html');
-            $url->addRequestParameters(['a' => 'A', 'b' => 'B']);
+            $url->addRequestParameters(array('a' => 'A', 'b' => 'B'));
             
             $agent = new MockRequestUserAgent($this);
             $agent->setReturnReference('_createHttpRequest', $request);
-            $agent->expectOnce('_createHttpRequest', [
+            $agent->expectOnce('_createHttpRequest', array(
                     'HEAD',
                     new SimpleUrl('http://test:secret@this.com/page.html?a=A&b=B'),
-                    new SimpleFormEncoding()]);
+                    new SimpleFormEncoding()));
             $agent->SimpleUserAgent();
             
             $agent->fetchResponse(
                     'HEAD',
                     new SimpleUrl('http://test:secret@this.com/page.html'),
-                    new SimpleFormEncoding(['a' => 'A', 'b' => 'B']));
+                    new SimpleFormEncoding(array('a' => 'A', 'b' => 'B')));
             $agent->tally();
         }
         
@@ -198,7 +198,7 @@
             $headers = new MockSimpleHttpHeaders($this);
             $headers->setReturnValue('getMimeType', 'text/html');
             $headers->setReturnValue('getResponseCode', 200);
-            $headers->setReturnValue('getNewCookies', []);
+            $headers->setReturnValue('getNewCookies', array());
             
             $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getContent', 'stuff');
@@ -209,16 +209,16 @@
             
             $agent = new MockRequestUserAgent($this);
             $agent->setReturnReference('_createHttpRequest', $request);
-            $agent->expectOnce('_createHttpRequest', [
+            $agent->expectOnce('_createHttpRequest', array(
                     'POST',
                     new SimpleUrl('http://test:secret@this.com/page.html'),
-                    new SimpleFormEncoding(['a' => 'A', 'b' => 'B'])]);
+                    new SimpleFormEncoding(array('a' => 'A', 'b' => 'B'))));
             $agent->SimpleUserAgent();
             
             $agent->fetchResponse(
                     'POST',
                     new SimpleUrl('http://test:secret@this.com/page.html'),
-                    new SimpleFormEncoding(['a' => 'A', 'b' => 'B']));
+                    new SimpleFormEncoding(array('a' => 'A', 'b' => 'B')));
             $agent->tally();
         }
     }
@@ -227,7 +227,7 @@
         
         function testAdditionalHeaderAddedToRequest() {
             $headers = new MockSimpleHttpHeaders($this);
-            $headers->setReturnValue('getNewCookies', []);
+            $headers->setReturnValue('getNewCookies', array());
             
             $response = new MockSimpleHttpResponse($this);
             $response->setReturnReference('getHeaders', $headers);
@@ -236,7 +236,7 @@
             $request->setReturnReference('fetch', $response);
             $request->expectOnce(
                     'addHeaderLine',
-                    ['User-Agent: SimpleTest']);
+                    array('User-Agent: SimpleTest'));
             
             $agent = new MockRequestUserAgent($this);
             $agent->setReturnReference('_createHttpRequest', $request);
@@ -252,7 +252,7 @@
 
         function &_createStandardResponse() {
             $headers = new MockSimpleHttpHeaders($this);
-            $headers->setReturnValue("getNewCookies", []);
+            $headers->setReturnValue("getNewCookies", array());
             
             $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue("isError", false);
@@ -285,40 +285,40 @@
         function testSendingExistingCookie() {
             $request = new MockSimpleHttpRequest($this);
             $request->setReturnReference('fetch', $this->_createStandardResponse());
-            $request->expectOnce('setCookie', [new SimpleCookie('a', 'A')]);
+            $request->expectOnce('setCookie', array(new SimpleCookie('a', 'A')));
             
             $agent = &$this->_createPartialFetcher($request);
             $agent->setCookie('a', 'A');
             $response = $agent->fetchResponse(
                     'GET',
                     new SimpleUrl('http://this.com/this/path/page.html'),
-                    []);
+                    array());
             $this->assertEqual($response->getContent(), "stuff");
             $request->tally();
         }
         
         function testOverwriteCookieThatAlreadyExists() {
-            $request = &$this->_createCookieSite([new SimpleCookie("a", "AAAA", "this/path/")]);
+            $request = &$this->_createCookieSite(array(new SimpleCookie("a", "AAAA", "this/path/")));
             $agent = &$this->_createPartialFetcher($request);
             
             $agent->setCookie("a", "A");
             $agent->fetchResponse(
                     "GET",
                     new SimpleUrl('http://this.com/this/path/page.html'),
-                    []);
+                    array());
             $this->assertEqual($agent->getCookieValue("this.com", "this/path/", "a"), "AAAA");
         }
         
         function testClearCookieBySettingExpiry() {
-            $request = &$this->_createCookieSite([
-                    new SimpleCookie("a", "b", "this/path/", "Wed, 25-Dec-02 04:24:19 GMT")]);
+            $request = &$this->_createCookieSite(array(
+                    new SimpleCookie("a", "b", "this/path/", "Wed, 25-Dec-02 04:24:19 GMT")));
             $agent = &$this->_createPartialFetcher($request);
             
             $agent->setCookie("a", "A", "this/path/", "Wed, 25-Dec-02 04:24:21 GMT");
             $agent->fetchResponse(
                     'GET',
                     new SimpleUrl('http://this.com/this/path/page.html'),
-                    []);
+                    array());
             $this->assertIdentical(
                     $agent->getCookieValue("this.com", "this/path/", "a"),
                     "b");
@@ -329,14 +329,14 @@
         }
         
         function testAgeingAndClearing() {
-            $request = &$this->_createCookieSite([
-                    new SimpleCookie("a", "A", "this/path/", "Wed, 25-Dec-02 04:24:21 GMT")]);
+            $request = &$this->_createCookieSite(array(
+                    new SimpleCookie("a", "A", "this/path/", "Wed, 25-Dec-02 04:24:21 GMT")));
             $agent = &$this->_createPartialFetcher($request);
             
             $agent->fetchResponse(
                     'GET',
                     new SimpleUrl('http://this.com/this/path/page.html'),
-                    []);
+                    array());
             $agent->restart("Wed, 25-Dec-02 04:24:20 GMT");
             $this->assertIdentical(
                     $agent->getCookieValue("this.com", "this/path/", "a"),
@@ -349,15 +349,15 @@
         }
         
         function testReadingIncomingAndSetCookies() {
-            $request = &$this->_createCookieSite([
-                    new SimpleCookie("a", "AAA", "this/path/")]);
+            $request = &$this->_createCookieSite(array(
+                    new SimpleCookie("a", "AAA", "this/path/")));
             $agent = &$this->_createPartialFetcher($request);
             
             $this->assertNull($agent->getBaseCookieValue("a", false));
             $agent->fetchResponse(
                     'GET',
                     new SimpleUrl('http://this.com/this/path/page.html'),
-                    []);
+                    array());
             $agent->setCookie("b", "BBB", "this.com", "this/path/");
             $this->assertEqual(
                     $agent->getBaseCookieValue("a", new SimpleUrl('http://this.com/this/path/page.html')),
@@ -372,10 +372,10 @@
         
         function &createRedirect($content, $redirect) {
             $headers = new MockSimpleHttpHeaders($this);
-            $headers->setReturnValue('getNewCookies', []);
+            $headers->setReturnValue('getNewCookies', array());
             $headers->setReturnValue('isRedirect', (boolean)$redirect);
             $headers->setReturnValue('getLocation', $redirect);
-            $headers->setReturnValue('getNewCookies', []);
+            $headers->setReturnValue('getNewCookies', array());
             
             $response = new MockSimpleHttpResponse($this);
             $response->setReturnValue('getContent', $content);
@@ -475,12 +475,12 @@
                     0,
                     '_createHttpRequest',
                     $this->createRedirect('first', 'two.html'));
-            $agent->expectArgumentsAt(0, '_createHttpRequest', ['POST', '*', '*']);
+            $agent->expectArgumentsAt(0, '_createHttpRequest', array('POST', '*', '*'));
             $agent->setReturnReferenceAt(
                     1,
                     '_createHttpRequest',
                     $this->createRedirect('second', 'three.html'));
-            $agent->expectArgumentsAt(1, '_createHttpRequest', ['GET', '*', '*']);
+            $agent->expectArgumentsAt(1, '_createHttpRequest', array('GET', '*', '*'));
             $agent->expectCallCount('_createHttpRequest', 2);
             $agent->SimpleUserAgent();
             
@@ -522,7 +522,7 @@
         
         function testAuthenticateHeaderAdded() {
             $headers = new MockSimpleHttpHeaders($this);
-            $headers->setReturnValue('getNewCookies', []);
+            $headers->setReturnValue('getNewCookies', array());
             
             $response = new MockSimpleHttpResponse($this);
             $response->setReturnReference('getHeaders', $headers);
@@ -531,7 +531,7 @@
             $request->setReturnReference('fetch', $response);
             $request->expectOnce(
                     'addHeaderLine',
-                    ['Authorization: Basic ' . base64_encode('test:secret')]);
+                    array('Authorization: Basic ' . base64_encode('test:secret')));
             
             $agent = new MockRequestUserAgent($this);
             $agent->setReturnReference('_createHttpRequest', $request);

@@ -53,7 +53,7 @@ class CsvlogPostgreSQLParser extends PostgreSQLParser {
 		
 		$line = parent::parse($keyword.': '.$message);
 		
-		$lines = [];
+		$lines = array();
 		if($line) {
 			$lines[] =& $line;
 			

@@ -23,7 +23,7 @@
 
 class TsungSessionsReport extends Report {
 	function __construct(& $reportAggregator) {
-		parent::__construct($reportAggregator, 'Tsung sessions', ['TsungSessionsListener'], false);
+		parent::__construct($reportAggregator, 'Tsung sessions', array('TsungSessionsListener'), false);
 	}
 	
 	function getText() {

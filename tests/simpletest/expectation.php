@@ -449,11 +449,11 @@
          */
         function _canonicalType($type) {
             $type = strtolower($type);
-            $map = [
+            $map = array(
                     'bool' => 'boolean',
                     'float' => 'double',
                     'real' => 'double',
-                    'int' => 'integer'];
+                    'int' => 'integer');
             if (isset($map[$type])) {
                 $type = $map[$type];
             }

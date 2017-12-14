@@ -21,7 +21,7 @@ abstract class awPattern {
 	 *
 	 * @var array
 	 */
-	protected $args = [];
+	protected $args = array();
 	
 	/**
 	 * Load a pattern

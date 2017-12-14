@@ -24,7 +24,7 @@
 
 class VacuumOverallReport extends Report {
 	function __construct(& $reportAggregator) {
-		parent::__construct($reportAggregator, 'Vacuum overall statistics', ['VacuumOverallListener']);
+		parent::__construct($reportAggregator, 'Vacuum overall statistics', array('VacuumOverallListener'));
 	}
 	
 	function getText() {

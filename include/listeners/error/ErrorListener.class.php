@@ -29,6 +29,6 @@ class ErrorListener {
 	}
 	
 	function getSubscriptions() {
-		return [EVENT_ERROR];
+		return array(EVENT_ERROR);
 	}
 }

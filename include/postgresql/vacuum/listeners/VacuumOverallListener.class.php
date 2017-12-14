@@ -23,8 +23,8 @@
  */
 
 class VacuumOverallListener {
-	public $statistics = [];
-	public $statisticsPerDatabase = [];
+	public $statistics = array();
+	public $statisticsPerDatabase = array();
 
 	function __construct() {
 		$this->statistics['numberOfTables'] = 0;
@@ -67,7 +67,7 @@ class VacuumOverallListener {
 	}
 	
 	function getSubscriptions() {
-		return [EVENT_VACUUM_TABLE];
+		return array(EVENT_VACUUM_TABLE);
 	}
 	
 	function getStatisticsPerDatabase() {

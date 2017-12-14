@@ -78,7 +78,7 @@
          *    @access public
          */
         function getChildElements() {
-            return [];
+            return array();
         }
         
         /**
@@ -368,7 +368,7 @@
          *    @access public
          */
         function getSubmitValues() {
-            return [$this->getName() => $this->getValue()];
+            return array($this->getName() => $this->getValue());
         }
     }
       
@@ -425,9 +425,9 @@
          *    @access public
          */
         function getSubmitValues($x, $y) {
-            return [
+            return array(
                     $this->getName() . '.x' => $x,
-                    $this->getName() . '.y' => $y];
+                    $this->getName() . '.y' => $y);
         }
     }
       
@@ -485,12 +485,12 @@
          */
         function getSubmitValues() {
             if ($this->getAttribute('name') === false) {
-                return [];
+                return array();
             }
             if ($this->getAttribute('value') === false) {
-                return [$this->getName() => ''];
+                return array($this->getName() => '');
             }
-            return [$this->getName() => $this->getValue()];
+            return array($this->getName() => $this->getValue());
         }
     }
   
@@ -633,7 +633,7 @@
          */
         function __construct($attributes) {
             parent::__construct('select', $attributes);
-            $this->_options = [];
+            $this->_options = array();
             $this->_choice = false;
         }
         
@@ -720,7 +720,7 @@
          */
         function __construct($attributes) {
             parent::__construct('select', $attributes);
-            $this->_options = [];
+            $this->_options = array();
             $this->_values = false;
         }
         
@@ -750,7 +750,7 @@
          *    @access public
          */
         function getDefault() {
-            $default = [];
+            $default = array();
             for ($i = 0, $count = count($this->_options); $i < $count; $i++) {
                 if ($this->_options[$i]->getAttribute('selected')) {
                     $default[] = $this->_options[$i]->getDefault();
@@ -903,7 +903,7 @@
          *    @access public
          */
         function __construct() {
-            $this->_widgets = [];
+            $this->_widgets = array();
         }
 
         /**
@@ -960,7 +960,7 @@
          *    @access public
          */
         function getValue() {
-            $values = [];
+            $values = array();
             for ($i = 0, $count = count($this->_widgets); $i < $count; $i++) {
                 if ($this->_widgets[$i]->getValue()) {
                     $values[] = $this->_widgets[$i]->getValue();
@@ -975,7 +975,7 @@
          *    @access public
          */
         function getDefault() {
-            $values = [];
+            $values = array();
             for ($i = 0, $count = count($this->_widgets); $i < $count; $i++) {
                 if ($this->_widgets[$i]->getDefault()) {
                     $values[] = $this->_widgets[$i]->getDefault();
@@ -1016,7 +1016,7 @@
          *    @access private
          */
         function _valuesArePossible($values) {
-            $matches = [];
+            $matches = array();
             for ($i = 0, $count = count($this->_widgets); $i < $count; $i++) {
                 $possible = $this->_widgets[$i]->getAttribute('value');
                 if (in_array($possible, $values)) {
@@ -1055,10 +1055,10 @@
          */
         function _makeArray($value) {
             if ($value === false) {
-                return [];
+                return array();
             }
             if (is_string($value)) {
-                return [$value];
+                return array($value);
             }
             return $value;
         }
@@ -1078,7 +1078,7 @@
          *    @access public
          */
         function __construct() {
-            $this->_widgets = [];
+            $this->_widgets = array();
         }
         
         /**

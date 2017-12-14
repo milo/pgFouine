@@ -204,9 +204,9 @@ define("PLOT_BOTH", 'both');
 		if($ratio > 1) {
 		
 			$tmpy = $this->datay;
-			$datay = [];
+			$datay = array();
 			
-			$datax = [];
+			$datax = array();
 			$cbLabel = $this->xAxis->label->getCallbackFunction();
 			
 			for($i = 0; $i < $count; $i += $ratio) {
@@ -474,7 +474,7 @@ define("PLOT_BOTH", 'both');
 		}
 		
 		// Set axis labels
-		$labels = [];
+		$labels = array();
 		for($i = 0, $count = $this->getXAxisNumber(); $i < $count; $i++) {
 			$labels[] = $i;
 		}
@@ -570,7 +570,7 @@ define("PLOT_BOTH", 'both');
 		
 		// Horizontal lines of the grid
 		
-		$h = [];
+		$h = array();
 		for($i = 0; $i <= $number; $i++) {
 			$h[] = $i / $number;
 		}
@@ -581,7 +581,7 @@ define("PLOT_BOTH", 'both');
 		$interval = $major->getInterval();
 		$number = $this->getXAxisNumber() - 1;
 		
-		$w = [];
+		$w = array();
 		
 		if($number > 0) {
 			
@@ -614,7 +614,7 @@ define("PLOT_BOTH", 'both');
 		}
 		
 		if($datax === NULL) {
-			$datax = [];
+			$datax = array();
 			for($i = 0; $i < count($datay); $i++) {
 				$datax[] = $i;
 			}
@@ -658,7 +658,7 @@ define("PLOT_BOTH", 'both');
 		}
 		$stop = $i;
 		
-		return [$start, $stop];
+		return array($start, $stop);
 		
 	}
 	
@@ -1142,7 +1142,7 @@ class awPlotGroup extends awComponentGroup {
 		}
 		
 		// Set Y axis range
-		foreach(['left', 'right'] as $axis) {
+		foreach(array('left', 'right') as $axis) {
 		
 			if($this->isAxisUsed($axis)) {
 			
@@ -1174,7 +1174,7 @@ class awPlotGroup extends awComponentGroup {
 		}
 		
 		// Center labels on X axis if needed
-		$test = [PLOT_TOP => FALSE, PLOT_BOTTOM => FALSE];
+		$test = array(PLOT_TOP => FALSE, PLOT_BOTTOM => FALSE);
 		
 		for($i = 0; $i < count($this->components); $i++) {
 		
@@ -1204,7 +1204,7 @@ class awPlotGroup extends awComponentGroup {
 		}
 		
 		// Set axis labels
-		$labels = [];
+		$labels = array();
 		for($i = $xMin; $i <= $xMax; $i++) {
 			$labels[] = $i;
 		}
@@ -1307,7 +1307,7 @@ class awPlotGroup extends awComponentGroup {
 		list($x1, $y1, $x2, $y2) = $this->getPosition();
 		
 		// Hide unused axis
-		foreach([PLOT_LEFT, PLOT_RIGHT, PLOT_TOP, PLOT_BOTTOM] as $axis) {
+		foreach(array(PLOT_LEFT, PLOT_RIGHT, PLOT_TOP, PLOT_BOTTOM) as $axis) {
 			if($this->isAxisUsed($axis) === FALSE) {
 				$this->axis->{$axis}->hide(TRUE);
 			}
@@ -1395,7 +1395,7 @@ class awPlotGroup extends awComponentGroup {
 		
 		// Horizontal lines of grid
 		
-		$h = [];
+		$h = array();
 		for($i = 0; $i <= $number; $i++) {
 			$h[] = $i / $number;
 		}
@@ -1406,7 +1406,7 @@ class awPlotGroup extends awComponentGroup {
 		$interval = $major->getInterval();
 		$number = $this->getXAxisNumber() - 1;
 		
-		$w = [];
+		$w = array();
 		
 		if($number > 0) {
 			

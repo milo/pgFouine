@@ -23,7 +23,7 @@
  */
 
 class VacuumedTablesListener {
-	public $vacuumedTables = [];
+	public $vacuumedTables = array();
 	public $counter = 1;
 
 	function __construct() {
@@ -38,7 +38,7 @@ class VacuumedTablesListener {
 	}
 	
 	function getSubscriptions() {
-		return [EVENT_VACUUM_TABLE/*, EVENT_ANALYZE_TABLE*/];
+		return array(EVENT_VACUUM_TABLE/*, EVENT_ANALYZE_TABLE*/);
 	}
 	
 	function & getVacuumedTables() {
@@ -47,7 +47,7 @@ class VacuumedTablesListener {
 	
 	function & getVacuumedTablesSortedByPercentageOfRowVersionsRemoved() {
 		$vacuumedTables = $this->vacuumedTables;
-		usort($vacuumedTables, [$this, 'comparePercentageOfRowVersionsRemoved']);
+		usort($vacuumedTables, array($this, 'comparePercentageOfRowVersionsRemoved'));
 		return $vacuumedTables;
 	}
 	

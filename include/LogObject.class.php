@@ -30,7 +30,7 @@ class LogObject {
 	public $commandNumber = 0;
 	public $ignored;
 	public $context;
-	public $notices = [];
+	public $notices = array();
 	public $number = 0;
 	public $location;
 

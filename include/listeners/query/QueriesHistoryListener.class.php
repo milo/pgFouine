@@ -22,7 +22,7 @@
  */
 
 class QueriesHistoryListener extends QueryListener {
-	public $queries = [];
+	public $queries = array();
 	public $counter = 0;
 	
 	function fireEvent(& $logObject) {
@@ -32,12 +32,12 @@ class QueriesHistoryListener extends QueryListener {
 	}
 	
 	function & getQueriesHistory() {
-		usort($this->queries, [$this, 'compareTimestamp']);
+		usort($this->queries, array($this, 'compareTimestamp'));
 		return $this->queries;
 	}
 	
 	function & getQueriesHistoryPerConnection() {
-		usort($this->queries, [$this, 'compareConnectionId']);
+		usort($this->queries, array($this, 'compareConnectionId'));
 		return $this->queries;
 	}
 	

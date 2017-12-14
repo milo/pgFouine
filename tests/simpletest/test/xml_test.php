@@ -13,7 +13,7 @@
     class TestOfNestingTags extends UnitTestCase {
         
         function testGroupSize() {
-            $nesting = new NestingGroupTag(['SIZE' => 2]);
+            $nesting = new NestingGroupTag(array('SIZE' => 2));
             $this->assertEqual($nesting->getSize(), 2);
         }
     }
@@ -34,8 +34,8 @@
         
         function testEmptyGroup() {
             $listener = new MockSimpleScorer($this);
-            $listener->expectOnce('paintGroupStart', ['a_group', 7]);
-            $listener->expectOnce('paintGroupEnd', ['a_group']);
+            $listener->expectOnce('paintGroupStart', array('a_group', 7));
+            $listener->expectOnce('paintGroupEnd', array('a_group'));
             $parser = new SimpleTestXmlParser($listener);
             $parser->parse("<?xml version=\"1.0\"?>\n");
             $parser->parse("<run>\n");
@@ -48,8 +48,8 @@
         
         function testEmptyCase() {
             $listener = new MockSimpleScorer($this);
-            $listener->expectOnce('paintCaseStart', ['a_case']);
-            $listener->expectOnce('paintCaseEnd', ['a_case']);
+            $listener->expectOnce('paintCaseStart', array('a_case'));
+            $listener->expectOnce('paintCaseEnd', array('a_case'));
             $parser = new SimpleTestXmlParser($listener);
             $parser->parse("<?xml version=\"1.0\"?>\n");
             $parser->parse("<run>\n");
@@ -62,10 +62,10 @@
         
         function testEmptyMethod() {
             $listener = new MockSimpleScorer($this);
-            $listener->expectOnce('paintCaseStart', ['a_case']);
-            $listener->expectOnce('paintCaseEnd', ['a_case']);
-            $listener->expectOnce('paintMethodStart', ['a_method']);
-            $listener->expectOnce('paintMethodEnd', ['a_method']);
+            $listener->expectOnce('paintCaseStart', array('a_case'));
+            $listener->expectOnce('paintCaseEnd', array('a_case'));
+            $listener->expectOnce('paintMethodStart', array('a_method'));
+            $listener->expectOnce('paintMethodEnd', array('a_method'));
             $parser = new SimpleTestXmlParser($listener);
             $parser->parse("<?xml version=\"1.0\"?>\n");
             $parser->parse("<run>\n");
@@ -81,11 +81,11 @@
         
         function testNestedGroup() {
             $listener = new MockSimpleScorer($this);
-            $listener->expectArgumentsAt(0, 'paintGroupStart', ['a_group', 7]);
-            $listener->expectArgumentsAt(1, 'paintGroupStart', ['b_group', 3]);
+            $listener->expectArgumentsAt(0, 'paintGroupStart', array('a_group', 7));
+            $listener->expectArgumentsAt(1, 'paintGroupStart', array('b_group', 3));
             $listener->expectCallCount('paintGroupStart', 2);
-            $listener->expectArgumentsAt(0, 'paintGroupEnd', ['b_group']);
-            $listener->expectArgumentsAt(1, 'paintGroupEnd', ['a_group']);
+            $listener->expectArgumentsAt(0, 'paintGroupEnd', array('b_group'));
+            $listener->expectArgumentsAt(1, 'paintGroupEnd', array('a_group'));
             $listener->expectCallCount('paintGroupEnd', 2);
             $parser = new SimpleTestXmlParser($listener);
             $parser->parse("<?xml version=\"1.0\"?>\n");
@@ -124,7 +124,7 @@
         
         function testPass() {
             $listener = new MockSimpleScorer($this);
-            $listener->expectOnce('paintPass', ['a_message']);
+            $listener->expectOnce('paintPass', array('a_message'));
             $parser = new SimpleTestXmlParser($listener);
             $this->sendValidStart($parser);
             $this->assertTrue($parser->parse("<pass>a_message</pass>\n"));
@@ -134,7 +134,7 @@
         
         function testFail() {
             $listener = new MockSimpleScorer($this);
-            $listener->expectOnce('paintFail', ['a_message']);
+            $listener->expectOnce('paintFail', array('a_message'));
             $parser = new SimpleTestXmlParser($listener);
             $this->sendValidStart($parser);
             $this->assertTrue($parser->parse("<fail>a_message</fail>\n"));
@@ -144,7 +144,7 @@
         
         function testException() {
             $listener = new MockSimpleScorer($this);
-            $listener->expectOnce('paintException', ['a_message']);
+            $listener->expectOnce('paintException', array('a_message'));
             $parser = new SimpleTestXmlParser($listener);
             $this->sendValidStart($parser);
             $this->assertTrue($parser->parse("<exception>a_message</exception>\n"));
@@ -156,7 +156,7 @@
             $signal = new AnyOldSignal();
             $signal->stuff = "Hello";
             $listener = new MockSimpleScorer($this);
-            $listener->expectOnce('paintSignal', ['a_signal', $signal]);
+            $listener->expectOnce('paintSignal', array('a_signal', $signal));
             $parser = new SimpleTestXmlParser($listener);
             $this->sendValidStart($parser);
             $this->assertTrue($parser->parse(
@@ -168,7 +168,7 @@
         
         function testMessage() {
             $listener = new MockSimpleScorer($this);
-            $listener->expectOnce('paintMessage', ['a_message']);
+            $listener->expectOnce('paintMessage', array('a_message'));
             $parser = new SimpleTestXmlParser($listener);
             $this->sendValidStart($parser);
             $this->assertTrue($parser->parse("<message>a_message</message>\n"));
@@ -178,7 +178,7 @@
         
         function testFormattedMessage() {
             $listener = new MockSimpleScorer($this);
-            $listener->expectOnce('paintFormattedMessage', ["\na\tmessage\n"]);
+            $listener->expectOnce('paintFormattedMessage', array("\na\tmessage\n"));
             $parser = new SimpleTestXmlParser($listener);
             $this->sendValidStart($parser);
             $this->assertTrue($parser->parse("<formatted><![CDATA[\na\tmessage\n]]></formatted>\n"));

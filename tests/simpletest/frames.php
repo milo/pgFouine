@@ -34,9 +34,9 @@
          */
         function __construct(&$page) {
             $this->_frameset = &$page;
-            $this->_frames = [];
+            $this->_frames = array();
             $this->_focus = false;
-            $this->_names = [];
+            $this->_names = array();
         }
         
         /**
@@ -83,10 +83,10 @@
          */
         function getFrameFocus() {
             if ($this->_focus === false) {
-                return [];
+                return array();
             }
             return array_merge(
-                    [$this->_getPublicNameFromIndex($this->_focus)],
+                    array($this->_getPublicNameFromIndex($this->_focus)),
                     $this->_frames[$this->_focus]->getFrameFocus());
         }
         
@@ -185,7 +185,7 @@
          *    @access public
          */
         function getFrames() {
-            $report = [];
+            $report = array();
             for ($i = 0; $i < count($this->_frames); $i++) {
                 $report[$this->_getPublicNameFromIndex($i)] =
                         $this->_frames[$i]->getFrames();
@@ -371,7 +371,7 @@
             if (is_integer($this->_focus)) {
                 return $this->_frames[$this->_focus]->getAbsoluteUrls();
             }
-            $urls = [];
+            $urls = array();
             foreach ($this->_frames as $frame) {
                 $urls = array_merge($urls, $frame->getAbsoluteUrls());
             }
@@ -387,7 +387,7 @@
             if (is_integer($this->_focus)) {
                 return $this->_frames[$this->_focus]->getRelativeUrls();
             }
-            $urls = [];
+            $urls = array();
             foreach ($this->_frames as $frame) {
                 $urls = array_merge($urls, $frame->getRelativeUrls());
             }
@@ -407,7 +407,7 @@
                         $this->_frames[$this->_focus]->getUrlsByLabel($label),
                         $this->_focus);
             }
-            $urls = [];
+            $urls = array();
             foreach ($this->_frames as $index => $frame) {
                 $urls = array_merge(
                         $urls,
@@ -447,7 +447,7 @@
          *    @access private
          */
         function _tagUrlsWithFrame($urls, $frame) {
-            $tagged = [];
+            $tagged = array();
             foreach ($urls as $url) {
                 if (! $url->getTarget()) {
                     $url->setTarget($this->_getPublicNameFromIndex($frame));

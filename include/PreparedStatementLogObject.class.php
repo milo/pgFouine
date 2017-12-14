@@ -24,7 +24,7 @@
 class PreparedStatementLogObject extends QueryLogObject {
 	public $name;
 	public $portalName;
-	public $parameters = [];
+	public $parameters = array();
 	
 	function __construct($connectionId, $user, $db, $name, $portalName, $text = '', $ignored = false) {
 		parent::__construct($connectionId, $user, $db, $text, $ignored);
@@ -44,7 +44,7 @@ class PreparedStatementLogObject extends QueryLogObject {
 		if($bindDetailMatch) {
 			$bindParametersMatch = $postgreSQLRegexps['BindParameters']->matchAll($bindDetailMatch->getPostMatch());
 
-			$replace = [];
+			$replace = array();
 			
 			for($i = 0; $i < count($bindParametersMatch); $i++) {
 				$key = $bindParametersMatch[$i][1];
@@ -63,7 +63,7 @@ class PreparedStatementLogObject extends QueryLogObject {
 	}
 	
 	function setParameters($parameters) {
-		$this->parameters = [];
+		$this->parameters = array();
 		for($i = 0; $i < count($parameters); $i++) {
 			$this->parameters['$'.($i+1)] = $parameters[$i];
 		}

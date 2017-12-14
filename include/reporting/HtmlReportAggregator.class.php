@@ -23,8 +23,8 @@
 
 class HtmlReportAggregator extends ReportAggregator {
 	public $geshi;
-	public $stylesheets = ['common.css'];
-	public $scripts = [];
+	public $stylesheets = array('common.css');
+	public $scripts = array();
 	
 	function __construct(& $logReader, $outputFilePath = false) {
 		parent::__construct($logReader, $outputFilePath);

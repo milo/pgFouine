@@ -41,7 +41,7 @@
          *    @access public
          */
         function parse($response) {
-            $this->_tags = [];
+            $this->_tags = array();
             $this->_page = &$this->_createPage($response);
             $parser = &$this->_createParser($this);
             $parser->parse($response->getContent());
@@ -76,7 +76,7 @@
          *    @access private
          */
         function _keysToLowerCase($map) {
-            $lower = [];
+            $lower = array();
             foreach ($map as $key => $value) {
                 $lower[strtolower($key)] = $value;
             }
@@ -179,7 +179,7 @@
         function _openTag(&$tag) {
             $name = $tag->getTagName();
             if (! in_array($name, array_keys($this->_tags))) {
-                $this->_tags[$name] = [];
+                $this->_tags[$name] = array();
             }
             array_push($this->_tags[$name], $tag);
         }
@@ -281,12 +281,12 @@
          *    @access public
          */
         function __construct($response = false) {
-            $this->_links = [];
+            $this->_links = array();
             $this->_title = false;
-            $this->_open_forms = [];
-            $this->_complete_forms = [];
+            $this->_open_forms = array();
+            $this->_complete_forms = array();
             $this->_frameset = false;
-            $this->_frames = [];
+            $this->_frames = array();
             $this->_frameset_nesting_level = 0;
             $this->_text = false;
             if ($response) {
@@ -461,7 +461,7 @@
          *    @access public
          */
         function getFrameFocus() {
-            return [];
+            return array();
         }
         
         /**
@@ -516,7 +516,7 @@
          *    @access private
          */
         function _isFormElement($name) {
-            return in_array($name, ['input', 'button', 'textarea', 'select']);
+            return in_array($name, array('input', 'button', 'textarea', 'select'));
         }
         
         /**
@@ -641,7 +641,7 @@
             if (! $this->_frameset) {
                 return false;
             }
-            $urls = [];
+            $urls = array();
             for ($i = 0; $i < count($this->_frames); $i++) {
                 $name = $this->_frames[$i]->getAttribute('name');
                 $url = new SimpleUrl($this->_frames[$i]->getAttribute('src'));
@@ -667,7 +667,7 @@
          *    @access public
          */
         function getAbsoluteUrls() {
-            $all = [];
+            $all = array();
             foreach ($this->_links as $link) {
                 if ($this->_linkIsAbsolute($link->getHref())) {
                     $all[] = $link->getHref();
@@ -682,7 +682,7 @@
          *    @access public
          */
         function getRelativeUrls() {
-            $all = [];
+            $all = array();
             foreach ($this->_links as $link) {
                 if (! $this->_linkIsAbsolute($link->getHref())) {
                     $all[] = $link->getHref();
@@ -699,7 +699,7 @@
          *    @access public
          */
         function getUrlsByLabel($label) {
-            $matches = [];
+            $matches = array();
             foreach ($this->_links as $link) {
                 if ($link->getText() == $label) {
                     $matches[] = $this->_getUrlFromLink($link);

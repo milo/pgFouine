@@ -14,7 +14,7 @@ class TestLogFiles extends UnitTestCase {
 		if(is_readable($filePath)) {
 			$lines = file($filePath);
 		} else {
-			$lines = [];
+			$lines = array();
 		}
 		return $lines;
 	}
@@ -170,7 +170,7 @@ class TestLogFiles extends UnitTestCase {
 		$this->assertEqual($user, $line->getUser());
 	}
 	
-	function checkQueryLogObject(& $logObject, $type, $timestamp, $commandNumber, $text, $duration, $ignored = false, $database = false, $user = false, $context = false, $subQueries = []) {
+	function checkQueryLogObject(& $logObject, $type, $timestamp, $commandNumber, $text, $duration, $ignored = false, $database = false, $user = false, $context = false, $subQueries = array()) {
 		$this->assertIsA($logObject, $type);
 		$this->assertEqual($timestamp, $logObject->getTimestamp());
 		$this->assertEqual($commandNumber, $logObject->getCommandNumber());

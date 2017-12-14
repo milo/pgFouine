@@ -38,7 +38,7 @@ class FSMInformationListener {
 	}
 	
 	function getSubscriptions() {
-		return [EVENT_FSM_INFORMATION];
+		return array(EVENT_FSM_INFORMATION);
 	}
 
 	function getFSMInformation() {

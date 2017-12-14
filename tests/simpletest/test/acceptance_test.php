@@ -102,13 +102,13 @@
         }
         
         function testGetWithData() {
-            $this->get('http://www.lastcraft.com/test/network_confirm.php', ["a" => "aaa"]);
+            $this->get('http://www.lastcraft.com/test/network_confirm.php', array("a" => "aaa"));
             $this->assertWantedPattern('/Request method.*?<dd>GET<\/dd>/');
             $this->assertWantedText('a=[aaa]');
         }
         
         function testPostWithData() {
-            $this->post('http://www.lastcraft.com/test/network_confirm.php', ["a" => "aaa"]);
+            $this->post('http://www.lastcraft.com/test/network_confirm.php', array("a" => "aaa"));
             $this->assertWantedPattern('/Request method.*?<dd>POST<\/dd>/');
             $this->assertWantedText('a=[aaa]');
         }
@@ -327,7 +327,7 @@
         }
         
         function testRedirectLosesGetData() {
-            $this->get('http://www.lastcraft.com/test/redirect.php', ['a' => 'aaa']);
+            $this->get('http://www.lastcraft.com/test/redirect.php', array('a' => 'aaa'));
             $this->assertNoUnwantedText('a=[aaa]');
         }
         
@@ -337,7 +337,7 @@
         }
         
         function testRedirectLosesPostData() {
-            $this->post('http://www.lastcraft.com/test/redirect.php', ['a' => 'aaa']);
+            $this->post('http://www.lastcraft.com/test/redirect.php', array('a' => 'aaa'));
             $this->assertTitle('Simple test target file');
             $this->assertNoUnwantedText('a=[aaa]');
         }
@@ -479,7 +479,7 @@
         
         function testAdditionalFormValues() {
             $this->get('http://www.lastcraft.com/test/form.html');
-            $this->assertTrue($this->clickSubmit('Go!', ['add' => 'A']));
+            $this->assertTrue($this->clickSubmit('Go!', array('add' => 'A')));
             $this->assertWantedText('go=[Go!]');
             $this->assertWantedText('add=[A]');
         }
@@ -492,7 +492,7 @@
         
         function testFormSubmissionByNameAndadditionalParameters() {
             $this->get('http://www.lastcraft.com/test/form.html');
-            $this->assertTrue($this->clickSubmitByName('go', ['add' => 'A']));
+            $this->assertTrue($this->clickSubmitByName('go', array('add' => 'A')));
             $this->assertWantedText('go=[Go!]');
             $this->assertWantedText('add=[A]');
         }
@@ -533,7 +533,7 @@
         
         function testImageSubmissionByLabelWithAdditionalParameters() {
             $this->get('http://www.lastcraft.com/test/form.html');
-            $this->assertTrue($this->clickImage('Image go!', 10, 12, ['add' => 'A']));
+            $this->assertTrue($this->clickImage('Image go!', 10, 12, array('add' => 'A')));
             $this->assertWantedText('add=[A]');
         }
         
@@ -584,9 +584,9 @@
         
         function testDefaultFormValueSubmission() {
             $this->get('http://www.lastcraft.com/test/multiple_widget_form.html');
-            $this->assertField('a', ['a2', 'a3']);
-            $this->assertField('b', ['b2', 'b3']);
-            $this->assertField('c[]', ['c2', 'c3']);
+            $this->assertField('a', array('a2', 'a3'));
+            $this->assertField('b', array('b2', 'b3'));
+            $this->assertField('c[]', array('c2', 'c3'));
             $this->assertTrue($this->clickSubmit('Go!'));
             $this->assertWantedText('a=[a2, a3]');
             $this->assertWantedText('b=[b2, b3]');
@@ -595,13 +595,13 @@
         
         function testSubmittingMultipleValues() {
             $this->get('http://www.lastcraft.com/test/multiple_widget_form.html');
-            $this->setField('a', ['a1', 'a4']);
-            $this->assertField('a', ['a1', 'a4']);
-            $this->assertField('a', ['a4', 'a1']);
-            $this->setField('b', ['b1', 'b4']);
-            $this->assertField('b', ['b1', 'b4']);
-            $this->setField('c[]', ['c1', 'c4']);
-            $this->assertField('c[]', ['c1', 'c4']);
+            $this->setField('a', array('a1', 'a4'));
+            $this->assertField('a', array('a1', 'a4'));
+            $this->assertField('a', array('a4', 'a1'));
+            $this->setField('b', array('b1', 'b4'));
+            $this->assertField('b', array('b1', 'b4'));
+            $this->setField('c[]', array('c1', 'c4'));
+            $this->assertField('c[]', array('c1', 'c4'));
             $this->assertTrue($this->clickSubmit('Go!'));
             $this->assertWantedText('a=[a1, a4]');
             $this->assertWantedText('b=[b1, b4]');
@@ -610,8 +610,8 @@
         
         function testSavantStyleHiddenFieldDefaults() {
             $this->get('http://www.lastcraft.com/test/savant_style_form.html');
-            $this->assertField('a', ['a0']);
-            $this->assertField('b', ['b0']);
+            $this->assertField('a', array('a0'));
+            $this->assertField('b', array('b0'));
             $this->assertTrue($this->clickSubmit('Go!'));
             $this->assertWantedText('a=[a0]');
             $this->assertWantedText('b=[b0]');
@@ -619,7 +619,7 @@
         
         function testSavantStyleHiddenDefaultsAreOverridden() {
             $this->get('http://www.lastcraft.com/test/savant_style_form.html');
-            $this->assertTrue($this->setField('a', ['a1']));
+            $this->assertTrue($this->setField('a', array('a1')));
             $this->assertTrue($this->setField('b', 'b1'));
             $this->assertTrue($this->clickSubmit('Go!'));
             $this->assertWantedText('a=[a1]');
@@ -628,8 +628,8 @@
         
         function testSavantStyleFormSettingById() {
             $this->get('http://www.lastcraft.com/test/savant_style_form.html');
-            $this->assertFieldById(1, ['a0']);
-            $this->assertFieldById(4, ['b0']);
+            $this->assertFieldById(1, array('a0'));
+            $this->assertFieldById(4, array('b0'));
             $this->assertTrue($this->setFieldById(2, 'a1'));
             $this->assertTrue($this->setFieldById(5, 'b1'));
             $this->assertTrue($this->clickSubmitById(99));
@@ -677,7 +677,7 @@
         function testGetRetryResubmitsExtraData() {
             $this->assertTrue($this->get(
                     'http://www.lastcraft.com/test/network_confirm.php',
-                    ['a' => 'aaa']));
+                    array('a' => 'aaa')));
             $this->assertWantedPattern('/Request method.*?<dd>GET<\/dd>/');
             $this->assertWantedText('a=[aaa]');
             $this->retry();
@@ -688,7 +688,7 @@
         function testPostRetryResubmitsData() {
             $this->assertTrue($this->post(
                     'http://www.lastcraft.com/test/network_confirm.php',
-                    ['a' => 'aaa']));
+                    array('a' => 'aaa')));
             $this->assertWantedPattern('/Request method.*?<dd>POST<\/dd>/');
             $this->assertWantedText('a=[aaa]');
             $this->retry();

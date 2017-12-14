@@ -64,14 +64,14 @@ class awGraph extends awImage {
 	 *
 	 * @var array
 	 */
-	public $components = [];
+	public $components = array();
 	
 	/**
 	 * Some labels to add to the component
 	 *
 	 * @var array
 	 */
-	public $labels = [];
+	public $labels = array();
 	
 	/**
 	 * Graph title
@@ -212,9 +212,9 @@ class awGraph extends awImage {
 	 */
 	 function addLabel(&$label, $x, $y) {
 	
-		$this->labels[] = [
+		$this->labels[] = array(
 			$label, $x, $y
-		];
+		);
 		
 	}
 	
@@ -226,9 +226,9 @@ class awGraph extends awImage {
 	 */
 	 function addAbsLabel(&$label, $point) {
 	
-		$this->labels[] = [
+		$this->labels[] = array(
 			$label, $point
-		];
+		);
 		
 	}
 	

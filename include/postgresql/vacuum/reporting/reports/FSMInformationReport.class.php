@@ -24,7 +24,7 @@
 
 class FSMInformationReport extends Report {
 	function __construct(& $reportAggregator) {
-		parent::__construct($reportAggregator, 'FSM information', ['FSMInformationListener']);
+		parent::__construct($reportAggregator, 'FSM information', array('FSMInformationListener'));
 	}
 	
 	function getText() {

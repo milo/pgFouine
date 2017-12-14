@@ -326,7 +326,7 @@
                 return 0;
             }
             if (strlen($first) < strlen($second)) {
-                list($first, $second) = [$second, $first];
+                list($first, $second) = array($second, $first);
             }
             $position = 0;
             $step = strlen($first);

@@ -114,11 +114,11 @@ if(isset($_SERVER['argv']) && (!isset($argv) || empty($argv))) {
 if(is_array($argv)) {
 	$executable = array_shift($argv);
 } else {
-	$argv = [];
+	$argv = array();
 	$executable = 'unknown';
 }
 
-$options = [];
+$options = array();
 $argvCount = count($argv);
 for($i = 0; $i < $argvCount; $i++) {
 	if(strpos($argv[$i], '-') === 0) {
@@ -133,7 +133,7 @@ for($i = 0; $i < $argvCount; $i++) {
 			}
 			if($optionKey == 'report' || $optionKey == 'reports') {
 				if(!isset($options['reports'])) {
-					$options['reports'] = [];
+					$options['reports'] = array();
 				}
 				$options['reports'][] = $value;
 			} else {
@@ -205,7 +205,7 @@ if(isset($options['top'])) {
 define('CONFIG_TOP_QUERIES_NUMBER', $top);
 
 $outputToFiles = false;
-$supportedReportBlocks = [
+$supportedReportBlocks = array(
 	'overall' => 'OverallStatsReport',
 	'bytype' => 'QueriesByTypeReport',
 	'hourly' => 'HourlyStatsReport',
@@ -218,10 +218,10 @@ $supportedReportBlocks = [
 	'n-mostfrequenterrors' => 'NormalizedErrorsMostFrequentReport',
 	'tsung' => 'TsungSessionsReport',
 	'csv-query' => 'CsvQueriesHistoryReport'
-];
-$defaultReportBlocks = ['overall', 'bytype', 'n-mosttime', 'slowest', 'n-mostfrequent', 'n-slowestaverage'];
+);
+$defaultReportBlocks = array('overall', 'bytype', 'n-mosttime', 'slowest', 'n-mostfrequent', 'n-slowestaverage');
 
-$reports = [];
+$reports = array();
 if(isset($options['reports'])) {
 	foreach($options['reports'] AS $report) {
 		if(strpos($report, '=') !== false) {
@@ -238,10 +238,10 @@ if(isset($options['reports'])) {
 		}
 		if($blocks == 'default') {
 			$selectedBlocks = $defaultReportBlocks;
-			$notSupportedBlocks = [];
+			$notSupportedBlocks = array();
 		} elseif($blocks == 'all') {
 			$selectedBlocks = array_keys($supportedReportBlocks);
-			$notSupportedBlocks = [];
+			$notSupportedBlocks = array();
 		} else {
 			$selectedBlocks = explode(',', $blocks);
 			$notSupportedBlocks = array_diff($selectedBlocks, array_keys($supportedReportBlocks));
@@ -249,22 +249,22 @@ if(isset($options['reports'])) {
 		
 		if(empty($notSupportedBlocks)) {
 			$outputFilePath = checkOutputFilePath($outputFilePath);
-			$reports[] = [
+			$reports[] = array(
 				'blocks' => $selectedBlocks,
 				'file' => $outputFilePath
-			];
+			);
 		} else {
 			usage('report types not supported: '.implode(',', $notSupportedBlocks));
 		}
 	}
 } else {
-	$reports[] = [
+	$reports[] = array(
 		'blocks' => $defaultReportBlocks,
 		'file' => false
-	];
+	);
 }
 
-$supportedFormats = ['text' => 'TextReportAggregator', 'html' => 'HtmlReportAggregator', 'html-with-graphs' => 'HtmlWithGraphsReportAggregator'];
+$supportedFormats = array('text' => 'TextReportAggregator', 'html' => 'HtmlReportAggregator', 'html-with-graphs' => 'HtmlWithGraphsReportAggregator');
 if(isset($options['format'])) {
 	if(array_key_exists($options['format'], $supportedFormats)) {
 		if($options['format'] == 'html-with-graphs') {
@@ -286,11 +286,11 @@ if(isset($options['format'])) {
 	$aggregator = $supportedFormats['html'];
 }
 
-$supportedLogTypes = [
+$supportedLogTypes = array(
 	'syslog' => 'SyslogPostgreSQLParser',
 	'stderr' => 'StderrPostgreSQLParser',
 	'csvlog' => 'CsvlogPostgreSQLParser',
-];
+);
 $logtype = '';
 if(isset($options['logtype'])) {
 	if(array_key_exists($options['logtype'], $supportedLogTypes)) {

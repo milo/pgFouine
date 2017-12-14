@@ -26,9 +26,9 @@
          */
         function __construct($query = false) {
             if (! $query) {
-                $query = [];
+                $query = array();
             }
-            $this->_request = [];
+            $this->_request = array();
             $this->setCoordinates();
             $this->merge($query);
         }
@@ -44,7 +44,7 @@
                 return;
             }
             if (! isset($this->_request[$key])) {
-                $this->_request[$key] = [];
+                $this->_request[$key] = array();
             }
             if (is_array($value)) {
                 foreach ($value as $item) {
@@ -143,7 +143,7 @@
          *    @access public
          */
         function asString() {
-            $statements = [];
+            $statements = array();
             foreach ($this->_request as $key => $values) {
                 foreach ($values as $value) {
                     $statements[] = "$key=" . urlencode($value);

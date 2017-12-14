@@ -22,7 +22,7 @@
  * Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-$postgreSQLVacuumRegexps = [];
+$postgreSQLVacuumRegexps = array();
 
 // PostgreSQLVacuumParser
 $postgreSQLVacuumRegexps['VacuumingDatabase'] = new RegExp('/vacuuming database "([^".]*)"/');

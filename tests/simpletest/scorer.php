@@ -225,7 +225,7 @@
          */
         function __construct() {
             parent::__construct();
-            $this->_test_stack = [];
+            $this->_test_stack = array();
             $this->_size = null;
             $this->_progress = 0;
         }

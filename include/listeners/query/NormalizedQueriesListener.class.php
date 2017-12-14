@@ -22,7 +22,7 @@
  */
 
 class NormalizedQueriesListener extends QueryListener {
-	public $queryList = [];
+	public $queryList = array();
 	public $queriesNumber = 10;
 	
 	function __construct() {
@@ -40,7 +40,7 @@ class NormalizedQueriesListener extends QueryListener {
 	
 	function & getQueriesMostTime() {
 		$queryList = $this->queryList;
-		usort($queryList, [$this, 'compareMostTime']);
+		usort($queryList, array($this, 'compareMostTime'));
 		$queries = array_slice($queryList, 0, $this->queriesNumber);
 		return $queries;
 	}
@@ -57,7 +57,7 @@ class NormalizedQueriesListener extends QueryListener {
 	
 	function & getMostFrequentQueries() {
 		$queryList = $this->queryList;
-		usort($queryList, [$this, 'compareMostFrequent']);
+		usort($queryList, array($this, 'compareMostFrequent'));
 		$queries = array_slice($queryList, 0, $this->queriesNumber);
 		return $queries;
 	}
@@ -78,7 +78,7 @@ class NormalizedQueriesListener extends QueryListener {
 	
 	function & getSlowestQueries() {
 		$queryList = $this->queryList;
-		usort($queryList, [$this, 'compareSlowest']);
+		usort($queryList, array($this, 'compareSlowest'));
 		$queries = array_slice($queryList, 0, $this->queriesNumber);
 		return $queries;
 	}

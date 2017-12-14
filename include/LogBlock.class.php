@@ -38,7 +38,7 @@
 class LogBlock {
 	public $logStream;
 	public $commandNumber;
-	public $lines = [];
+	public $lines = array();
 	public $complete = false;
 	public $lastLineNumber = 0;
 	

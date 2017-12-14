@@ -26,7 +26,7 @@ class GlobalCountersListener extends QueryListener {
 	public $firstQueryTimestamp = MAX_TIMESTAMP;
 	public $lastQueryTimestamp = MIN_TIMESTAMP;
 	
-	public $queryPeakByTimestamp = [];
+	public $queryPeakByTimestamp = array();
 	
 	function __construct() {
 		$this->counter = new QueryCounter();
@@ -60,7 +60,7 @@ class GlobalCountersListener extends QueryListener {
 	}
 	
 	function getSubscriptions() {
-		return array_merge(parent::getSubscriptions(), [EVENT_DURATION_ONLY]);
+		return array_merge(parent::getSubscriptions(), array(EVENT_DURATION_ONLY));
 	}
 	
 	function getQueryCount() {

@@ -21,7 +21,7 @@
  * Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-$postgreSQLRegexps = [];
+$postgreSQLRegexps = array();
 
 // PostgreSQLParser
 $postgreSQLRegexps['LogLine'] = new RegExp("/^(.*?)(LOG|DEBUG|CONTEXT|WARNING|ERROR|FATAL|PANIC|HINT|DETAIL|NOTICE|STATEMENT|INFO|LOCATION):[\s]+(?:[0-9XPFDBLA]{2}[0-9A-Z]{3}:[\s]+)?/");

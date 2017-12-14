@@ -129,14 +129,14 @@ class awLabel implements awPositionable {
 	 *
 	 * @var array
 	 */
-	protected $hideKey = [];
+	protected $hideKey = array();
 	
 	/**
 	 * Values to hide
 	 *
 	 * @var array
 	 */
-	protected $hideValue = [];
+	protected $hideValue = array();
 	
 	/**
 	 * Hide first label
@@ -162,7 +162,7 @@ class awLabel implements awPositionable {
 		if(is_array($label)) {
 			$this->set($label);
 		} else if(is_string($label)) {
-			$this->set([$label]);
+			$this->set(array($label));
 		}
 		
 		if($font === NULL) {
@@ -212,7 +212,7 @@ class awLabel implements awPositionable {
 	public function set($labels) {
 	
 		if(is_string($labels)) {
-			$this->texts = [$labels];
+			$this->texts = array($labels);
 		} else if(is_array($labels)) {
 			$this->texts = $labels;
 		}
@@ -335,7 +335,7 @@ class awLabel implements awPositionable {
 	 * @param int $bottom Bottom padding
 	 */
 	public function setPadding($left, $right, $top, $bottom) {
-		$this->padding = [(int)$left, (int)$right, (int)$top, (int)$bottom];
+		$this->padding = array((int)$left, (int)$right, (int)$top, (int)$bottom);
 	}
 	
 	/**
@@ -463,7 +463,7 @@ class awLabel implements awPositionable {
 			$text->border = $this->border;
 			
 			if($this->padding !== NULL) {
-				call_user_func_array([&$text, 'setPadding'], $this->padding);
+				call_user_func_array(array(&$text, 'setPadding'), $this->padding);
 			}
 			
 			return $text;

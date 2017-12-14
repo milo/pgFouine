@@ -96,11 +96,11 @@ if(isset($_SERVER['argv']) && (!isset($argv) || empty($argv))) {
 if(is_array($argv)) {
 	$executable = array_shift($argv);
 } else {
-	$argv = [];
+	$argv = array();
 	$executable = 'unknown';
 }
 
-$options = [];
+$options = array();
 $argvCount = count($argv);
 for($i = 0; $i < $argvCount; $i++) {
 	if(strpos($argv[$i], '-') === 0) {
@@ -115,7 +115,7 @@ for($i = 0; $i < $argvCount; $i++) {
 			}
 			if($optionKey == 'report' || $optionKey == 'reports') {
 				if(!isset($options['reports'])) {
-					$options['reports'] = [];
+					$options['reports'] = array();
 				}
 				$options['reports'][] = $value;
 			} else {
@@ -187,15 +187,15 @@ if(isset($options['title'])) {
 }
 
 $outputToFiles = false;
-$supportedReportBlocks = [
+$supportedReportBlocks = array(
 	'overall' => 'VacuumOverallReport',
 	'vacuumedtables' => 'VacuumedTablesReport',
 	'details' => 'VacuumedTablesDetailsReport',
 	'fsm' => 'FSMInformationReport'
-];
-$defaultReportBlocks = ['fsm', 'overall', 'vacuumedtables', 'details'];
+);
+$defaultReportBlocks = array('fsm', 'overall', 'vacuumedtables', 'details');
 
-$reports = [];
+$reports = array();
 if(isset($options['reports'])) {
 	foreach($options['reports'] AS $report) {
 		if(strpos($report, '=') !== false) {
@@ -212,10 +212,10 @@ if(isset($options['reports'])) {
 		}
 		if($blocks == 'default') {
 			$selectedBlocks = $defaultReportBlocks;
-			$notSupportedBlocks = [];
+			$notSupportedBlocks = array();
 		} elseif($blocks == 'all') {
 			$selectedBlocks = array_keys($supportedReportBlocks);
-			$notSupportedBlocks = [];
+			$notSupportedBlocks = array();
 		} else {
 			$selectedBlocks = explode(',', $blocks);
 			$notSupportedBlocks = array_diff($selectedBlocks, array_keys($supportedReportBlocks));
@@ -223,19 +223,19 @@ if(isset($options['reports'])) {
 		
 		if(empty($notSupportedBlocks)) {
 			$outputFilePath = checkOutputFilePath($outputFilePath);
-			$reports[] = [
+			$reports[] = array(
 				'blocks' => $selectedBlocks,
 				'file' => $outputFilePath
-			];
+			);
 		} else {
 			usage('report types not supported: '.implode(',', $notSupportedBlocks));
 		}
 	}
 } else {
-	$reports[] = [
+	$reports[] = array(
 		'blocks' => $defaultReportBlocks,
 		'file' => false
-	];
+	);
 }
 
 $aggregator = 'HtmlReportAggregator';

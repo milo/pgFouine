@@ -17,61 +17,61 @@
     class TestOfParametersExpectation extends UnitTestCase {
         
         function testEmptyMatch() {
-            $expectation = new ParametersExpectation([]);
-            $this->assertTrue($expectation->test([]));
-            $this->assertFalse($expectation->test([33]));
+            $expectation = new ParametersExpectation(array());
+            $this->assertTrue($expectation->test(array()));
+            $this->assertFalse($expectation->test(array(33)));
         }
         
         function testSingleMatch() {
-            $expectation = new ParametersExpectation([0]);
-            $this->assertFalse($expectation->test([1]));
-            $this->assertTrue($expectation->test([0]));
+            $expectation = new ParametersExpectation(array(0));
+            $this->assertFalse($expectation->test(array(1)));
+            $this->assertTrue($expectation->test(array(0)));
         }
         
         function testAnyMatch() {
             $expectation = new ParametersExpectation(false);
-            $this->assertTrue($expectation->test([]));
-            $this->assertTrue($expectation->test([1, 2]));
+            $this->assertTrue($expectation->test(array()));
+            $this->assertTrue($expectation->test(array(1, 2)));
         }
         
         function testMissingParameter() {
-            $expectation = new ParametersExpectation([0]);
-            $this->assertFalse($expectation->test([]));
+            $expectation = new ParametersExpectation(array(0));
+            $this->assertFalse($expectation->test(array()));
         }
         
         function testNullParameter() {
-            $expectation = new ParametersExpectation([null]);
-            $this->assertTrue($expectation->test([null]));
-            $this->assertFalse($expectation->test([]));
+            $expectation = new ParametersExpectation(array(null));
+            $this->assertTrue($expectation->test(array(null)));
+            $this->assertFalse($expectation->test(array()));
         }
         
         function testWildcardExpectations() {
-            $expectation = new ParametersExpectation([new WildcardExpectation()]);
-            $this->assertFalse($expectation->test([]));
-            $this->assertIdentical($expectation->test([null]), true);
-            $this->assertIdentical($expectation->test([13]), true);
+            $expectation = new ParametersExpectation(array(new WildcardExpectation()));
+            $this->assertFalse($expectation->test(array()));
+            $this->assertIdentical($expectation->test(array(null)), true);
+            $this->assertIdentical($expectation->test(array(13)), true);
         }
         
         function testOtherExpectations() {
             $expectation = new ParametersExpectation(
-                    [new WantedPatternExpectation('/hello/i')]);
-            $this->assertFalse($expectation->test(['Goodbye']));
-            $this->assertTrue($expectation->test(['hello']));
-            $this->assertTrue($expectation->test(['Hello']));
+                    array(new WantedPatternExpectation('/hello/i')));
+            $this->assertFalse($expectation->test(array('Goodbye')));
+            $this->assertTrue($expectation->test(array('hello')));
+            $this->assertTrue($expectation->test(array('Hello')));
         }
         
         function testIdentityOnly() {
-            $expectation = new ParametersExpectation(["0"]);
-            $this->assertFalse($expectation->test([0]));
-            $this->assertTrue($expectation->test(["0"]));
+            $expectation = new ParametersExpectation(array("0"));
+            $this->assertFalse($expectation->test(array(0)));
+            $this->assertTrue($expectation->test(array("0")));
         }
         
         function testLongList() {
             $expectation = new ParametersExpectation(
-                    ["0", 0, new WildcardExpectation(), false]);
-            $this->assertTrue($expectation->test(["0", 0, 37, false]));
-            $this->assertFalse($expectation->test(["0", 0, 37, true]));
-            $this->assertFalse($expectation->test(["0", 0, 37]));
+                    array("0", 0, new WildcardExpectation(), false));
+            $this->assertTrue($expectation->test(array("0", 0, 37, false)));
+            $this->assertFalse($expectation->test(array("0", 0, 37, true)));
+            $this->assertFalse($expectation->test(array("0", 0, 37)));
         }
     }
     
@@ -79,63 +79,63 @@
         
         function testEmpty() {
             $map = new CallMap();
-            $this->assertFalse($map->isMatch("any", []));
-            $this->assertNull($map->findFirstMatch("any", []));
+            $this->assertFalse($map->isMatch("any", array()));
+            $this->assertNull($map->findFirstMatch("any", array()));
         }
         
         function testExactValue() {
             $map = new CallMap();
-            $map->addValue([0], "Fred");
-            $map->addValue([1], "Jim");
-            $map->addValue(["1"], "Tom");
-            $this->assertTrue($map->isMatch([0]));
-            $this->assertEqual($map->findFirstMatch([0]), "Fred");
-            $this->assertTrue($map->isMatch([1]));
-            $this->assertEqual($map->findFirstMatch([1]), "Jim");
-            $this->assertEqual($map->findFirstMatch(["1"]), "Tom");
+            $map->addValue(array(0), "Fred");
+            $map->addValue(array(1), "Jim");
+            $map->addValue(array("1"), "Tom");
+            $this->assertTrue($map->isMatch(array(0)));
+            $this->assertEqual($map->findFirstMatch(array(0)), "Fred");
+            $this->assertTrue($map->isMatch(array(1)));
+            $this->assertEqual($map->findFirstMatch(array(1)), "Jim");
+            $this->assertEqual($map->findFirstMatch(array("1")), "Tom");
         }
         
         function testExactReference() {
             $map = new CallMap();
             $ref = "Fred";
-            $map->addReference([0], $ref);
-            $this->assertEqual($map->findFirstMatch([0]), "Fred");
-            $ref2 = &$map->findFirstMatch([0]);
+            $map->addReference(array(0), $ref);
+            $this->assertEqual($map->findFirstMatch(array(0)), "Fred");
+            $ref2 = &$map->findFirstMatch(array(0));
             $this->assertReference($ref2, $ref);
         }
         
         function testWildcard() {
             $map = new CallMap();
-            $map->addValue([new WildcardExpectation(), 1, 3], "Fred");
-            $this->assertTrue($map->isMatch([2, 1, 3]));
-            $this->assertEqual($map->findFirstMatch([2, 1, 3]), "Fred");
+            $map->addValue(array(new WildcardExpectation(), 1, 3), "Fred");
+            $this->assertTrue($map->isMatch(array(2, 1, 3)));
+            $this->assertEqual($map->findFirstMatch(array(2, 1, 3)), "Fred");
         }
         
         function testAllWildcard() {
             $map = new CallMap();
-            $this->assertFalse($map->isMatch([2, 1, 3]));
+            $this->assertFalse($map->isMatch(array(2, 1, 3)));
             $map->addValue("", "Fred");
-            $this->assertTrue($map->isMatch([2, 1, 3]));
-            $this->assertEqual($map->findFirstMatch([2, 1, 3]), "Fred");
+            $this->assertTrue($map->isMatch(array(2, 1, 3)));
+            $this->assertEqual($map->findFirstMatch(array(2, 1, 3)), "Fred");
         }
         
         function testOrdering() {
             $map = new CallMap();
-            $map->addValue([1, 2], "1, 2");
-            $map->addValue([1, 3], "1, 3");
-            $map->addValue([1], "1");
-            $map->addValue([1, 4], "1, 4");
-            $map->addValue([new WildcardExpectation()], "Any");
-            $map->addValue([2], "2");
+            $map->addValue(array(1, 2), "1, 2");
+            $map->addValue(array(1, 3), "1, 3");
+            $map->addValue(array(1), "1");
+            $map->addValue(array(1, 4), "1, 4");
+            $map->addValue(array(new WildcardExpectation()), "Any");
+            $map->addValue(array(2), "2");
             $map->addValue("", "Default");
-            $map->addValue([], "None");
-            $this->assertEqual($map->findFirstMatch([1, 2]), "1, 2");
-            $this->assertEqual($map->findFirstMatch([1, 3]), "1, 3");
-            $this->assertEqual($map->findFirstMatch([1, 4]), "1, 4");
-            $this->assertEqual($map->findFirstMatch([1]), "1");
-            $this->assertEqual($map->findFirstMatch([2]), "Any");
-            $this->assertEqual($map->findFirstMatch([3]), "Any");
-            $this->assertEqual($map->findFirstMatch([]), "Default");
+            $map->addValue(array(), "None");
+            $this->assertEqual($map->findFirstMatch(array(1, 2)), "1, 2");
+            $this->assertEqual($map->findFirstMatch(array(1, 3)), "1, 3");
+            $this->assertEqual($map->findFirstMatch(array(1, 4)), "1, 4");
+            $this->assertEqual($map->findFirstMatch(array(1)), "1");
+            $this->assertEqual($map->findFirstMatch(array(2)), "Any");
+            $this->assertEqual($map->findFirstMatch(array(3)), "Any");
+            $this->assertEqual($map->findFirstMatch(array()), "Default");
         }
     }
     
@@ -154,7 +154,7 @@
     
     Stub::generate("Dummy");
     Stub::generate("Dummy", "AnotherStubDummy");
-    Stub::generate("Dummy", "StubDummyWithExtraMethods", ["extraMethod"]);
+    Stub::generate("Dummy", "StubDummyWithExtraMethods", array("extraMethod"));
     
     class SpecialSimpleStub extends SimpleStub {
         function __construct($wildcard) {
@@ -201,7 +201,7 @@
         
         function testParameteredReturn() {
             $stub = new StubDummy();
-            $stub->setReturnValue("aMethod", "aaa", [1, 2, 3]);
+            $stub->setReturnValue("aMethod", "aaa", array(1, 2, 3));
             $this->assertNull($stub->aMethod());
             $this->assertIdentical($stub->aMethod(1, 2, 3), "aaa");
         }
@@ -209,13 +209,13 @@
         function testReferenceReturned() {
             $stub = new StubDummy();
             $object = new Dummy();
-            $stub->setReturnReference("aMethod", $object, [1, 2, 3]);
+            $stub->setReturnReference("aMethod", $object, array(1, 2, 3));
             $this->assertReference($stub->aMethod(1, 2, 3), $object);
         }
         
         function testWildcardReturn() {
             $stub = new StubDummy("wild");
-            $stub->setReturnValue("aMethod", "aaa", [1, "wild", 3]);
+            $stub->setReturnValue("aMethod", "aaa", array(1, "wild", 3));
             $this->assertIdentical($stub->aMethod(1, "something", 3), "aaa");
             $this->assertIdentical($stub->aMethod(1, "anything", 3), "aaa");
         }
@@ -238,10 +238,10 @@
         
         function testMultipleMethods() {
             $stub = new StubDummy();
-            $stub->setReturnValue("aMethod", 100, [1]);
-            $stub->setReturnValue("aMethod", 200, [2]);
-            $stub->setReturnValue("anotherMethod", 10, [1]);
-            $stub->setReturnValue("anotherMethod", 20, [2]);
+            $stub->setReturnValue("aMethod", 100, array(1));
+            $stub->setReturnValue("aMethod", 200, array(2));
+            $stub->setReturnValue("anotherMethod", 10, array(1));
+            $stub->setReturnValue("anotherMethod", 20, array(2));
             $this->assertIdentical($stub->aMethod(1), 100);
             $this->assertIdentical($stub->anotherMethod(1), 10);
             $this->assertIdentical($stub->aMethod(2), 200);
@@ -271,11 +271,11 @@
         function testComplicatedReturnSequence() {
             $stub = new StubDummy("wild");
             $object = new Dummy();
-            $stub->setReturnValueAt(1, "aMethod", "aaa", ["a"]);
+            $stub->setReturnValueAt(1, "aMethod", "aaa", array("a"));
             $stub->setReturnValueAt(1, "aMethod", "bbb");
-            $stub->setReturnReferenceAt(2, "aMethod", $object, ["wild", 2]);
-            $stub->setReturnValueAt(2, "aMethod", "value", ["wild", 3]);
-            $stub->setReturnValue("aMethod", 3, [3]);
+            $stub->setReturnReferenceAt(2, "aMethod", $object, array("wild", 2));
+            $stub->setReturnValueAt(2, "aMethod", "value", array("wild", 3));
+            $stub->setReturnValue("aMethod", 3, array(3));
             $this->assertNull($stub->aMethod());
             $this->assertEqual($stub->aMethod("a"), "aaa");
             $this->assertReference($stub->aMethod(1, 2), $object);
@@ -297,8 +297,8 @@
         
         function testSequenceFallback() {
             $stub = new StubDummy();
-            $stub->setReturnValueAt(0, "aMethod", "aaa", ['a']);
-            $stub->setReturnValueAt(1, "aMethod", "bbb", ['a']);
+            $stub->setReturnValueAt(0, "aMethod", "aaa", array('a'));
+            $stub->setReturnValueAt(1, "aMethod", "bbb", array('a'));
             $stub->setReturnValue("aMethod", "AAA");
             $this->assertIdentical($stub->aMethod('a'), "aaa");
             $this->assertIdentical($stub->aMethod('b'), "AAA");
@@ -315,7 +315,7 @@
     
     Mock::generate("Dummy");
     Mock::generate("Dummy", "AnotherMockDummy");
-    Mock::generate("Dummy", "MockDummyWithExtraMethods", ["extraMethod"]);
+    Mock::generate("Dummy", "MockDummyWithExtraMethods", array("extraMethod"));
     
     class SpecialSimpleMock extends SimpleMock {
         function __construct(&$test, $wildcard) {
@@ -361,7 +361,7 @@
         
         function testParameteredReturn() {
             $mock = new MockDummy($this);
-            $mock->setReturnValue("aMethod", "aaa", [1, 2, 3]);
+            $mock->setReturnValue("aMethod", "aaa", array(1, 2, 3));
             $this->assertNull($mock->aMethod());
             $this->assertIdentical($mock->aMethod(1, 2, 3), "aaa");
         }
@@ -369,13 +369,13 @@
         function testReferenceReturned() {
             $mock = new MockDummy($this);
             $object = new Dummy();
-            $mock->setReturnReference("aMethod", $object, [1, 2, 3]);
+            $mock->setReturnReference("aMethod", $object, array(1, 2, 3));
             $this->assertReference($mock->aMethod(1, 2, 3), $object);
         }
         
         function testWildcardReturn() {
             $mock = new MockDummy($this, "wild");
-            $mock->setReturnValue("aMethod", "aaa", [1, "wild", 3]);
+            $mock->setReturnValue("aMethod", "aaa", array(1, "wild", 3));
             $this->assertIdentical($mock->aMethod(1, "something", 3), "aaa");
             $this->assertIdentical($mock->aMethod(1, "anything", 3), "aaa");
         }
@@ -385,7 +385,7 @@
             $mock->setReturnValue(
                     "aMethod",
                     "aaa",
-                    [new wantedPatternExpectation('/hello/i')]);
+                    array(new wantedPatternExpectation('/hello/i')));
             $this->assertIdentical($mock->aMethod('Hello'), "aaa");
             $this->assertNull($mock->aMethod('Goodbye'));
         }
@@ -451,7 +451,7 @@
         }
         
         function testMaxCallsDetectsOverrun() {
-            $this->_test->expectOnce("assertTrue", [false, '*']);
+            $this->_test->expectOnce("assertTrue", array(false, '*'));
             $mock = new MockDummy($this->_test);
             $mock->expectMaximumCallCount("aMethod", 2);
             $mock->aMethod();
@@ -460,7 +460,7 @@
         }
         
         function testTallyOnMaxCallsSendsPassOnUnderrun() {
-            $this->_test->expectOnce("assertTrue", [true, '*']);
+            $this->_test->expectOnce("assertTrue", array(true, '*'));
             $mock = new MockDummy($this->_test);
             $mock->expectMaximumCallCount("aMethod", 2);
             $mock->aMethod();
@@ -469,21 +469,21 @@
         }
         
         function testExpectNeverDetectsOverrun() {
-            $this->_test->expectOnce("assertTrue", [false, '*']);
+            $this->_test->expectOnce("assertTrue", array(false, '*'));
             $mock = new MockDummy($this->_test);
             $mock->expectNever("aMethod");
             $mock->aMethod();
         }
         
         function testTallyOnExpectNeverSendsPassOnUnderrun() {
-            $this->_test->expectOnce("assertTrue", [true, '*']);
+            $this->_test->expectOnce("assertTrue", array(true, '*'));
             $mock = new MockDummy($this->_test);
             $mock->expectNever("aMethod");
             $mock->tally();
         }
         
         function testMinCalls() {
-            $this->_test->expectOnce("assertTrue", [true, '*']);
+            $this->_test->expectOnce("assertTrue", array(true, '*'));
             $mock = new MockDummy($this->_test);
             $mock->expectMinimumCallCount("aMethod", 2);
             $mock->aMethod();
@@ -492,21 +492,21 @@
         }
         
         function testFailedNever() {
-            $this->_test->expectOnce("assertTrue", [false, '*']);
+            $this->_test->expectOnce("assertTrue", array(false, '*'));
             $mock = new MockDummy($this->_test);
             $mock->expectNever("aMethod");
             $mock->aMethod();
         }
         
         function testUnderOnce() {
-            $this->_test->expectOnce("assertTrue", [false, '*']);
+            $this->_test->expectOnce("assertTrue", array(false, '*'));
             $mock = new MockDummy($this->_test);
             $mock->expectOnce("aMethod");
             $mock->tally();
         }
         
         function testOverOnce() {
-            $this->_test->expectOnce("assertTrue", [false, '*']);
+            $this->_test->expectOnce("assertTrue", array(false, '*'));
             $mock = new MockDummy($this->_test);
             $mock->expectOnce("aMethod");
             $mock->aMethod();
@@ -516,7 +516,7 @@
         }
         
         function testUnderAtLeastOnce() {
-            $this->_test->expectOnce("assertTrue", [false, '*']);
+            $this->_test->expectOnce("assertTrue", array(false, '*'));
             $mock = new MockDummy($this->_test);
             $mock->expectAtLeastOnce("aMethod");
             $mock->tally();
@@ -524,33 +524,33 @@
         
         function testZeroArguments() {
             $mock = new MockDummy($this);
-            $mock->expectArguments("aMethod", []);
+            $mock->expectArguments("aMethod", array());
             $mock->aMethod();
         }
         
         function testExpectedArguments() {
             $mock = new MockDummy($this);
-            $mock->expectArguments("aMethod", [1, 2, 3]);
+            $mock->expectArguments("aMethod", array(1, 2, 3));
             $mock->aMethod(1, 2, 3);
         }
         
         function testFailedArguments() {
-            $this->_test->expectOnce("assertTrue", [false, "*"]);
+            $this->_test->expectOnce("assertTrue", array(false, "*"));
             $mock = new MockDummy($this->_test);
-            $mock->expectArguments("aMethod", ["this"]);
+            $mock->expectArguments("aMethod", array("this"));
             $mock->aMethod("that");
         }
         
         function testWildcardArguments() {
             $mock = new MockDummy($this, "wild");
-            $mock->expectArguments("aMethod", ["wild", 123, "wild"]);
+            $mock->expectArguments("aMethod", array("wild", 123, "wild"));
             $mock->aMethod(100, 123, 101);
         }
         
         function testSpecificSequence() {
             $mock = new MockDummy($this);
-            $mock->expectArgumentsAt(1, "aMethod", [1, 2, 3]);
-            $mock->expectArgumentsAt(2, "aMethod", ["Hello"]);
+            $mock->expectArgumentsAt(1, "aMethod", array(1, 2, 3));
+            $mock->expectArgumentsAt(2, "aMethod", array("Hello"));
             $mock->aMethod();
             $mock->aMethod(1, 2, 3);
             $mock->aMethod("Hello");
@@ -558,11 +558,11 @@
         }
         
         function testFailedSequence() {
-            $this->_test->expectArguments("assertTrue", [false, "*"]);
+            $this->_test->expectArguments("assertTrue", array(false, "*"));
             $this->_test->expectCallCount("assertTrue", 2);
             $mock = new MockDummy($this->_test);
-            $mock->expectArgumentsAt(0, "aMethod", [1, 2, 3]);
-            $mock->expectArgumentsAt(1, "aMethod", ["Hello"]);
+            $mock->expectArgumentsAt(0, "aMethod", array(1, 2, 3));
+            $mock->expectArgumentsAt(1, "aMethod", array("Hello"));
             $mock->aMethod(1, 2);
             $mock->aMethod("Goodbye");
         }
@@ -596,7 +596,7 @@
     }
     
     SimpleTestOptions::addPartialMockCode('function sayHello() { return "Hello"; }');
-    Mock::generatePartial("Dummy", "TestDummy", ["anotherMethod"]);
+    Mock::generatePartial("Dummy", "TestDummy", array("anotherMethod"));
     SimpleTestOptions::addPartialMockCode();
     
     class TestOfPartialMocks extends UnitTestCase {
@@ -609,9 +609,9 @@
         
         function testSettingReturns() {
             $mock = new TestDummy($this);
-            $mock->setReturnValue("anotherMethod", 33, [3]);
+            $mock->setReturnValue("anotherMethod", 33, array(3));
             $mock->setReturnValue("anotherMethod", 22);
-            $mock->setReturnValueAt(2, "anotherMethod", 44, [3]);
+            $mock->setReturnValueAt(2, "anotherMethod", 44, array(3));
             $this->assertEqual($mock->anotherMethod(), 22);
             $this->assertEqual($mock->anotherMethod(3), 33);
             $this->assertEqual($mock->anotherMethod(3), 44);
@@ -620,15 +620,15 @@
         function testReferences() {
             $mock = new TestDummy($this);
             $object = new Dummy();
-            $mock->setReturnReferenceAt(0, "anotherMethod", $object, [3]);
+            $mock->setReturnReferenceAt(0, "anotherMethod", $object, array(3));
             $this->assertReference($mock->anotherMethod(3), $object);
         }
         
         function testExpectations() {
             $mock = new TestDummy($this);
             $mock->expectCallCount("anotherMethod", 2);
-            $mock->expectArguments("anotherMethod", [77]);
-            $mock->expectArgumentsAt(1, "anotherMethod", [66]);
+            $mock->expectArguments("anotherMethod", array(77));
+            $mock->expectArgumentsAt(1, "anotherMethod", array(66));
             $mock->anotherMethod(77);
             $mock->anotherMethod(66);
             $mock->tally();

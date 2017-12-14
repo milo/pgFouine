@@ -23,7 +23,7 @@
 
 class QueriesByTypeReport extends Report {
 	function __construct(& $reportAggregator) {
-		parent::__construct($reportAggregator, 'Queries by type', ['GlobalCountersListener']);
+		parent::__construct($reportAggregator, 'Queries by type', array('GlobalCountersListener'));
 	}
 	
 	function getText() {
@@ -62,7 +62,7 @@ class QueriesByTypeReport extends Report {
 		
 		$queriesCount = $listener->getIdentifiedQueryCount();
 		
-		$typeCount = [];
+		$typeCount = array();
 		if($listener->getSelectCount()) {
 			$typeCount['SELECT'] = $listener->getSelectCount();
 		}

@@ -22,8 +22,8 @@
  */
 
 class NormalizedReport extends Report {
-	function __construct(& $reportAggregator, $title, $needs = []) {
-		$needs = array_merge(['NormalizedQueriesListener'], $needs);
+	function __construct(& $reportAggregator, $title, $needs = array()) {
+		$needs = array_merge(array('NormalizedQueriesListener'), $needs);
 		parent::__construct($reportAggregator, $title.' (N)', $needs);
 	}
 	

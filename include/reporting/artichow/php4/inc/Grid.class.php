@@ -19,14 +19,14 @@ class awGrid {
 	 *
 	 * @var array
 	 */
-	public $xgrid = [];
+	public $xgrid = array();
 	
 	/**
 	 * Horizontal lines of the grid
 	 *
 	 * @var array
 	 */
-	public $ygrid = [];
+	public $ygrid = array();
 
 	/**
 	 * Is the component grid hidden ?
@@ -75,7 +75,7 @@ class awGrid {
 	 *
 	 * @var int
 	 */
-	public $interval = [1, 1];
+	public $interval = array(1, 1);
 	
 	/**
 	 * Grid background color
@@ -163,7 +163,7 @@ class awGrid {
 	 * @param int $vInterval
 	 */
 	 function setInterval($hInterval, $vInterval) {
-		$this->interval = [(int)$hInterval, (int)$vInterval];
+		$this->interval = array((int)$hInterval, (int)$vInterval);
 	}
 	
 	/**
@@ -175,7 +175,7 @@ class awGrid {
 	 * @param int $bottom Bottom space in pixels
 	 */
 	 function setSpace($left, $right, $top, $bottom) {
-		$this->space = [(int)$left, (int)$right, (int)$top, (int)$bottom];
+		$this->space = array((int)$left, (int)$right, (int)$top, (int)$bottom);
 	}
 	
 	/**
@@ -219,8 +219,8 @@ class awGrid {
 			$this->drawGrid(
 				$drawer,
 				$this->color,
-				$this->hideVertical ? [] : $this->xgrid,
-				$this->hideHorizontal ? [] : $this->ygrid,
+				$this->hideVertical ? array() : $this->xgrid,
+				$this->hideHorizontal ? array() : $this->ygrid,
 				$x1, $y1, $x2, $y2,
 				$this->type,
 				$this->space,

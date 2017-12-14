@@ -37,7 +37,7 @@ log=# COPY log FROM 'pgfouine-output.csv' WITH CSV;
 
 class CsvQueriesHistoryReport extends Report {
 	function __construct(& $reportAggregator) {
-		parent::__construct($reportAggregator, 'Queries history in CSV format', ['QueriesHistoryListener'], false);
+		parent::__construct($reportAggregator, 'Queries history in CSV format', array('QueriesHistoryListener'), false);
 	}
 	
 	function getText() {
@@ -49,7 +49,7 @@ class CsvQueriesHistoryReport extends Report {
 		for($i = 0; $i < $count; $i++) {
 			$query =& $queries[$i];
 			
-			$line = [
+			$line = array(
 				$i+1,
 				$this->formatTimestamp($query->getTimestamp()),
 				$query->getConnectionId(),
@@ -57,7 +57,7 @@ class CsvQueriesHistoryReport extends Report {
 				$query->getUser(),
 				$query->getDuration(),
 				$query->getText(),
-			];
+			);
 			
 			$text .= str_putcsv($line, ',', '"');
 			

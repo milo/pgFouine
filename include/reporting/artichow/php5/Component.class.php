@@ -29,7 +29,7 @@ abstract class awComponentGroup extends awComponent {
 	 */
 	public function __construct() {
 		parent::__construct();
-		$this->components = [];
+		$this->components = array();
 	}
 
 	/**
@@ -316,7 +316,7 @@ abstract class awComponent {
 		$x2 = $this->w - $this->padding->right;
 		$y2 = $this->h - $this->padding->bottom;
 	
-		return [$x1, $y1, $x2, $y2];
+		return array($x1, $y1, $x2, $y2);
 	
 	}
 	
@@ -405,7 +405,7 @@ abstract class awComponent {
 		$top = (int)($height * $this->space->top / 100);
 		$bottom = (int)($height * $this->space->bottom / 100);
 		
-		return [$left, $right, $top, $bottom];
+		return array($left, $right, $top, $bottom);
 		
 	}
 	

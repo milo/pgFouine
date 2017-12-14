@@ -28,15 +28,15 @@
         
         function testOrder() {
             $queue = &SimpleErrorQueue::instance();
-            $queue->add(1024, 'Ouch', 'here.php', 100, []);
+            $queue->add(1024, 'Ouch', 'here.php', 100, array());
             $this->assertFalse($queue->isEmpty());
-            $queue->add(512, 'Yuk', 'there.php', 101, []);
+            $queue->add(512, 'Yuk', 'there.php', 101, array());
             $this->assertEqual(
                     $queue->extract(),
-                    [1024, 'Ouch', 'here.php', 100, []]);
+                    array(1024, 'Ouch', 'here.php', 100, array()));
             $this->assertEqual(
                     $queue->extract(),
-                    [512, 'Yuk', 'there.php', 101, []]);
+                    array(512, 'Yuk', 'there.php', 101, array()));
             $this->assertFalse($queue->extract());
         }
     }

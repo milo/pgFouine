@@ -54,8 +54,8 @@
          */
         function toParsedXml($text) {
             return str_replace(
-                    ['&', '<', '>', '"', '\''],
-                    ['&amp;', '&lt;', '&gt;', '&quot;', '&apos;'],
+                    array('&', '<', '>', '"', '\''),
+                    array('&amp;', '&lt;', '&gt;', '&quot;', '&apos;'),
                     $text);
         }
         
@@ -457,10 +457,10 @@
         function __construct(&$listener) {
             $this->_listener = &$listener;
             $this->_expat = &$this->_createParser();
-            $this->_tag_stack = [];
+            $this->_tag_stack = array();
             $this->_in_content_tag = false;
             $this->_content = '';
-            $this->_attributes = [];
+            $this->_attributes = array();
         }
         
         /**
@@ -532,7 +532,7 @@
         function _isLeaf($tag) {
             return in_array(
                     $tag,
-                    ['NAME', 'PASS', 'FAIL', 'EXCEPTION', 'MESSAGE', 'FORMATTED', 'SIGNAL']);
+                    array('NAME', 'PASS', 'FAIL', 'EXCEPTION', 'MESSAGE', 'FORMATTED', 'SIGNAL'));
         }
 
         /**
@@ -566,7 +566,7 @@
          */
         function _endElement($expat, $tag) {
             $this->_in_content_tag = false;
-            if (in_array($tag, ['GROUP', 'CASE', 'TEST'])) {
+            if (in_array($tag, array('GROUP', 'CASE', 'TEST'))) {
                 $nesting_tag = $this->_popNestingTag();
                 $nesting_tag->paintEnd($this->_listener);
             } elseif ($tag == 'NAME') {

@@ -24,7 +24,7 @@
 class Report {
 	public $reportAggregator;
 	public $title = '';
-	public $needs = [];
+	public $needs = array();
 	public $displayTitle = true;
 	
 	function __construct(& $reportAggregator, $title, $needs, $displayTitle = true) {

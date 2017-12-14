@@ -24,7 +24,7 @@
 class PostgreSQLPreparedStatementExecuteLine extends PostgreSQLLogLine {
 	public $statementName;
 	public $portalName;
-	public $parameters = [];
+	public $parameters = array();
 	
 	function __construct($statementName, $portalName, $text, $duration = false) {
 		parent::__construct($text, $duration);
@@ -50,7 +50,7 @@ class PostgreSQLPreparedStatementExecuteLine extends PostgreSQLLogLine {
 	
 	function parseParameters($parameters) {
 		$parametersLength = strlen($parameters);
-		$parametersArray = [];
+		$parametersArray = array();
 		$currentParameter = '';
 		$quote = false;
 		$escape = false;

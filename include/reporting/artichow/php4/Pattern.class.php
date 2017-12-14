@@ -21,7 +21,7 @@ require_once dirname(__FILE__)."/Graph.class.php";
 	 *
 	 * @var array
 	 */
-	public $args = [];
+	public $args = array();
 	
 	/**
 	 * Load a pattern

@@ -31,7 +31,7 @@
          *    @access public
          */
         function __construct() {
-            $this->_cookies = [];
+            $this->_cookies = array();
         }
         
         /**
@@ -41,7 +41,7 @@
          *    @access public
          */
         function restartSession($date = false) {
-            $surviving_cookies = [];
+            $surviving_cookies = array();
             for ($i = 0; $i < count($this->_cookies); $i++) {
                 if (! $this->_cookies[$i]->getValue()) {
                     continue;
@@ -105,7 +105,7 @@
          *    @access public
          */
         function getValidCookies($host = false, $path = "/") {
-            $valid_cookies = [];
+            $valid_cookies = array();
             foreach ($this->_cookies as $cookie) {
                 if ($this->_isMatch($cookie, $host, $path, $cookie->getName())) {
                     $valid_cookies[] = $cookie;
@@ -180,7 +180,7 @@
             $this->_proxy_username = false;
             $this->_proxy_password = false;
             $this->setConnectionTimeout(DEFAULT_CONNECTION_TIMEOUT);
-            $this->_additional_headers = [];
+            $this->_additional_headers = array();
         }
         
         /**

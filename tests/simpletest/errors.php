@@ -39,7 +39,7 @@
         function add($severity, $message, $filename, $line, $super_globals) {
             array_push(
                     $this->_queue,
-                    [$severity, $message, $filename, $line, $super_globals]);
+                    array($severity, $message, $filename, $line, $super_globals));
         }
         
         /**
@@ -63,7 +63,7 @@
          *    @access public
          */
         function clear() {
-            $this->_queue = [];
+            $this->_queue = array();
         }
         
         /**
@@ -97,7 +97,7 @@
          *    @static
          */
         function getSeverityAsString($severity) {
-            static $map = [
+            static $map = array(
                     E_STRICT => 'E_STRICT',
                     E_ERROR => 'E_ERROR',
                     E_WARNING => 'E_WARNING',
@@ -109,7 +109,7 @@
                     E_COMPILE_WARNING => 'E_COMPILE_WARNING',
                     E_USER_ERROR => 'E_USER_ERROR',
                     E_USER_WARNING => 'E_USER_WARNING',
-                    E_USER_NOTICE => 'E_USER_NOTICE'];
+                    E_USER_NOTICE => 'E_USER_NOTICE');
             return $map[$severity];
         }
     }

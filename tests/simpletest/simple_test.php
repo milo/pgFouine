@@ -293,7 +293,7 @@
          */
         function __construct($label) {
             $this->_label = $label;
-            $this->_test_cases = [];
+            $this->_test_cases = array();
             $this->_old_track_errors = ini_get('track_errors');
             $this->_xdebug_is_enabled = function_exists('xdebug_is_enabled') ?
                     xdebug_is_enabled() : false;
@@ -365,9 +365,9 @@
             include($file);
             $error = isset($php_errormsg) ? $php_errormsg : false;
             $this->_disableErrorReporting();
-            $self_inflicted = [
+            $self_inflicted = array(
                     'Assigning the return value of new by reference is deprecated',
-                    'var: Deprecated. Please use the public/private/protected modifiers'];
+                    'var: Deprecated. Please use the public/private/protected modifiers');
             if (in_array($error, $self_inflicted)) {
                 return false;
             }
@@ -411,7 +411,7 @@
          *    @access private
          */
         function _selectRunnableTests($existing_classes, $new_classes) {
-            $classes = [];
+            $classes = array();
             foreach ($new_classes as $class) {
                 if (in_array($class, $existing_classes)) {
                     continue;

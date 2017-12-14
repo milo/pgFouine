@@ -42,7 +42,7 @@ class awLinePlot extends awPlot implements awLegendable {
 	 *
 	 * @var bool
 	 */
-	protected $areas = [];
+	protected $areas = array();
 	
 	/**
 	 * Is the line hidden
@@ -141,7 +141,7 @@ class awLinePlot extends awPlot implements awLegendable {
 			trigger_error("End position can not be greater than begin position in awLinePlot::setFilledArea()", E_USER_ERROR);
 		}
 	
-		$this->areas[] = [(int)$start, (int)$stop, $background];
+		$this->areas[] = array((int)$start, (int)$stop, $background);
 	
 	}
 	
@@ -334,7 +334,7 @@ class awLinePlot extends awPlot implements awLegendable {
 	
 	protected function drawArea(awDrawer $drawer, awPolygon $polygon) {
 	
-		$starts = [];
+		$starts = array();
 		foreach($this->areas as $area) {
 			list($start) = $area;
 			$starts[$start] = TRUE;
