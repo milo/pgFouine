@@ -6,6 +6,8 @@ Would be better to keep whole CVS history but today:
 cvs [login aborted]: connect to cvs.pgfoundry.org(188.227.186.71):2401 failed: Connection refused
 ```
 
+Since this repo arose from pgFouine v1.2, its versions will be v1.2-1, v1.2-2, and so on.
+
 
 Original README
 ===============
