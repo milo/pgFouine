@@ -36,4 +36,8 @@ class DurationLogObject extends LogObject {
 	function getDuration() {
 		return $this->duration;
 	}
+
+	function setDuration($duration) {
+		$this->duration = $duration;
+	}
 }
